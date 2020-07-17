@@ -1,0 +1,305 @@
+.cabinet-sidebar{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.13);
+    border-radius: 10px;
+    padding: 30px;
+}
+.cabinet-sidebar ul{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0px;
+}
+.cabinet-sidebar ul li{
+    margin-bottom: 15px;
+}
+.cabinet-sidebar ul li a{
+    font-family: Oxygen;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 121.9%;
+    color: #4C4C4C;
+}
+.wrap{
+    padding-top: 15px;
+}
+.big-text{
+    font-family: Oxygen;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 96.4%;
+    color: #000000;
+}
+.small-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 136.19%;
+    color: #000000;
+}
+.green-text{
+    ont-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+    color: #16D082;
+}
+.all-stat-block {
+    border-bottom: 1px solid #D8D8D8;
+    margin-top: 48px;
+}
+.content h1{
+    font-family: Oxygen;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 96.4%;
+    color: #000000;
+}
+.message{
+    background: #16D082;;
+    border-radius: 10px;
+    padding: 23px;
+    margin: 25px 0;
+}
+.message p{
+    color: #fff;
+    margin-bottom: 0;
+}
+.control-label{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #6D6D6D;
+    margin-bottom: 5px;
+
+}
+.user-cabinet-add{
+    padding-top: 25px;
+}
+.quantity {
+    position: absolute;
+    width: 25px;
+    height: 36px;
+    background: #FB474A;
+    z-index: 1;
+    top: 25px;
+    right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+}
+.quantity-arrow-minus-1 {
+    position: relative;
+    top: -2px;
+}
+.quantity-arrow-plus-1 {
+    position: relative;
+    top: 3px;
+}
+.tarif-wrap{
+    background: linear-gradient(0deg, #773C87, #773C87), linear-gradient(71.9deg, #7F119E -4.63%, #E21A92 117.08%);
+    border-radius: 10px;
+    padding: 36px;
+    margin: 10px 15px;
+    margin-top: 56px;
+}
+.tarif-wrap p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 136.19%;
+    color: #FFFFFF;
+}
+.tarif-wrap .control-label{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+.tarif-wrap select{
+    color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    background: #542561;
+    border: 1px solid #773C87;
+    max-width: 448px;
+    background:  url("../img/down.png") , #542561;
+    background-repeat: no-repeat;
+    background-position: bottom 15px right 15px;
+}
+.avatar-wrap input{
+    display: none;
+}
+.avatar-wrap{
+    background: #FFEED6;
+    border-radius: 10px;
+    padding: 16px;
+}
+.img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #dac8af;
+}
+.form-btn{
+    background: #FB474A;
+    backdrop-filter: blur(14px);
+    border-radius: 5px;
+}
+.avatar-block{
+    margin-top: 58px;
+    max-width: 370px;
+}
+.form-btn{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+    padding: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.select-cust select{
+    color: #000;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    background: #fff;
+    border: 1px solid #EDEDED;
+    max-width: 448px;
+    background:  url("../img/down.png") ;
+    background-repeat: no-repeat;
+    background-position: bottom 15px right 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+}
+.form-group.field-userpol-pol_id {
+    margin-top: 40px;
+}
+.small-text-grey{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 140.69%;
+    color: #A09584;
+}
+.gallery-img-wrap{
+    background: #DAC8AF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    height: 174px;
+    width: auto;
+}
+.check-box-list-label{
+    width: 270px;
+    font-size: 15px;
+}
+.checkbox-cabinet:checked + .check-box-list-label::before {
+    background-image: url("../img/check-box.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.checkbox-cabinet + .check-box-list-label::before {
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    top: 2px;
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    width: 31px;
+    height: 31px;
+}
+.checkbox-cabinet {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.cabinet-item .small-text{
+    margin-bottom: 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 98.19%;
+    color: #000000;
+}
+.cabinet-item .black-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+.cabinet-item .new-anket{
+    height: 620px;
+}
+.custom-card-right:hover {
+    height: 471px;
+}
+.custom-card-right {
+    height: 471px;
+}
+.status-anket{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    cursor: pointer;
+}
+.status-mod{
+    color: #7647FB;
+}
+.status-stop{
+    color: #888888;
+}
+.status-start{
+    color: #16D082;
+}
+.edit{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 149.19%;
+    /* or 22px */
+
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+
+    color: #FB474A;
+}
