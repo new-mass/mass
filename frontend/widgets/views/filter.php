@@ -1,144 +1,246 @@
+<?php /* @var $metro array */ ?>
+<?php /* @var $rayon array */ ?>
+<?php /* @var $service array */ ?>
+<?php /* @var $massagDlya array */ ?>
+<?php /* @var $place array */ ?>
+
 <div class="filter">
-    <ul class="filter-ul">
-        <li class="filter-li">
-            <span class="filter-li-item"> Метро <i class="fa fa-chevron-down" aria-hidden="true"></i> </span>
-            <ul class="filter-drop-down long-ul">
-                <li><a class="service-href" title="Массажистки у метро  Автово" href="/metro_avtovo">Автово</a></li><li><a class="service-href" title="Массажистки у метро  Адмиралтейская" href="/metro_admiralteyskaya">Адмиралтейская</a></li><li><a class="service-href" title="Массажистки у метро  Академическая" href="/metro_akademicheskaya">Академическая</a></li><li><a class="service-href" title="Массажистки у метро  Балтийская" href="/metro_baltiyskaya">Балтийская</a></li><li><a class="service-href" title="Массажистки у метро  Беговая" href="/metro_begovaya">Беговая</a></li><li><a class="service-href" title="Массажистки у метро  Большевиков" href="/metro_bolshevikov">Большевиков</a></li><li><a class="service-href" title="Массажистки у метро  Бухарестская" href="/metro_buharestskaya">Бухарестская</a></li><li><a class="service-href" title="Массажистки у метро  Василеостровская" href="/metro_vasileostrovskaya">Василеостровская</a></li><li><a class="service-href" title="Массажистки у метро  Владимирская" href="/metro_vladimirskaya">Владимирская</a></li><li><a class="service-href" title="Массажистки у метро  Волковская" href="/metro_volkovskaya">Волковская</a></li><li><a class="service-href" title="Массажистки у метро  Выборгская" href="/metro_vyborgskaya">Выборгская</a></li><li><a class="service-href" title="Массажистки у метро  Горный институт" href="/metro_gornyy-institut">Горный институт</a></li><li><a class="service-href" title="Массажистки у метро  Горьковская" href="/metro_gorykovskaya">Горьковская</a></li><li><a class="service-href" title="Массажистки у метро  Гостиный двор" href="/metro_gostinyy-dvor">Гостиный двор</a></li><li><a class="service-href" title="Массажистки у метро  Гражданский проспект" href="/metro_grazhdanskij-prospekt">Гражданский проспект</a></li><li><a class="service-href" title="Массажистки у метро  Девяткино" href="/metro_devyatkino">Девяткино</a></li><li><a class="service-href" title="Массажистки у метро  Достоевская" href="/metro_dostoevskaya">Достоевская</a></li><li><a class="service-href" title="Массажистки у метро  Дунайская" href="/metro_dunayskaya">Дунайская</a></li><li><a class="service-href" title="Массажистки у метро  Дыбенко" href="/metro_dybenko">Дыбенко</a></li><li><a class="service-href" title="Массажистки у метро  Елизаровская" href="/metro_elizarovskaya">Елизаровская</a></li><li><a class="service-href" title="Массажистки у метро  Звездная" href="/metro_zvezdnaya">Звездная</a></li><li><a class="service-href" title="Массажистки у метро  Звенигородская" href="/metro_zvenigorodskaya">Звенигородская</a></li><li><a class="service-href" title="Массажистки у метро  Кировский завод" href="/metro_kirovskiy-zavod">Кировский завод</a></li><li><a class="service-href" title="Массажистки у метро  Комендантский проспект" href="/metro_komendantskiy-prospekt">Комендантский проспект</a></li><li><a class="service-href" title="Массажистки у метро  Крестовский остров" href="/metro_krestovskiy-ostrov">Крестовский остров</a></li><li><a class="service-href" title="Массажистки у метро  Купчино" href="/metro_kupchino">Купчино</a></li><li><a class="service-href" title="Массажистки у метро  Ладожская" href="/metro_ladoghskaya">Ладожская</a></li><li><a class="service-href" title="Массажистки у метро  Ленинский проспект" href="/metro_leninskiy-prospekt">Ленинский проспект</a></li><li><a class="service-href" title="Массажистки у метро  Лесная" href="/metro_lesnaya">Лесная</a></li><li><a class="service-href" title="Массажистки у метро  Лиговский проспект" href="/metro_ligovskiy-prospekt">Лиговский проспект</a></li><li><a class="service-href" title="Массажистки у метро  Ломоносовская" href="/metro_lomonosovskaya">Ломоносовская</a></li><li><a class="service-href" title="Массажистки у метро  Маяковская" href="/metro_mayakovskaya">Маяковская</a></li><li><a class="service-href" title="Массажистки у метро  Международная" href="/metro_meghdunarodnaya">Международная</a></li><li><a class="service-href" title="Массажистки у метро  Московская" href="/metro_moskovskaya">Московская</a></li><li><a class="service-href" title="Массажистки у метро  Московские ворота" href="/metro_moskovskie-vorota">Московские ворота</a></li><li><a class="service-href" title="Массажистки у метро  Нарвская" href="/metro_narvskaya">Нарвская</a></li><li><a class="service-href" title="Массажистки у метро  Невский проспект" href="/metro_nevskiy-prospekt">Невский проспект</a></li><li><a class="service-href" title="Массажистки у метро  Новокрестовская" href="/metro_novokrestovskaya">Новокрестовская</a></li><li><a class="service-href" title="Массажистки у метро  Новочеркасская" href="/metro_novocherkasskaya">Новочеркасская</a></li><li><a class="service-href" title="Массажистки у метро  Обводный канал" href="/metro_obvodnyy-kanal">Обводный канал</a></li><li><a class="service-href" title="Массажистки у метро  Обухово" href="/metro_obuhovo">Обухово</a></li><li><a class="service-href" title="Массажистки у метро  Озерки" href="/metro_ozerki">Озерки</a></li><li><a class="service-href" title="Массажистки у метро  Парк Победы" href="/metro_park-pobedy">Парк Победы</a></li><li><a class="service-href" title="Массажистки у метро  Парнас" href="/metro_parnas">Парнас</a></li><li><a class="service-href" title="Массажистки у метро  Петроградская" href="/metro_petrogradskaya">Петроградская</a></li><li><a class="service-href" title="Массажистки у метро  Пионерская" href="/metro_pionerskaya">Пионерская</a></li><li><a class="service-href" title="Массажистки у метро  Площадь Александра Невского" href="/metro_ploschady-aleksandra-nevskogo">Площадь Александра Невского</a></li><li><a class="service-href" title="Массажистки у метро  Площадь Восстания" href="/metro_ploschady-vosstaniya">Площадь Восстания</a></li><li><a class="service-href" title="Массажистки у метро  Площадь Ленина" href="/metro_ploschady-lenina">Площадь Ленина</a></li><li><a class="service-href" title="Массажистки у метро  Площадь мужества" href="/metro_ploschady-mughestva">Площадь мужества</a></li><li><a class="service-href" title="Массажистки у метро  Политехническая" href="/metro_politehnicheskaya">Политехническая</a></li><li><a class="service-href" title="Массажистки у метро  Приморская" href="/metro_primorskaya">Приморская</a></li><li><a class="service-href" title="Массажистки у метро  Пролетарская" href="/metro_proletarskaya">Пролетарская</a></li><li><a class="service-href" title="Массажистки у метро  Просвещение" href="/metro_prosveshchenie">Просвещение</a></li><li><a class="service-href" title="Массажистки у метро  Проспект Ветеранов" href="/metro_prospekt-veteranov">Проспект Ветеранов</a></li><li><a class="service-href" title="Массажистки у метро  Проспект Славы" href="/metro_prospekt-slavy">Проспект Славы</a></li><li><a class="service-href" title="Массажистки у метро  Путиловская" href="/metro_putilovskaya">Путиловская</a></li><li><a class="service-href" title="Массажистки у метро  Пушкинская" href="/metro_pushkinskaya">Пушкинская</a></li><li><a class="service-href" title="Массажистки у метро  Рыбацкое" href="/metro_rybackoe">Рыбацкое</a></li><li><a class="service-href" title="Массажистки у метро  Садовая" href="/metro_sadovaya">Садовая</a></li><li><a class="service-href" title="Массажистки у метро  Сенная площадь" href="/metro_sennaya-ploschady">Сенная площадь</a></li><li><a class="service-href" title="Массажистки у метро  Спасская" href="/metro_spasskaya">Спасская</a></li><li><a class="service-href" title="Массажистки у метро  Спортивная" href="/metro_sportivnaya">Спортивная</a></li><li><a class="service-href" title="Массажистки у метро  Старая Деревня" href="/metro_staraya-derevnya">Старая Деревня</a></li><li><a class="service-href" title="Массажистки у метро  Театральная" href="/metro_teatralynaya">Театральная</a></li><li><a class="service-href" title="Массажистки у метро  Технологический институт" href="/metro_tehnologicheskiy-institut">Технологический институт</a></li><li><a class="service-href" title="Массажистки у метро  Удельная" href="/metro_udelynaya">Удельная</a></li><li><a class="service-href" title="Массажистки у метро  Фрунзенская" href="/metro_frunzenskaya">Фрунзенская</a></li><li><a class="service-href" title="Массажистки у метро  Черная речка" href="/metro_chernaya-rechka">Черная речка</a></li><li><a class="service-href" title="Массажистки у метро  Чернышевская" href="/metro_chernyshevskaya">Чернышевская</a></li><li><a class="service-href" title="Массажистки у метро  Чкаловская" href="/metro_chkalovskaya">Чкаловская</a></li><li><a class="service-href" title="Массажистки у метро  Шушары" href="/metro_shushary">Шушары</a></li><li><a class="service-href" title="Массажистки у метро  Электросила" href="/metro_elektrosila">Электросила</a></li><li><a class="service-href" title="Массажистки у метро  Юго Западная" href="/metro_yugo-zapadnaya">Юго Западная</a></li> </ul>
-        </li>
-        <li class="filter-li">
-            <span class="filter-li-item"> Районы <i class="fa fa-chevron-down" aria-hidden="true"></i> </span>
-            <ul class="filter-drop-down long-ul">
-                <li><a class="service-href" title="Массажистки в районе  Адмиралтейский" href="/rayon_admiralteyskiy">Адмиралтейский</a></li><li><a class="service-href" title="Массажистки в районе  Василеостровский" href="/rayon_vasileostrovskiy">Василеостровский</a></li><li><a class="service-href" title="Массажистки в районе  Всеволожский" href="/rayon_vsevologhskiy">Всеволожский</a></li><li><a class="service-href" title="Массажистки в районе  Выборгский" href="/rayon_vyborgskiy">Выборгский</a></li><li><a class="service-href" title="Массажистки в районе  Калининский" href="/rayon_kalininskiy">Калининский</a></li><li><a class="service-href" title="Массажистки в районе  Кировский" href="/rayon_kirovskiy">Кировский</a></li><li><a class="service-href" title="Массажистки в районе  Колпинский" href="/rayon_kolpinskiy">Колпинский</a></li><li><a class="service-href" title="Массажистки в районе  Красногвардейский" href="/rayon_krasnogvardeyskiy">Красногвардейский</a></li><li><a class="service-href" title="Массажистки в районе  Красносельский" href="/rayon_krasnoselyskiy">Красносельский</a></li><li><a class="service-href" title="Массажистки в районе  Кронштадтский" href="/rayon_kronshtadtskiy">Кронштадтский</a></li><li><a class="service-href" title="Массажистки в районе  Курортный" href="/rayon_kurortnyy">Курортный</a></li><li><a class="service-href" title="Массажистки в районе  Московский" href="/rayon_moskovskiy">Московский</a></li><li><a class="service-href" title="Массажистки в районе  Невский" href="/rayon_nevskiy">Невский</a></li><li><a class="service-href" title="Массажистки в районе  Петроградский" href="/rayon_petrogradskiy">Петроградский</a></li><li><a class="service-href" title="Массажистки в районе  Петродворцовый" href="/rayon_petrodvorcovyy">Петродворцовый</a></li><li><a class="service-href" title="Массажистки в районе  Приморский" href="/rayon_primorskiy">Приморский</a></li><li><a class="service-href" title="Массажистки в районе  Пушкинский" href="/rayon_pushkinskiy">Пушкинский</a></li><li><a class="service-href" title="Массажистки в районе  Фрунзенский" href="/rayon_frunzenskiy">Фрунзенский</a></li><li><a class="service-href" title="Массажистки в районе  Центральный" href="/rayon_centralynyy">Центральный</a></li> </ul>
-        </li>
-        <li class="filter-li">
-            <span class="filter-li-item"> Услуга <i class="fa fa-chevron-down" aria-hidden="true"></i> </span>
-            <ul class="filter-drop-down long-ul">
-                <li><a class="service-href" title="Страница массажистов с услугой  lpg массаж" href="/service_lpg-massagh">lpg массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Аква-пенный массаж" href="/service_akva-pennyy">Аква-пенный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Антицеллюлитный массаж" href="/service_anticellyulitnyy-massagh">Антицеллюлитный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Аппаратный массаж" href="/service_apparatnyy-massagh">Аппаратный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Баночный массаж" href="/service_banochnyy">Баночный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Боди массаж" href="/service_bodi-massagh">Боди массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Восточный массаж" href="/service_vostochnyy">Восточный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Гигиенический массаж" href="/service_gigienicheskiy-massagh">Гигиенический массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Гинекологический массаж" href="/service_ginekologicheskiy-massagh">Гинекологический массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Египетский массаж" href="/service_egipetskiy">Египетский массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Китайский массаж " href="/service_kitaiskyi">Китайский массаж </a></li><li><a class="service-href" title="Страница массажистов с услугой  Классический массаж" href="/service_klassicheskiy">Классический массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Колон-массаж" href="/service_kolon-massagh">Колон-массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Косметический массаж" href="/service_kosmeticheskiy-massagh">Косметический массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Криомассаж" href="/service_kriomassagh">Криомассаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Лечебный массаж" href="/service_lechebnyy">Лечебный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Лимфодренажный массаж" href="/service_limfodrenaghnyy-massagh">Лимфодренажный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж асахи" href="/service_massagh-asahi">Массаж асахи</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж в четыре руки" href="/service_massagh-v-chetyre-ruki">Массаж в четыре руки</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж ветка сакуры" href="/service_vetka-sakury">Массаж ветка сакуры</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж головы" href="/service_massagh-golovy">Массаж головы</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж груди" href="/service_massagh-grudi">Массаж груди</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж гуаша" href="/service_massagh-guasha">Массаж гуаша</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж живота" href="/service_massagh-ghivota">Массаж живота</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж лингама" href="/service_massagh-lingama">Массаж лингама</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж лица" href="/service_massagh-lica">Массаж лица</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж ложками" href="/service_massagh-loghkami">Массаж ложками</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж ног" href="/service_massagh-nog">Массаж ног</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж ногами" href="/service_massagh-nogami">Массаж ногами</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж простаты" href="/service_massagh-prostaty">Массаж простаты</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж рук" href="/service_massagh-ruk">Массаж рук</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж спины" href="/service_massagh-spiny">Массаж спины</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж стоп" href="/service_massagh-stop">Массаж стоп</a></li><li><a class="service-href" title="Страница массажистов с услугой  Массаж шеи" href="/service_massagh-shei">Массаж шеи</a></li><li><a class="service-href" title="Страница массажистов с услугой  Медовый массаж" href="/service_medovyy-massagh">Медовый массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Обертывание" href="/service_obertyvanie">Обертывание</a></li><li><a class="service-href" title="Страница массажистов с услугой  Пилинг" href="/service_piling">Пилинг</a></li><li><a class="service-href" title="Страница массажистов с услугой  Расслабляющий массаж" href="/service_rasslablyayuschiy-massagh">Расслабляющий массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Реанимационный массаж" href="/service_reanimacionnyy-massagh">Реанимационный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Спортивный массаж" href="/service_sportivnyy-massagh">Спортивный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Стоун-массаж" href="/service_stoun-massagh">Стоун-массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Тайский массаж" href="/service_tayskiy">Тайский массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Тантрический массаж" href="/service_tantricheskiy">Тантрический массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Точечный массаж" href="/service_tochechnyy">Точечный массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Турецкий массаж" href="/service_tureckiy">Турецкий массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Урологический массаж" href="/service_urologicheskiy-massagh">Урологический массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Фут-массаж" href="/service_fut-massagh">Фут-массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Шведский массаж" href="/service_shvedskiy">Шведский массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Эротический массаж" href="/service_eroticheskiy">Эротический массаж</a></li><li><a class="service-href" title="Страница массажистов с услугой  Японский массаж" href="/service_yaponskiy">Японский массаж</a></li> </ul>
-        </li>
-        <li class="filter-li">
-            <span class="filter-li-item"> Для кого массаж <i class="fa fa-chevron-down" aria-hidden="true"></i> </span>
-            <ul class="filter-drop-down">
-                <li><a class="service-href" title="Массажист для   женщин" href="/massazh-dlya_zhenshchin">Массаж для женщин</a></li><li><a class="service-href" title="Массажист для   мужчин" href="/massazh-dlya_muzhchin">Массаж для мужчин</a></li><li><a class="service-href" title="Массажист для   пар" href="/massazh-dlya_par">Массаж для пар</a></li> </ul>
-        </li>
-        <li class="filter-li">
-            <span class="filter-li-item"> Место встречи <i class="fa fa-chevron-down" aria-hidden="true"></i> </span>
-            <ul class="filter-drop-down">
-                <li><a class="service-href" title="Место встречи с массажистом  На выезд" href="/place_viezd">На выезд</a></li><li><a class="service-href" title="Место встречи с массажистом  На дому" href="/place_appartamentu">На дому</a></li> </ul>
-        </li>
-        <li class="filter-li">
-            <span class="filter-li-item"> Возраст <i class="fa fa-chevron-down" aria-hidden="true"></i> </span>
-            <ul class="filter-drop-down">
-                <li><a class="service-href" title="Страница массажистов возрастом  От 18 до 20 лет" href="/age_ot-18-do-20-let">От 18 до 20 лет</a></li><li><a class="service-href" title="Страница массажистов возрастом  От 21 до 25 лет" href="/age_ot-21-do-25-let">От 21 до 25 лет</a></li><li><a class="service-href" title="Страница массажистов возрастом  От 26 до 30 лет" href="/age_ot-26-do-30-let">От 26 до 30 лет</a></li><li><a class="service-href" title="Страница массажистов возрастом  От 31 до 40 лет" href="/age_ot-31-do-40-let">От 31 до 40 лет</a></li><li><a class="service-href" title="Страница массажистов возрастом  от 40 до 50 лет" href="/age_ot-40-do-50-let">от 40 до 50 лет</a></li><li><a class="service-href" title="Страница массажистов возрастом  Старше 51 года" href="/age_starshe-51-goda">Старше 51 года</a></li> </ul>
-        </li>
-        <li class="filter-li">
-            <span class="filter-li-item"> Цена <i class="fa fa-chevron-down" aria-hidden="true"></i> </span>
-            <ul class="filter-drop-down">
-                <li><a class="service-href" title="Страница массажистов с ценой  До 2.000 Рублей" href="/price_do-2000">До 2.000 Рублей</a></li><li><a class="service-href" title="Страница массажистов с ценой  От 2.000 до 3.000 Рублей" href="/price_ot-2000-do-3000">От 2.000 до 3.000 Рублей</a></li><li><a class="service-href" title="Страница массажистов с ценой  От 3.000 Рублей" href="/price_ot-3000">От 3.000 Рублей</a></li> </ul>
-        </li>
-    </ul>
+
     <div class="mobile-filter">
         <div class="open-filter-btn">
             <span>Развернуть фильтр поиска</span>
             <span class="d-none">Свернуть фильтр</span>
         </div>
-        <div class="mobile-filter-content">
-            <div class="select-label">
-                Метро
-            </div>
-            <div class="selectric-wrapper selectric-filter-select"><div class="selectric-hide-select"><select class="filter-select" name="filter-select" id="" tabindex="-1">
-                        <option value="#">
-                            Выбрать метро
-                        </option>
-                        <option value="/metro_avtovo">Автово</option><option value="/metro_admiralteyskaya">Адмиралтейская</option><option value="/metro_akademicheskaya">Академическая</option><option value="/metro_baltiyskaya">Балтийская</option><option value="/metro_begovaya">Беговая</option><option value="/metro_bolshevikov">Большевиков</option><option value="/metro_buharestskaya">Бухарестская</option><option value="/metro_vasileostrovskaya">Василеостровская</option><option value="/metro_vladimirskaya">Владимирская</option><option value="/metro_volkovskaya">Волковская</option><option value="/metro_vyborgskaya">Выборгская</option><option value="/metro_gornyy-institut">Горный институт</option><option value="/metro_gorykovskaya">Горьковская</option><option value="/metro_gostinyy-dvor">Гостиный двор</option><option value="/metro_grazhdanskij-prospekt">Гражданский проспект</option><option value="/metro_devyatkino">Девяткино</option><option value="/metro_dostoevskaya">Достоевская</option><option value="/metro_dunayskaya">Дунайская</option><option value="/metro_dybenko">Дыбенко</option><option value="/metro_elizarovskaya">Елизаровская</option><option value="/metro_zvezdnaya">Звездная</option><option value="/metro_zvenigorodskaya">Звенигородская</option><option value="/metro_kirovskiy-zavod">Кировский завод</option><option value="/metro_komendantskiy-prospekt">Комендантский проспект</option><option value="/metro_krestovskiy-ostrov">Крестовский остров</option><option value="/metro_kupchino">Купчино</option><option value="/metro_ladoghskaya">Ладожская</option><option value="/metro_leninskiy-prospekt">Ленинский проспект</option><option value="/metro_lesnaya">Лесная</option><option value="/metro_ligovskiy-prospekt">Лиговский проспект</option><option value="/metro_lomonosovskaya">Ломоносовская</option><option value="/metro_mayakovskaya">Маяковская</option><option value="/metro_meghdunarodnaya">Международная</option><option value="/metro_moskovskaya">Московская</option><option value="/metro_moskovskie-vorota">Московские ворота</option><option value="/metro_narvskaya">Нарвская</option><option value="/metro_nevskiy-prospekt">Невский проспект</option><option value="/metro_novokrestovskaya">Новокрестовская</option><option value="/metro_novocherkasskaya">Новочеркасская</option><option value="/metro_obvodnyy-kanal">Обводный канал</option><option value="/metro_obuhovo">Обухово</option><option value="/metro_ozerki">Озерки</option><option value="/metro_park-pobedy">Парк Победы</option><option value="/metro_parnas">Парнас</option><option value="/metro_petrogradskaya">Петроградская</option><option value="/metro_pionerskaya">Пионерская</option><option value="/metro_ploschady-aleksandra-nevskogo">Площадь Александра Невского</option><option value="/metro_ploschady-vosstaniya">Площадь Восстания</option><option value="/metro_ploschady-lenina">Площадь Ленина</option><option value="/metro_ploschady-mughestva">Площадь мужества</option><option value="/metro_politehnicheskaya">Политехническая</option><option value="/metro_primorskaya">Приморская</option><option value="/metro_proletarskaya">Пролетарская</option><option value="/metro_prosveshchenie">Просвещение</option><option value="/metro_prospekt-veteranov">Проспект Ветеранов</option><option value="/metro_prospekt-slavy">Проспект Славы</option><option value="/metro_putilovskaya">Путиловская</option><option value="/metro_pushkinskaya">Пушкинская</option><option value="/metro_rybackoe">Рыбацкое</option><option value="/metro_sadovaya">Садовая</option><option value="/metro_sennaya-ploschady">Сенная площадь</option><option value="/metro_spasskaya">Спасская</option><option value="/metro_sportivnaya">Спортивная</option><option value="/metro_staraya-derevnya">Старая Деревня</option><option value="/metro_teatralynaya">Театральная</option><option value="/metro_tehnologicheskiy-institut">Технологический институт</option><option value="/metro_udelynaya">Удельная</option><option value="/metro_frunzenskaya">Фрунзенская</option><option value="/metro_chernaya-rechka">Черная речка</option><option value="/metro_chernyshevskaya">Чернышевская</option><option value="/metro_chkalovskaya">Чкаловская</option><option value="/metro_shushary">Шушары</option><option value="/metro_elektrosila">Электросила</option><option value="/metro_yugo-zapadnaya">Юго Западная</option>
-                    </select></div><div class="selectric"><span class="label">
-Выбрать метро
-</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="selected">
-                                Выбрать метро
-                            </li><li data-index="1" class="">Автово</li><li data-index="2" class="">Адмиралтейская</li><li data-index="3" class="">Академическая</li><li data-index="4" class="">Балтийская</li><li data-index="5" class="">Беговая</li><li data-index="6" class="">Большевиков</li><li data-index="7" class="">Бухарестская</li><li data-index="8" class="">Василеостровская</li><li data-index="9" class="">Владимирская</li><li data-index="10" class="">Волковская</li><li data-index="11" class="">Выборгская</li><li data-index="12" class="">Горный институт</li><li data-index="13" class="">Горьковская</li><li data-index="14" class="">Гостиный двор</li><li data-index="15" class="">Гражданский проспект</li><li data-index="16" class="">Девяткино</li><li data-index="17" class="">Достоевская</li><li data-index="18" class="">Дунайская</li><li data-index="19" class="">Дыбенко</li><li data-index="20" class="">Елизаровская</li><li data-index="21" class="">Звездная</li><li data-index="22" class="">Звенигородская</li><li data-index="23" class="">Кировский завод</li><li data-index="24" class="">Комендантский проспект</li><li data-index="25" class="">Крестовский остров</li><li data-index="26" class="">Купчино</li><li data-index="27" class="">Ладожская</li><li data-index="28" class="">Ленинский проспект</li><li data-index="29" class="">Лесная</li><li data-index="30" class="">Лиговский проспект</li><li data-index="31" class="">Ломоносовская</li><li data-index="32" class="">Маяковская</li><li data-index="33" class="">Международная</li><li data-index="34" class="">Московская</li><li data-index="35" class="">Московские ворота</li><li data-index="36" class="">Нарвская</li><li data-index="37" class="">Невский проспект</li><li data-index="38" class="">Новокрестовская</li><li data-index="39" class="">Новочеркасская</li><li data-index="40" class="">Обводный канал</li><li data-index="41" class="">Обухово</li><li data-index="42" class="">Озерки</li><li data-index="43" class="">Парк Победы</li><li data-index="44" class="">Парнас</li><li data-index="45" class="">Петроградская</li><li data-index="46" class="">Пионерская</li><li data-index="47" class="">Площадь Александра Невского</li><li data-index="48" class="">Площадь Восстания</li><li data-index="49" class="">Площадь Ленина</li><li data-index="50" class="">Площадь мужества</li><li data-index="51" class="">Политехническая</li><li data-index="52" class="">Приморская</li><li data-index="53" class="">Пролетарская</li><li data-index="54" class="">Просвещение</li><li data-index="55" class="">Проспект Ветеранов</li><li data-index="56" class="">Проспект Славы</li><li data-index="57" class="">Путиловская</li><li data-index="58" class="">Пушкинская</li><li data-index="59" class="">Рыбацкое</li><li data-index="60" class="">Садовая</li><li data-index="61" class="">Сенная площадь</li><li data-index="62" class="">Спасская</li><li data-index="63" class="">Спортивная</li><li data-index="64" class="">Старая Деревня</li><li data-index="65" class="">Театральная</li><li data-index="66" class="">Технологический институт</li><li data-index="67" class="">Удельная</li><li data-index="68" class="">Фрунзенская</li><li data-index="69" class="">Черная речка</li><li data-index="70" class="">Чернышевская</li><li data-index="71" class="">Чкаловская</li><li data-index="72" class="">Шушары</li><li data-index="73" class="">Электросила</li><li data-index="74" class="last">Юго Западная</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
-            <div class="select-label">
-                Район
-            </div>
-            <div class="selectric-wrapper selectric-filter-select"><div class="selectric-hide-select"><select class="filter-select" name="filter-select" id="" tabindex="-1">
-                        <option value="#">
-                            Выбрать район
-                        </option>
-                        <option value="/rayon_admiralteyskiy">Адмиралтейский</option><option value="/rayon_vasileostrovskiy">Василеостровский</option><option value="/rayon_vsevologhskiy">Всеволожский</option><option value="/rayon_vyborgskiy">Выборгский</option><option value="/rayon_kalininskiy">Калининский</option><option value="/rayon_kirovskiy">Кировский</option><option value="/rayon_kolpinskiy">Колпинский</option><option value="/rayon_krasnogvardeyskiy">Красногвардейский</option><option value="/rayon_krasnoselyskiy">Красносельский</option><option value="/rayon_kronshtadtskiy">Кронштадтский</option><option value="/rayon_kurortnyy">Курортный</option><option value="/rayon_moskovskiy">Московский</option><option value="/rayon_nevskiy">Невский</option><option value="/rayon_petrogradskiy">Петроградский</option><option value="/rayon_petrodvorcovyy">Петродворцовый</option><option value="/rayon_primorskiy">Приморский</option><option value="/rayon_pushkinskiy">Пушкинский</option><option value="/rayon_frunzenskiy">Фрунзенский</option><option value="/rayon_centralynyy">Центральный</option>
-                    </select></div><div class="selectric"><span class="label">
-Выбрать район
-</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="selected">
-                                Выбрать район
-                            </li><li data-index="1" class="">Адмиралтейский</li><li data-index="2" class="">Василеостровский</li><li data-index="3" class="">Всеволожский</li><li data-index="4" class="">Выборгский</li><li data-index="5" class="">Калининский</li><li data-index="6" class="">Кировский</li><li data-index="7" class="">Колпинский</li><li data-index="8" class="">Красногвардейский</li><li data-index="9" class="">Красносельский</li><li data-index="10" class="">Кронштадтский</li><li data-index="11" class="">Курортный</li><li data-index="12" class="">Московский</li><li data-index="13" class="">Невский</li><li data-index="14" class="">Петроградский</li><li data-index="15" class="">Петродворцовый</li><li data-index="16" class="">Приморский</li><li data-index="17" class="">Пушкинский</li><li data-index="18" class="">Фрунзенский</li><li data-index="19" class="last">Центральный</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
-            <div class="select-label">
-                Услуги
-            </div>
-            <div class="selectric-wrapper selectric-filter-select"><div class="selectric-hide-select"><select class="filter-select" name="filter-select" id="" tabindex="-1">
-                        <option value="#">
-                            Выбрать услугу
-                        </option>
-                        <option value="/service_lpg-massagh">lpg массаж</option><option value="/service_akva-pennyy">Аква-пенный массаж</option><option value="/service_anticellyulitnyy-massagh">Антицеллюлитный массаж</option><option value="/service_apparatnyy-massagh">Аппаратный массаж</option><option value="/service_banochnyy">Баночный массаж</option><option value="/service_bodi-massagh">Боди массаж</option><option value="/service_vostochnyy">Восточный массаж</option><option value="/service_gigienicheskiy-massagh">Гигиенический массаж</option><option value="/service_ginekologicheskiy-massagh">Гинекологический массаж</option><option value="/service_egipetskiy">Египетский массаж</option><option value="/service_kitaiskyi">Китайский массаж </option><option value="/service_klassicheskiy">Классический массаж</option><option value="/service_kolon-massagh">Колон-массаж</option><option value="/service_kosmeticheskiy-massagh">Косметический массаж</option><option value="/service_kriomassagh">Криомассаж</option><option value="/service_lechebnyy">Лечебный массаж</option><option value="/service_limfodrenaghnyy-massagh">Лимфодренажный массаж</option><option value="/service_massagh-asahi">Массаж асахи</option><option value="/service_massagh-v-chetyre-ruki">Массаж в четыре руки</option><option value="/service_vetka-sakury">Массаж ветка сакуры</option><option value="/service_massagh-golovy">Массаж головы</option><option value="/service_massagh-grudi">Массаж груди</option><option value="/service_massagh-guasha">Массаж гуаша</option><option value="/service_massagh-ghivota">Массаж живота</option><option value="/service_massagh-lingama">Массаж лингама</option><option value="/service_massagh-lica">Массаж лица</option><option value="/service_massagh-loghkami">Массаж ложками</option><option value="/service_massagh-nog">Массаж ног</option><option value="/service_massagh-nogami">Массаж ногами</option><option value="/service_massagh-prostaty">Массаж простаты</option><option value="/service_massagh-ruk">Массаж рук</option><option value="/service_massagh-spiny">Массаж спины</option><option value="/service_massagh-stop">Массаж стоп</option><option value="/service_massagh-shei">Массаж шеи</option><option value="/service_medovyy-massagh">Медовый массаж</option><option value="/service_obertyvanie">Обертывание</option><option value="/service_piling">Пилинг</option><option value="/service_rasslablyayuschiy-massagh">Расслабляющий массаж</option><option value="/service_reanimacionnyy-massagh">Реанимационный массаж</option><option value="/service_sportivnyy-massagh">Спортивный массаж</option><option value="/service_stoun-massagh">Стоун-массаж</option><option value="/service_tayskiy">Тайский массаж</option><option value="/service_tantricheskiy">Тантрический массаж</option><option value="/service_tochechnyy">Точечный массаж</option><option value="/service_tureckiy">Турецкий массаж</option><option value="/service_urologicheskiy-massagh">Урологический массаж</option><option value="/service_fut-massagh">Фут-массаж</option><option value="/service_shvedskiy">Шведский массаж</option><option value="/service_eroticheskiy">Эротический массаж</option><option value="/service_yaponskiy">Японский массаж</option>
-                    </select></div><div class="selectric"><span class="label">
-Выбрать услугу
-</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="selected">
-                                Выбрать услугу
-                            </li><li data-index="1" class="">lpg массаж</li><li data-index="2" class="">Аква-пенный массаж</li><li data-index="3" class="">Антицеллюлитный массаж</li><li data-index="4" class="">Аппаратный массаж</li><li data-index="5" class="">Баночный массаж</li><li data-index="6" class="">Боди массаж</li><li data-index="7" class="">Восточный массаж</li><li data-index="8" class="">Гигиенический массаж</li><li data-index="9" class="">Гинекологический массаж</li><li data-index="10" class="">Египетский массаж</li><li data-index="11" class="">Китайский массаж </li><li data-index="12" class="">Классический массаж</li><li data-index="13" class="">Колон-массаж</li><li data-index="14" class="">Косметический массаж</li><li data-index="15" class="">Криомассаж</li><li data-index="16" class="">Лечебный массаж</li><li data-index="17" class="">Лимфодренажный массаж</li><li data-index="18" class="">Массаж асахи</li><li data-index="19" class="">Массаж в четыре руки</li><li data-index="20" class="">Массаж ветка сакуры</li><li data-index="21" class="">Массаж головы</li><li data-index="22" class="">Массаж груди</li><li data-index="23" class="">Массаж гуаша</li><li data-index="24" class="">Массаж живота</li><li data-index="25" class="">Массаж лингама</li><li data-index="26" class="">Массаж лица</li><li data-index="27" class="">Массаж ложками</li><li data-index="28" class="">Массаж ног</li><li data-index="29" class="">Массаж ногами</li><li data-index="30" class="">Массаж простаты</li><li data-index="31" class="">Массаж рук</li><li data-index="32" class="">Массаж спины</li><li data-index="33" class="">Массаж стоп</li><li data-index="34" class="">Массаж шеи</li><li data-index="35" class="">Медовый массаж</li><li data-index="36" class="">Обертывание</li><li data-index="37" class="">Пилинг</li><li data-index="38" class="">Расслабляющий массаж</li><li data-index="39" class="">Реанимационный массаж</li><li data-index="40" class="">Спортивный массаж</li><li data-index="41" class="">Стоун-массаж</li><li data-index="42" class="">Тайский массаж</li><li data-index="43" class="">Тантрический массаж</li><li data-index="44" class="">Точечный массаж</li><li data-index="45" class="">Турецкий массаж</li><li data-index="46" class="">Урологический массаж</li><li data-index="47" class="">Фут-массаж</li><li data-index="48" class="">Шведский массаж</li><li data-index="49" class="">Эротический массаж</li><li data-index="50" class="last">Японский массаж</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
-            <div class="select-label">
-                Для кого массаж
-            </div>
-            <div class="selectric-wrapper selectric-filter-select"><div class="selectric-hide-select"><select class="filter-select" name="filter-select" id="" tabindex="-1">
-                        <option value="#">
-                            Выбрать кому делать массаж
-                        </option>
-                        <option value="/massazh-dlya_zhenshchin">женщин</option><option value="/massazh-dlya_muzhchin">мужчин</option><option value="/massazh-dlya_par">пар</option>
-                    </select></div><div class="selectric"><span class="label">
-Выбрать кому делать массаж
-</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="selected">
-                                Выбрать кому делать массаж
-                            </li><li data-index="1" class="">женщин</li><li data-index="2" class="">мужчин</li><li data-index="3" class="last">пар</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
-            <div class="select-label">
-                Место
-            </div>
-            <div class="selectric-wrapper selectric-filter-select"><div class="selectric-hide-select"><select class="filter-select" name="filter-select" id="" tabindex="-1">
-                        <option value="#">
-                            Место встречи
-                        </option>
-                        <option value="/place_appartamentu">На дому</option><option value="/place_appartamentu">На дому</option><option value="/place_appartamentu">На дому</option><option value="/place_appartamentu">На дому</option><option value="/place_appartamentu">На дому</option><option value="/place_appartamentu">На дому</option>
-                    </select></div><div class="selectric"><span class="label">
-Место встречи
-</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="selected">
-                                Место встречи
-                            </li><li data-index="1" class="">На дому</li><li data-index="2" class="">На дому</li><li data-index="3" class="">На дому</li><li data-index="4" class="">На дому</li><li data-index="5" class="">На дому</li><li data-index="6" class="last">На дому</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
-            <div class="select-label">
-                Возраст
-            </div>
-            <div class="selectric-wrapper selectric-filter-select"><div class="selectric-hide-select"><select class="filter-select" name="filter-select" id="" tabindex="-1">
-                        <option value="#">
-                            Выбрать возраст
-                        </option>
-                        <option value="/age_ot-18-do-20-let">От 18 до 20 лет</option><option value="/age_ot-21-do-25-let">От 21 до 25 лет</option><option value="/age_ot-26-do-30-let">От 26 до 30 лет</option><option value="/age_ot-31-do-40-let">От 31 до 40 лет</option><option value="/age_ot-40-do-50-let">от 40 до 50 лет</option><option value="/age_starshe-51-goda">Старше 51 года</option>
-                    </select></div><div class="selectric"><span class="label">
-Выбрать возраст
-</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="selected">
-                                Выбрать возраст
-                            </li><li data-index="1" class="">От 18 до 20 лет</li><li data-index="2" class="">От 21 до 25 лет</li><li data-index="3" class="">От 26 до 30 лет</li><li data-index="4" class="">От 31 до 40 лет</li><li data-index="5" class="">от 40 до 50 лет</li><li data-index="6" class="last">Старше 51 года</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
-            <div class="select-label">
-                Цена
-            </div>
-            <div class="selectric-wrapper selectric-filter-select"><div class="selectric-hide-select"><select class="filter-select" name="filter-select" id="" tabindex="-1">
-                        <option value="#">
-                            ВЫбрать ценц
-                        </option>
-                        <option value="/price_do-2000">До 2.000 Рублей</option><option value="/price_ot-2000-do-3000">От 2.000 до 3.000 Рублей</option><option value="/price_ot-3000">От 3.000 Рублей</option>
-                    </select></div><div class="selectric"><span class="label">
-ВЫбрать ценц
-</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="selected">
-                                ВЫбрать ценц
-                            </li><li data-index="1" class="">До 2.000 Рублей</li><li data-index="2" class="">От 2.000 до 3.000 Рублей</li><li data-index="3" class="last">От 3.000 Рублей</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
-            <li class="filter-li">
-                <a class="filter-li-item" href="/pol_woman"> Массажистки</a>
-            </li>
-            <li class="filter-li">
-                <a class="filter-li-item" href="/pol_man"> Массажисты</a>
-            </li>
+
+        <div class="mobile-filter-content-wrap">
+
         </div>
+
     </div>
+
+    <ul class="filter-ul">
+
+        <?php if (isset($metro) and !empty($metro)) : ?>
+
+            <li class="filter-li">
+                    <span class="filter-li-item"> Метро <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"/>
+</svg>
+ </span>
+                <span class="filter-drop-down <?php if (count($metro) > 10) echo 'long-ul' ?>">
+                        <?php
+
+                        foreach ($metro as $metroItem) {
+
+
+                            echo '<a class="service-href" title="Массажистки у метро  ' . $metroItem['value'] . '" href="/metro_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+
+                        }
+
+                        ?>
+                    </span>
+            </li>
+
+        <?php endif; ?>
+
+        <?php if (isset($rayon) and !empty($rayon)) : ?>
+
+            <li class="filter-li">
+                <span class="filter-li-item"> Районы <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                                          xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"/>
+</svg>
+ </span>
+                <span class="filter-drop-down <?php if (count($rayon) > 10) echo 'long-ul' ?>">
+                    <?php
+
+                    foreach ($rayon as $metroItem) {
+
+
+                        echo '<a class="service-href" title="Массажистки в районе  ' . $metroItem['value'] . '" href="/rayon_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+
+                    }
+
+                    ?>
+                </span>
+            </li>
+
+        <?php endif; ?>
+
+        <?php if (isset($service) and !empty($service)) : ?>
+
+            <li class="filter-li">
+                        <span class="filter-li-item"> Услуга <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                                                  xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"/>
+</svg>
+ </span>
+                <span class="filter-drop-down long-ul">
+                            <?php
+
+                            foreach ($service as $serviceItem) {
+
+                                echo '<a class="service-href" title="Страница массажистов с услугой  ' . $serviceItem['value'] . '" href="/service_' . $serviceItem['url'] . '" >' . $serviceItem['value'] . '</a>';
+
+                            }
+
+                            ?>
+                        </span>
+            </li>
+
+        <?php endif; ?>
+
+
+        <?php if (isset($massagDlya) and !empty($massagDlya)) : ?>
+
+            <li class="filter-li">
+                <span class="filter-li-item"> Для кого массаж <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                                                   xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"/>
+</svg>
+ </span>
+                <span class="filter-drop-down">
+                <?php
+
+                foreach ($massagDlya as $massazhDlyaItem) {
+
+                    echo '<a class="service-href" title="Массажист для   ' . $massazhDlyaItem['value'] . '" href="/massazh-dlya_' . $massazhDlyaItem['url'] . '" >Массаж для  ' . $massazhDlyaItem['value'] . '</a>';
+                }
+
+                ?>
+                </span>
+            </li>
+
+        <?php endif; ?>
+
+        <?php if (isset($place) and !empty($place)) : ?>
+
+            <li class="filter-li">
+                <span class="filter-li-item"> Место встречи <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"/>
+</svg>
+ </span>
+                <span class="filter-drop-down">
+                    <?php
+
+                    foreach ($place as $placeList) {
+
+
+                        echo '<a class="service-href" title="Место встречи с массажистом  ' . $placeList['value'] . '" href="/place_' . $placeList['url'] . '" >' . $placeList['value'] . '</a>';
+
+                    }
+
+                    ?>
+                </span>
+            </li>
+
+        <?php endif; ?>
+
+
+        <?php if (isset($ageList) and !empty($ageList)) : ?>
+
+            <li class="filter-li">
+                <span class="filter-li-item"> Возраст <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                                           xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"/>
+</svg>
+ </span>
+                <span class="filter-drop-down">
+                    <?php
+
+                    foreach ($ageList as $ageItem) {
+
+                        echo '<a class="service-href" title="Страница массажистов возрастом  ' . $ageItem['value'] . '" href="/age_' . $ageItem['url'] . '" >' . $ageItem['value'] . '</a>';
+
+                    }
+
+                    ?>
+                </span>
+            </li>
+
+        <?php endif; ?>
+
+        <?php if (isset($pricelList) and !empty($pricelList)) : ?>
+
+            <li class="filter-li">
+                <span class="filter-li-item"> Цена <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"/>
+</svg>
+ </span>
+                <ul class="filter-drop-down">
+                    <?php
+
+                    foreach ($pricelList as $priceItem) {
+
+                        echo '<li><a class="service-href" title="Страница массажистов с ценой  ' . $priceItem['value'] . '" href="/price_' . $priceItem['url'] . '" >' . $priceItem['value'] . '</a></li>';
+
+
+                    }
+
+                    ?>
+                </ul>
+            </li>
+
+        <?php endif; ?>
+
+        <li class="filter-li">
+<span class="filter-li-item"> Возраст <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                           xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"></path>
+</svg>
+</span>
+            <span class="filter-drop-down">
+<a class="service-href" title="Страница массажистов возрастом  От 18 до 20 лет" href="/age_ot-18-do-20-let">От 18 до 20 лет</a><a
+                        class="service-href" title="Страница массажистов возрастом  От 21 до 25 лет"
+                        href="/age_ot-21-do-25-let">От 21 до 25 лет</a><a class="service-href"
+                                                                          title="Страница массажистов возрастом  От 26 до 30 лет"
+                                                                          href="/age_ot-26-do-30-let">От 26 до 30 лет</a><a
+                        class="service-href" title="Страница массажистов возрастом  От 31 до 40 лет"
+                        href="/age_ot-31-do-40-let">От 31 до 40 лет</a><a class="service-href"
+                                                                          title="Страница массажистов возрастом  от 40 до 50 лет"
+                                                                          href="/age_ot-40-do-50-let">от 40 до 50 лет</a><a
+                        class="service-href" title="Страница массажистов возрастом  Старше 51 года"
+                        href="/age_starshe-51-goda">Старше 51 года</a> </span>
+        </li>
+        <li class="filter-li">
+
+<span class="filter-li-item"> Цена <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.77553 6.60825L0.210257 2.04298C-0.0698915 1.76283 -0.0698915 1.30862 0.210257 1.02847C0.490405 0.748322 0.944615 0.748322 1.22476 1.02847L2.93626 2.73997L5.28283 5.18041L7.31816 3.05112L9.34081 1.02847C9.62096 0.748322 10.0752 0.748322 10.3553 1.02847C10.6355 1.30862 10.6355 1.76283 10.3553 2.04298L5.79004 6.60825C5.50989 6.8884 5.05568 6.8884 4.77553 6.60825Z"
+      fill="#FB474A"></path>
+</svg>
+</span>
+            <ul class="filter-drop-down">
+                <a class="service-href" title="Страница массажистов с ценой  До 2.000 Рублей" href="/price_do-2000">До
+                        2.000 Рублей</a>
+                <a class="service-href" title="Страница массажистов с ценой  От 2.000 до 3.000 Рублей"
+                       href="/price_ot-2000-do-3000">От 2.000 до 3.000 Рублей</a>
+                <a class="service-href" title="Страница массажистов с ценой  От 3.000 Рублей" href="/price_ot-3000">От
+                        3.000 Рублей</a>
+            </ul>
+        </li>
+
+    </ul>
+
+
 </div>

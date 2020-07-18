@@ -79,9 +79,9 @@ OwlAsset::register($this);
 <header class="main-header">
     <div class="container main-container">
         <div class="row">
-            <div class="col-7 col-lg-3 col-md-4 col-sm-6">
+            <div class="col-7 col-lg-3 col-md-4 col-sm-5">
                 <div class="row">
-                    <div class="col-3 col-lg-2 col-md-2 col-sm-4 show-menu">
+                    <div class="col-3 col-lg-2 col-md-2 col-sm-3 show-menu">
                         <svg width="25" height="14" viewBox="0 0 25 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="25" height="2" fill="white"/>
                             <rect y="6" width="25" height="2" fill="white"/>
@@ -89,7 +89,7 @@ OwlAsset::register($this);
                         </svg>
 
                     </div>
-                    <div class="col-9 col-lg-10 col-md-10 col-sm-8">
+                    <div class="col-9 col-lg-10 col-md-10 col-sm-9">
 
                             <a href="/" class="logo"><img class="logo-img" src="/img/logo.png"
                                                           alt="Частные массажистки мск"
@@ -107,7 +107,7 @@ OwlAsset::register($this);
                     </div>
                 </div>
             </div>
-            <div class="col-5 col-lg-9 col-md-8 col-sm-6">
+            <div class="col-5 col-lg-9 col-md-8 col-sm-7">
 
                 <div class="row">
                     <div class="col-2 col-lg-3 col-md-3 prosmotreno-wrap">

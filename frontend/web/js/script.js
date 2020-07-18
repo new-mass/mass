@@ -81,6 +81,11 @@ var changeURL = debounce(function() {
     });
 }, 1);
 $(document).ready(function () {
+
+    $('.mobile-filter').on('click', function () {
+        $('.filter-ul').toggle(150);
+    });
+
     $(document).scroll(function () {
 
         changeURL();

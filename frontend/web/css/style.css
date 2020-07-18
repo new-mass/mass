@@ -803,7 +803,6 @@ body{
 .page-text-wrap{
     background: linear-gradient(253.11deg, rgba(255, 182, 0, 0.15) 10.22%, rgba(112, 0, 255, 0.15) 79.99%);
     padding: 17px;
-    margin: 15px;
     border-radius: 10px;
     color: #6F6F6F;
     font-family: Roboto;
@@ -930,6 +929,23 @@ body{
 }
 .comment-submit{
     margin-left: 15px;
+}
+.filter-drop-down a {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 202.69%;
+    color: #fff;
+    white-space: nowrap;
+    display: block;
+}
+.long-ul a {
+    display: inline-block;
+    margin-right: 12px;
+}
+.filter-ul .filter-li {
+    position: relative;
 }
 @media (max-width:1979px) {
     .ankets{
@@ -1118,6 +1134,48 @@ body{
 }
 
 @media (max-width:767px) {
+    .content{
+        margin-top: 15px;
+    }
+    .filter-ul .filter-li {
+        background: #fff;
+        border: 1px solid #ededed;
+        box-sizing: border-box;
+        box-shadow: 0 4px 6px rgba(0,0,0,.06);
+        border-radius: 10px;
+        padding: 15px 17px;
+        display: block;
+        margin: 0 15px 15px;
+    }
+    .filter-ul .filter-li:hover .filter-drop-down {
+        background: #fff;
+        padding-left: 15px;
+    }
+    .filter-drop-down a {
+        display: block;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+        padding: 10px 0;
+        color: #000;
+    }
+    .filter-drop-down {
+        left: 0;
+        width: 100%;
+    }
+    .filter-drop-down {
+        max-height: 240px;
+        overflow: scroll;
+    }
+    .filter {
+        background: #f1f1f1;
+        border: 1px solid #ededed;
+        box-sizing: border-box;
+        box-shadow: 0 4px 6px rgba(0,0,0,.06);
+        border-radius: 10px;
+    }
 .default-header {
     background: url(../img/bdsm-1973280_1920_768.png) , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
     background-repeat: no-repeat;
@@ -1142,28 +1200,26 @@ h1{
 .filter-ul{
     display: none;
 }
+
 .open-filter-btn {
     padding: 20px;
     font-family: Roboto;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
     line-height: 21px;
-    /* display: flex; */
-        align-items: center;
-        text-align: center;
-        color: #FB474A;
-        background: #F1F1F1;
-        border: 1px solid #EDEDED;
-        box-sizing: border-box;
-        border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    color: #fb474a;
+    background: #f1f1f1;
+    border: 1px solid #ededed;
+    box-sizing: border-box;
+    border-radius: 10px;
     }
     .mobile-filter {
         display: block;
         background: #F1F1F1;
-        border: 1px solid #EDEDED;
         box-sizing: border-box;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
         border-radius: 10px;
     }
     .mobile-filter-content {
@@ -1241,8 +1297,14 @@ h1{
     .search-form-wrap .form-control{
         font-size: 15px;
     }
+    .search-form-wrap{
+        display: none;
+    }
 }
 @media (max-width:539px) {
+    .search-form-wrap{
+        display: none;
+    }
     header .logo-img {
          max-width: 100%;
     }
@@ -1278,9 +1340,6 @@ h1{
         background: url("../img/girl-360.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
         background-repeat: no-repeat;
         background-size: cover;
-    }
-    .search-form-wrap{
-        display: none;
     }
     .cabinet_a-wrap{
         padding-top: 6px;
