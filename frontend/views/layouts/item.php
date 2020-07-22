@@ -26,7 +26,37 @@ $metro = false;
                          class="prev-img-btn nav-img-btn d-none">
                         <i class="fas fa-arrow-right"></i>
                     </div>
-                    <div class="extra-block tarif-block"><p>EXTRA</p></div>
+
+                    <?php if ($item['tarif_id'] == 6) : ?>
+
+                        <div class="extra-block tarif-block"><p>EXTRA</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 5) : ?>
+
+                        <div class="premium-block tarif-block"><p>PREMIUM</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 4) : ?>
+
+                        <div class="top-plus-block tarif-block"><p>TOP+</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 3) : ?>
+
+                        <div class="top-block tarif-block"><p>TOP</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 2) : ?>
+
+                        <div class="vip-block tarif-block"><p>VIP</p></div>
+
+                    <?php endif; ?>
+                    
                 </div>
                 <div class="custom-card-right">
                     <div class="custom-card_data">
