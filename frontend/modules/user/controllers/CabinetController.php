@@ -119,7 +119,6 @@ class CabinetController extends Controller
                 }
             } else {
                 Yii::$app->session->setFlash('error', 'Нужно выбрать аватар');
-
             }
 
         }

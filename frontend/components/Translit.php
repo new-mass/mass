@@ -2,9 +2,9 @@
 
 
 namespace frontend\components;
-use dastanaron\translit\Translit as Object;
+use dastanaron\translit\Translit as Trans;
 
-class Translit extends Object
+class Translit extends Trans
 {
     public function __construct() {
         $this->rus = [
