@@ -123,7 +123,7 @@ class SiteController extends Controller
             ->with('metro')
             ->with('rayon')
             ->offset($pages->offset)
-            ->orderBy('sorting desc')->asArray()->all();
+            ->orderBy('tarif_id desc, sorting desc')->asArray()->all();
 
         DayViewHelper::addViewListing($posts);
 
@@ -155,7 +155,7 @@ class SiteController extends Controller
 
             $pages->defaultPageSize = Yii::$app->params['post_limit'];
 
-            $posts = $posts->offset($pages->offset)->asArray()->all();
+            $posts = $posts->offset($pages->offset)->orderBy('tarif_id desc, sorting desc')->asArray()->all();
 
         }
 
