@@ -7,6 +7,7 @@ use common\components\HystoryHelper;
 use common\models\SingleViewPost;
 use common\models\User;
 use frontend\components\helpers\DayViewHelper;
+use frontend\modules\user\components\helpers\PublicationHelper;
 use frontend\modules\user\models\City;
 use frontend\modules\user\models\Posts;
 use frontend\modules\user\models\Tarif;
@@ -56,76 +57,15 @@ class PostController extends Controller
     {
         if (!\Yii::$app->user->isGuest and \Yii::$app->request->isPost){
 
-            if ($post = Posts::find()->where(['id' => \Yii::$app->request->post('id')])->one()) {
+            try {
 
-                if ($post->status == Posts::POST_ON_PUBLICATION){
+                $publicationHelper = new PublicationHelper(Yii::$app->request->post('id'));
 
-                    $post->status = Posts::POST_DONT_PUBLICATION;
+                return $publicationHelper->startPublication()->getStatusPostPublication();
 
-                    $post->save();
+            }catch (\Exception $exception){
 
-                    return 'Поставить на публикацию';
-
-                }
-
-                if ($post->status == Posts::POST_DONT_PUBLICATION){
-
-                    if ($post->tarif_id > 0){
-
-                        if ($post->pay_time < time() ){
-
-                            $tarif = Tarif::find()->where(['value' => $post['tarif_id']])->asArray()->one();
-
-                            $user = User::find()->where(['id' => $post['user_id']])->one();
-
-                            if ($user->cash >=  $tarif['value']){
-
-                                $user->cash = $user->cash - $tarif['value'];
-
-                                if ($user->save()){
-
-                                    $post['pay_time'] = time() + 3600;
-
-                                    $post->status = Posts::POST_ON_PUBLICATION;
-
-                                    $post->save();
-
-                                    HystoryHelper::add($user->id, $tarif['value'], $user->cash, 'Публикация анкеты '.$post['name'].' id '.$post['id']);
-
-                                    return 'Снять с публикации';
-
-                                }
-
-                            }else{
-
-                                return 'Недостаточно средств';
-
-                            }
-
-                        }else{
-
-                            $post->status = Posts::POST_ON_PUBLICATION;
-
-                            $post->save();
-
-                            return 'Снять с публикации';
-
-                        }
-
-                    }else{
-
-                        $post['pay_time'] = time() + 3600;
-
-                        $post->status = Posts::POST_ON_PUBLICATION;
-
-                        $post->save();
-
-                        return 'Снять с публикации';
-
-                    }
-
-
-                }
+                return $exception->getMessage();
 
             }
 

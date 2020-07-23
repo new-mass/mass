@@ -5,6 +5,7 @@ namespace frontend\modules\user\controllers;
 
 use common\models\SingleViewPost;
 use frontend\modules\user\components\helpers\AvatarHelper;
+use frontend\modules\user\components\helpers\PublicationHelper;
 use frontend\modules\user\components\helpers\SaveNameHelper;
 use frontend\modules\user\components\helpers\SaveRelationHelper;
 use frontend\modules\user\models\City;
@@ -235,5 +236,22 @@ class CabinetController extends Controller
     public function actionFaq()
     {
         return $this->render('faq');
+    }
+
+    public function actionUp()
+    {
+        if (!Yii::$app->request->isPost or Yii::$app->user->isGuest) return $this->goHome();
+
+        try {
+
+            $publicationHelper = new PublicationHelper(Yii::$app->request->post('id'));
+
+            return $publicationHelper->upAnket()->getStatusUpAnket();
+
+        }catch (\Exception $exception){
+
+            return $exception->getMessage();
+
+        }
     }
 }

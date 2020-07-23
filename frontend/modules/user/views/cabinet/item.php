@@ -16,7 +16,35 @@
                                  title="Массажистка <?php echo $item['name'] ?> Санкт-Петербург">
                         </picture>
                     </a>
-                    <div class="extra-block tarif-block"><p>EXTRA</p></div>
+                    <?php if ($item['tarif_id'] == 6) : ?>
+
+                        <div class="extra-block tarif-block"><p>EXTRA</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 5) : ?>
+
+                        <div class="premium-block tarif-block"><p>PREMIUM</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 4) : ?>
+
+                        <div class="top-plus-block tarif-block"><p>TOP+</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 3) : ?>
+
+                        <div class="top-block tarif-block"><p>TOP</p></div>
+
+                    <?php endif; ?>
+
+                    <?php if ($item['tarif_id'] == 2) : ?>
+
+                        <div class="vip-block tarif-block"><p>VIP</p></div>
+
+                    <?php endif; ?>
                 </div>
                 <div class="custom-card-right">
                     <div class="custom-card_data">
@@ -87,6 +115,12 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-12">
+                                <a onclick="up_anket(this)" data-id="<?php echo $item['id'] ?>" class="edit">Поднять анкету (<?php echo Yii::$app->params['up_anket_cost'] ?> руб.) </a></div>
+                        </div>
+
+
                         <div class="metro">
 
                             <div class="row">
@@ -123,13 +157,9 @@
                             </div>
                         </div>
 
-                        <div class="metro">
-
                             <div class="row">
                                 <div class="col-12"><a href="/cabinet/edit/<?php echo $item['id'] ?> " class="edit">Редактировать анкету</a></div>
                             </div>
-                            
-                        </div>
 
                     </div>
 

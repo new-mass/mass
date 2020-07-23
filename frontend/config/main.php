@@ -63,6 +63,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/add' => 'user/cabinet/add',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/faq' => 'user/cabinet/faq',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/edit/<id:[0-9]+>' => 'user/cabinet/edit',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/up' => 'user/cabinet/up',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/user/publication/update' => 'user/post/publication',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/login' => 'user/user/login',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/pay' => 'user/cash/balance',

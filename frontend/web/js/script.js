@@ -327,4 +327,25 @@ function getMorePosts() {
     });
 
 }
+function up_anket(object){
+
+    var id = $(object).attr('data-id');
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/up',
+        data: 'id=' +id,
+        async:false,
+        dataType: "html",
+        beforeSend: function(){
+            $(object).text('Отправка запроса...');
+        },
+        cache: false,
+        success: function (data) {
+            $(object).text(data);
+        },
+
+    });
+
+}
 

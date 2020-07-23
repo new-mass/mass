@@ -22,6 +22,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                      src="<?php echo $post['avatar']['file'] ?>"
                                      alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка   <?php echo $post['name'] ?>  Санкт-Петербург">
                             </picture>
+
                             <?php if ($post['tarif_id'] == 6) : ?>
 
                                 <div class="extra-block tarif-block"><p>EXTRA</p></div>
