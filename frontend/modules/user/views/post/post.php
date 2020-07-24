@@ -147,7 +147,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
                         <div class="service_list">
                             <ul class="service_ul">
                                 <?php foreach ($post['service'] as $item) : ?>
-                                    <li class="service_list"><a href="/service_<?php echo $post['url'] ?>"><?php echo $post['value'] ?></a></li>
+                                    <li class="service_list"><a href="/service_<?php echo $item['url'] ?>"><?php echo $item['value'] ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </div>
@@ -177,8 +177,8 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                         <ul class="service_ul">
                                             <?php foreach ($post['metro'] as $item) : ?>
                                                 <li class="service_list">
-                                                    <a class="massazh-dlya metro" href="/metro_<?php echo $post['url'] ?>">
-                                                        <?php echo $post['value'] ?>
+                                                    <a class="massazh-dlya metro" href="/metro_<?php echo $item['url'] ?>">
+                                                        <?php echo $item['value'] ?>
                                                     </a>
                                                 </li>
                                             <?php endforeach; ?>
@@ -206,8 +206,8 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                         <ul class="service_ul">
                                             <?php foreach ($post['rayon'] as $item) : ?>
                                                 <li class="service_list">
-                                                    <a class="massazh-dlya" href="/rayon_<?php echo $post['url'] ?>">
-                                                        <?php echo $post['value'] ?>
+                                                    <a class="massazh-dlya" href="/rayon_<?php echo $item['url'] ?>">
+                                                        <?php echo $item['value'] ?>
                                                     </a>
                                                 </li>
                                             <?php endforeach; ?>
@@ -234,8 +234,8 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                         <ul class="service_ul">
                                             <?php foreach ($post['massagDlya'] as $item) : ?>
                                                 <li class="service_list">
-                                                    <a class="massazh-dlya" href="/massazh-dlya_<?php echo $post['url'] ?>">
-                                                        Для <?php echo $post['value'] ?>
+                                                    <a class="massazh-dlya" href="/massazh-dlya_<?php echo $item['url'] ?>">
+                                                        Для <?php echo $item['value'] ?>
                                                     </a>
                                                 </li>
                                             <?php endforeach; ?>
@@ -264,8 +264,8 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
                                             <?php foreach ($post['place'] as $item) : ?>
                                                 <li class="service_list">
-                                                    <a class="massazh-dlya" href="/place_<?php echo $post['url'] ?>">
-                                                        <?php echo $post['value'] ?>
+                                                    <a class="massazh-dlya" href="/place_<?php echo $item['url'] ?>">
+                                                        <?php echo $item['value'] ?>
                                                     </a>
                                                 </li>
                                             <?php endforeach; ?>
@@ -292,8 +292,8 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                     <div class="service_list">
                                         <ul class="service_ul">
                                             <li class="service_list">
-                                                <a class="massazh-dlya" href="#">С <?php echo $post['workTime']['from'] ?> :
-                                                    00 До <?php echo $post['workTime']['to'] ?> : 00</a>
+                                                <a class="massazh-dlya" href="#">С <?php echo $item['workTime']['from'] ?> :
+                                                    00 До <?php echo $item['workTime']['to'] ?> : 00</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -310,7 +310,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                             <?php foreach ($post['check'] as $item) : ?>
 
                                                 <li class="service_list">
-                                                    <a href="#" class="massazh-dlya"><?php echo $post['value'] ?></a>
+                                                    <a href="#" class="massazh-dlya"><?php echo $item['value'] ?></a>
                                                 </li>
 
                                             <?php endforeach; ?>
