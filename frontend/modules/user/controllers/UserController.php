@@ -5,12 +5,13 @@ namespace frontend\modules\user\controllers;
 
 use common\models\LoginForm;
 use frontend\models\SignupForm;
+use frontend\modules\user\models\City;
 use yii\web\Controller;
 use Yii;
 
 class UserController extends Controller
 {
-    public function actionLogin()
+    public function actionLogin($city = 'moskva')
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -18,6 +19,13 @@ class UserController extends Controller
 
         $modelLogin = new LoginForm();
         $modelSign = new SignupForm();
+
+        $cityInfo = City::find()->where(['name' => $city])->asArray()->one();
+
+
+
+        $modelLogin->city_id = $cityInfo['id'];
+
         if ($modelLogin->load(Yii::$app->request->post()) && $modelLogin->login()) {
 
             return $this->redirect('/cabinet');
@@ -30,6 +38,18 @@ class UserController extends Controller
                 'modelSign' => $modelSign,
             ]);
         }
+    }
+
+    /**
+     * Logs out the current user.
+     *
+     * @return mixed
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
     }
 
     public function actionRegister(){

@@ -59,6 +59,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            [['city_id'] , 'integer'],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
     }
@@ -98,6 +99,18 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByEmail($email)
     {
         return static::findOne(['email' => $email]);
+    }
+
+    /**
+     * Finds user by username
+     *
+     * @param string $email
+     * @param integer $city_id
+     * @return static|null
+     */
+    public static function findByEmailAndCityId($email, $city_id)
+    {
+        return static::findOne(['email' => $email, 'city_id' => $city_id]);
     }
     /**
      * Finds user by username
