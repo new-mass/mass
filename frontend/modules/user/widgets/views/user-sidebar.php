@@ -5,6 +5,7 @@
         <li><a href="/cabinet/history">История платежей</a></li>
         <li><a href="/cabinet/pay">Пополнить баланс (<?php echo Yii::$app->user->identity->cash ?>)</a></li>
         <li><a href="/cabinet/faq">Ответы на вопросы</a></li>
+        <li><a href="/cabinet/logout">Выйти</a></li>
     </ul>
 </div>
 <div class="all-stat-block">
