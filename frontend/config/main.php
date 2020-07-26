@@ -57,6 +57,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/get-photo' => 'photo/get-photo',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/search' => 'site/search',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/anketa/<url:[a-z-0-9]+>' => 'user/post/view',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/<url:user-[a-z-0-9]+>' => 'user/post/redirect',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/getrecom' => 'user/post/more-post',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/history' => 'user/hystory/index',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet' => 'user/cabinet/index',

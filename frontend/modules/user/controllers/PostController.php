@@ -101,4 +101,17 @@ class PostController extends Controller
 
         }
     }
+
+    public function actionRedirect($city, $url)
+    {
+        if ($post = Posts::find()->where(['old_url' => $url])->asArray()->one()){
+
+            return $this->redirect('/anketa/'.$post['url'], 301);
+
+        }
+
+        throw new NotFoundHttpException();
+
+    }
+
 }
