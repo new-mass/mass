@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use frontend\modules\user\models\Posts;
 use Yii;
 
 /**
@@ -30,7 +31,7 @@ class SingleViewPost extends \yii\db\ActiveRecord
     {
         return [
             [['post_id', 'count'], 'integer'],
-            [['post_id'], 'exist', 'skipOnError' => true, 'targetClass' => Posts::className(), 'targetAttribute' => ['post_id' => 'id']],
+            [['post_id'], 'exist', 'skipOnError' => true, 'targetClass' => Posts::class, 'targetAttribute' => ['post_id' => 'id']],
         ];
     }
 

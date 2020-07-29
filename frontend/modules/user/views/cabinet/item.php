@@ -7,7 +7,7 @@
         <div class="custom-card d-flex flex-row flex-wrap justify-content-between">
             <div class="custom-card-left">
                 <div class="custom-card_img">
-                    <a target="_blank" href="/<?php echo $item['url'] ?>">
+                    <a target="_blank" href="/anketa/<?php echo $item['url'] ?>">
                         <picture class="picture-164">
                             <img onload="removeBlur(this)" loading="lazy" data-id="<?php echo $item['id'] ?>"
                                  class="photo photo-list img-<?php echo $item['id'] ?>"

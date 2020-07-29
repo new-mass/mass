@@ -58,8 +58,8 @@ $commentForm = new \frontend\modules\user\models\Comments();
                         <div class="gallery">
                             <div class="owl-carousel single-carousel ">
                                 <?php foreach ($post['gallery'] as $item) :  ?>
-                                    <a class="single-carousel_item" href="<?php echo $post['file'] ?>">
-                                        <img alt="<?php echo $post['name'] ?> " title="<?php echo $post['name'] ?> " src="<?php  echo $post['file']  ?>">
+                                    <a class="single-carousel_item" href="<?php echo $item['file'] ?>">
+                                        <img alt="<?php echo $post['name'] ?> " title="<?php echo $item['name'] ?> " src="<?php  echo $item['file']  ?>">
                                     </a>
                                 <?php endforeach; ?>
                             </div>
