@@ -30,6 +30,7 @@ use frontend\components\Translit;
 
 class CabinetController extends Controller
 {
+
     public function actionIndex($city)
     {
 
@@ -56,6 +57,27 @@ class CabinetController extends Controller
         return $this->render('index', [
             'items' => $items
         ]);
+    }
+
+    public function actionDelete()
+    {
+        if (Yii::$app->request->isPost and !Yii::$app->user->isGuest){
+
+            $photo = Photo::find()->where(['id' => Yii::$app->request->post('id')])
+                ->one();
+
+            $post = Posts::find()->where(['id' => $photo['user_id'] , 'user_id' => Yii::$app->user->id])
+                ->asArray()->one();
+
+            if ($post){
+
+                unlink(Yii::getAlias('@app/web/'.$photo['file']));
+
+                $photo->delete();
+
+            }
+
+        }
     }
 
     public function actionAdd($city = 'moskva')

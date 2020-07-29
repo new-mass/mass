@@ -70,15 +70,17 @@
                         <div class="metro">
                             <div class="row">
                                 <div class="col-6">
-                                    <p class="small-text">Показов на листинге за день:<p class="black-text">
-                                        <?php echo Yii::$app->cache->get(Yii::$app->params['view_today_cache_key'].'_'.date('d').'_'.$item['id']) ?: 0;?>
+                                    <p class="small-text">Показов на листинге за день:
+                                    <p class="black-text">
+                                        <?php echo Yii::$app->cache->get(Yii::$app->params['view_today_cache_key'] . '_' . date('d') . '_' . $item['id']) ?: 0; ?>
                                     </p>
 
 
                                 </div>
                                 <div class="col-6">
                                     <p class="small-text">Показов на листинге
-                                        за все время:<p class="black-text"><?php echo $item['viewsOnListing']['count'] ?: 0; ?></p></p>
+                                        за все время:
+                                    <p class="black-text"><?php echo $item['viewsOnListing']['count'] ?: 0; ?></p></p>
                                 </div>
                             </div>
                         </div>
@@ -86,15 +88,17 @@
                         <div class="metro">
                             <div class="row">
                                 <div class="col-6">
-                                    <p class="small-text">Просмотров детальной страницы за день:<p class="black-text">
-                                        <?php echo Yii::$app->cache->get(Yii::$app->params['single_view_today_cache_key'].'_'.date('d').'_'.$item['id']) ?: 0; ?>
+                                    <p class="small-text">Просмотров детальной страницы за день:
+                                    <p class="black-text">
+                                        <?php echo Yii::$app->cache->get(Yii::$app->params['single_view_today_cache_key'] . '_' . date('d') . '_' . $item['id']) ?: 0; ?>
                                     </p>
 
 
                                 </div>
                                 <div class="col-6">
                                     <p class="small-text">Просмотров детальной страницы
-                                        за все время:<p class="black-text"><?php echo $item['viewsOnSingle']['count'] ?: 0; ?></p></p>
+                                        за все время:
+                                    <p class="black-text"><?php echo $item['viewsOnSingle']['count'] ?: 0; ?></p></p>
                                 </div>
                             </div>
                         </div>
@@ -102,22 +106,25 @@
                         <div class="metro">
                             <div class="row">
                                 <div class="col-6">
-                                    <p class="small-text">Просмотров телефона за день:<p class="black-text">
-                                        <?php echo Yii::$app->cache->get(Yii::$app->params['phone_view_today_cache_key'].'_'.date('d').'_'.$item['id']) ?: 0; ?>
+                                    <p class="small-text">Просмотров телефона за день:
+                                    <p class="black-text">
+                                        <?php echo Yii::$app->cache->get(Yii::$app->params['phone_view_today_cache_key'] . '_' . date('d') . '_' . $item['id']) ?: 0; ?>
                                     </p>
 
 
                                 </div>
                                 <div class="col-6">
                                     <p class="small-text">Просмотров телефона
-                                        за все время:<p class="black-text"><?php echo $item['viewsPhone']['count'] ?: 0; ?></p></p>
+                                        за все время:
+                                    <p class="black-text"><?php echo $item['viewsPhone']['count'] ?: 0; ?></p></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
-                                <a onclick="up_anket(this)" data-id="<?php echo $item['id'] ?>" class="edit">Поднять анкету (<?php echo Yii::$app->params['up_anket_cost'] ?> руб.) </a></div>
+                                <a onclick="up_anket(this)" data-id="<?php echo $item['id'] ?>" class="edit">Поднять
+                                    анкету (<?php echo Yii::$app->params['up_anket_cost'] ?> руб.) </a></div>
                         </div>
 
 
@@ -128,38 +135,35 @@
                                     <span class="text">Статус</span>
 
                                 </div>
-                                <div class="col-12" >
+                                <div class="col-12">
                                     <?php
 
-                                        if ($item['status'] == \frontend\modules\user\models\Posts::POST_ON_MODERETION)
-                                        {
-                                            $message = 'На модерации';
-                                            $class = 'mod';
-                                            $onclick = '';
-                                        }
-                                        elseif ($item['status'] == \frontend\modules\user\models\Posts::POST_ON_PUBLICATION)
-                                        {
-                                            $message = 'Снять с публикации';
-                                            $class = 'stop';
-                                            $onclick = 'onclick="publication(this)"';
-                                        }
-                                        elseif ($item['status'] == \frontend\modules\user\models\Posts::POST_DONT_PUBLICATION)
-                                        {
-                                            $message = 'Поставить на публикацию';
-                                            $class = 'start';
-                                            $onclick = 'onclick="publication(this)"';
+                                    if ($item['status'] == \frontend\modules\user\models\Posts::POST_ON_MODERETION) {
+                                        $message = 'На модерации';
+                                        $class = 'mod';
+                                        $onclick = '';
+                                    } elseif ($item['status'] == \frontend\modules\user\models\Posts::POST_ON_PUBLICATION) {
+                                        $message = 'Снять с публикации';
+                                        $class = 'stop';
+                                        $onclick = 'onclick="publication(this)"';
+                                    } elseif ($item['status'] == \frontend\modules\user\models\Posts::POST_DONT_PUBLICATION) {
+                                        $message = 'Поставить на публикацию';
+                                        $class = 'start';
+                                        $onclick = 'onclick="publication(this)"';
 
-                                        }
+                                    }
 
                                     ?>
-                                    <span <?php echo $onclick ?> data-id="<?php echo $item['id']; ?>" class="status-anket status-<?php echo $class ?>"><?php echo $message; ?></span>
+                                    <span <?php echo $onclick ?> data-id="<?php echo $item['id']; ?>"
+                                                                 class="status-anket status-<?php echo $class ?>"><?php echo $message; ?></span>
                                 </div>
                             </div>
                         </div>
 
-                            <div class="row">
-                                <div class="col-12"><a href="/cabinet/edit/<?php echo $item['id'] ?> " class="edit">Редактировать анкету</a></div>
-                            </div>
+                        <div class="row">
+                            <div class="col-12"><a href="/cabinet/edit/<?php echo $item['id'] ?> " class="edit">Редактировать
+                                    анкету</a></div>
+                        </div>
 
                     </div>
 

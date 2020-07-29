@@ -303,3 +303,12 @@
 
     color: #FB474A;
 }
+.delete-anket-photo{
+    background: #fb474a;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    top: 10px;
+    right: 5px;
+}

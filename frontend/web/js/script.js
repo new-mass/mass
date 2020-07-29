@@ -349,3 +349,22 @@ function up_anket(object){
 
 }
 
+function delete_photo(object){
+
+    var id = $(object).attr('data-id');
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/delete-photo',
+        data: 'id=' +id,
+        async:false,
+        dataType: "html",
+        cache: false,
+        success: function (data) {
+            $(object).closest('.anket-photo-wrap').remove();
+        },
+
+    });
+
+}
+

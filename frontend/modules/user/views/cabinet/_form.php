@@ -167,9 +167,15 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
                                 <?php foreach ($model->gallery as $item) : ?>
 
-                                    <div class="col-2">
+                                    <div class="col-2 anket-photo-wrap">
 
-                                        <div class="gallery-img-wrap img-wrap">
+                                        <div class="gallery-img-wrap img-wrap position-relative">
+                                            <span onclick="delete_photo(this)" class="delete-anket-photo position-absolute" data-id="<?php echo $item['id'] ?>">
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="0.673828" width="11.9054" height="0.952435" rx="0.476217" transform="rotate(45 0.673828 0)" fill="white"/>
+                                                    <rect y="8.67871" width="11.9054" height="0.952435" rx="0.476217" transform="rotate(-45 0 8.67871)" fill="white"/>
+                                                </svg>
+                                            </span>
                                             <img src="<?php echo $item->file ?>" alt="">
                                         </div>
 
