@@ -33,12 +33,25 @@ class CabinetController extends Controller
     public function actionIndex($city)
     {
 
-        $items = Posts::find()->where(['user_id' => Yii::$app->user->id])->asArray()
-            ->with('avatar')
-            ->with('viewsOnListing')
-            ->with('viewsOnSingle')
-            ->with('viewsPhone')
-            ->all();
+        if (Yii::$app->user->identity->old_id){
+            $items = Posts::find()->where(['user_id' => Yii::$app->user->id])->orWhere( ['old_user_id' => Yii::$app->user->identity->old_id])
+                ->asArray()
+                ->with('avatar')
+                ->with('viewsOnListing')
+                ->with('viewsOnSingle')
+                ->with('viewsPhone')
+                ->all();
+        }else{
+            $items = Posts::find()->where(['user_id' => Yii::$app->user->id])
+                ->asArray()
+                ->with('avatar')
+                ->with('viewsOnListing')
+                ->with('viewsOnSingle')
+                ->with('viewsPhone')
+                ->all();
+        }
+
+
 
         return $this->render('index', [
             'items' => $items

@@ -2,6 +2,11 @@
 
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
+
+/* @var $this \yii\web\View */
+
+$this->title = 'Войти в кабинет';
+
 ?>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
@@ -32,7 +37,7 @@ use yii\bootstrap4\Html;
 
     <div class="user_login_form">
 
-
+        <div class="anket-heading"><p>Авторизация</p></div>
         <div class="signup-form">
             <?php $form = ActiveForm::begin(['id' => 'form-login']); ?>
 
