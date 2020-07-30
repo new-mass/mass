@@ -20,8 +20,6 @@ class PageHelper
 
     public static function getUrl($url, $page)
     {
-        if ($url != '/') $url.='/';
-
         if (strstr($url, 'page')) $url = strstr($url, '/?page', true);
 
         if ($page > 1) $page_url = $url.'?page='.$page;

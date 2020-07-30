@@ -315,6 +315,7 @@ function getMorePosts() {
             if (data == ''){
                 $('.preload').html();
                 $(object).remove();
+                $('.pagination').remove();
             }
 
             $('.preload').css('display' , 'none');
