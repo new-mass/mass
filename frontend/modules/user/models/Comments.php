@@ -15,6 +15,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string|null $text
  * @property int|null $mark
  * @property int|null $status
+ * @property int|null $old_id
+ * @property int|null $city_id
  *
  * @property Comments $parent
  * @property Comments[] $comments
@@ -48,7 +50,7 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id', 'post_id', 'mark', 'status'], 'integer'],
+            [['parent_id', 'post_id', 'mark', 'status', 'old_id', 'city_id'], 'integer'],
             [['name'], 'string', 'max' => 25],
             [['text'], 'string', 'max' => 255],
             [['text', 'name'], 'required'],

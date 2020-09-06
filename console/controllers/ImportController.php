@@ -6,18 +6,32 @@ namespace console\controllers;
 use common\models\User;
 use frontend\components\Translit;
 use frontend\modules\user\components\helpers\SaveNameHelper;
+use frontend\modules\user\models\City;
+use frontend\modules\user\models\Comfort;
+use frontend\modules\user\models\Comments;
 use frontend\modules\user\models\MassagDlya;
 use frontend\modules\user\models\Photo;
+use frontend\modules\user\models\Place;
 use frontend\modules\user\models\Posts;
+use frontend\modules\user\models\Rayon;
 use frontend\modules\user\models\relation\UserCheckAnket;
+use frontend\modules\user\models\relation\UserComfort;
 use frontend\modules\user\models\relation\UserMassagDlya;
+use frontend\modules\user\models\relation\UserPlace;
+use frontend\modules\user\models\relation\UserRayon;
+use frontend\modules\user\models\relation\UserService;
+use frontend\modules\user\models\relation\UserWorckTime;
+use frontend\modules\user\models\Service;
 use yii\console\Controller;
 
 class ImportController extends Controller
 {
+
+    public $tablePref = 'rostov-na-donu';
+
     public function actionUser()
     {
-        $users = include \Yii::getAlias('@app/controllers/files/rostov_users.php');
+        $users = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_users`")->queryAll();
 
        foreach ($users as $userItem){
 
@@ -44,16 +58,18 @@ class ImportController extends Controller
     public function actionPosts()
     {
 
+        $city = City::findOne(7);
+
         $translit = new Translit();
 
-        $posts = include \Yii::getAlias('@app/controllers/files/rostov-na-donu_posts.php');
+        $posts = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_posts`")->queryAll();
 
         foreach ($posts as $post){
 
             $model = new \frontend\modules\user\models\Posts();
 
             $model->old_id = $post['id'];
-            $model->city_id = 7;
+            $model->city_id = $city['id'];
             $model->tarif_id = $post['tarif'];
             $model->sorting = 1;
             $model->name = $post['name'];
@@ -140,8 +156,131 @@ class ImportController extends Controller
 
             }
 
+            $userService = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_user_service` WHERE `post_id` = {$post['id']}")->queryAll();
+
+            if ($userService) foreach ($userService as $item){
+
+                $service = \Yii::$app->db2->createCommand("SELECT * FROM `service` WHERE `id` = {$item['id']}")->queryOne();
+
+                $newService = Service::find()->where(['url' => $service['url']])->asArray()->one();
+
+                $serviceModel = new UserService();
+                $serviceModel->user_id = $model->id;
+                $serviceModel->prop_id = $newService['id'];
+
+                $serviceModel->save();
+
+
+            }
+
+            $userRayon = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_user_rayon` WHERE `post_id` = {$post['id']}")->queryAll();
+
+            if ($userRayon) foreach ($userRayon as $item){
+
+                $service = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_rayon` WHERE `id` = {$item['id']}")->queryOne();
+
+                $newService = Rayon::find()->where(['url' => $service['url']])->asArray()->one();
+
+                $serviceModel = new UserRayon();
+                $serviceModel->user_id = $model->id;
+                $serviceModel->prop_id = $newService['id'];
+
+                $serviceModel->save();
+
+
+            }
+
+            $userPlace = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_posts_to_place` WHERE `post_id` = {$post['id']}")->queryAll();
+
+            if ($userPlace) foreach ($userPlace as $item){
+
+                $service = \Yii::$app->db2->createCommand("select * from `place`  WHERE `id` = {$item['id']}")->queryOne();
+
+                $newService = Place::find()->where(['url' => $service['url']])->asArray()->one();
+
+                $serviceModel = new UserPlace();
+                $serviceModel->user_id = $model->id;
+                $serviceModel->prop_id = $newService['id'];
+
+                $serviceModel->save();
+
+
+            }
+
+            $worckTime = \Yii::$app->db2->createCommand("SELECT * FROM `work_hour_time` WHERE `post_id` = {$post['id']} and `city` = '".$city['name']."'")->queryOne();
+
+            if ($worckTime) {
+
+                $userWorckTime = new UserWorckTime();
+                $userWorckTime->from = $worckTime['time_from'];
+                $userWorckTime->to = $worckTime['time_to'];
+                $userWorckTime->post_id = $model->id;
+
+                $userWorckTime->save();
+
+
+            }
+
+            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '".$city['id']."'")->queryAll();
+
+            if ($userComfort) foreach ($userComfort as $userComfortItem){
+
+                $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['id']}")->queryOne();
+
+                $newService = Comfort::find()->where(['url' => $service['url']])->asArray()->one();
+
+                $postComfort = new UserComfort();
+                $postComfort->prop_id = $newService['id'];
+                $postComfort->user_id = $model->id;
+
+                $postComfort->save();
+
+
+            }
+
+            $comments = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_comments` WHERE `id_post` = {$post['id']} ")->queryAll();
+
+            if ($comments) foreach ($comments as $comment){
+
+                if ($comment['parent_id'] > 0){
+
+                    $parentComment = Comments::find()->where(['old_id' => $comment['parent_id'], 'city_id' => $city['id']])->asArray()->one();
+
+                    $postComment = new Comments();
+
+                    $postComment->post_id = $model->id;
+                    $postComment->name = $comment['author'];
+                    $postComment->old_id = $comment['id'];
+                    $postComment->city_id = $city['id'];
+                    $postComment->mark = $comment['marc'];
+                    $postComment->status = 1;
+                    $postComment->text = $comment['text'];
+                    $postComment->parent_id = $parentComment['id'];
+                    $postComment->save();
+
+                }else{
+
+                    $postComment = new Comments();
+
+                    $postComment->post_id = $model->id;
+                    $postComment->name = $comment['author'];
+                    $postComment->old_id = $comment['id'];
+                    $postComment->city_id = $city['id'];
+                    $postComment->mark = $comment['marc'];
+                    $postComment->status = 1;
+                    $postComment->text = $comment['text'];
+                    $postComment->save();
+
+                }
+
+
+            }
+
+
         }
 
     }
+
+
 
 }
