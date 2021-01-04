@@ -85,6 +85,8 @@ class SiteController extends Controller
      */
     public function actionIndex($city = 'moskva')
     {
+        Yii::$app->cache->flush();
+
         $this->layout = 'main-page';
 
         $city_name = $city;

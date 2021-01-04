@@ -281,6 +281,17 @@ class ImportController extends Controller
 
     }
 
+    public function actionCust()
+    {
+        $photo = Photo::find()->all();
 
+        foreach ($photo as $item){
+
+            $item->file = str_replace('/upload/images/products/', '/uploads/aaa/', $item->file);
+
+            $item->save();
+
+        }
+    }
 
 }
