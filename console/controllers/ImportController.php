@@ -162,13 +162,17 @@ class ImportController extends Controller
 
                 $service = \Yii::$app->db2->createCommand("SELECT * FROM `service` WHERE `id` = {$item['service_id']}")->queryOne();
 
-                $newService = Service::find()->where(['url' => $service['url']])->asArray()->one();
+                if (isset($service['url'])){
+                    $newService = Service::find()->where(['url' => $service['url']])->asArray()->one();
 
-                $serviceModel = new UserService();
-                $serviceModel->user_id = $model->id;
-                $serviceModel->prop_id = $newService['id'];
+                    $serviceModel = new UserService();
+                    $serviceModel->user_id = $model->id;
+                    $serviceModel->prop_id = $newService['id'];
 
-                $serviceModel->save();
+                    $serviceModel->save();
+                }
+
+
 
 
             }
@@ -178,7 +182,7 @@ class ImportController extends Controller
             if ($userRayon) foreach ($userRayon as $item){
 
                 $service = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_rayon` WHERE `id` = {$item['rayon_id']}")->queryOne();
-
+                if (isset($service['url'])){
                 $newService = Rayon::find()->where(['url' => $service['url']])->asArray()->one();
 
                 $serviceModel = new UserRayon();
@@ -189,13 +193,14 @@ class ImportController extends Controller
 
 
             }
+            }
 
             $userPlace = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_posts_to_place` WHERE `post_id` = {$post['id']}")->queryAll();
 
             if ($userPlace) foreach ($userPlace as $item){
 
                 $service = \Yii::$app->db2->createCommand("select * from `place`  WHERE `id` = {$item['place_id']}")->queryOne();
-
+                if (isset($service['url'])){
                 $newService = Place::find()->where(['url' => $service['url']])->asArray()->one();
 
                 $serviceModel = new UserPlace();
@@ -205,6 +210,7 @@ class ImportController extends Controller
                 $serviceModel->save();
 
 
+            }
             }
 
             $worckTime = \Yii::$app->db2->createCommand("SELECT * FROM `work_hour_time` WHERE `post_id` = {$post['id']} and `city` = '".$city['name']."'")->queryOne();
@@ -226,7 +232,7 @@ class ImportController extends Controller
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
                 $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['comfort_id']}")->queryOne();
-
+                if (isset($service['url'])){
                 $newService = Comfort::find()->where(['url' => $service['url']])->asArray()->one();
 
                 $postComfort = new UserComfort();
@@ -236,6 +242,7 @@ class ImportController extends Controller
                 $postComfort->save();
 
 
+            }
             }
 
             $comments = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_comments` WHERE `id_post` = {$post['id']} ")->queryAll();
