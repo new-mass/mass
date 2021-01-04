@@ -52,6 +52,7 @@ class Comments extends \yii\db\ActiveRecord
         return [
             [['parent_id', 'post_id', 'mark', 'status', 'old_id', 'city_id'], 'integer'],
             [['name'], 'string', 'max' => 25],
+            [['old_date'], 'string'],
             [['text'], 'string', 'max' => 255],
             [['text', 'name'], 'required'],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comments::class, 'targetAttribute' => ['parent_id' => 'id']],

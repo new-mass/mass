@@ -160,7 +160,7 @@ class ImportController extends Controller
 
             if ($userService) foreach ($userService as $item){
 
-                $service = \Yii::$app->db2->createCommand("SELECT * FROM `service` WHERE `id` = {$item['id']}")->queryOne();
+                $service = \Yii::$app->db2->createCommand("SELECT * FROM `service` WHERE `id` = {$item['service_id']}")->queryOne();
 
                 $newService = Service::find()->where(['url' => $service['url']])->asArray()->one();
 
@@ -177,7 +177,7 @@ class ImportController extends Controller
 
             if ($userRayon) foreach ($userRayon as $item){
 
-                $service = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_rayon` WHERE `id` = {$item['id']}")->queryOne();
+                $service = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_rayon` WHERE `id` = {$item['rayon_id']}")->queryOne();
 
                 $newService = Rayon::find()->where(['url' => $service['url']])->asArray()->one();
 
@@ -194,7 +194,7 @@ class ImportController extends Controller
 
             if ($userPlace) foreach ($userPlace as $item){
 
-                $service = \Yii::$app->db2->createCommand("select * from `place`  WHERE `id` = {$item['id']}")->queryOne();
+                $service = \Yii::$app->db2->createCommand("select * from `place`  WHERE `id` = {$item['place_id']}")->queryOne();
 
                 $newService = Place::find()->where(['url' => $service['url']])->asArray()->one();
 
@@ -225,7 +225,7 @@ class ImportController extends Controller
 
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
-                $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['id']}")->queryOne();
+                $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['comfort_id']}")->queryOne();
 
                 $newService = Comfort::find()->where(['url' => $service['url']])->asArray()->one();
 
@@ -283,13 +283,22 @@ class ImportController extends Controller
 
     public function actionCust()
     {
-        $photo = Photo::find()->all();
+        $posts = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_posts`")->queryAll();
 
-        foreach ($photo as $item){
+        foreach ($posts as $post){
 
-            $item->file = str_replace('/upload/images/products/', '/uploads/aaa/', $item->file);
+            $userService = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_user_service` WHERE `post_id` = {$post['id']}")->queryAll();
 
-            $item->save();
+            if ($userService) foreach ($userService as $item){
+
+                $service = \Yii::$app->db2->createCommand("SELECT * FROM `service` WHERE `id` = {$item['service_id']}")->queryOne();
+
+                $newService = Service::find()->where(['url' => $service['url']])->asArray()->one();
+
+                dd($item);
+
+
+            }
 
         }
     }
