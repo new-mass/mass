@@ -292,20 +292,15 @@ class ImportController extends Controller
 
     public function actionCust()
     {
-        $posts = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_posts`")->queryAll();
+        $photo = Photo::find()->all();
 
-        foreach ($posts as $post){
+        foreach ($photo as $item){
 
-            $userService = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_user_service` WHERE `post_id` = {$post['id']}")->queryAll();
+            if (strstr($item['file'], '/upload/images/products/')){
 
-            if ($userService) foreach ($userService as $item){
+                $item['file'] = str_replace('/upload/images/products/', '/uploads/aaa/', $item['file']);
 
-                $service = \Yii::$app->db2->createCommand("SELECT * FROM `service` WHERE `id` = {$item['service_id']}")->queryOne();
-
-                $newService = Service::find()->where(['url' => $service['url']])->asArray()->one();
-
-                dd($item);
-
+                $item->save();
 
             }
 
