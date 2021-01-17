@@ -13,6 +13,9 @@ class UserController extends Controller
 {
     public function actionLogin($city = 'moskva')
     {
+
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
