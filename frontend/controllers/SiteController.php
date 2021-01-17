@@ -190,7 +190,14 @@ class SiteController extends Controller
 
     public function actionNew($city = 'moskva')
     {
-        $posts = Posts::find()->where(['status' => 1])->with('avatar')->orderBy('id desc')->asArray()->all();
+
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
+        $city = City::find()->where(['name' => $city])->asArray()->one();
+
+        $posts = Posts::find()->where(['status' => 1])
+            ->andWhere(['city_id' => $city['id']])
+            ->with('avatar')->orderBy('id desc')->asArray()->all();
 
         return $this->renderFile(Yii::getAlias('@app/views/site/new.php' ), [
             'posts' => $posts
