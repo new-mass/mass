@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Webmaster;
 use frontend\components\helpers\DayViewHelper;
 use frontend\components\helpers\PageHelper;
 use frontend\components\helpers\PhoneViewHelper;
@@ -134,6 +135,8 @@ class SiteController extends Controller
 
         PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
 
+        $tag = Webmaster::find()->where(['city_id' => $city['id']])->select('tag')->asArray()->one();
+
         Yii::$app->params['meta'] = $meta;
 
         $main = true;
@@ -143,6 +146,7 @@ class SiteController extends Controller
             'meta' => $meta,
             'main' => $main,
             'pages' => $pages,
+            'tag' => $tag,
             ]);
     }
 

@@ -5,6 +5,7 @@
 /* @var $more_posts array */
 /* @var $meta array */
 /* @var $pages array */
+/* @var $tag array */
 
 $this->title = $meta['title'];
 
@@ -12,6 +13,16 @@ $this->registerMetaTag([
     'name' => 'description',
     'content' => $meta['des']
 ]);
+
+if (isset($tag) and $tag){
+
+    $this->registerMetaTag([
+        'name' => 'yandex-verification',
+        'content' => $tag['tag']
+    ]);
+
+}
+
 
 echo '<div class="col-12">';
 echo '<div class="row fisrst-content">';
