@@ -63,16 +63,17 @@ function debounce(func, wait, immediate) {
 var changeURL = debounce(function() {
     $('[data-page-url]').each(function() {
 
-
         if (inView($(this))) {
 
-            if(location.pathname != $(this).attr('data-page-url') ){
+            if(location.pathname + window.location.search !== $(this).attr('data-page-url') ){
+
                 window.history.pushState('', document.title, $(this).attr('data-page-url'));
+
                 yaCounter50332519.hit($(this).attr('data-page-url'));
 
                 ga('send', {
                     hitType: 'pageview',
-                    page: location.pathname
+                    page: location.pathname + window.location.searc
                 });
 
             }

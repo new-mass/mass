@@ -15,9 +15,10 @@ $this->registerMetaTag([
 
 echo '<div class="col-12">';
 echo '<div class="row fisrst-content">';
+echo '<div data-page-url="'.Yii::$app->request->url.'" class="col-12"></div>';
 
 if ( $meta and !isset($main)) echo '<div class="col-12"><h1 class="h1">'.$meta['h1'].'</h1></div>';
-
+echo '<div class="col-12" data-page-url="/"></div>';
 if ($posts) {
 
     foreach ($posts as $item){

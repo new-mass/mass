@@ -12,7 +12,7 @@ $metro = false;
                         <picture class="picture-<?php echo $item['id'] ?>">
                             <img onload="removeBlur(this)" loading="lazy" data-id="<?php echo $item['id'] ?>" class="photo photo-list img-<?php echo $item['id'] ?>"
                                  data-src="" src="<?php echo $item['avatar']['file'] ?>"
-                                 alt="Массажистка  <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> Санкт-Петербург">
+                                 alt="Массажистка  <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> ">
                         </picture>
                     </a>
 
