@@ -85,6 +85,9 @@ class SiteController extends Controller
      */
     public function actionIndex($city = 'moskva')
     {
+
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
         Yii::$app->cache->flush();
 
         $this->layout = 'main-page';
@@ -145,6 +148,9 @@ class SiteController extends Controller
 
     public function actionFilter( $city= 'moskva', $param)
     {
+
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
         $uri = PageHelper::cropUriParams($_SERVER['REQUEST_URI']);
 
         $posts = QueryParamsHelper::getParams($param, $city, Yii::$app->params['post_limit']);
@@ -342,6 +348,9 @@ class SiteController extends Controller
 
     public function actionGetMorePost($city= 'moskva')
     {
+
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
         $params = Yii::$app->request->post();
 
         $offset = $params['offset'];

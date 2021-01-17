@@ -138,7 +138,7 @@ class ImportController extends Controller
 
             $avatar = new Photo();
             $avatar->user_id = $model->id;
-            $avatar->file = $post['single_avatar'];
+            $avatar->file = str_replace('/upload/images/products/', '/uploads/aaa/',$post['single_avatar']);
             $avatar->avatar = 1;
             $avatar->save();
 
@@ -150,7 +150,7 @@ class ImportController extends Controller
 
                 $avatar = new Photo();
                 $avatar->user_id = $model->id;
-                $avatar->file = $galItem;
+                $avatar->file = str_replace('/upload/images/products/', '/uploads/aaa/',$galItem);
                 $avatar->avatar = 0;
                 $avatar->save();
 
@@ -262,6 +262,7 @@ class ImportController extends Controller
                     $postComment->mark = $comment['marc'];
                     $postComment->status = 1;
                     $postComment->text = $comment['text'];
+                    $postComment->old_date = $comment['date'];
                     $postComment->parent_id = $parentComment['id'];
                     $postComment->save();
 
@@ -275,6 +276,7 @@ class ImportController extends Controller
                     $postComment->city_id = $city['id'];
                     $postComment->mark = $comment['marc'];
                     $postComment->status = 1;
+                    $postComment->old_date = $comment['date'];
                     $postComment->text = $comment['text'];
                     $postComment->save();
 

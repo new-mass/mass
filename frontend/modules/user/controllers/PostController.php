@@ -22,6 +22,8 @@ class PostController extends Controller
     public function actionView($url, $city = 'moskva')
     {
 
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
         if ($post = Posts::find()->where(['url' => $url])
             ->with('avatar')
             ->with('gallery')
