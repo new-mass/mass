@@ -21,7 +21,7 @@ $this->title = 'Войти в кабинет';
             <?= $form->field($modelSign, 'email')->textInput(['placeholder' => 'Ваш email'])->label(false) ?>
 
             <?= $form->field($modelSign, 'password')->passwordInput(['placeholder' => 'Пароль'])->label(false) ?>
-
+            <div class="g-recaptcha" data-sitekey="6Led3OgUAAAAANsRaxNxoM2Ztp0FOB1czuflyHag"></div>
             <div class="form-group">
                 <?= Html::submitButton('Регистрация', ['class' => 'btn accent-btn-1 register-btn', 'name' => 'signup-button', 'onclick' => "yaCounter50332519.reachGoal('REGITER');return true;"]) ?>
             </div>

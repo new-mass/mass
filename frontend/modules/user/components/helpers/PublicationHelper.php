@@ -25,7 +25,7 @@ class PublicationHelper
             $this->post = $post;
 
             if (!$this->user = User::find()->where(['id' => $this->post->user_id])
-                ->orWhere(['old_id' => $this->post->old_user_id])->one())
+                ->orWhere(['old_id' => $this->post->old_user_id])->andWhere(['city_id' => $post['city_id']])->one())
                 throw new \Exception('Пользователь не найден');
 
         }

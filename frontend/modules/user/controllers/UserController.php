@@ -55,9 +55,36 @@ class UserController extends Controller
         return $this->goHome();
     }
 
-    public function actionRegister(){
+    public function actionRegister($city = 'moskva'){
 
         $modelSign = new SignupForm();
+
+        if (Yii::$app->request->isPost){
+
+            if ( !$_POST['g-recaptcha-response'] ){
+
+                Yii::$app->session->setFlash('warning', 'Нужно заполнить капчу');
+
+                return $this->redirect('/cabinet/login');
+
+            }
+
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $key = '6Led3OgUAAAAAM45wrjpjCGEw8DDn_B62d-jTXrK';
+            $query = $url.'?secret='.$key.'&response='.$_POST['g-recaptcha-response'].'&remoteip='.$_SERVER['REMOTE_ADDR'];
+
+            $data = json_decode(file_get_contents($query));
+
+            if ( $data->success == false) {
+
+                Yii::$app->session->setFlash('warning', 'Капча заполнена не верно');
+
+                return $this->redirect('/cabinet/login');
+
+            }
+
+        }
+
         if ($modelSign->load(Yii::$app->request->post()) && $user = $modelSign->signup() and Yii::$app->user->login($user)) {
             Yii::$app->session->setFlash('success', 'Регистрация прошла успешно, Вам отправлено письмо с подтверждением почты');
             return $this->redirect('/cabinet');
