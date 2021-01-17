@@ -43,6 +43,14 @@ $this->registerJsFile('/js/script.js?v=1', ['depends' => [\frontend\assets\AppAs
     <meta name="msapplication-TileColor" content="#4d0862">
     <meta name="msapplication-TileImage" content="/img/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#4d0862">
+    <?php
+
+    if (strpos(Yii::$app->request->url,'?')){
+        echo '<link rel="canonical" href="'.strstr(Yii::$app->request->url, '?', true).'">';
+    }
+
+    ?>
+
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>

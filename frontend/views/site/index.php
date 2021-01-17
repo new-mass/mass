@@ -26,10 +26,15 @@ if (isset($tag) and $tag){
 
 echo '<div class="col-12">';
 echo '<div class="row fisrst-content">';
-echo '<div data-page-url="'.Yii::$app->request->url.'" class="col-12"></div>';
+if (strpos(Yii::$app->request->url,'?')){
+    echo '<div data-page-url="'.strstr(Yii::$app->request->url, '?', true).'" class="col-12"></div>';
+}else{
+    echo '<div data-page-url="'.Yii::$app->request->url.'" class="col-12"></div>';
+}
+
 
 if ( $meta and !isset($main)) echo '<div class="col-12"><h1 class="h1">'.$meta['h1'].'</h1></div>';
-echo '<div class="col-12" data-page-url="/"></div>';
+
 if ($posts) {
 
     foreach ($posts as $item){
