@@ -48,7 +48,7 @@
                 </div>
                 <div class="custom-card-right">
                     <div class="custom-card_data">
-                        <a target="_blank" class="url name name-pr" href="/<?php echo $item['url'] ?>"><span
+                        <a target="_blank" class="url name name-pr" href="/anketa/<?php echo $item['url'] ?>"><span
                                     class="fn org"><?php echo $item['name'] ?></span></a>
                         <div class="row">
                             <div class="col-6">
