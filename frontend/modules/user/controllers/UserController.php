@@ -57,6 +57,10 @@ class UserController extends Controller
 
     public function actionRegister($city = 'moskva'){
 
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
+        $cityInfo = City::getCity($city);
+
         $modelSign = new SignupForm();
 
         if (Yii::$app->request->isPost){

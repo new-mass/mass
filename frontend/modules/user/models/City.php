@@ -42,4 +42,21 @@ class City extends \yii\db\ActiveRecord
             'name' => 'Name',
         ];
     }
+
+    public static function getCity($city_name)
+    {
+        $city = Yii::$app->cache->get('city_'.$city_name);
+
+        if ($city === false) {
+
+            $city = City::find()->where(['name' => $city_name])->asArray()->one();
+
+            Yii::$app->cache->set('city_'.$city_name, $city);
+
+        }
+
+        return $city;
+
+    }
+
 }
