@@ -1,3 +1,10 @@
+<?php
+
+/* @var $posts array */
+/* @var $totalView integer */
+/* @var $dayView integer */
+
+?>
 <div class="cabinet-sidebar">
     <ul>
         <li><a href="/cabinet">Главная страница</a></li>
@@ -21,14 +28,14 @@
             <p class="small-text">Просмотров
                 за день:</p>
             <p class="green-text">
-                120
+                <?php echo $dayView ?>
             </p>
         </div>
         <div class="col-6">
             <p class="small-text">Просмотров
                 за все время:</p>
             <p class="green-text">
-                1200
+                <?php echo $totalView ?>
             </p>
         </div>
     </div>

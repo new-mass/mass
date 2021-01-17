@@ -6,7 +6,7 @@ $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css'), ['depends' => [\fr
 $this->title = "Кабинет";
 ?>
 <div class="col-3">
-    <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
+    <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget(['posts' => $items ]) ?>
 </div>
 <div class="col-9">
     <div class="row">

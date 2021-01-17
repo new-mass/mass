@@ -31,11 +31,17 @@ use frontend\components\Translit;
 class CabinetController extends Controller
 {
 
-    public function actionIndex($city)
+    public function actionIndex($city = 'moskva')
     {
 
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
+        $cityInfo = City::getCity($city);
+
         if (Yii::$app->user->identity->old_id){
-            $items = Posts::find()->where(['user_id' => Yii::$app->user->id])->orWhere( ['old_user_id' => Yii::$app->user->identity->old_id])
+            $items = Posts::find()->where(['user_id' => Yii::$app->user->id])
+                ->orWhere( ['old_user_id' => Yii::$app->user->identity->old_id])
+                ->andWhere(['city_id' => $cityInfo['id']])
                 ->asArray()
                 ->with('avatar')
                 ->with('viewsOnListing')
@@ -51,8 +57,6 @@ class CabinetController extends Controller
                 ->with('viewsPhone')
                 ->all();
         }
-
-
 
         return $this->render('index', [
             'items' => $items
