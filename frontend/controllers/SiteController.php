@@ -396,4 +396,13 @@ class SiteController extends Controller
 
         return false;
     }
+
+    public function actionRedirect($page)
+    {
+
+        $newUrl = str_replace('/page-'.$page, '?page='.$page, Yii::$app->request->url);
+
+        return $this->redirect($newUrl, 301);
+    }
+
 }

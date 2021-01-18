@@ -11,6 +11,9 @@ $this->title = 'Добавить анкету';
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>
 <div class="col-9">
+
+    <?php if (Yii::$app->user->identity['status'] == 10) : ?>
+
     <?php echo $this->renderFile(Yii::getAlias('@app/modules/user/views/cabinet/_form.php') , [
         'model' => $model,
         'city' => $city,
@@ -25,4 +28,15 @@ $this->title = 'Добавить анкету';
         'userComfort' => $userComfort,
         'userMetro' => $userMetro,
     ]); ?>
+
+        <?php else : ?>
+
+        <div class="col-12">
+            <div class="message">
+                <p>Для добавления анкет требуется активировать свой профиль перейде по ссылке в письме</p>
+            </div>
+        </div>
+
+    <?php endif; ?>
+
 </div>

@@ -86,6 +86,9 @@ class CabinetController extends Controller
 
     public function actionAdd($city = 'moskva')
     {
+
+        if (Yii::$app->user->identity['status'] == 9) return $this->redirect('/');
+
         $model = new \frontend\modules\user\models\Posts();
         $city = City::find()->select('id')->where(['name' => $city])->asArray()->one();
         $userPol = new UserPol();

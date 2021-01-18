@@ -1,9 +1,5 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
-    'supportEmail' => 'support@example.com',
-    'senderEmail' => 'noreply@example.com',
-    'senderName' => 'Example.com mailer',
     'user.passwordResetTokenExpire' => 3600,
     'view_today_cache_key' => 'today_view_listing',//_day_id post
     'single_view_today_cache_key' => 'today_view_single',//_day_id post
