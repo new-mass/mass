@@ -33,6 +33,7 @@ class CabinetController extends Controller
 
     public function actionIndex($city = 'moskva')
     {
+        if (Yii::$app->user->isGuest) return $this->redirect('/');
 
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
 
@@ -86,6 +87,8 @@ class CabinetController extends Controller
 
     public function actionAdd($city = 'moskva')
     {
+
+        if (Yii::$app->user->isGuest) return $this->redirect('/');
 
         if (Yii::$app->user->identity['status'] == 9) return $this->redirect('/');
 
@@ -192,6 +195,7 @@ class CabinetController extends Controller
 
     public function actionEdit($id, $city = 'moskva')
     {
+        if (Yii::$app->user->isGuest) return $this->redirect('/');
         $model = Posts::find()->where(['id' => $id])->with('comments')->one();
         $city = City::find()->select('id')->where(['name' => $city])->asArray()->one();
 
@@ -277,6 +281,7 @@ class CabinetController extends Controller
 
     public function actionFaq()
     {
+        if (Yii::$app->user->isGuest) return $this->redirect('/');
         return $this->render('faq');
     }
 
