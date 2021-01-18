@@ -89,6 +89,8 @@ class UserController extends Controller
 
         }
 
+        $modelSign->city_id = $cityInfo['id'];
+
         if ($modelSign->load(Yii::$app->request->post()) && $user = $modelSign->signup() and Yii::$app->user->login($user)) {
             Yii::$app->session->setFlash('success', 'Регистрация прошла успешно, Вам отправлено письмо с подтверждением почты');
             return $this->redirect('/cabinet');
