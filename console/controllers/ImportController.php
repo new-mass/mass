@@ -3,6 +3,7 @@
 
 namespace console\controllers;
 
+use common\models\SingleViewPost;
 use common\models\User;
 use frontend\components\Translit;
 use frontend\modules\user\components\helpers\SaveNameHelper;
@@ -10,9 +11,11 @@ use frontend\modules\user\models\City;
 use frontend\modules\user\models\Comfort;
 use frontend\modules\user\models\Comments;
 use frontend\modules\user\models\MassagDlya;
+use frontend\modules\user\models\PhoneView;
 use frontend\modules\user\models\Photo;
 use frontend\modules\user\models\Place;
 use frontend\modules\user\models\Posts;
+use frontend\modules\user\models\PostView;
 use frontend\modules\user\models\Rayon;
 use frontend\modules\user\models\relation\UserCheckAnket;
 use frontend\modules\user\models\relation\UserComfort;
@@ -22,6 +25,7 @@ use frontend\modules\user\models\relation\UserRayon;
 use frontend\modules\user\models\relation\UserService;
 use frontend\modules\user\models\relation\UserWorckTime;
 use frontend\modules\user\models\Service;
+use yii\base\Model;
 use yii\console\Controller;
 
 class ImportController extends Controller
@@ -92,6 +96,18 @@ class ImportController extends Controller
             $model->old_user_id = $post['user_id'];
 
             $model->saveOriginalMethod();
+
+            $postView = new PostView();
+            $postView->post_id = $model->id;
+            $postView->save();
+
+            $phoneView = new PhoneView();
+            $phoneView->post_id = $model->id;
+            $phoneView->save();
+
+            $postView = new SingleViewPost();
+            $postView->post_id = $model->id;
+            $postView->save();
 
             if ($post['check_by_photo'] == 1){
 
@@ -294,15 +310,19 @@ class ImportController extends Controller
     {
         $photo = Photo::find()->all();
 
-        foreach ($photo as $item){
+        foreach ($photo as $model){
 
-            if (strstr($item['file'], '/upload/images/products/')){
+            $postView = new PostView();
+            $postView->post_id = $model->id;
+            $postView->save();
 
-                $item['file'] = str_replace('/upload/images/products/', '/uploads/aaa/', $item['file']);
+            $phoneView = new PhoneView();
+            $phoneView->post_id = $model->id;
+            $phoneView->save();
 
-                $item->save();
-
-            }
+            $postView = new SingleViewPost();
+            $postView->post_id = $model->id;
+            $postView->save();
 
         }
     }
