@@ -17,8 +17,7 @@ class ViewController extends Controller
 
     public function actionGetCount()
     {
-        echo \frontend\modules\user\components\helpers\ViewPostHelper::getCount();
-        exit();
+        return \frontend\modules\user\components\helpers\ViewPostHelper::getCount();
     }
 
     public function actionIndex()
