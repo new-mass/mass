@@ -32,6 +32,7 @@ class ImportController extends Controller
 {
 
     public $tablePref = 'rostov-na-donu';
+    public $city_id = 7;
 
     public function actionUser()
     {
@@ -44,6 +45,10 @@ class ImportController extends Controller
            $user->email = $userItem['email'];
            $user->old_id = $userItem['id'];
 
+           $cash = \Yii::$app->db2->createCommand("SELECT * from `obt_cash` WHERE `city` = '".$this->tablePref."' AND  `id_user` = ".$userItem['id'] )->queryOne();
+
+           if (isset($cash['cash'])) $user->cash = $cash['cash'];
+
            $user->setPassword($userItem['pass']);
            $user->generateAuthKey();
            $user->generateEmailVerificationToken();
@@ -52,9 +57,11 @@ class ImportController extends Controller
            else $user->status = 9;
 
            $user->old_pass = $userItem['pass'];
-           $user->city_id = 7;
+           $user->city_id = $this->city_id;
 
            $user->save();
+
+
 
        }
     }
@@ -62,7 +69,7 @@ class ImportController extends Controller
     public function actionPosts()
     {
 
-        $city = City::findOne(7);
+        $city = City::findOne($this->city_id);
 
         $translit = new Translit();
 
@@ -91,7 +98,7 @@ class ImportController extends Controller
             if ($post['online'] == 7) $model->status = Posts::POST_ON_PUBLICATION;
             else $model->status = Posts::POST_DONT_PUBLICATION;
 
-            $model->url = $model->url = SaveNameHelper::save(strtolower($translit->translit($model->name, false, 'ru-en')));
+            $model->url = $model->url = SaveNameHelper::save(strtolower($translit->translit(trim($model->name), false, 'ru-en')));
 
             $model->old_user_id = $post['user_id'];
 
