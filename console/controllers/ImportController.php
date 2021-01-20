@@ -255,8 +255,8 @@ class ImportController extends Controller
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
                 $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['comfort_id']}")->queryOne();
-                if (isset($service['url'])){
-                $newService = Comfort::find()->where(['url' => $service['url']])->asArray()->one();
+                if (isset($service['value'])){
+                $newService = Comfort::find()->where(['url' => $service['value']])->asArray()->one();
 
                 $postComfort = new UserComfort();
                 $postComfort->prop_id = $newService['id'];

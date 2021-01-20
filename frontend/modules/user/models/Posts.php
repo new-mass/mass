@@ -4,6 +4,7 @@ namespace frontend\modules\user\models;
 
 use common\models\SingleViewPost;
 use frontend\modules\user\models\relation\UserCheckAnket;
+use frontend\modules\user\models\relation\UserComfort;
 use frontend\modules\user\models\relation\UserMassagDlya;
 use frontend\modules\user\models\relation\UserMetro;
 use frontend\modules\user\models\relation\UserPlace;
@@ -140,6 +141,17 @@ class Posts extends \yii\db\ActiveRecord
     public function getService(){
 
         return $this->hasMany(Service::class, ['id' => 'prop_id'])->via('serviceRelation');
+
+    }
+    public function getComfortRelation(){
+
+        return $this->hasMany(UserComfort::class, [ 'user_id' => 'id']);
+
+    }
+
+    public function getComfort(){
+
+        return $this->hasMany(Comfort::class, ['id' => 'prop_id'])->via('comfortRelation');
 
     }
 

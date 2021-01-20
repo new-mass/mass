@@ -154,6 +154,19 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
                     <?php endif; ?>
 
+                    <?php if (!empty($post['comfort'])) : ?>
+
+                        <div class="anket-heading"><h2 class="big-heading">Удобства</h2></div>
+                        <div class="service_list">
+                            <ul class="service_ul">
+                                <?php foreach ($post['comfort'] as $item) : ?>
+                                    <li class="service_list"><?php echo $item['value'] ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+
+                    <?php endif; ?>
+
                     <div style="clear: both"></div>
                     <br>
                     <div class="row">

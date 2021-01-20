@@ -34,6 +34,7 @@ class PostController extends Controller
             ->with('workTime')
             ->with('rayon')
             ->with('comments')
+            ->with('comfort')
             ->asArray()->one()){
 
             SingleViewPost::updateAllCounters(['count' => 1], ['post_id' =>$post['id'] ]);

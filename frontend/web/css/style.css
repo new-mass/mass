@@ -304,13 +304,12 @@ header .owl-stage-outer{
     margin-top: 15px;
     font-size: 15px;
 }
-.service_list li a{
+.service_list li a , .service_list li {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 202.69%;
-
     /* or 30px */
     text-decoration-line: underline;
 
