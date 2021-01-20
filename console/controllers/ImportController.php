@@ -256,7 +256,7 @@ class ImportController extends Controller
 
                 $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['comfort_id']}")->queryOne();
                 if (isset($service['value'])){
-                $newService = Comfort::find()->where(['url' => $service['value']])->asArray()->one();
+                $newService = Comfort::find()->where(['value' => $service['value']])->asArray()->one();
 
                 $postComfort = new UserComfort();
                 $postComfort->prop_id = $newService['id'];
@@ -325,7 +325,7 @@ class ImportController extends Controller
 
                 $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['comfort_id']}")->queryOne();
                 if (isset($service['value'])){
-                    $newService = Comfort::find()->where(['url' => $service['value']])->asArray()->one();
+                    $newService = Comfort::find()->where(['value' => $service['value']])->asArray()->one();
 
                     $postComfort = new UserComfort();
                     $postComfort->prop_id = $newService['id'];
