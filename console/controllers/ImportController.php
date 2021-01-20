@@ -250,7 +250,7 @@ class ImportController extends Controller
 
             }
 
-            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '".$city['id']."'")->queryAll();
+            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '9'")->queryAll();
 
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
@@ -319,7 +319,7 @@ class ImportController extends Controller
 
         foreach ($posts as $post){
 
-            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['old_id']} and `city_id` = '".$this->city_id."'")->queryAll();
+            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['old_id']} and `city_id` = '9'")->queryAll();
 
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
