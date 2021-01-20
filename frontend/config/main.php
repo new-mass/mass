@@ -50,6 +50,7 @@ return [
             'rules' => [
                 //  => 'product/index'
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/' => 'site/index',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/page-<page:[0-9]+>' => 'site/redirect',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/site/new' => 'site/new',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/view/count' => 'view/get-count',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/prosmotreno' => 'view/index',

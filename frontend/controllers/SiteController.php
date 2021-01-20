@@ -402,6 +402,8 @@ class SiteController extends Controller
 
         $newUrl = str_replace('/page-'.$page, '?page='.$page, Yii::$app->request->url);
 
+        if (strpos($newUrl, '/') === false) $newUrl = '/'.$newUrl;
+
         return $this->redirect($newUrl, 301);
     }
 
