@@ -315,23 +315,30 @@ class ImportController extends Controller
 
     public function actionCust()
     {
-        $photo = Photo::find()->all();
+        $posts = Posts::find()->asArray()->all();
 
-        foreach ($photo as $model){
+        foreach ($posts as $post){
 
-            $postView = new PostView();
-            $postView->post_id = $model->id;
-            $postView->save();
+            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['old_id']} and `city_id` = '".$this->city_id."'")->queryAll();
 
-            $phoneView = new PhoneView();
-            $phoneView->post_id = $model->id;
-            $phoneView->save();
+            if ($userComfort) foreach ($userComfort as $userComfortItem){
 
-            $postView = new SingleViewPost();
-            $postView->post_id = $model->id;
-            $postView->save();
+                $service = \Yii::$app->db2->createCommand("select * from `comfort`  WHERE `id` = {$userComfortItem['comfort_id']}")->queryOne();
+                if (isset($service['value'])){
+                    $newService = Comfort::find()->where(['url' => $service['value']])->asArray()->one();
+
+                    $postComfort = new UserComfort();
+                    $postComfort->prop_id = $newService['id'];
+                    $postComfort->user_id = $post['id'];
+
+                    $postComfort->save();
+
+
+                }
+            }
 
         }
+
     }
 
 }
