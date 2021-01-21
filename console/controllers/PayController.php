@@ -14,7 +14,7 @@ class PayController extends Controller
 {
     public function actionIndex()
     {
-        if ($posts = Posts::find()->where([ '<', 'pay_time', time()])->all()){
+        if ($posts = Posts::find()->where([ '<', 'pay_time', time()])->andWhere(['status' => Posts::POST_ON_PUBLICATION])->all()){
 
             foreach ($posts as $post){
 
