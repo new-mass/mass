@@ -98,6 +98,12 @@ class PostController extends Controller
                 ->orderBy(['rand()' => SORT_DESC])
                 ->asArray()->one()){
 
+                SingleViewPost::updateAllCounters(['count' => 1], ['post_id' =>$post['id'] ]);
+
+                DayViewHelper::addViewSingle($post['id']);
+
+                ViewPostHelper::addToView($post['id']);
+
                 return $this->renderFile(Yii::getAlias('@app/modules/user/views/post/post.php'), [
                     'post' => $post,
                 ]);
