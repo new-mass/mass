@@ -185,14 +185,15 @@ function getPhone(object) {
             },
             cache: false,
             success: function (data) {
+
                 $(object).html('<a href="tel: +' +phone+ '">' +phone+ '</a>');
                 window.location.href="tel: +"+phone;
-
-                $(object).closest(".custom-card-right").addClass('open-cart');
 
             },
 
         });
+
+        $(object).html('<a href="tel: +' +phone+ '">' +phone+ '</a>');
 
     }
 
