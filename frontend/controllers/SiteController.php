@@ -337,6 +337,7 @@ class SiteController extends Controller
                 Yii::$app->params['meta'] = $meta;
 
                 $posts = Posts::find()->where(['like', 'name', $searchModel->name])->with('avatar')
+                    ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
                     ->with('metro')
                     ->with('rayon')
                     ->orderBy('sorting desc')->asArray()->all();

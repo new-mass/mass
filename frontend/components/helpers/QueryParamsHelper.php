@@ -56,6 +56,7 @@ class QueryParamsHelper
                                     ->with('avatar')
                                     ->with('metro')
                                     ->with('rayon')
+                                    ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
                                     ->limit($limit)
                                     ->offset($offset)
                                    ;
