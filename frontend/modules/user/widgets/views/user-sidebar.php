@@ -15,6 +15,7 @@
         <li><a href="/cabinet/logout">Выйти</a></li>
     </ul>
 </div>
+<?php if ($dayView or $totalView) : ?>
 <div class="all-stat-block">
     <div class="row">
         <div class="col-12">
@@ -40,3 +41,4 @@
         </div>
     </div>
 </div>
+    <?php endif; ?>
