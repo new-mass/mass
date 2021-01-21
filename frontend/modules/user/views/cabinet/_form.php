@@ -37,6 +37,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
 <div class="col-12">
     <h1 class="user-name-single"><?php echo $this->title ?></h1>
 </div>
+<script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
 <div class="user-cabinet-add">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
