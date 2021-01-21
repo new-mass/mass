@@ -84,6 +84,7 @@ class PostController extends Controller
             $temp = explode(',', htmlspecialchars(rtrim(\Yii::$app->request->post('post_id'), ',')));
 
             if ($post = Posts::find()->where(['not in' , 'id', $temp])
+                ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
                 ->with('avatar')
                 ->with('gallery')
                 ->with('service')
