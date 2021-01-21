@@ -92,6 +92,7 @@ class PostController extends Controller
                 ->with('check')
                 ->with('workTime')
                 ->with('rayon')
+                ->with('comfort')
                 ->with('comments')
                 ->orderBy(['rand()' => SORT_DESC])
                 ->asArray()->one()){
