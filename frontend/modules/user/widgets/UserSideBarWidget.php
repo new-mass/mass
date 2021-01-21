@@ -29,10 +29,13 @@ class UserSideBarWidget extends Widget
 
         }
 
-        return $this->render('user-sidebar' , [
+        if ($this->posts) return $this->render('user-sidebar' , [
                     'posts' => $this->posts,
                 'totalView' => $totalView,
                  'dayView' => $dayView
         ]);
+
+        return false;
+
     }
 }
