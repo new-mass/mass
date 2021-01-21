@@ -252,7 +252,7 @@ class CabinetController extends Controller
         }
 
         $userPol = UserPol::find()->where(['user_id' => $model->id])->one() ?: new UserPol() ;
-        $userWorkTime = UserWorckTime::find()->where(['post_id' => $model->id])->one();
+        $userWorkTime = UserWorckTime::find()->where(['post_id' => $model->id])->one() ?: new UserWorckTime();
         $photo = Photo::find()->where(['user_id' => $model->id])->one();
         $userCheck->prop_id = ArrayHelper::getColumn(UserCheckAnket::find()->where(['user_id' => $model->id])->all(), 'prop_id');
 
