@@ -182,6 +182,10 @@ class SiteController extends Controller
         if(\count($posts) < 6) $more_posts = Posts::find()->limit(8)
             ->all();
 
+        DayViewHelper::addViewListing($posts);
+
+        PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
+
         return $this->render('index', [
             'posts' => $posts,
             'city' => $city,
@@ -388,6 +392,10 @@ class SiteController extends Controller
         $page = PageHelper::getPageNumber(Yii::$app->params['post_limit'],$offset );
 
         $pageUrl = PageHelper::getUrl($params['url'], $page + 1);
+
+        DayViewHelper::addViewListing($posts);
+
+        PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
 
         if ($posts) return $this->renderFile('@app/views/site/more.php', [
             'posts' => $posts,
