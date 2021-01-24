@@ -18,8 +18,18 @@ class PayController extends Controller
 
             foreach ($posts as $post){
 
-                $user = User::find()->where(['id' => $post['user_id']])->orWhere(['old_id' => $post['old_user_id']])
-                    ->andWhere(['city_id' => $post['city_id']])->one();
+                if ($post['old_user_id']){
+
+                    $user = User::find()
+                        ->where(['old_id' => $post['old_user_id']])
+                        ->andWhere(['city_id' => $post['city_id']])->one();
+
+                }else{
+
+                    $user = User::find()->where(['id' => $post['user_id']])
+                        ->andWhere(['city_id' => $post['city_id']])->one();
+
+                }
 
                 $tarif = Tarif::find()->where(['value' => $post['tarif_id']])->asArray()->one();
 
