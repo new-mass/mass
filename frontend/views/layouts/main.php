@@ -11,7 +11,6 @@ use common\assets\FontAwesomeAsset;
 use yii\widgets\ActiveForm;
 
 AppAsset::register($this);
-FontAwesomeAsset::register($this);
 
 $searchForm = new \frontend\models\forms\SearchForm();
 $claimForm = new \frontend\models\forms\ClaimForm();

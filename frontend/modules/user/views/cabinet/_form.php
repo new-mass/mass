@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use frontend\modules\user\models\Tarif;
+use common\assets\FontAwesomeAsset;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\user\models\Posts */
@@ -19,7 +20,7 @@ use frontend\modules\user\models\Tarif;
 /* @var $userComfort \frontend\modules\user\models\relation\UserComfort */
 /* @var $city array */
 /* @var $userMetro \frontend\modules\user\models\relation\UserMetro */
-
+FontAwesomeAsset::register($this);
 $pol = ArrayHelper::map(\frontend\modules\user\models\Pol::find()->asArray()->all(), 'id', 'value');
 $time = \frontend\modules\user\components\helpers\TimeHelper::generateDayTime();
 $check = ArrayHelper::map(\frontend\modules\user\models\CheckAnket::find()->asArray()->all(), 'id', 'value');

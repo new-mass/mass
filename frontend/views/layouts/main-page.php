@@ -14,7 +14,6 @@ use yii\widgets\ActiveForm;
 $searchForm = new \frontend\models\forms\SearchForm();
 
 AppAsset::register($this);
-FontAwesomeAsset::register($this);
 
 $this->registerJsFile('/js/single.js', ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->registerJsFile('/js/script.js', ['depends' => [\frontend\assets\AppAsset::class]]);

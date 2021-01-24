@@ -842,7 +842,12 @@ body{
         max-width: 1920px;
     }
 }
-
+.owl-prev , .owl-next{
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 @media (min-width:1199px) {
     .register-btn{
         padding-top: 11px!important;
@@ -858,7 +863,12 @@ body{
     }
     .nav-img-btn{
         top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+
     .custom-card-right:hover {
         height: 218px;
         transition: all 0.5s ease-out;
