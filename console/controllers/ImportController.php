@@ -351,7 +351,7 @@ class ImportController extends Controller
             $pageMeta = new PageMeta();
 
             $pageMeta->city_id = 8;
-            $pageMeta->page_name = $item['page_name'];
+            $pageMeta->page_name = '/'. $item['page_name'];
             $pageMeta->title = $item['title'];
             $pageMeta->des = $item['des'];
             $pageMeta->h1 = $item['h1'];
