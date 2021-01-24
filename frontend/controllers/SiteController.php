@@ -156,6 +156,8 @@ class SiteController extends Controller
 
         $uri = PageHelper::cropUriParams($_SERVER['REQUEST_URI']);
 
+        $city = City::getCity($city);
+
         $posts = QueryParamsHelper::getParams($param, $city, Yii::$app->params['post_limit']);
 
         if ($posts){
@@ -169,8 +171,6 @@ class SiteController extends Controller
             $posts = $posts->offset($pages->offset)->orderBy('tarif_id desc, sorting desc')->asArray()->all();
 
         }
-
-        $city = City::getCity($city);
 
         $meta = PageMeta::find()->where(['page_name' => $uri, 'city_id' =>$city['id']])->asArray()->one();
 
