@@ -22,6 +22,7 @@ use frontend\modules\user\models\relation\UserCheckAnket;
 use frontend\modules\user\models\relation\UserComfort;
 use frontend\modules\user\models\relation\UserMassagDlya;
 use frontend\modules\user\models\relation\UserPlace;
+use frontend\modules\user\models\relation\UserPol;
 use frontend\modules\user\models\relation\UserRayon;
 use frontend\modules\user\models\relation\UserService;
 use frontend\modules\user\models\relation\UserWorckTime;
@@ -33,7 +34,7 @@ class ImportController extends Controller
 {
 
     public $tablePref = 'krasnodar';
-    public $city_id = 7;
+    public $city_id = 8;
 
     public function actionUser()
     {
@@ -104,6 +105,19 @@ class ImportController extends Controller
             $model->old_user_id = $post['user_id'];
 
             $model->saveOriginalMethod();
+
+            if($post['pol']){
+
+                $userPol = new UserPol();
+
+                $userPol->user_id = $model->id;
+
+                if ($post['pol'] == 1) $userPol->prop_id = 2;
+                if ($post['pol'] == 2) $userPol->prop_id = 1;
+
+                $userPol->save();
+
+            }
 
             $postView = new PostView();
             $postView->post_id = $model->id;
@@ -251,7 +265,7 @@ class ImportController extends Controller
 
             }
 
-            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '9'")->queryAll();
+            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '10'")->queryAll();
 
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
