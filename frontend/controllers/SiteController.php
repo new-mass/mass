@@ -115,7 +115,7 @@ class SiteController extends Controller
 
         }
 
-        $posts = Posts::find()->where(['status' => 1])->limit(Yii::$app->params['post_limit']);
+        $posts = Posts::find()->where(['status' => 1])->andWhere(['city_id' => $city['id']])->limit(Yii::$app->params['post_limit']);
 
         $countQuery = clone $posts;
 
@@ -145,6 +145,7 @@ class SiteController extends Controller
             'main' => $main,
             'pages' => $pages,
             'tag' => $tag,
+            'city' => $city,
             ]);
     }
 
@@ -169,9 +170,13 @@ class SiteController extends Controller
 
         }
 
-        $city = City::find()->where(['name' => $city])->asArray()->one();
+        $city = City::getCity($city);
 
         $meta = PageMeta::find()->where(['page_name' => $uri, 'city_id' =>$city['id']])->asArray()->one();
+
+        DayViewHelper::addViewListing($posts);
+
+        PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
 
         Yii::$app->params['meta'] = $meta;
 
@@ -180,9 +185,7 @@ class SiteController extends Controller
         if(\count($posts) < 6) $more_posts = Posts::find()->limit(8)
             ->all();
 
-        DayViewHelper::addViewListing($posts);
 
-        PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
 
         return $this->render('index', [
             'posts' => $posts,
@@ -199,7 +202,7 @@ class SiteController extends Controller
 
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
 
-        $city = City::find()->where(['name' => $city])->asArray()->one();
+        $city = City::getCity($city);
 
         $posts = Posts::find()->where(['status' => 1])
             ->andWhere(['city_id' => $city['id']])
@@ -360,10 +363,39 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionGetMorePost($city= 'moskva')
+    public function actionNewPost($city = 'moskva')
+    {
+        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
+        $city = City::getCity($city);
+
+        $posts = Posts::find()->where(['status' => 1])
+            ->andWhere(['city_id' => $city['id']])
+            ->with('avatar')
+            ->with('metro')
+            ->with('rayon')
+            ->orderBy('id desc')->asArray()->all();
+
+        $meta = PageMeta::find()
+            ->where(['page_name' => PageHelper::cropUriParams($_SERVER['REQUEST_URI']), 'city_id' =>$city['id']])->asArray()->one();
+
+        DayViewHelper::addViewListing($posts);
+
+        PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
+
+        return $this->render('index', [
+            'posts' => $posts,
+            'city' => $city,
+            'meta' => $meta,
+        ]);
+    }
+
+    public function actionGetMorePost($city = 'moskva')
     {
 
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
+
+        $city = City::getCity($city);
 
         $params = Yii::$app->request->post();
 
@@ -373,11 +405,24 @@ class SiteController extends Controller
 
             $posts = Posts::find()->where(['status' => 1])
                 ->with('avatar')
+                ->andWhere(['city_id' => $city['id']])
                 ->with('metro')
                 ->with('rayon')
                 ->limit(Yii::$app->params['post_limit'])
                 ->offset($offset)
                 ->orderBy('sorting desc')->asArray()->all();
+
+        }elseif($params['url'] == '/new'){
+
+            $posts = Posts::find()->where(['status' => 1])
+                ->andWhere(['city_id' => $city['id']])
+                ->with('avatar')
+                ->with('metro')
+                ->with('rayon')
+                ->orderBy('id desc')
+                ->limit(Yii::$app->params['post_limit'])
+                ->offset($offset)
+                ->asArray()->all();
 
         }else{
 

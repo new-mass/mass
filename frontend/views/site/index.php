@@ -52,7 +52,27 @@ if ($posts) {
     echo '</div>';
 }
 ?>
+    <?php if (isset($city)) : ?>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
 
+<?php if ($city['name'] == 'moskva') : ?>
+
+            "url": "https://e-mass.top",
+            "logo": "https://e-mass.top/imgs/logo.png",
+
+<?php else : ?>
+
+"url": "https://<?php echo $city['name'] ?>.e-mass.top",
+"logo": "https://korolev.e-mass.top/imgs/logo.png"
+
+<?php endif; ?>
+
+        }
+    </script>
+    <?php endif; ?>
     <div class="row">
         <div class="col-12">
             <?php

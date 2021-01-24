@@ -13,8 +13,6 @@ class QueryParamsHelper
     public static function getParams($params ,$city, $limit = 12, $offset = 0)
     {
 
-        $city = City::find()->select('id')->where(['name' => $city])->asArray()->one();
-
         if (strpos($params, '/?page')) $params = strstr($params, '/?page', true);
 
         $params = explode('/', $params);
@@ -97,6 +95,7 @@ class QueryParamsHelper
                 }
 
                 return $id->andWhere(['status' => 1])
+                    ->andWhere(['city_id' => $city['id']])
                     ->with('avatar')
                     ->with('metro')
                     ->limit($limit)
@@ -148,6 +147,7 @@ class QueryParamsHelper
                 }
 
                 return $id->andWhere(['status' => 1])->with('avatar')->with('metro')->limit($limit)
+                    ->andWhere(['city_id' => $city['id']])
                     ->offset($offset)
                     ->with('rayon')->orderBy('sorting desc');
 
