@@ -77,14 +77,17 @@ class PostController extends Controller
         //return $this->goHome();
     }
 
-    public function actionMorePost($city)
+    public function actionMorePost($city = 'moskva')
     {
         if (\Yii::$app->request->isPost){
 
             $temp = explode(',', htmlspecialchars(rtrim(\Yii::$app->request->post('post_id'), ',')));
 
+            $city = City::getCity($city);
+
             if ($post = Posts::find()->where(['not in' , 'id', $temp])
                 ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
+                ->andWhere(['city_id' => $city['id']])
                 ->with('avatar')
                 ->with('gallery')
                 ->with('service')
