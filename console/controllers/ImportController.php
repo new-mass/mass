@@ -6,6 +6,7 @@ namespace console\controllers;
 use common\models\SingleViewPost;
 use common\models\User;
 use frontend\components\Translit;
+use frontend\models\PageMeta;
 use frontend\modules\user\components\helpers\SaveNameHelper;
 use frontend\modules\user\models\City;
 use frontend\modules\user\models\Comfort;
@@ -31,7 +32,7 @@ use yii\console\Controller;
 class ImportController extends Controller
 {
 
-    public $tablePref = 'rostov-na-donu';
+    public $tablePref = 'krasnodar';
     public $city_id = 7;
 
     public function actionUser()
@@ -339,6 +340,27 @@ class ImportController extends Controller
 
         }
 
+    }
+
+    public function actionMeta()
+    {
+        $meta = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_page_meta`")->queryAll();
+
+        foreach ($meta as $item){
+
+            $pageMeta = new PageMeta();
+
+            $pageMeta->city_id = 8;
+            $pageMeta->page_name = $item['page_name'];
+            $pageMeta->title = $item['title'];
+            $pageMeta->des = $item['des'];
+            $pageMeta->h1 = $item['h1'];
+            $pageMeta->h2 = $item['h2'];
+            $pageMeta->text = $item['text'];
+
+            $pageMeta->save();
+
+        }
     }
 
 }

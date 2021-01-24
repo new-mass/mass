@@ -374,6 +374,7 @@ class SiteController extends Controller
             ->with('avatar')
             ->with('metro')
             ->with('rayon')
+            ->limit(Yii::$app->params['post_limit'])
             ->orderBy('id desc')->asArray()->all();
 
         $meta = PageMeta::find()
