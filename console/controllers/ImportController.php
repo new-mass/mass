@@ -356,6 +356,23 @@ class ImportController extends Controller
 
     }
 
+    public function actionRayon()
+    {
+        $data = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_rayon`")->queryAll();
+
+        foreach ($data as $item){
+
+            $pageMeta = new Rayon();
+
+            $pageMeta->city_id = 8;
+            $pageMeta->url = $item['url'];
+            $pageMeta->value = $item['value'];
+
+            $pageMeta->save();
+
+        }
+    }
+
     public function actionMeta()
     {
         $meta = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_page_meta`")->queryAll();
