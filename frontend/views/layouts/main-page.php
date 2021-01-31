@@ -25,6 +25,10 @@ OwlAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preload" href="/fonts/oxygen.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Gilroy-Bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/oxygenbold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roboto.woff2" as="font" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-icon-60x60.png">
