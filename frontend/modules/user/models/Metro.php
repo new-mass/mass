@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string|null $url
  * @property string|null $value
+ * @property int|null $city_id
  */
 class Metro extends \yii\db\ActiveRecord
 {
@@ -28,6 +29,7 @@ class Metro extends \yii\db\ActiveRecord
     {
         return [
             [['url', 'value'], 'string', 'max' => 40],
+            [['city_id'], 'integer'],
         ];
     }
 

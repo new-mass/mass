@@ -12,6 +12,7 @@ use frontend\modules\user\models\City;
 use frontend\modules\user\models\Comfort;
 use frontend\modules\user\models\Comments;
 use frontend\modules\user\models\MassagDlya;
+use frontend\modules\user\models\Metro;
 use frontend\modules\user\models\PhoneView;
 use frontend\modules\user\models\Photo;
 use frontend\modules\user\models\Place;
@@ -33,8 +34,8 @@ use yii\console\Controller;
 class ImportController extends Controller
 {
 
-    public $tablePref = 'voronegh';
-    public $city_id = 6;
+    public $tablePref = 'spb';
+    public $city_id = 4;
 
     public function actionUser()
     {
@@ -265,7 +266,7 @@ class ImportController extends Controller
 
             }
 
-            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '8'")->queryAll();
+            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '4'")->queryAll();
 
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
@@ -359,6 +360,7 @@ class ImportController extends Controller
     public function actionRayon()
     {
         $data = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_rayon`")->queryAll();
+        $metro = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_metro`")->queryAll();
 
         foreach ($data as $item){
 
@@ -371,6 +373,23 @@ class ImportController extends Controller
             $pageMeta->save();
 
         }
+
+        if ($metro){
+
+            foreach ($metro as $metroItem){
+
+                $pageMeta = new Metro();
+
+                $pageMeta->city_id = $this->city_id;
+                $pageMeta->url = $metroItem['url'];
+                $pageMeta->value = $metroItem['value'];
+
+                $pageMeta->save();
+
+            }
+
+        }
+
     }
 
     public function actionMeta()
