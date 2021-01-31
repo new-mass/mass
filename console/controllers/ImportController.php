@@ -364,7 +364,7 @@ class ImportController extends Controller
 
             $pageMeta = new Rayon();
 
-            $pageMeta->city_id = 8;
+            $pageMeta->city_id = $this->city_id;
             $pageMeta->url = $item['url'];
             $pageMeta->value = $item['value'];
 
@@ -381,7 +381,7 @@ class ImportController extends Controller
 
             $pageMeta = new PageMeta();
 
-            $pageMeta->city_id = 8;
+            $pageMeta->city_id = $this->city_id;
             $pageMeta->page_name = '/'. $item['page_name'];
             $pageMeta->title = $item['title'];
             $pageMeta->des = $item['des'];
