@@ -70,7 +70,7 @@ $this->registerJsFile('/js/script.js?v=1', ['depends' => [\frontend\assets\AppAs
     ?>
 
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= $this->title ?></title>
     <?php $this->head() ?>
 </head>
 <?php $this->beginBody() ?>
