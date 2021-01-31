@@ -22,6 +22,7 @@ use frontend\modules\user\models\Rayon;
 use frontend\modules\user\models\relation\UserCheckAnket;
 use frontend\modules\user\models\relation\UserComfort;
 use frontend\modules\user\models\relation\UserMassagDlya;
+use frontend\modules\user\models\relation\UserMetro;
 use frontend\modules\user\models\relation\UserPlace;
 use frontend\modules\user\models\relation\UserPol;
 use frontend\modules\user\models\relation\UserRayon;
@@ -225,6 +226,24 @@ class ImportController extends Controller
                 $newService = Rayon::find()->where(['url' => $service['url']])->asArray()->one();
 
                 $serviceModel = new UserRayon();
+                $serviceModel->user_id = $model->id;
+                $serviceModel->prop_id = $newService['id'];
+
+                $serviceModel->save();
+
+
+            }
+            }
+
+            $userMetro = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_user_metro` WHERE `post_id` = {$post['id']}")->queryAll();
+
+            if ($userMetro) foreach ($userMetro as $item){
+
+                $service = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_metro` WHERE `id` = {$item['metro_id']}")->queryOne();
+                if (isset($service['url'])){
+                $newService = Metro::find()->where(['url' => $service['url']])->asArray()->one();
+
+                $serviceModel = new UserMetro();
                 $serviceModel->user_id = $model->id;
                 $serviceModel->prop_id = $newService['id'];
 
