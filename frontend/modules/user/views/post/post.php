@@ -18,9 +18,10 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                     <div class="thumb">
                         <div class="custom-card">
                             <picture class="picture-<?php echo $post['id'] ?>">
-                                <img loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
+
+                                <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
                                      src="<?php echo $post['avatar']['file'] ?>"
-                                     alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка   <?php echo $post['name'] ?>  Санкт-Петербург">
+                                     alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
                             </picture>
 
                             <?php if ($post['tarif_id'] == 6) : ?>

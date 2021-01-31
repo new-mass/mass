@@ -1077,6 +1077,9 @@ body{
 .filter-ul .filter-li {
     position: relative;
 }
+.custom-card{
+    min-height: 350px;
+}
 @media (max-width:1979px) {
     .ankets{
         padding: 0;
