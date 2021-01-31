@@ -55,7 +55,7 @@ class CashController extends Controller
 
         $payForm = new PayForm();
 
-        if ($payForm->sum < 200) {
+        if (Yii::$app->request->isPost and $payForm->sum < 200) {
 
             Yii::$app->session->setFlash('warning', 'Минимальная сумма пополнения 200 рублей');
 
