@@ -61,7 +61,7 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                                     <a class="single-carousel_item" href="<?php echo $item['file'] ?>">
                                         <img  loading="lazy" alt="<?php echo $post['name'] ?> "
                                               title="<?php echo $item['name'] ?> "
-                                              src="<?= Yii::$app->imageCache->thumbSrc($item['file'], '61_61') ?>" >
+                                              src="<?= Yii::$app->imageCache->thumbSrc($item['file'], '105_200') ?>" >
                                     </a>
                                 <?php endforeach; ?>
                             </div>
