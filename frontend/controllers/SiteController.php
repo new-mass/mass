@@ -90,8 +90,6 @@ class SiteController extends Controller
 
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
 
-        $this->layout = 'main-page';
-
         $city_name = $city;
 
         $city = Yii::$app->cache->get('city_'.$city_name);

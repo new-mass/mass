@@ -138,7 +138,7 @@ a.desc:after {
 }
 @font-face{
     font-family: 'Roboto';
-    src: url('../fonts/Roboto.ttf');
+    src: url('../fonts/Roboto.woff2');
     font-display: swap;
 }
 .name-pr{
