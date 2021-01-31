@@ -55,6 +55,14 @@ class CashController extends Controller
 
         $payForm = new PayForm();
 
+        if ($payForm->sum < 200) {
+
+            Yii::$app->session->setFlash('warning', 'Минимальная сумма пополнения 200 рублей');
+
+            return $this->redirect('/cabinet/pay', 302);
+
+        }
+
         if ($payForm->load(Yii::$app->request->post()) and $payForm->validate()){
 
             $order_id = Yii::$app->user->id.'_'.$city;
