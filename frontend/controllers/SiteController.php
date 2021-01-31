@@ -151,12 +151,12 @@ class SiteController extends Controller
     public function actionFilter( $city= 'moskva', $param)
     {
 
-        if($city == 'spb' and Yii::$app->request->url == 'massazh-dlya_muzhchin-spb'){
+        if($city == 'spb' and Yii::$app->request->url == '/massazh-dlya_muzhchin-spb'){
             header('Location: /massazh-dlya_muzhchin', true, 301);
             exit();
         }
 
-        if($city == 'spb' and Yii::$app->request->url == 'ehroticheskij_massazh-spb'){
+        if($city == 'spb' and Yii::$app->request->url == '/ehroticheskij_massazh-spb'){
             header('Location: /service_eroticheskiy', true, 301);
             exit();
         }
