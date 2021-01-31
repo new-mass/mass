@@ -1427,6 +1427,9 @@ body{
     }
 }
 @media (max-width:539px) {
+    .article-item .new-anket {
+        height: inherit;
+    }
     .search-form-wrap{
         display: none;
     }
