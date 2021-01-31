@@ -43,6 +43,113 @@ OwlAsset::register($this);
     <meta name="msapplication-TileColor" content="#4d0862">
     <meta name="msapplication-TileImage" content="/img/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#4d0862">
+    <style type="text/css">
+
+        <?php if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp')) : ?>
+
+        .main-header{
+            background: url("/img/webp/girl.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            background-repeat: no-repeat;
+            height: 950px;
+        }
+        .default-header {
+            background: url("/img/webp/bdsm-1973280_1920_1.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            background-repeat: no-repeat;
+        }
+
+        @media (max-width:1366px) {
+            .main-header{
+                height: 768px;
+                background: url("/img/webp/girl-1300.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            }
+        }
+
+        @media (max-width:991px) {
+            .default-header {
+                background: url("/img/webp/bdsm-1973280_1920_996.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .main-header{
+                height: 673px;
+                background: url("/img/webp/girl-960.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            }
+            .main-header{
+                height: 526px;
+                background: url("/img/webp/girl-760.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+        @media (max-width:767px) {
+            .default-header {
+                background: url("/img/webp/bdsm-1973280_1920_768.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        @media (max-width:539px) {
+            .main-header {
+                height: 566px;
+                background: url("/img/webp/girl-360.webp") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        <?php else : ?>
+        .main-header{
+            background: url("/img/girl.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            background-repeat: no-repeat;
+            height: 950px;
+        }
+        .default-header {
+            background: url("/img/bdsm-1973280_1920_1.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            background-repeat: no-repeat;
+        }
+
+        @media (max-width:1366px) {
+            .main-header{
+                height: 768px;
+                background: url("/img/girl-1300.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            }
+        }
+        @media (max-width:991px) {
+            .default-header {
+                background: url("/img/bdsm-1973280_1920_996.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .main-header{
+                height: 673px;
+                background: url("/img/girl-960.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+            }
+            .main-header{
+                height: 526px;
+                background: url("/img/girl-760.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+        @media (max-width:767px) {
+            .default-header {
+                background: url("/img/bdsm-1973280_1920_768.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+        @media (max-width:539px) {
+            .main-header {
+                height: 566px;
+                background: url("/img/girl-360.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+        <?php endif; ?>
+
+    </style>
     <?php
 
     if (strpos(Yii::$app->request->url,'?')){
@@ -76,7 +183,7 @@ OwlAsset::register($this);
             <a class="teh-pod white-text" data-toggle="modal" data-target="#claim-modal" href="#">Техподдержка</a>
         </li>
 
-        <li data-toggle="modal" data-target="#registerModal" class="add-anket-li"><img src="/bitrix/img/dancing.png" alt=""> Разместить анкету</li>
+        <li data-toggle="modal" data-target="#registerModal" class="add-anket-li"><img src="/img/dancing.png" alt=""> Разместить анкету</li>
 
     </ul>
 

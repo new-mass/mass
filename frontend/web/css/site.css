@@ -165,8 +165,6 @@ header svg{
 }
 
 .main-header{
-    background: url("../img/girl.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
-    background-repeat: no-repeat;
     height: 950px;
 }
 .ya-share2__list{
@@ -1113,7 +1111,6 @@ body{
     }
     .main-header{
         height: 768px;
-        background: url("../img/girl-1300.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
     }
 
     .article-item .custom-card_data {
@@ -1212,7 +1209,6 @@ body{
     }
     .main-header{
         height: 673px;
-        background: url("../img/girl-960.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
     }
     .search-form .form-control{
         margin-top: 0;
@@ -1237,9 +1233,6 @@ body{
     }
     .main-header{
         height: 526px;
-        background: url("../img/girl-760.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     .new-anket{
         width: auto;
@@ -1469,9 +1462,6 @@ body{
     }
     .main-header {
         height: 566px;
-        background: url("../img/girl-360.png") , linear-gradient(242.33deg, #230C1E 6.4%, #5D077B 97.74%);
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     .cabinet_a-wrap{
         padding-top: 6px;
