@@ -33,8 +33,8 @@ use yii\console\Controller;
 class ImportController extends Controller
 {
 
-    public $tablePref = 'korolev';
-    public $city_id = 2;
+    public $tablePref = 'nighniy-novgorod';
+    public $city_id = 5;
 
     public function actionUser()
     {
@@ -265,7 +265,7 @@ class ImportController extends Controller
 
             }
 
-            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '2'")->queryAll();
+            $userComfort = \Yii::$app->db2->createCommand("SELECT * FROM `user_comfort` WHERE `post_id` = {$post['id']} and `city_id` = '7'")->queryAll();
 
             if ($userComfort) foreach ($userComfort as $userComfortItem){
 
