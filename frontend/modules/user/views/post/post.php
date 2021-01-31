@@ -3,7 +3,7 @@
 use yii\widgets\ActiveForm;
 
 $commentForm = new \frontend\modules\user\models\Comments();
-$this->registerJsFile('/js/single.js?v=1', ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAsset::class]]);
 ?>
 
 <?php /* @var $post array */ ?>
