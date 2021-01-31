@@ -411,6 +411,34 @@ class ImportController extends Controller
 
     }
 
+    public function actionGetMetro()
+    {
+        $posts = Posts::find()->where(['city_id' => $this->city_id])->asArray()->all();
+
+        foreach ($posts as $post){
+
+            $userMetro = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_user_metro` WHERE `post_id` = {$post['old_id']}")->queryAll();
+
+            if ($userMetro) foreach ($userMetro as $item){
+
+                $service = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_metro` WHERE `id` = {$item['metro_id']}")->queryOne();
+                if (isset($service['url'])){
+                    $newService = Metro::find()->where(['url' => $service['url']])->asArray()->one();
+
+                    $serviceModel = new UserMetro();
+                    $serviceModel->user_id = $post['id'];
+                    $serviceModel->prop_id = $newService['id'];
+
+                    $serviceModel->save();
+
+
+                }
+
+        }
+    }
+
+    }
+
     public function actionMeta()
     {
         $meta = \Yii::$app->db2->createCommand("SELECT * FROM `{$this->tablePref}_page_meta`")->queryAll();
