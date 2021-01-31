@@ -40,7 +40,7 @@ class CashController extends Controller
 
             if ($user_data[1] == 'moskva')
 
-            Yii::$app->response->redirect('https://.e-mass.top/cabinet', 301, false);
+            Yii::$app->response->redirect('https://e-mass.top/cabinet', 301, false);
 
             else Yii::$app->response->redirect('https://'.$user_data[1].'.e-mass.top/cabinet', 301, false);
 
