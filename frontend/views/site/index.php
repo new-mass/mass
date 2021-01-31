@@ -33,7 +33,7 @@ if (strpos(Yii::$app->request->url,'?')){
 }
 
 
-if ( $meta and !isset($main)) echo '<div class="col-12"><h1 class="h1">'.$meta['h1'].'</h1></div>';
+if ( $meta ) echo '<div class="col-12"><h1 class="h1">'.$meta['h1'].'</h1></div>';
 
 if ($posts) {
 
