@@ -18,6 +18,24 @@ return [
         ],
     ],
     'components' => [
+        'imageCache' => [
+            'class' => 'iutbay\yii2imagecache\ImageCache',
+            'sourcePath' => '@app/web/uploads',
+            'sourceUrl' => '@web/uploads',
+            'thumbsPath' => '@app/web/thumbs',
+            'extensions' => [
+                'jpg' => 'jpeg',
+                'jpeg' => 'jpeg',
+                'png' => 'png',
+                'gif' => 'gif',
+                'bmp' => 'bmp',
+            ],
+            'sizes' => [
+                '255_335' => [255, 335],
+                '290_327' => [290, 327],
+                '210_327' => [210, 327],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'enableCsrfValidation' => false,
@@ -49,6 +67,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 //  => 'product/index'
+                'thumbs/<path:.*>' => 'site/thumb',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/' => 'site/index',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/page-<page:[0-9]+>' => 'site/redirect',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/new-post' => 'site/new-post',

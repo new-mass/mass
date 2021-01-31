@@ -9,10 +9,24 @@ $metro = false;
             <div class="custom-card-left">
                 <div class="custom-card_img">
                     <a href="/anketa/<?php echo $item['url'] ?>">
-                        <picture class="picture-<?php echo $item['id'] ?>">
-                            <img onload="removeBlur(this)" loading="lazy" data-id="<?php echo $item['id'] ?>" class="photo photo-list img-<?php echo $item['id'] ?>"
-                                 data-src="" src="<?php echo $item['avatar']['file'] ?>"
-                                 alt="Массажистка  <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> ">
+
+                        <picture>
+
+                            <?php if (file_exists (Yii::getAlias('@app'.'/web'.$item['avatar']['file']))) : ?>
+
+                                <source srcset="<?= $item['avatar']['file'] ?>" media="(max-width: 768px)">
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>" media="(max-width: 991px)">
+
+                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>" media="(max-width: 1199px)">
+
+
+
+
+
+                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>">
+                            <img loading="lazy" class="img-<?php echo $item['id']; ?>" src="<?= $item['avatar']['file'] ?>" alt="Массажистка  <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> ">
+
+                            <?php endif; ?>
                         </picture>
                     </a>
 
