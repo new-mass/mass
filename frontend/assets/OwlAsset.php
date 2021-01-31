@@ -9,7 +9,7 @@ class OwlAsset extends AssetBundle
 {
     public $sourcePath = '@bower/owl-carousel2';
     public $css = [
-        'dist/assets/owl.carousel.css',
+        //'dist/assets/owl.carousel.css',
     ];
 
     public $js = [
