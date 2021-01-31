@@ -59,7 +59,9 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                             <div class="owl-carousel single-carousel ">
                                 <?php foreach ($post['gallery'] as $item) :  ?>
                                     <a class="single-carousel_item" href="<?php echo $item['file'] ?>">
-                                        <img alt="<?php echo $post['name'] ?> " title="<?php echo $item['name'] ?> " src="<?php  echo $item['file']  ?>">
+                                        <img  loading="lazy" alt="<?php echo $post['name'] ?> "
+                                              title="<?php echo $item['name'] ?> "
+                                              src="<?= Yii::$app->imageCache->thumbSrc($item['file'], '61_61') ?>" >
                                     </a>
                                 <?php endforeach; ?>
                             </div>
