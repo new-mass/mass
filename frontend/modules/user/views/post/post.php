@@ -71,7 +71,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                 <div class="row">
                                     <div class="col-3 about-img-wrap">
                                         <img class="about-img"
-                                             src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '61_61') ?>"
+                                             src="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '290_327') ?>"
                                              alt=" <?php echo $post['name'] ?> " title=" <?php echo $post['name'] ?> ">
                                     </div>
                                     <div class="col-9">
