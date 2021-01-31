@@ -122,6 +122,9 @@ function inView($elem) {
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 $(document).ready(function () {
+
+
+
     if($(window).width() > 991) {
         if ($('.new-ankets')) {
             $.ajax({

@@ -38,7 +38,11 @@ class CashController extends Controller
 
             Yii::$app->session->setFlash('success', 'Баланс пополнен');
 
-            Yii::$app->response->redirect('https://'.$user_data[1].'.4dosug.com/user', 301, false);
+            if ($user_data[1] == 'moskva')
+
+            Yii::$app->response->redirect('https://.e-mass.top/cabinet', 301, false);
+
+            else Yii::$app->response->redirect('https://'.$user_data[1].'.e-mass.top/cabinet', 301, false);
 
         }
 
