@@ -30,21 +30,6 @@ $metro = false;
                         </picture>
                     </a>
 
-                    <?php $photoCount = \frontend\components\helpers\PhotoHelper::getPhotoCount($item['id']) ?>
-
-                    <div data-position="0" onclick="getnextimg(this)" data-active="active" data-count="<?php echo $photoCount ?>" data-id="<?php echo $item['id'] ?>"
-                         class="next-img-btn nav-img-btn ">
-                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.14706 7.10149C0.756536 7.49201 0.756536 8.12518 1.14706 8.5157L7.51102 14.8797C7.90155 15.2702 8.53471 15.2702 8.92523 14.8797C9.31576 14.4891 9.31576 13.856 8.92523 13.4654L3.26838 7.80859L8.92523 2.15174C9.31576 1.76122 9.31576 1.12805 8.92523 0.737526C8.53471 0.347002 7.90155 0.347002 7.51102 0.737526L1.14706 7.10149ZM13.9375 6.80859L1.85417 6.80859V8.80859L13.9375 8.80859V6.80859Z" fill="white"></path>
-                        </svg>
-                    </div>
-                    <div data-position="-2" onclick="getprevimg(this)" data-count="<?php echo $photoCount ?>" data-active="active" data-id="<?php echo $item['id'] ?>"
-                         class="prev-img-btn nav-img-btn d-none">
-                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.0487 7.10149C13.4393 7.49201 13.4393 8.12518 13.0487 8.5157L6.68478 14.8797C6.29426 15.2702 5.66109 15.2702 5.27057 14.8797C4.88004 14.4891 4.88004 13.856 5.27057 13.4654L10.9274 7.80859L5.27057 2.15174C4.88004 1.76122 4.88004 1.12805 5.27057 0.737526C5.66109 0.347002 6.29426 0.347002 6.68478 0.737526L13.0487 7.10149ZM0.258301 6.80859L12.3416 6.80859V8.80859L0.258301 8.80859L0.258301 6.80859Z" fill="white"></path>
-                        </svg>
-                    </div>
-
                     <?php if ($item['tarif_id'] == 6) : ?>
 
                         <div class="extra-block tarif-block"><p>EXTRA</p></div>
