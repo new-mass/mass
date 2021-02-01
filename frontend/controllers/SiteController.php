@@ -420,7 +420,7 @@ class SiteController extends Controller
                 ->with('rayon')
                 ->limit(Yii::$app->params['post_limit'])
                 ->offset($offset)
-                ->orderBy('sorting desc')->asArray()->all();
+                ->orderBy('tarif_id desc, sorting desc')->asArray()->all();
 
         }elseif($params['url'] == '/new'){
 

@@ -54,6 +54,7 @@ class QueryParamsHelper
                                     ->with('avatar')
                                     ->with('metro')
                                     ->with('rayon')
+                                    ->orderBy('tarif_id desc, sorting desc')
                                     ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
                                     ->limit($limit)
                                     ->offset($offset)
@@ -100,7 +101,7 @@ class QueryParamsHelper
                     ->with('metro')
                     ->limit($limit)
                     ->offset($offset)
-                    ->with('rayon')->orderBy('sorting desc');
+                    ->with('rayon')->orderBy('tarif_id desc, sorting desc');
 
             }
 
@@ -149,7 +150,7 @@ class QueryParamsHelper
                 return $id->andWhere(['status' => 1])->with('avatar')->with('metro')->limit($limit)
                     ->andWhere(['city_id' => $city['id']])
                     ->offset($offset)
-                    ->with('rayon')->orderBy('sorting desc');
+                    ->with('rayon')->orderBy('tarif_id desc, sorting desc');
 
             }
 
