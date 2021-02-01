@@ -409,7 +409,7 @@ class SiteController extends Controller
 
         $params = Yii::$app->request->post();
 
-        $offset = $params['offset'] - 1;
+        $offset = $params['offset'];
 
         if($params['url'] == '/'){
 
