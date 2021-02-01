@@ -1,9 +1,9 @@
 <?php $this->title = 'Ответы на вопросы'; ?>
 <?php $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css'), ['depends' => [\frontend\assets\AppAsset::class]]); ?>
-<div class="col-3">
+<div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>
-<div class="col-9">
+<div class="col-12 col-md-7 col-lg-8 col-xl-9">
     <h1 class="h1">Ответы на вопросы</h1>
     <p>1. Как добавить свою анкету на сайт? Для того что бы добавить анкету перейдите в раздел <a href="/cabinet/add">Добавить анкету</a>
     заполните все поля формы и нажмите кнопку отправить, после этого анкета будет отправлена на модерацию</p>

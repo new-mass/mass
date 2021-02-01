@@ -44,38 +44,38 @@ $commentForm = new \frontend\modules\user\models\Comments();
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="row">
-        <div class="col-3"><?= $form->field($model, 'name') ?> </div>
-        <div class="col-3"><?= $form->field($model, 'phone') ?> </div>
+        <div class="col-6 col-lg-4 col-xl-3"><?= $form->field($model, 'name') ?> </div>
+        <div class="col-6 col-lg-4 col-xl-3"><?= $form->field($model, 'phone') ?> </div>
         <div class="col-12"></div>
-        <div class="col-3 position-relative"><?= $form->field($model, 'price') ?> </div>
-        <div class="col-3 position-relative"><?= $form->field($model, 'price_2_hour') ?> </div>
+        <div class="col-6 col-lg-4 col-xl-3 position-relative"><?= $form->field($model, 'price') ?> </div>
+        <div class="col-6 col-lg-4 col-xl-3 position-relative"><?= $form->field($model, 'price_2_hour') ?> </div>
 
 
-        <div class="col-3 position-relative"><?= $form->field($model, 'work_time') ?>
+        <div class="col-6 col-lg-4 col-xl-3  position-relative"><?= $form->field($model, 'work_time') ?>
             <div class="quantity">
                 <span class="quantity-arrow-plus-1"><i class="fas fa-plus"></i></span>
                 <span class="quantity-arrow-minus-1"><i class="fas fa-minus"></i></span>
             </div>
         </div>
-        <div class="col-3 position-relative"><?= $form->field($model, 'breast') ?>
+        <div class="col-6 col-lg-4 col-xl-3  position-relative"><?= $form->field($model, 'breast') ?>
             <div class="quantity">
                 <span class="quantity-arrow-plus-1"><i class="fas fa-plus"></i></span>
                 <span class="quantity-arrow-minus-1"><i class="fas fa-minus"></i></span>
             </div>
         </div>
-        <div class="col-3 position-relative"><?= $form->field($model, 'ves') ?>
+        <div class="col-6 col-lg-4 col-xl-3  position-relative"><?= $form->field($model, 'ves') ?>
             <div class="quantity">
                 <span class="quantity-arrow-plus-1"><i class="fas fa-plus"></i></span>
                 <span class="quantity-arrow-minus-1"><i class="fas fa-minus"></i></span>
             </div>
         </div>
-        <div class="col-3 position-relative"><?= $form->field($model, 'age') ?>
+        <div class="col-6 col-lg-4 col-xl-3  position-relative"><?= $form->field($model, 'age') ?>
             <div class="quantity">
                 <span class="quantity-arrow-plus-1"><i class="fas fa-plus"></i></span>
                 <span class="quantity-arrow-minus-1"><i class="fas fa-minus"></i></span>
             </div>
         </div>
-        <div class="col-3 position-relative"><?= $form->field($model, 'rost') ?>
+        <div class="col-6 col-lg-4 col-xl-3  position-relative"><?= $form->field($model, 'rost') ?>
             <div class="quantity">
                 <span class="quantity-arrow-plus-1"><i class="fas fa-plus"></i></span>
                 <span class="quantity-arrow-minus-1"><i class="fas fa-minus"></i></span>
@@ -85,7 +85,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
         <div class="col-12"></div>
 
 
-        <div class="col-3 select-cust">
+        <div class="col-6 col-lg-4 col-xl-3 select-cust">
             <div><?= $form->field($userPol, 'prop_id')->dropDownList($pol)->label('Выбрать пол') ?> </div>
         </div>
 
@@ -93,11 +93,11 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
         <div class="col-12"><label class="control-label">Время работы</label>
         </div>
-        <div class="col-3 select-cust">
+        <div class="col-6 col-lg-4 col-xl-3 select-cust">
             <div><?= $form->field($userWorkTime, 'from')->dropDownList(ArrayHelper::map($time, 'key', 'value'))->label('С:') ?> </div>
 
         </div>
-        <div class="col-3 select-cust">
+        <div class="col-6 col-lg-4 col-xl-3 select-cust">
 
             <div><?= $form->field($userWorkTime, 'to')->dropDownList(ArrayHelper::map($time, 'key', 'value'))->label('До:') ?> </div>
 
@@ -169,7 +169,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
                                 <?php foreach ($model->gallery as $item) : ?>
 
-                                    <div class="col-2 anket-photo-wrap">
+                                    <div class="col-6 col-md-4 col-lg-2 anket-photo-wrap">
 
                                         <div class="gallery-img-wrap img-wrap position-relative">
                                             <span onclick="delete_photo(this)" class="delete-anket-photo position-absolute" data-id="<?php echo $item['id'] ?>">
@@ -187,8 +187,8 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
                             <?php else: ?>
                             <?php $i = 0; ?>
-                            <?php while ($i < 6) : ?>
-                                <div class="col-2">
+                            <?php while ($i < 2) : ?>
+                                <div class="col-6">
 
                                     <div class="gallery-img-wrap img-wrap no-img-item">
                                         <img src="/img/no-image.png" alt="">

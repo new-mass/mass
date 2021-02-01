@@ -7,10 +7,10 @@ $this->registerJsFile(Yii::getAlias('@web/js/preview.js'), ['depends' => [\front
 $this->title = 'Добавить анкету';
 
 ?>
-<div class="col-3">
+<div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>
-<div class="col-9">
+<div class="col-12 col-md-7 col-lg-8 col-xl-9">
 
     <?php if (Yii::$app->user->identity['status'] == 10) : ?>
 

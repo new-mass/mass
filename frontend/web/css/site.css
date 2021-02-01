@@ -1085,7 +1085,9 @@ body{
         padding: 0;
     }
 }
-
+.hystory-index{
+    overflow: scroll;
+}
 @media (max-width:1366px) {
     .ankets{
         padding: 0;

@@ -10,10 +10,10 @@ $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css'), ['depends' => [\fr
 
 $this->title = 'История';
 ?>
-<div class="col-3">
+<div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>
-<div class="hystory-index col-9">
+<div class="hystory-index col-12 col-md-7 col-lg-8 col-xl-9">
 
     <h1 class="h1"><?= Html::encode($this->title) ?></h1>
 
