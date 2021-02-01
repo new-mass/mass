@@ -33,7 +33,7 @@ class PayController extends Controller
 
                 $tarif = Tarif::find()->where(['value' => $post['tarif_id']])->asArray()->one();
 
-                if ($user->cash >=  $tarif['value']){
+                if ($user and  $user->cash >=  $tarif['value']){
 
                     if ($tarif['value'] > 0){
 
