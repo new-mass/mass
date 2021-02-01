@@ -270,7 +270,7 @@
     height: 471px;
 }
 .custom-card-right {
-    height: 471px;
+    height: 471px!important;
 }
 .status-anket{
     font-family: Roboto;
