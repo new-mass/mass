@@ -1158,6 +1158,13 @@ body{
         height: 0;
         margin-top: 0;
     }
+    .cabinet-item .custom-card-right .metro{
+        height: auto;
+        margin-top: 10px;
+    }
+    .cabinet-item .custom-card-right{
+        padding: 5px;
+    }
     .prop-wrap {
         column-count: 1;
     }

@@ -2,7 +2,7 @@
 /* @var $item array */
 
 ?>
-<div class="col-6 col-lg-4 col-md-4 col-xl-4 article-item cabinet-item">
+<div class="col-12 col-lg-6 col-md-12 col-xl-4 article-item cabinet-item">
     <div class="new-anket">
         <div class="custom-card d-flex flex-row flex-wrap justify-content-between">
             <div class="custom-card-left">

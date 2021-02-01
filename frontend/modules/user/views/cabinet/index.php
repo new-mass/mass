@@ -6,10 +6,10 @@ $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css'), ['depends' => [\fr
 $this->title = "Кабинет";
 ?>
 <script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
-<div class="col-3">
+<div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget(['posts' => $items ]) ?>
 </div>
-<div class="col-9">
+<div class="col-12 col-md-7 col-lg-8 col-xl-9">
     <div class="row">
         <div class="col-12">
             <h1 class="user-name-single">Здравствуйте, <?php echo Yii::$app->user->identity->username ?></h1>
