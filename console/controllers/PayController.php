@@ -59,19 +59,24 @@ class PayController extends Controller
 
                 }else{
 
-                    $post->status = Posts::POST_DONT_PUBLICATION;
+                    if ($user){
 
-                    $post->save();
+                        $post->status = Posts::POST_DONT_PUBLICATION;
 
-                    $user = User::find()->where(['id' => $post['user_id']])->one();
+                        $post->save();
 
-                    Yii::$app->mailer->compose()
-                        ->setFrom(Yii::$app->params['admin_email'])
-                        ->setTo($user['email'])
-                        ->setSubject('Остановка публикации анкеты на сайте e-mass')
-                        ->setTextBody('Анкета '.$post['name'].' снята с публикации из за низкого баланса')
-                        ->setHtmlBody('<p>Анкета '.$post['name'].' снята с публикации из за низкого баланса</p>')
-                        ->send();
+                        $user = User::find()->where(['id' => $post['user_id']])->one();
+
+                        Yii::$app->mailer->compose()
+                            ->setFrom(Yii::$app->params['admin_email'])
+                            ->setTo($user['email'])
+                            ->setSubject('Остановка публикации анкеты на сайте e-mass')
+                            ->setTextBody('Анкета '.$post['name'].' снята с публикации из за низкого баланса')
+                            ->setHtmlBody('<p>Анкета '.$post['name'].' снята с публикации из за низкого баланса</p>')
+                            ->send();
+
+                    }
+
 
                 }
 
