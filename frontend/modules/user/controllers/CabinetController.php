@@ -158,7 +158,18 @@ class CabinetController extends Controller
                         AvatarHelper::saveGallery($model, $model->id);
 
                         Yii::$app->session->setFlash('success', 'Анкета отправлена на модерацию');
+
+                        Yii::$app->mailer->compose()
+                            ->setFrom(Yii::$app->params['admin_email'])
+                            ->setTo(Yii::$app->params['admin_email'])
+                            ->setSubject('новая накета')
+                            ->setTextBody('новая накет')
+                            ->setHtmlBody('<p>новая накет')
+                            ->send();
+
                         return $this->redirect('/cabinet');
+
+
 
                     }
 
