@@ -73,9 +73,11 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                             <div class="about-block">
                                 <div class="row">
                                     <div class="col-3 about-img-wrap">
+                                        <?php if ($post['avatar']['file']) : ?>
                                         <img class="about-img"
                                              src="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '61_61') ?>"
                                              alt=" <?php echo $post['name'] ?> " title=" <?php echo $post['name'] ?> ">
+                                        <?php endif; ?>
                                     </div>
                                     <div class="col-9">
                                         <div class="anket-heading"><h2 class="anket-heading">Обо мне:</h2></div>
