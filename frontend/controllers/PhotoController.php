@@ -3,7 +3,7 @@
 
 namespace frontend\controllers;
 use frontend\components\helpers\PhotoHelper;
-use yii\web\Controller;
+use frontend\components\BeforeController as Controller;
 
 class PhotoController extends Controller
 {

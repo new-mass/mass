@@ -23,7 +23,7 @@ use frontend\modules\user\models\relation\UserRayon;
 use frontend\modules\user\models\relation\UserService;
 use frontend\modules\user\models\relation\UserWorckTime;
 use yii\helpers\ArrayHelper;
-use yii\web\Controller;
+use frontend\components\BeforeController as Controller;
 use Yii;
 use yii\web\UploadedFile;
 use frontend\components\Translit;

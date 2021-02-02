@@ -6,7 +6,7 @@ namespace frontend\modules\user\controllers;
 use common\models\LoginForm;
 use frontend\models\SignupForm;
 use frontend\modules\user\models\City;
-use yii\web\Controller;
+use frontend\components\BeforeController as Controller;
 use Yii;
 
 class UserController extends Controller

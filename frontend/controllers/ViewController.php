@@ -7,9 +7,8 @@ use frontend\modules\user\components\helpers\ViewPostHelper;
 use frontend\modules\user\models\Posts;
 use frontend\modules\user\models\PostView;
 use yii\helpers\ArrayHelper;
-use yii\web\Controller;
 use Yii;
-
+use frontend\components\BeforeController as Controller;
 class ViewController extends Controller
 {
 

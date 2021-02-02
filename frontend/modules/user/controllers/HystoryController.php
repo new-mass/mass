@@ -4,7 +4,7 @@ namespace frontend\modules\user\controllers;
 
 use Yii;
 use frontend\modules\user\models\Hystory;
-use yii\web\Controller;
+use frontend\components\BeforeController as Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 

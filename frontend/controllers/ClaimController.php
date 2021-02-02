@@ -4,7 +4,7 @@
 namespace frontend\controllers;
 
 use frontend\models\forms\ClaimForm;
-use yii\web\Controller;
+use frontend\components\BeforeController as Controller;
 
 class ClaimController extends Controller
 {

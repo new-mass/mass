@@ -11,7 +11,7 @@ use frontend\modules\user\components\helpers\PublicationHelper;
 use frontend\modules\user\models\City;
 use frontend\modules\user\models\Posts;
 use frontend\modules\user\models\Tarif;
-use yii\web\Controller;
+use frontend\components\BeforeController as Controller;
 use yii\web\NotFoundHttpException;
 use frontend\modules\user\components\helpers\ViewPostHelper;
 use Yii;

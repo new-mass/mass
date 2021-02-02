@@ -6,7 +6,7 @@ namespace frontend\controllers;
 
 use frontend\modules\user\models\Comments;
 use frontend\modules\user\models\Posts;
-use yii\web\Controller;
+use frontend\components\BeforeController as Controller;
 
 class CommentController extends Controller
 {

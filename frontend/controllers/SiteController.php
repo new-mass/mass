@@ -19,12 +19,12 @@ use yii\base\InvalidArgumentException;
 use yii\data\Pagination;
 use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\components\helpers\QueryParamsHelper;
+use frontend\components\BeforeController as Controller;
 
 /**
  * Site controller
@@ -85,7 +85,7 @@ class SiteController extends Controller
      * @param string $city
      * @return mixed
      */
-    public function actionIndex($city = 'moskva')
+    public function actionIndex($city = 'moskva' )
     {
 
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
@@ -402,7 +402,7 @@ class SiteController extends Controller
 
     public function actionGetMorePost($city = 'moskva')
     {
-
+d($city);
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
 
         $city = City::getCity($city);
