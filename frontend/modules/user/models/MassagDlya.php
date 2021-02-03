@@ -42,4 +42,19 @@ class MassagDlya extends \yii\db\ActiveRecord
             'value' => 'Value',
         ];
     }
+
+    public static function getData()
+    {
+        $data = Yii::$app->cache->get('massag_dlya');
+
+        if ($data === false) {
+
+            $data = self::find()->asArray()->all();
+
+            Yii::$app->cache->set('massag_dlya', $data);
+
+        }
+
+        return $data;
+    }
 }

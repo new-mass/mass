@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use frontend\modules\user\models\City;
 use Yii;
 
 /**
@@ -43,4 +44,22 @@ class Webmaster extends \yii\db\ActiveRecord
             'tag' => 'Tag',
         ];
     }
+
+    public static function getTag($city_id)
+    {
+
+        $tag = Yii::$app->cache->get('webmaster_tag_'.$city_id);
+
+        if ($tag === false) {
+
+            $tag = Webmaster::find()->where(['city_id' => $city_id])->select('tag')->asArray()->one();
+
+            Yii::$app->cache->set('webmaster_tag_'.$city_id, $tag);
+
+        }
+
+        return $tag;
+
+    }
+
 }

@@ -44,4 +44,22 @@ class Metro extends \yii\db\ActiveRecord
             'value' => 'Value',
         ];
     }
+
+    public static function getMetro($city_id)
+    {
+
+        $tag = Yii::$app->cache->get('metro_'.$city_id);
+
+        if ($tag === false) {
+
+            $tag = Metro::find()->where(['city_id' => $city_id])->asArray()->all();
+
+            Yii::$app->cache->set('metro_'.$city_id, $tag);
+
+        }
+
+        return $tag;
+
+    }
+
 }

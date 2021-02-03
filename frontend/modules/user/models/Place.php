@@ -42,4 +42,20 @@ class Place extends \yii\db\ActiveRecord
             'value' => 'Value',
         ];
     }
+
+    public static function getData()
+    {
+        $data = Yii::$app->cache->get('place');
+;
+        if ($data === false) {
+
+            $data = Place::find()->asArray()->all();
+
+            Yii::$app->cache->set('place', $data);
+
+        }
+
+        return $data;
+    }
+
 }

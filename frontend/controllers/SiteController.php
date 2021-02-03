@@ -88,8 +88,6 @@ class SiteController extends Controller
     public function actionIndex($city = 'moskva' )
     {
 
-        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
-
         $city_name = $city;
 
         $city = Yii::$app->cache->get('city_'.$city_name);
@@ -132,7 +130,7 @@ class SiteController extends Controller
 
         PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
 
-        $tag = Webmaster::find()->where(['city_id' => $city['id']])->select('tag')->asArray()->one();
+        $tag = Webmaster::getTag($city['id']);
 
         Yii::$app->params['meta'] = $meta;
 
@@ -161,8 +159,6 @@ class SiteController extends Controller
             exit();
         }
 
-        $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
-
         $uri = PageHelper::cropUriParams($_SERVER['REQUEST_URI']);
 
         $city = City::getCity($city);
@@ -181,7 +177,15 @@ class SiteController extends Controller
 
         }
 
-        $meta = PageMeta::find()->where(['page_name' => $uri, 'city_id' =>$city['id']])->asArray()->one();
+        $meta = Yii::$app->cache->get('meta_'.$city['value'].'_'.$uri);
+
+        if ($meta === false) {
+
+            $meta = PageMeta::find()->where(['page_name' => $uri, 'city_id' =>$city['id']])->asArray()->one();
+
+            Yii::$app->cache->set('meta_'.$city['value'].'_'.$uri, $meta );
+
+        }
 
         DayViewHelper::addViewListing($posts);
 

@@ -119,7 +119,7 @@ class Posts extends \yii\db\ActiveRecord
 
     public function getAvatar()
     {
-        return $this->hasOne(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 1]);
+        return $this->hasOne(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 1])->cache(3600 * 3);
     }
 
     public function setAvatar()
@@ -193,25 +193,25 @@ class Posts extends \yii\db\ActiveRecord
 
     public function getRayonRelation(){
 
-        return $this->hasMany(UserRayon::class, [ 'user_id' => 'id']);
+        return $this->hasMany(UserRayon::class, [ 'user_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getRayon(){
 
-        return $this->hasMany(Rayon::class, ['id' => 'prop_id'])->via('rayonRelation');
+        return $this->hasMany(Rayon::class, ['id' => 'prop_id'])->via('rayonRelation')->cache(3600 * 3);
 
     }
 
     public function getMetroRelation(){
 
-        return $this->hasMany(UserMetro::class, [ 'user_id' => 'id']);
+        return $this->hasMany(UserMetro::class, [ 'user_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getMetro(){
 
-        return $this->hasMany(Metro::class, ['id' => 'prop_id'])->via('metroRelation');
+        return $this->hasMany(Metro::class, ['id' => 'prop_id'])->via('metroRelation')->cache(3600 * 3);
 
     }
 

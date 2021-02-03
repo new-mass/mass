@@ -45,4 +45,22 @@ class Rayon extends \yii\db\ActiveRecord
             'city_id' => 'City ID',
         ];
     }
+
+    public static function getRayon($city_id)
+    {
+
+        $rayon = Yii::$app->cache->get('rayon_'.$city_id);
+
+        if ($rayon === false) {
+
+            $rayon = Rayon::find()->where(['city_id' => $city_id])->asArray()->all();
+
+            Yii::$app->cache->set('rayon_'.$city_id, $rayon);
+
+        }
+
+        return $rayon;
+
+    }
+
 }

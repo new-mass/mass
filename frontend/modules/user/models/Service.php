@@ -42,4 +42,21 @@ class Service extends \yii\db\ActiveRecord
             'value' => 'Value',
         ];
     }
+
+    public static function getService()
+    {
+
+        $rayon = Yii::$app->cache->get('service');
+
+        if ($rayon === false) {
+
+            $rayon = Service::find()->asArray()->all();
+
+            Yii::$app->cache->set('service', $rayon);
+
+        }
+
+        return $rayon;
+
+    }
 }

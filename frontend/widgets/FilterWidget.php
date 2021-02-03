@@ -30,15 +30,15 @@ class FilterWidget extends Widget
 
         }
 
-        $metro = Metro::find()->where(['city_id' => $city['id']])->asArray()->all();
+        $metro = Metro::getMetro($city['id']);
 
-        $rayon = Rayon::find()->where(['city_id' => $city['id']])->asArray()->all();
+        $rayon = Rayon::getRayon($city['id']);
 
-        $service = Service::find()->asArray()->all();
+        $service = Service::getService();
 
-        $massagDlya = MassagDlya::find()->asArray()->all();
+        $massagDlya = MassagDlya::getData();
 
-        $place = Place::find()->asArray()->all();
+        $place = Place::getData();
 
         return $this->render('filter', [
             'metro' => $metro,
