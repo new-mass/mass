@@ -402,7 +402,7 @@ class SiteController extends Controller
 
     public function actionGetMorePost($city = 'moskva')
     {
-d($city);
+
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
 
         $city = City::getCity($city);
