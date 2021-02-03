@@ -111,7 +111,6 @@ class CabinetController extends Controller
             and $userComfort->load(Yii::$app->request->post())
             and $userPlace->load(Yii::$app->request->post())
             and $userService->load(Yii::$app->request->post())
-            and $userMetro->load(Yii::$app->request->post())
             and $userCheck->load(Yii::$app->request->post())) {
 
             if (UploadedFile::getInstance($model, 'avatar')) {
@@ -147,8 +146,11 @@ class CabinetController extends Controller
                         SaveRelationHelper::save(UserCheckAnket::class, $userCheck->prop_id, $model->id);
                         SaveRelationHelper::save(UserPlace::class, $userPlace->prop_id, $model->id);
                         SaveRelationHelper::save(UserService::class, $userService->prop_id, $model->id);
-                        SaveRelationHelper::save(UserMetro::class, $userMetro->prop_id, $model->id);
+
                         SaveRelationHelper::save(UserMassagDlya::class, $userMassagDlya->prop_id, $model->id);
+
+                        if ($userMetro->load(Yii::$app->request->post()))
+                            SaveRelationHelper::save(UserMetro::class, $userMetro->prop_id, $model->id);
                         if ($userRayon->load(Yii::$app->request->post()))
                             SaveRelationHelper::save(UserRayon::class, $userRayon->prop_id, $model->id);
 
