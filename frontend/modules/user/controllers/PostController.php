@@ -35,7 +35,8 @@ class PostController extends Controller
             ->with('rayon')
             ->with('comments')
             ->with('comfort')
-            ->asArray()->one()){
+            ->limit(1)
+            ->asArray()->cache(3600 * 3)->one()){
 
             SingleViewPost::updateAllCounters(['count' => 1], ['post_id' =>$post['id'] ]);
 
@@ -43,7 +44,7 @@ class PostController extends Controller
 
             ViewPostHelper::addToView($post['id']);
 
-            $city = City::find()->where(['name' => $city])->asArray()->one();
+            $city = City::getCity($city);
 
             return $this->render('view', [
                 'post' => $post,
@@ -99,7 +100,7 @@ class PostController extends Controller
                 ->with('comfort')
                 ->with('comments')
                 ->orderBy(['rand()' => SORT_DESC])
-                ->asArray()->one()){
+                ->asArray()->limit(1)->one()){
 
                 SingleViewPost::updateAllCounters(['count' => 1], ['post_id' =>$post['id'] ]);
 

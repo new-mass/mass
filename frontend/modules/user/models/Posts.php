@@ -102,7 +102,7 @@ class Posts extends \yii\db\ActiveRecord
 
     public function getComments()
     {
-        return $this->hasMany(Comments::class, ['post_id' => 'id'])->where(['status' => 1]);
+        return $this->hasMany(Comments::class, ['post_id' => 'id'])->where(['status' => 1])->cache(3600 * 3);
     }
     public function getViewsOnListing()
     {
@@ -129,65 +129,65 @@ class Posts extends \yii\db\ActiveRecord
 
     public function getGallery()
     {
-        return $this->hasMany(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 0]);
+        return $this->hasMany(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 0])->cache(3600 * 3);
     }
 
     public function getServiceRelation(){
 
-        return $this->hasMany(UserService::class, [ 'user_id' => 'id']);
+        return $this->hasMany(UserService::class, [ 'user_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getService(){
 
-        return $this->hasMany(Service::class, ['id' => 'prop_id'])->via('serviceRelation');
+        return $this->hasMany(Service::class, ['id' => 'prop_id'])->via('serviceRelation')->cache(3600 * 3);
 
     }
     public function getComfortRelation(){
 
-        return $this->hasMany(UserComfort::class, [ 'user_id' => 'id']);
+        return $this->hasMany(UserComfort::class, [ 'user_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getComfort(){
 
-        return $this->hasMany(Comfort::class, ['id' => 'prop_id'])->via('comfortRelation');
+        return $this->hasMany(Comfort::class, ['id' => 'prop_id'])->via('comfortRelation')->cache(3600 * 3);
 
     }
 
     public function getMassagDlyaRelation(){
 
-        return $this->hasMany(UserMassagDlya::class, [ 'user_id' => 'id']);
+        return $this->hasMany(UserMassagDlya::class, [ 'user_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getMassagDlya(){
 
-        return $this->hasMany(MassagDlya::class, ['id' => 'prop_id'])->via('massagDlyaRelation');
+        return $this->hasMany(MassagDlya::class, ['id' => 'prop_id'])->via('massagDlyaRelation')->cache(3600 * 3);
 
     }
 
     public function getPlaceRelation(){
 
-        return $this->hasMany(UserPlace::class, [ 'user_id' => 'id']);
+        return $this->hasMany(UserPlace::class, [ 'user_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getPlace(){
 
-        return $this->hasMany(Place::class, ['id' => 'prop_id'])->via('placeRelation');
+        return $this->hasMany(Place::class, ['id' => 'prop_id'])->via('placeRelation')->cache(3600 * 3);
 
     }
 
     public function getCheckRelation(){
 
-        return $this->hasMany(UserCheckAnket::class, [ 'user_id' => 'id']);
+        return $this->hasMany(UserCheckAnket::class, [ 'user_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getCheck(){
 
-        return $this->hasMany(CheckAnket::class, ['id' => 'prop_id'])->via('checkRelation');
+        return $this->hasMany(CheckAnket::class, ['id' => 'prop_id'])->via('checkRelation')->cache(3600 * 3);
 
     }
 
@@ -219,13 +219,13 @@ class Posts extends \yii\db\ActiveRecord
 
     public function getWorkTime(){
 
-        return $this->hasOne(UserWorckTime::class, ['post_id' => 'id']);
+        return $this->hasOne(UserWorckTime::class, ['post_id' => 'id'])->cache(3600 * 3);
 
     }
 
     public function getCity()
     {
-        return $this->hasOne(City::class, ['id' => 'city_id']);
+        return $this->hasOne(City::class, ['id' => 'city_id'])->cache(3600 * 365 * 24);
     }
 
 
