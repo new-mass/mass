@@ -17,13 +17,10 @@ $metro = false;
                                 <source srcset="<?= $item['avatar']['file'] ?>" media="(max-width: 768px)">
                                 <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>" media="(max-width: 991px)">
 
-                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>" media="(max-width: 1199px)">
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>" media="(max-width: 1199px)">
 
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>">
 
-
-
-
-                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>">
                             <img loading="lazy" class="img-<?php echo $item['id']; ?>" src="<?= $item['avatar']['file'] ?>" alt="Массажистка  <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> ">
 
                             <?php endif; ?>

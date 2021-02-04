@@ -17,11 +17,21 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="thumb">
                         <div class="custom-card">
+
                             <picture class="picture-<?php echo $post['id'] ?>">
+
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '510_764') ?>" media="(max-width: 768px)">
+
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '330_494') ?>" media="(max-width: 991px)">
+
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '290_435') ?>" media="(max-width: 1199px)">
+
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '350_524') ?>">
 
                                 <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
                                      src="<?php echo $post['avatar']['file'] ?>"
                                      alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+
                             </picture>
 
                             <?php if ($post['tarif_id'] == 6) : ?>
