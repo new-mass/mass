@@ -88,6 +88,8 @@ class SiteController extends Controller
     public function actionIndex($city = 'moskva' )
     {
 
+        if (Yii::$app->request->get('show')) return $this->redirect('/', 301);
+
         $city_name = $city;
 
         $city = Yii::$app->cache->get('city_'.$city_name);
@@ -148,6 +150,9 @@ class SiteController extends Controller
 
     public function actionFilter( $city= 'moskva', $param)
     {
+
+        if (Yii::$app->request->get('show'))
+            return $this->redirect(strstr(Yii::$app->request->url, '?show', true), 301);
 
         if($city == 'spb' and Yii::$app->request->url == '/massazh-dlya_muzhchin-spb'){
             header('Location: /massazh-dlya_muzhchin', true, 301);
