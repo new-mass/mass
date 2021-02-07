@@ -364,7 +364,22 @@ $commentForm = new \frontend\modules\user\models\Comments();
                 анкету
             </p>
             <div><?= $form->field($model, 'tarif_id')->dropDownList($tarifs)->label('Выбрать тариф') ?> </div>
+
+            <p class="white-text">
+                Стоимость размещения
+            </p>
+
+            <?php foreach ($tarifs as $tarif) : ?>
+
+                <p class="white-text">
+                    <?php echo $tarif['name'].' - '.$tarif['value']?> руб/час
+                </p>
+
+            <?php endforeach; ?>
+
         </div>
+
+
 
         <div class="col-12"><br></div>
 
