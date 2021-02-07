@@ -186,19 +186,19 @@ $commentForm = new \frontend\modules\user\models\Comments();
                                 <?php endforeach; ?>
 
                             <?php else: ?>
-                            <?php $i = 0; ?>
-                            <?php while ($i < 2) : ?>
-                                <div class="col-6">
+                                <?php $i = 0; ?>
+                                <?php while ($i < 2) : ?>
+                                    <div class="col-6">
 
-                                    <div class="gallery-img-wrap img-wrap no-img-item">
-                                        <img src="/img/no-image.png" alt="">
+                                        <div class="gallery-img-wrap img-wrap no-img-item">
+                                            <img src="/img/no-image.png" alt="">
+                                        </div>
+
                                     </div>
-
-                                </div>
-                                <?php
-                                $i++;
-                            endwhile;
-                            ?>
+                                    <?php
+                                    $i++;
+                                endwhile;
+                                ?>
 
                             <?php endif; ?>
                         </div>
@@ -315,20 +315,20 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
         <?php if ($metro) : ?>
 
-        <div class="col-12 check-box-list-admin">
-            <?= $form->field($userMetro, 'prop_id', [
+            <div class="col-12 check-box-list-admin">
+                <?= $form->field($userMetro, 'prop_id', [
 
-            ])->checkboxList($metro, ['item' => function ($index, $label, $name, $checked, $value) {
+                ])->checkboxList($metro, ['item' => function ($index, $label, $name, $checked, $value) {
 
-                if ($checked == 1) $check = 'checked';
-                else $check = '';
+                    if ($checked == 1) $check = 'checked';
+                    else $check = '';
 
-                return "<span class='wrap-check-box-list'><input class='checkbox-cabinet' id='{$name}{$value}' type='checkbox' {$check} name='{$name}' value='{$value}'><label class='check-box-list-label' for='{$name}{$value}'>{$label}</label></span>";
+                    return "<span class='wrap-check-box-list'><input class='checkbox-cabinet' id='{$name}{$value}' type='checkbox' {$check} name='{$name}' value='{$value}'><label class='check-box-list-label' for='{$name}{$value}'>{$label}</label></span>";
 
-            }])->label('Метро:') ?>
+                }])->label('Метро:') ?>
 
 
-        </div>
+            </div>
 
         <?php endif; ?>
 
@@ -356,7 +356,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
         <div class="col-12"></div>
 
 
-        <?php $tarifs = ArrayHelper::map(Tarif::find()->select(['name', 'value'])->orderBy('value')->all(), 'value', 'name') ?>
+        <?php $tarifs = ArrayHelper::map($tarifList = Tarif::find()->select(['name', 'value'])->orderBy('value')->all(), 'value', 'name') ?>
 
         <div class="tarif-wrap">
             <p class="white-text">
@@ -369,7 +369,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
                 Стоимость размещения
             </p>
 
-            <?php foreach ($tarifs as $tarif) : ?>
+            <?php foreach ($tarifList as $tarif) : ?>
 
                 <p class="white-text">
                     <?php echo $tarif['name'].' - '.$tarif['value']?> руб/час
