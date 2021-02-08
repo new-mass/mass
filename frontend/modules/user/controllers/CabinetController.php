@@ -71,8 +71,15 @@ class CabinetController extends Controller
             $photo = Photo::find()->where(['id' => Yii::$app->request->post('id')])
                 ->one();
 
-            $post = Posts::find()->where(['id' => $photo['user_id'] , 'user_id' => Yii::$app->user->id])
-                ->asArray()->one();
+            if (Yii::$app->user->identity['old_id']){
+                $post = Posts::find()
+                    ->where(['id' => $photo['user_id'] , 'old_user_id' => Yii::$app->user->identity['old_id']])
+                    ->orWhere(['id' => $photo['user_id'] , 'user_id' => Yii::$app->user->id])
+                    ->asArray()->one();
+            }else{
+                $post = Posts::find()->where(['id' => $photo['user_id'] , 'user_id' => Yii::$app->user->id])
+                    ->asArray()->one();
+            }
 
             if ($post){
 
