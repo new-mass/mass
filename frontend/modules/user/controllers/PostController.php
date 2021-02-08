@@ -12,6 +12,7 @@ use frontend\modules\user\models\City;
 use frontend\modules\user\models\Posts;
 use frontend\modules\user\models\Tarif;
 use frontend\components\BeforeController as Controller;
+use yii\caching\DbDependency;
 use yii\web\NotFoundHttpException;
 use frontend\modules\user\components\helpers\ViewPostHelper;
 use Yii;
@@ -24,27 +25,15 @@ class PostController extends Controller
 
         $city = preg_replace('#[^\\/\-a-z\s]#i', '', $city);
 
-        if ($post = Posts::find()->where(['url' => $url])
-            ->with('avatar')
-            ->with('gallery')
-            ->with('service')
-            ->with('massagDlya')
-            ->with('place')
-            ->with('check')
-            ->with('workTime')
-            ->with('rayon')
-            ->with('comments')
-            ->with('comfort')
-            ->limit(1)
-            ->asArray()->cache(3600 * 3)->one()){
+        $city = City::getCity($city);
+
+        if ($post = Posts::getPostByUrl($url)){
 
             SingleViewPost::updateAllCounters(['count' => 1], ['post_id' =>$post['id'] ]);
 
             DayViewHelper::addViewSingle($post['id']);
 
             ViewPostHelper::addToView($post['id']);
-
-            $city = City::getCity($city);
 
             return $this->render('view', [
                 'post' => $post,
