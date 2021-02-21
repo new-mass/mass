@@ -18,6 +18,12 @@ class CashController extends Controller
 
         $user = User::find()->where(['id' => $user_data['0']])->one();
 
+        if ($data['AMOUNT'] >= Yii::$app->params['bonus_sum']){
+
+            $data['AMOUNT'] = $data['AMOUNT'] + (int) ( ($data['AMOUNT'] / 100) * 20 );
+
+        }
+
         $user->cash = $user->cash + (int) $data['AMOUNT'];
 
         if ($user->save()) {

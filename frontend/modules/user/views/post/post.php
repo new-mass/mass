@@ -157,7 +157,7 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
 
                     <?php if (!empty($post['mess'])) : ?>
 
-                        <div class="anket-heading"><h2 class="big-heading">У меня есть мессенджеры</h2></div>
+                        <div class="anket-heading"><h2 class="big-heading">Мессенджеры на мой номер</h2></div>
 
                         <div class="anket-parameters">
 

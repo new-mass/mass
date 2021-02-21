@@ -16,8 +16,13 @@ $this->title = "Кабинет";
         </div>
         <div class="col-12">
             <div class="message">
-                <p>При пополнении счета <br>
+                <p>При пополнении счета от <?php echo Yii::$app->params['bonus_sum'] ?> р<br>
                     Вы получаете бонус в размере 20% от суммы пополнения</p>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="message">
+                <p>Добавлена возможность указать что к номеру анкеты привязанны мессенджеры</p>
             </div>
         </div>
         <?php if (Yii::$app->user->identity['status'] == 9) : ?>
