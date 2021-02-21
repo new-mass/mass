@@ -20,6 +20,7 @@ use common\assets\FontAwesomeAsset;
 /* @var $userComfort \frontend\modules\user\models\relation\UserComfort */
 /* @var $city array */
 /* @var $userMetro \frontend\modules\user\models\relation\UserMetro */
+/* @var $userMess \frontend\models\UserMessanger */
 FontAwesomeAsset::register($this);
 $pol = ArrayHelper::map(\frontend\modules\user\models\Pol::find()->asArray()->all(), 'id', 'value');
 $time = \frontend\modules\user\components\helpers\TimeHelper::generateDayTime();
@@ -30,6 +31,7 @@ $service = ArrayHelper::map(\frontend\modules\user\models\Service::find()->asArr
 $rayon = ArrayHelper::map(\frontend\modules\user\models\Rayon::find()->asArray()->where(['city_id' => $city['id']])->all(), 'id', 'value');
 $metro = ArrayHelper::map(\frontend\modules\user\models\Metro::find()->asArray()->where(['city_id' => $city['id']])->all(), 'id', 'value');
 $comfort = ArrayHelper::map(\frontend\modules\user\models\Comfort::find()->asArray()->all(), 'id', 'value');
+$massengers = ArrayHelper::map(\frontend\models\Messanger::find()->asArray()->all(), 'id', 'name');
 
 $commentForm = new \frontend\modules\user\models\Comments();
 
@@ -39,13 +41,33 @@ $commentForm = new \frontend\modules\user\models\Comments();
     <h1 class="user-name-single"><?php echo $this->title ?></h1>
 </div>
 <script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
+    <div class="message">
+        <p>Мы не размещаем рекламу других сайтов </p>
+    </div>
 <div class="user-cabinet-add">
+
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="row">
         <div class="col-6 col-lg-4 col-xl-3"><?= $form->field($model, 'name') ?> </div>
         <div class="col-6 col-lg-4 col-xl-3"><?= $form->field($model, 'phone') ?> </div>
+        <div class="col-12"></div>
+        <div class="col-12">
+            <label class="control-label">Мессенджеры на этот номер</label>
+        </div>
+        <div class="col-12">
+            <?= $form->field($userMess, 'prop_id', [
+
+            ])->checkboxList($massengers, ['item' => function ($index, $label, $name, $checked, $value) {
+
+                if ($checked == 1) $check = 'checked';
+                else $check = '';
+
+                return "<span class='wrap-check-box-list'><input class='checkbox-cabinet' id='{$name}{$value}' type='checkbox' {$check}  name='{$name}' value='{$value}'><label class='check-box-list-label' for='{$name}{$value}'>{$label}</label></span>";
+
+            }])->label(false) ?>
+        </div>
         <div class="col-12"></div>
         <div class="col-6 col-lg-4 col-xl-3 position-relative"><?= $form->field($model, 'price') ?> </div>
         <div class="col-6 col-lg-4 col-xl-3 position-relative"><?= $form->field($model, 'price_2_hour') ?> </div>

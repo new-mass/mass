@@ -4,6 +4,7 @@
 namespace frontend\modules\user\controllers;
 
 use common\models\SingleViewPost;
+use frontend\models\UserMessanger;
 use frontend\modules\user\components\helpers\AvatarHelper;
 use frontend\modules\user\components\helpers\PublicationHelper;
 use frontend\modules\user\components\helpers\SaveNameHelper;
@@ -111,6 +112,7 @@ class CabinetController extends Controller
         $userRayon = new UserRayon();
         $userComfort = new UserComfort();
         $userMetro = new UserMetro();
+        $userMess = new UserMessanger();
 
         if ($model->load(Yii::$app->request->post()) and $userPol->load(Yii::$app->request->post())
             and $userWorkTime->load(Yii::$app->request->post())
@@ -118,6 +120,7 @@ class CabinetController extends Controller
             and $userComfort->load(Yii::$app->request->post())
             and $userPlace->load(Yii::$app->request->post())
             and $userService->load(Yii::$app->request->post())
+            and $userMess->load(Yii::$app->request->post())
             and $userCheck->load(Yii::$app->request->post())) {
 
             if (UploadedFile::getInstance($model, 'avatar')) {
@@ -153,6 +156,7 @@ class CabinetController extends Controller
                         SaveRelationHelper::save(UserCheckAnket::class, $userCheck->prop_id, $model->id);
                         SaveRelationHelper::save(UserPlace::class, $userPlace->prop_id, $model->id);
                         SaveRelationHelper::save(UserService::class, $userService->prop_id, $model->id);
+                        SaveRelationHelper::save(UserMessanger::class, $userMess->prop_id, $model->id);
 
                         SaveRelationHelper::save(UserMassagDlya::class, $userMassagDlya->prop_id, $model->id);
 
@@ -210,6 +214,7 @@ class CabinetController extends Controller
             'userRayon' => $userRayon,
             'userComfort' => $userComfort,
             'userMetro' => $userMetro,
+            'userMess' => $userMess,
         ]);
     }
 
@@ -228,6 +233,7 @@ class CabinetController extends Controller
         $userPol = new UserPol();
         $userWorkTime = new UserWorckTime();
         $userMetro = new UserMetro();
+        $userMess = new UserMessanger();
 
         if ($model->load(Yii::$app->request->post()) and $userPol->load(Yii::$app->request->post())
             and $userWorkTime->load(Yii::$app->request->post())
@@ -236,6 +242,7 @@ class CabinetController extends Controller
             and $userPlace->load(Yii::$app->request->post())
             and $userService->load(Yii::$app->request->post())
             and $userPol->load(Yii::$app->request->post())
+            and $userMess->load(Yii::$app->request->post())
             and $userCheck->load(Yii::$app->request->post())) {
 
             if ($model->validate() and $model->save()) {
@@ -250,6 +257,7 @@ class CabinetController extends Controller
                     SaveRelationHelper::save(UserPlace::class, $userPlace->prop_id, $model->id);
                     SaveRelationHelper::save(UserService::class, $userService->prop_id, $model->id);
                     SaveRelationHelper::save(UserMassagDlya::class, $userMassagDlya->prop_id, $model->id);
+                    SaveRelationHelper::save(UserMessanger::class, $userMess->prop_id, $model->id);
                     if ($userRayon->load(Yii::$app->request->post()))
                         SaveRelationHelper::save(UserRayon::class, $userRayon->prop_id, $model->id);
                     if ($userMetro->load(Yii::$app->request->post()))
@@ -282,6 +290,7 @@ class CabinetController extends Controller
         $userRayon->prop_id = ArrayHelper::getColumn(UserRayon::find()->where(['user_id' => $model->id])->all(), 'prop_id');
         $userComfort->prop_id = ArrayHelper::getColumn(UserComfort::find()->where(['user_id' => $model->id])->all(), 'prop_id');
         $userMetro->prop_id = ArrayHelper::getColumn(UserMetro::find()->where(['user_id' => $model->id])->all(), 'prop_id');
+        $userMess->prop_id = ArrayHelper::getColumn(UserMessanger::find()->where(['user_id' => $model->id])->all(), 'prop_id');
 
         return $this->render('edit', [
             'model' => $model,
@@ -296,6 +305,7 @@ class CabinetController extends Controller
             'userComfort' => $userComfort,
             'city' => $city,
             'userMetro' => $userMetro,
+            'userMess' => $userMess,
         ]);
     }
 

@@ -154,6 +154,23 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                         </div>
                         <br>
                     </div>
+
+                    <?php if (!empty($post['mess'])) : ?>
+
+                        <div class="anket-heading"><h2 class="big-heading">У меня есть мессенджеры</h2></div>
+
+                        <div class="anket-parameters">
+
+                            <?php foreach($post['mess'] as $messItem) : ?>
+
+                                <img class="mess-img" src="<?php echo $messItem['img'] ?>" alt="<?php echo $messItem['name'] ?>">
+
+                            <?php endforeach; ?>
+
+                        </div>
+
+                    <?php endif; ?>
+
                     <?php if (!empty($post['service'])) : ?>
 
                         <div class="anket-heading"><h2 class="big-heading">Я предлагаю</h2></div>

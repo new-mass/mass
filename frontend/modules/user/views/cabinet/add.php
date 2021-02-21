@@ -1,6 +1,7 @@
 <?php
 /* @var $this \yii\web\View */
 /* @var $city array */
+/* @var $userMess \frontend\models\UserMessanger */
 $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=1'), ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->registerJsFile(Yii::getAlias('@web/js/preview.js'), ['depends' => [\frontend\assets\AppAsset::class]]);
 
@@ -27,6 +28,7 @@ $this->title = 'Добавить анкету';
         'userRayon' => $userRayon,
         'userComfort' => $userComfort,
         'userMetro' => $userMetro,
+        'userMess' => $userMess,
     ]); ?>
 
         <?php else : ?>

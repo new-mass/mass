@@ -3,6 +3,8 @@
 namespace frontend\modules\user\models;
 
 use common\models\SingleViewPost;
+use frontend\models\Messanger;
+use frontend\models\UserMessanger;
 use frontend\modules\user\models\relation\UserCheckAnket;
 use frontend\modules\user\models\relation\UserComfort;
 use frontend\modules\user\models\relation\UserMassagDlya;
@@ -143,6 +145,18 @@ class Posts extends \yii\db\ActiveRecord
         return $this->hasMany(Service::class, ['id' => 'prop_id'])->via('serviceRelation')->cache(3600 * 365);
 
     }
+
+    public function getMessRelation(){
+
+        return $this->hasMany(UserMessanger::class, [ 'user_id' => 'id']);
+
+    }
+
+    public function getMess(){
+
+        return $this->hasMany(Messanger::class, ['id' => 'prop_id'])->via('messRelation')->cache(3600 * 365);
+
+    }
     public function getComfortRelation(){
 
         return $this->hasMany(UserComfort::class, [ 'user_id' => 'id']);
@@ -258,8 +272,10 @@ class Posts extends \yii\db\ActiveRecord
             ->with('check')
             ->with('workTime')
             ->with('rayon')
+            ->with('metro')
             ->with('comments')
             ->with('comfort')
+            ->with('mess')
             ->limit(1)
             ->asArray()->one();
         
