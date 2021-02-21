@@ -79,6 +79,7 @@ if ($posts) {
 
             if ($pages) echo \yii\widgets\LinkPager::widget([
                 'pagination' => $pages,
+                'maxButtonCount' => 5,
             ]);
 
             ?>
