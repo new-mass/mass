@@ -15,7 +15,7 @@ AppAsset::register($this);
 $searchForm = new \frontend\models\forms\SearchForm();
 $claimForm = new \frontend\models\forms\ClaimForm();
 
-$this->registerJsFile('/js/script.js?v=1', ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerJsFile('/js/script.js?v=2', ['depends' => [\frontend\assets\AppAsset::class]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -229,7 +229,9 @@ $this->registerJsFile('/js/script.js?v=1', ['depends' => [\frontend\assets\AppAs
 
             </div>
             <div class="modal-body claim-modal-body">
-                <?php echo \frontend\widgets\ClaimFormWidget::widget() ?>
+
+                <?php   ?>
+
             </div>
     </div>
 </div>

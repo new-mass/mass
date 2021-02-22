@@ -478,4 +478,9 @@ class SiteController extends Controller
         return $this->redirect($newUrl, 301);
     }
 
+    public function actionGetClaimModal()
+    {
+        return \frontend\widgets\ClaimFormWidget::widget();
+    }
+
 }

@@ -42,10 +42,6 @@ return [
                 '510_764' => [510, 764],
             ],
         ],
-        'request' => [
-            'csrfParam' => '_csrf-frontend',
-            'enableCsrfValidation' => false,
-        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -101,6 +97,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/pay' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cpay.php' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/claim/add' => 'claim/add',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/get-claim-modal' => 'site/get-claim-modal',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/register' => 'user/user/register',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:[a-z-0-9_]+>/page-<page:[0-9]+>' => 'site/redirect',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:[a-z-0-9_]+>' => 'site/filter',

@@ -83,9 +83,29 @@ var changeURL = debounce(function() {
 }, 1);
 $(document).ready(function () {
 
+    $('.teh-pod').on('click', function () {
+
+        $.ajax({
+            type: 'POST',
+            url: '/get-claim-modal',
+            dataType: "html",
+            cache: false,
+            success: function (data) {
+
+                $('#myModal').modal('show');
+                $('#claim-modal .modal-body').html(data);
+
+            },
+
+        });
+
+    });
+
     $('.mobile-filter').on('click', function () {
         $('.filter-ul').toggle(150);
     });
+
+
 
     $(document).scroll(function () {
 
