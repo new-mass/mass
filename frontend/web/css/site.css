@@ -1084,6 +1084,20 @@ body{
 .custom-card{
     min-height: 350px;
 }
+.marc-item {
+    background: linear-gradient(73.61deg, #7F119E -4.63%, #E21A92 117.08%);
+    border-radius: 10px;
+    padding: 5px 6px;
+    text-align: center;
+    color: #fff;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 13px;
+}
+.marc-item:hover{
+    color: #fff;
+}
 @media (max-width:1979px) {
     .ankets{
         padding: 0;
