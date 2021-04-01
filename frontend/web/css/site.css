@@ -1093,6 +1093,12 @@ body{
 .video-cabinet {
     max-width: 100%;
 }
+.video-block {
+    height: 41px;
+    width: 41px;
+    background: #121212;
+    top: 51px;
+}
 .marc-item {
     background: linear-gradient(73.61deg, #7F119E -4.63%, #E21A92 117.08%);
     border-radius: 10px;

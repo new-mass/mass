@@ -8,7 +8,7 @@ $metro = false;
         <div class="custom-card d-flex flex-row flex-wrap justify-content-between">
             <div class="custom-card-left">
                 <div class="custom-card_img">
-                    <a href="/anketa/<?php echo $item['url'] ?>">
+                    <a target="_blank" href="/anketa/<?php echo $item['url'] ?>">
 
                         <picture>
 
@@ -54,6 +54,13 @@ $metro = false;
                     <?php if ($item['tarif_id'] == 2) : ?>
 
                         <div class="vip-block tarif-block"><p>VIP</p></div>
+
+                    <?php endif; ?>
+
+
+                    <?php if ($item['video']) : ?>
+
+                        <div class=" tarif-block video-block"><img src="/img/1485477041-play_78590.svg" alt=""></div>
 
                     <?php endif; ?>
                     
