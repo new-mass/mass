@@ -2,6 +2,7 @@
 
 
 namespace frontend\modules\user\controllers;
+
 use common\models\User;
 use frontend\modules\user\models\Hystory;
 use frontend\components\BeforeController as Controller;
@@ -10,8 +11,17 @@ use frontend\modules\user\models\forms\PayForm;
 
 class CashController extends Controller
 {
+
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+
+        return parent::beforeAction($action);
+    }
+
     public function actionPay()
     {
+
         $data = Yii::$app->request->post();
 
         $user_data = \explode('_', $data['MERCHANT_ORDER_ID']);
@@ -46,7 +56,7 @@ class CashController extends Controller
 
             if ($user_data[1] == 'moskva')
 
-            Yii::$app->response->redirect('https://e-mass.top/cabinet', 301, false);
+                Yii::$app->response->redirect('https://e-mass.top/cabinet', 301, false);
 
             else Yii::$app->response->redirect('https://'.$user_data[1].'.e-mass.top/cabinet', 301, false);
 

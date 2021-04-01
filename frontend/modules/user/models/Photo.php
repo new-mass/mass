@@ -10,10 +10,15 @@ use Yii;
  * @property int $id
  * @property int|null $user_id
  * @property int|null $avatar
+ * @property int|null $type
  * @property string|null $file
  */
 class Photo extends \yii\db\ActiveRecord
 {
+
+    const TYPE_VIDEO = 1;
+    const TYPE_PHOTO = 0;
+
     /**
      * {@inheritdoc}
      */
@@ -28,7 +33,7 @@ class Photo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'avatar'], 'integer'],
+            [['user_id', 'avatar', 'type'], 'integer'],
             [['file'], 'string', 'max' => 255],
         ];
     }

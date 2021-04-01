@@ -75,7 +75,7 @@ class Posts extends \yii\db\ActiveRecord
             [['age'], 'integer', 'min' => 18],
             [['name', 'phone', 'price'], 'required'],
             [['phone'], 'string', 'max' => 20],
-            [['avatar'], 'safe'],
+            [['avatar','video'], 'safe'],
             [['about'], 'string' , 'max' => 1200],
         ];
     }
@@ -99,6 +99,7 @@ class Posts extends \yii\db\ActiveRecord
             'price_2_hour' => 'Цена за сеанс 2 часа',
             'breast' => 'Размер груди',
             'ves' => 'Вес',
+            'video' => 'Видео',
         ];
     }
 
@@ -124,6 +125,15 @@ class Posts extends \yii\db\ActiveRecord
         return $this->hasOne(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 1]);
     }
 
+    public function getVideo()
+    {
+        return $this->hasOne(Photo::class, ['user_id' => 'id' ])->where(['type' => Photo::TYPE_VIDEO]);
+    }
+    public function setVideo()
+    {
+        return true;
+    }
+
     public function setAvatar()
     {
         return true;
@@ -131,7 +141,7 @@ class Posts extends \yii\db\ActiveRecord
 
     public function getGallery()
     {
-        return $this->hasMany(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 0]);
+        return $this->hasMany(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 0, 'type' => Photo::TYPE_PHOTO]);
     }
 
     public function getServiceRelation(){
@@ -266,6 +276,7 @@ class Posts extends \yii\db\ActiveRecord
         $post = Posts::find()->where(['url' => $url])
             ->with('avatar')
             ->with('gallery')
+            ->with('video')
             ->with('service')
             ->with('massagDlya')
             ->with('place')

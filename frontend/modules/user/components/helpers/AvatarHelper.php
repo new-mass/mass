@@ -19,6 +19,25 @@ class AvatarHelper
 
         }
     }
+    public static function saveVideo($model, $userId) :bool
+    {
+
+        if ($video = Photo::find()->where(['user_id' =>$userId , 'type' => Photo::TYPE_VIDEO])->limit(1)->one()){
+
+            unlink(Yii::getAlias('@frontend/web'.$video->file));
+
+            $video->delete();
+
+        }
+
+        $file = UploadedFile::getInstance($model, 'video');
+
+        if ($file) {
+
+            return AvatarHelper::saveVideoFile($file, $userId);
+
+        }
+    }
 
     public static function saveGallery($model, $userId)
     {
@@ -39,6 +58,8 @@ class AvatarHelper
     public static function savePhoto($file, $userId, $avatar = 0)
     {
 
+        if ($avatar) Photo::updateAll(['avatar' => 0], ['user_id' => $userId]);
+
         $photo = new Photo();
 
         $photo->file = 'photo-' . $userId . '-' . \md5($file->name) . \time() . '.jpg';
@@ -58,6 +79,39 @@ class AvatarHelper
         $photo->file = $dir . $photo->file;
 
         return $photo->save();
+
+    }
+
+    public static function saveVideoFile(UploadedFile $file, $userId)
+    {
+
+        if ($file){
+
+            $photo = new Photo();
+
+            $photo->file = 'video-' . $userId . '-' . \md5($file->name) . \time() . '.'.$file->getExtension();
+
+            $dir_hash = DirHelprer::generateDirNameHash($photo->file) . '/';
+
+            $dir = Yii::$app->params['photo_path'] . $dir_hash;
+
+            $save_dir = DirHelprer::prepareDir(Yii::getAlias('@webroot') . $dir);
+
+            $file->saveAs($save_dir.$photo->file);
+
+            $photo->user_id = $userId;
+
+            $photo->avatar = 0;
+
+            $photo->type = Photo::TYPE_VIDEO;
+
+            $photo->file = $dir . $photo->file;
+
+            return $photo->save();
+
+        }
+
+        return false;
 
     }
 }

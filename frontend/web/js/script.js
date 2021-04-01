@@ -81,6 +81,7 @@ var changeURL = debounce(function() {
         }
     });
 }, 1);
+
 $(document).ready(function () {
 
     $('.teh-pod').on('click', function () {
@@ -333,6 +334,12 @@ function up_anket(object){
     });
 
 }
+
+$( "#addpostform-video" ).change(function() {
+    $( ".get-video-btn" ).text('Видео выбрано');
+    $( ".video-cabinet" ).remove();
+
+});
 
 function delete_photo(object){
 

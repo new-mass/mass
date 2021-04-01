@@ -18,21 +18,25 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                     <div class="thumb">
                         <div class="custom-card">
 
-                            <picture class="picture-<?php echo $post['id'] ?>">
+                            <?php if ($post['avatar']['file']) : ?>
 
-                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '510_764') ?>" media="(max-width: 768px)">
+                                <picture class="picture-<?php echo $post['id'] ?>">
 
-                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '330_494') ?>" media="(max-width: 991px)">
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '510_764') ?>" media="(max-width: 768px)">
 
-                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '290_435') ?>" media="(max-width: 1199px)">
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '330_494') ?>" media="(max-width: 991px)">
 
-                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '350_524') ?>">
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '290_435') ?>" media="(max-width: 1199px)">
 
-                                <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
-                                     src="<?php echo $post['avatar']['file'] ?>"
-                                     alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '350_524') ?>">
 
-                            </picture>
+                                    <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
+                                          src="<?php echo $post['avatar']['file'] ?>"
+                                          alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+
+                                </picture>
+
+                            <?php endif; ?>
 
                             <?php if ($post['tarif_id'] == 6) : ?>
 
@@ -78,15 +82,26 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                             </div>
                         </div>
                     <?php endif; ?>
+
+                    <?php if (!empty($post['video'])) : ?>
+                        <div class="gallery">
+                            <video class="video-cabinet" controls="controls">
+                                <source src="<?php echo $post['video']['file'] ?>">
+                            </video>
+                        </div>
+                    <?php endif; ?>
+
+
+
                     <div class="row">
                         <div class="col-12 ">
                             <div class="about-block">
                                 <div class="row">
                                     <div class="col-3 about-img-wrap">
                                         <?php if ($post['avatar']['file']) : ?>
-                                        <img class="about-img"
-                                             src="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '61_61') ?>"
-                                             alt=" <?php echo $post['name'] ?> " title=" <?php echo $post['name'] ?> ">
+                                            <img class="about-img"
+                                                 src="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '61_61') ?>"
+                                                 alt=" <?php echo $post['name'] ?> " title=" <?php echo $post['name'] ?> ">
                                         <?php endif; ?>
                                     </div>
                                     <div class="col-9">
@@ -100,6 +115,7 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
 
                         </div>
                     </div>
+
                 </div>
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="name-price-wrap">
@@ -107,8 +123,6 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                         </h1>
                         <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
                             <meta itemprop="priceValidUntil" content="2020-11-11">
-                            <a class="d-none" itemprop="url"
-                               href="https://spb.e-mass.top/user-spb-massazhistka-olesya-162"></a>
                             <link itemprop="availability" href="https://schema.org/InStock">
                             <span>
 <span class="text">Сеанс <span class="pricerange" itemprop="price"><?php echo $post['price'] ?></span> руб.</span>

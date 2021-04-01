@@ -18,6 +18,10 @@ return [
         ],
     ],
     'components' => [
+        'request' => [
+            'csrfParam' => '_csrf-frontend',
+            'enableCsrfValidation' => false,
+        ],
         'imageCache' => [
             'class' => 'iutbay\yii2imagecache\ImageCache',
             'sourcePath' => '@app/web/uploads',

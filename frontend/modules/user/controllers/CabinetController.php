@@ -168,6 +168,7 @@ class CabinetController extends Controller
                         SaveRelationHelper::save(UserComfort::class, $userComfort->prop_id, $model->id);
 
                         AvatarHelper::saveAvatar($model, $model->id);
+                        AvatarHelper::saveVideo($model, $model->id);
                         AvatarHelper::saveGallery($model, $model->id);
 
                         Yii::$app->session->setFlash('success', 'Анкета отправлена на модерацию');
@@ -267,6 +268,7 @@ class CabinetController extends Controller
 
 
                     AvatarHelper::saveAvatar($model, $model->id);
+                    AvatarHelper::saveVideo($model, $model->id);
                     AvatarHelper::saveGallery($model, $model->id);
 
                     Yii::$app->session->setFlash('success', 'Анкета отредактирована');

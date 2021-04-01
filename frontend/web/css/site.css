@@ -1084,6 +1084,15 @@ body{
 .custom-card{
     min-height: 350px;
 }
+.exist-img.img-label {
+    width: 61px;
+    height: 61px;
+    background-size: cover;
+    border-radius: 50%;
+}
+.video-cabinet {
+    max-width: 100%;
+}
 .marc-item {
     background: linear-gradient(73.61deg, #7F119E -4.63%, #E21A92 117.08%);
     border-radius: 10px;

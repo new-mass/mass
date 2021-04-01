@@ -40,7 +40,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
 <div class="col-12">
     <h1 class="user-name-single"><?php echo $this->title ?></h1>
 </div>
-<script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
+<script1 src="//code.jivosite.com/widget/O6TixAAC9q" async></script1>
     <div class="message">
         <p>Мы не размещаем рекламу других сайтов </p>
     </div>
@@ -135,23 +135,19 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
                 <div class="row">
                     <div class="col-3">
-                        <label for="addpostform-image"
-                               class="<?php if (isset($model->avatar)) echo 'exist-img' ?> img-label">
 
-                            <?php if (isset($model->avatar)) : ?>
+                        <?php if (isset($model->avatar)) : ?>
 
-                                <?php $imageLink =  $model->avatar['file'] ?>
+                            <?php $imageLink =  $model->avatar['file'] ?>
 
-                            <?php else : ?>
+                        <?php else : ?>
 
-                                <?php $imageLink = '/img/no-image.png' ?>
+                            <?php $imageLink = '/img/no-image.png' ?>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
-                            <span class="img-wrap avatar-prewiew">
-                                    <img class="main-img" src="<?php echo $imageLink ?>">
-                                </span>
-
+                        <label style="background-image: url('../..<?php  echo $imageLink ?>')" for="addpostform-image"
+                               class="<?php if (isset($model->avatar)) echo 'exist-img' ?> img-label avatar-prewiew">
 
                             <?= $form->field($model, 'avatar')->fileInput(['maxlength' => true, 'accept' => 'image/*', 'id' => 'addpostform-image'])->label(false) ?>
 
@@ -171,6 +167,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
         </div>
 
+        <div class="col-12"><br></div>
 
         <div class="col-12"><br></div>
         <div class="col-12">
@@ -237,6 +234,51 @@ $commentForm = new \frontend\modules\user\models\Comments();
                         </label>
                         <p class="small-text small-text-grey">Для того чтобы выбрать несколько фото удерживайте
                             клавишу ctrl при клике на нужные фото</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-12"><br></div>
+
+        <div class="col-12">
+
+            <p class="control-label">Видео</p>
+
+            <div class="avatar-wrap">
+
+                <div class="row">
+                    <div class="col-12">
+                        <label for="addpostform-video"
+                               class=" img-label">
+
+                            <?php if (isset($model->video)) : ?>
+
+                                <video class="video-cabinet" controls="controls">
+                                    <source src="<?php echo $model->video['file'] ?>">
+                                </video>
+
+                            <?php else : ?>
+
+                                <span class="img-wrap">
+                                    <img class="main-img" src="/img/no-image.png">
+                                </span>
+
+                            <?php endif; ?>
+
+                            <?= $form->field($model, 'video')->fileInput(['maxlength' => true, 'accept' => 'video/*', 'id' => 'addpostform-video'])->label(false) ?>
+
+                        </label>
+                    </div>
+                    <div class="col-9">
+                        <p class="small-text">Анкеты с видео получают больше внимания пользователей, интимные <br> части тела должны быть закрыты</p>
+                        <label for="addpostform-video" class=" img-label form-btn get-video-btn">
+                            Выбрать видео
+                        </label>
+
                     </div>
                 </div>
 
