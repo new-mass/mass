@@ -19,7 +19,7 @@ class AvatarHelper
 
         }
     }
-    public static function saveVideo($model, $userId) :bool
+    public static function saveVideo($model, $userId)
     {
 
         if ($video = Photo::find()->where(['user_id' =>$userId , 'type' => Photo::TYPE_VIDEO])->limit(1)->one()){
