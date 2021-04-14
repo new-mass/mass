@@ -52,6 +52,7 @@ class PayController extends Controller
                     }else{
 
                         $post['pay_time'] = time() + 3600;
+                        $post['sorting'] = rand(0, 50);
 
                         $post->save();
 
