@@ -419,11 +419,9 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
 
                                     <div class="col-12 otziv" itemprop="review" itemscope=""
                                          itemtype="http://schema.org/Review">
-                                        <meta itemprop="datePublished" content="2020-01-28 <?php echo date('Y-m-d', $comment['created_at']) ?>">
                                         <p itemprop="author" class="name"><?php echo $comment['name'] ?> </p>
                                         <p itemprop="reviewBody" class="text-comment">
                                             <img src="/bitrix/img/vector_21.png" alt="">
-                                            <span class="rewiew-date"> <?php echo date('Y-m-d', $comment['created_at']) ?>  </span>
                                             <br>
                                             <?php echo $comment['text'] ?> </p>
                                         <div class="d-none">
