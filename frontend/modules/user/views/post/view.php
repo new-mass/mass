@@ -13,8 +13,28 @@ $this->title = MetaTagsHelper::singleTitle($post, $city);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => MetaTagsHelper::singleDes($post, $city)
+    'content' => $des = MetaTagsHelper::singleDes($post, $city)
 ]);
+
+$this->registerMetaTag([
+    'name' => 'og:title',
+    'content' => $this->title
+]);
+
+$this->registerMetaTag([
+    'name' => 'og:description',
+    'content' => $des
+]);
+$this->registerMetaTag([
+    'name' => 'og:image',
+    'content' => 'https://'.Yii::$app->request->hostName.$post['avatar']['file']
+]);
+
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => 'https://'.Yii::$app->request->hostName.Yii::$app->request->url
+]);
+
 
 OwlAsset::register($this);
 LightGalleryAsset::register($this);
