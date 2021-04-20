@@ -122,7 +122,7 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                         <h1 class="user-name-single" itemprop="name"> <?php echo $post['name'] ?>
                         </h1>
                         <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-                            <meta itemprop="priceValidUntil" content="2020-11-11">
+                            <meta itemprop="priceValidUntil" content="2021-11-11">
                             <link itemprop="availability" href="https://schema.org/InStock">
                             <span>
 <span class="text">Сеанс <span class="pricerange" itemprop="price"><?php echo $post['price'] ?></span> руб.</span>
