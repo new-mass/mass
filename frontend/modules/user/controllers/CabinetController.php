@@ -10,6 +10,7 @@ use frontend\modules\user\components\helpers\PublicationHelper;
 use frontend\modules\user\components\helpers\SaveNameHelper;
 use frontend\modules\user\components\helpers\SaveRelationHelper;
 use frontend\modules\user\models\City;
+use frontend\modules\user\models\forms\UpdateAvatarForm;
 use frontend\modules\user\models\PhoneView;
 use frontend\modules\user\models\Photo;
 use frontend\modules\user\models\Posts;
@@ -332,6 +333,20 @@ class CabinetController extends Controller
             return $exception->getMessage();
 
         }
+    }
+
+    public function actionUpdateAvatar()
+    {
+        $model = new UpdateAvatarForm();
+
+        if ($model->load(Yii::$app->request->post())){
+
+            $result = $model->updateAvatar();
+
+            return $result['file'];
+
+        }
+
     }
 
 

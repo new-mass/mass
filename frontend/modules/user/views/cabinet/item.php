@@ -1,5 +1,10 @@
 <?php
+
 /* @var $item array */
+
+use yii\widgets\ActiveForm;
+
+$avatarForm = new \frontend\modules\user\models\forms\UpdateAvatarForm();
 
 ?>
 <div class="col-12 col-lg-6 col-md-12 col-xl-4 article-item cabinet-item">
@@ -50,6 +55,23 @@
                     <div class="custom-card_data">
                         <a target="_blank" class="url name name-pr" href="/anketa/<?php echo $item['url'] ?>"><span
                                     class="fn org"><?php echo $item['name'] ?></span></a>
+                        <div class="row">
+
+                            <div class="col-12">
+
+                                <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+
+                                <?= $form->field($avatarForm, 'file')
+                                    ->fileInput(['class' => 'd-none update-avatar', 'id' => 'avatar_input_'.$item['id']])
+                                    ->label('Изменить аватар', ['class' => 'edit', 'for' => 'avatar_input_'.$item['id']]) ?>
+
+                                <?= $form->field($avatarForm, 'user_id')->hiddenInput(['value' => $item['id']])->label(false) ?>
+
+                                <?php ActiveForm::end() ?>
+
+                            </div>
+
+                        </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="price">

@@ -9,9 +9,9 @@ use Yii;
 
 class AvatarHelper
 {
-    public static function saveAvatar($model, $userId)
+    public static function saveAvatar($model, $userId, $attributeName = 'avatar')
     {
-        $file = UploadedFile::getInstance($model, 'avatar');
+        $file = UploadedFile::getInstance($model, $attributeName);
 
         if ($file) {
 
@@ -58,7 +58,19 @@ class AvatarHelper
     public static function savePhoto($file, $userId, $avatar = 0)
     {
 
-        if ($avatar) Photo::updateAll(['avatar' => 0], ['user_id' => $userId]);
+        if ($avatar) {
+
+            if ($oldFile = Photo::findOne(['user_id' => $userId, 'avatar' => 1 ])){
+
+                unlink(Yii::getAlias('@frontend/web'.$oldFile->file));
+
+                $oldFile->delete();
+
+            }
+
+            Photo::updateAll(['avatar' => 0], ['user_id' => $userId]);
+
+        }
 
         $photo = new Photo();
 
@@ -78,7 +90,9 @@ class AvatarHelper
 
         $photo->file = $dir . $photo->file;
 
-        return $photo->save();
+        if ($photo->save()) return $photo;
+
+        return false;
 
     }
 

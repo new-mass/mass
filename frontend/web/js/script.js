@@ -218,26 +218,32 @@ function send_comment(object) {
 
 var fileField = document.getElementById('addpostform-gallary');
 var preview = document.getElementById('preview');
-fileField.addEventListener('change', function (event) {
-    $('.no-img-item').remove();
-    for (var x = 0; x < event.target.files.length; x++) {
-        (function (i) {
-            var reader = new FileReader();
-            var img = document.createElement('img');
-            var wrap = document.createElement('div');
-            var col = document.createElement('div');
-            reader.onload = function (event) {
-                wrap.setAttribute('class', 'gallery-img-wrap img-wrap');
-                col.setAttribute('class', 'col-2');
-                img.setAttribute('src', event.target.result);
-                img.setAttribute('class', 'preview');
-                col.appendChild(wrap.appendChild(img));
-                preview.appendChild(col);
-            }
-            reader.readAsDataURL(event.target.files[x]);
-        })(x);
-    }
-}, false);
+
+if (fileField){
+
+    fileField.addEventListener('change', function (event) {
+        $('.no-img-item').remove();
+        for (var x = 0; x < event.target.files.length; x++) {
+            (function (i) {
+                var reader = new FileReader();
+                var img = document.createElement('img');
+                var wrap = document.createElement('div');
+                var col = document.createElement('div');
+                reader.onload = function (event) {
+                    wrap.setAttribute('class', 'gallery-img-wrap img-wrap');
+                    col.setAttribute('class', 'col-2');
+                    img.setAttribute('src', event.target.result);
+                    img.setAttribute('class', 'preview');
+                    col.appendChild(wrap.appendChild(img));
+                    preview.appendChild(col);
+                }
+                reader.readAsDataURL(event.target.files[x]);
+            })(x);
+        }
+    }, false);
+
+}
+
 $(document).ready(function () {
     $.uploadPreview({
         input_field: "#addpostform-image",   // Default: .image-upload
@@ -359,4 +365,41 @@ function delete_photo(object){
     });
 
 }
+
+$('.update-avatar').change(function(){
+
+    files = this.files;
+
+    var formData = new FormData($(this).closest('form')[0]);
+
+    var tmp = this;
+
+    $.ajax({
+        url: '/cabinet/update-avatar',
+        type: 'POST',
+        data: formData,
+        datatype:'json',
+        // async: false,
+        beforeSend: function() {
+            $(this).siblings('label').text('Загрузка');
+        },
+        success: function (data) {
+
+            $(tmp).closest('.new-anket').find('.photo-list').attr('src', data );
+
+        },
+
+        complete: function() {
+            // success alerts
+        },
+
+        error: function (data) {
+            alert("There may a error on uploading. Try again later");
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+
+});
 

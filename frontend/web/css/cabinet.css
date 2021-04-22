@@ -268,10 +268,10 @@
     height: 620px;
 }
 .custom-card-right:hover {
-    height: 471px;
+    height: 525px ;
 }
 .custom-card-right {
-    height: 471px!important;
+    height: 525px !important;
 }
 .status-anket{
     font-family: Roboto;

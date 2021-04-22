@@ -92,6 +92,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/add' => 'user/cabinet/add',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/faq' => 'user/cabinet/faq',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/edit/<id:[0-9]+>' => 'user/cabinet/edit',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/update-avatar' => 'user/cabinet/update-avatar',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/up' => 'user/cabinet/up',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/delete-photo' => 'user/cabinet/delete',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/logout' => 'user/user/logout',
