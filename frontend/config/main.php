@@ -23,10 +23,11 @@ return [
             'enableCsrfValidation' => false,
         ],
         'imageCache' => [
-            'class' => 'iutbay\yii2imagecache\ImageCache',
+            'class' => 'frontend\components\ImageCache',
             'sourcePath' => '@app/web/uploads',
             'sourceUrl' => '@web/uploads',
             'thumbsPath' => '@app/web/thumbs',
+            'quality' => 79,
             'extensions' => [
                 'jpg' => 'jpeg',
                 'jpeg' => 'jpeg',
