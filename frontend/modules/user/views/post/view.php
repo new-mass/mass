@@ -35,6 +35,7 @@ $this->registerMetaTag([
     'content' => 'https://'.Yii::$app->request->hostName.Yii::$app->request->url
 ]);
 
+LightGalleryAsset::register($this);
 
 ?>
 <div class="col-12" itemscope="" itemtype="http://schema.org/Product">

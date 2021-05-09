@@ -8,6 +8,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use common\assets\FontAwesomeAsset;
+use frontend\assets\OwlAsset;
 use yii\widgets\ActiveForm;
 
 $searchForm = new \frontend\models\forms\SearchForm();
@@ -16,7 +17,7 @@ AppAsset::register($this);
 
 $this->registerJsFile('/js/single.js', ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->registerJsFile('/js/script.js', ['depends' => [\frontend\assets\AppAsset::class]]);
-
+OwlAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
