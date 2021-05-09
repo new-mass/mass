@@ -27,7 +27,7 @@ return [
             'sourcePath' => '@app/web/uploads',
             'sourceUrl' => '@web/uploads',
             'thumbsPath' => '@app/web/thumbs',
-            'quality' => 79,
+            'quality' => 75,
             'extensions' => [
                 'jpg' => 'jpeg',
                 'jpeg' => 'jpeg',
