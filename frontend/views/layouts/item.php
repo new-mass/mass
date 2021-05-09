@@ -14,7 +14,8 @@ $metro = false;
 
                             <?php if (file_exists (Yii::getAlias('@app'.'/web'.$item['avatar']['file']))) : ?>
 
-                                <source srcset="<?= $item['avatar']['file'] ?>" media="(max-width: 768px)">
+                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '509_636') ?>" media="(max-width: 539px)">
+
                                 <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>" media="(max-width: 991px)">
 
                                 <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>" media="(max-width: 1199px)">
