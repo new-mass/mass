@@ -3,7 +3,7 @@
 use yii\widgets\ActiveForm;
 
 $commentForm = new \frontend\modules\user\models\Comments();
-$this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerJsFile('/js/single.js?v=3', ['depends' => [\frontend\assets\AppAsset::class]]);
 ?>
 
 <?php /* @var $post array */ ?>
@@ -18,25 +18,61 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                     <div class="thumb">
                         <div class="custom-card">
 
-                            <?php if ($post['avatar']['file']) : ?>
+                            <div class="gallery">
 
-                                <picture class="picture-<?php echo $post['id'] ?>">
+                                <div id="carousel-<?php echo $post['id'] ?>" class="carousel slide" data-ride="carousel">
 
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '510_764') ?>" media="(max-width: 768px)">
+                                    <div class="carousel-inner">
 
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '330_494') ?>" media="(max-width: 991px)">
+                                        <?php if ($post['avatar']['file']) : ?>
 
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '290_435') ?>" media="(max-width: 1199px)">
+                                            <picture href="<?php echo $post['avatar']['file']?>" class="carousel-item active picture-<?php echo $post['id'] ?>">
 
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '350_524') ?>">
+                                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '510_764') ?>" media="(max-width: 768px)">
 
-                                    <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
-                                          src="<?php echo $post['avatar']['file'] ?>"
-                                          alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+                                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '330_494') ?>" media="(max-width: 991px)">
 
-                                </picture>
+                                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '290_435') ?>" media="(max-width: 1199px)">
 
-                            <?php endif; ?>
+                                                <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '350_524') ?>">
+
+                                                <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
+                                                      src="<?php echo $post['avatar']['file'] ?>"
+                                                      alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+
+                                            </picture>
+
+                                        <?php endif; ?>
+
+                                        <?php if ($post['gallery']) : ?>
+
+                                            <?php foreach ($post['gallery'] as $item) :  ?>
+
+                                                <picture href="<?php echo $item['file'] ?>" class="carousel-item picture-<?php echo $post['id'] ?>">
+
+                                                    <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
+                                                          src="<?php echo $item['file'] ?>"
+                                                          alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+
+                                                </picture>
+
+                                            <?php endforeach; ?>
+
+                                        <?php endif; ?>
+
+                                    </div>
+
+                                    <a class="carousel-control-prev" href="#carousel-<?php echo $post['id'] ?>" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel-<?php echo $post['id'] ?>" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+
+                            </div>
 
                             <?php if ($post['tarif_id'] == 6) : ?>
 
@@ -69,19 +105,6 @@ $this->registerJsFile('/js/single.js?v=2', ['depends' => [\frontend\assets\AppAs
                             <?php endif; ?>
                         </div>
                     </div>
-                    <?php if (!empty($post['gallery'])) : ?>
-                        <div class="gallery">
-                            <div class="owl-carousel single-carousel ">
-                                <?php foreach ($post['gallery'] as $item) :  ?>
-                                    <a class="single-carousel_item" href="<?php echo $item['file'] ?>">
-                                        <img  loading="lazy" alt="<?php echo $post['name'] ?> "
-                                              title="<?php echo $item['name'] ?> "
-                                              src="<?= Yii::$app->imageCache->thumbSrc($item['file'], '105_200') ?>" >
-                                    </a>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
 
                     <?php if (!empty($post['video'])) : ?>
                         <div class="gallery">

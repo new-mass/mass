@@ -36,9 +36,6 @@ $this->registerMetaTag([
 ]);
 
 
-OwlAsset::register($this);
-LightGalleryAsset::register($this);
-
 ?>
 <div class="col-12" itemscope="" itemtype="http://schema.org/Product">
 
