@@ -21,7 +21,7 @@ $metro = false;
 
                                 <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>">
 
-                            <img loading="lazy" class="img-<?php echo $item['id']; ?>" src="<?= $item['avatar']['file'] ?>" alt="Массажистка  <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> ">
+                            <img loading="lazy" class="img-<?php echo $item['id']; ?>" src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>" alt="Массажистка <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> ">
 
                             <?php endif; ?>
                         </picture>
