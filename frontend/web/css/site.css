@@ -6,6 +6,11 @@ body {
 .accent-btn-1 span{
     margin: 0 auto;
 }
+.img-on-listing{
+    height: auto;
+    max-width: 100%;
+    width: auto;
+}
 .wrap {
     min-height: 100%;
     height: auto;
