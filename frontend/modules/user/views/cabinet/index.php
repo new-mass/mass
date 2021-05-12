@@ -5,7 +5,7 @@
 $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=3'), ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->title = "Кабинет";
 ?>
-<script1 src="//code.jivosite.com/widget/O6TixAAC9q" async></script1>
+<script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
 <div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget(['posts' => $items ]) ?>
 </div>
