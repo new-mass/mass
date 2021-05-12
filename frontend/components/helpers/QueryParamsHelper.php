@@ -55,7 +55,7 @@ class QueryParamsHelper
                                     ->with('metro')
                                     ->with('rayon')
                                     ->with('video')
-                                    ->orderBy('tarif_id desc, sorting desc')
+                                    ->orderBy('tarif_id desc, video_sort desc, sorting desc')
                                     ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
                                     ->limit($limit)
                                     ->offset($offset)
@@ -103,7 +103,7 @@ class QueryParamsHelper
                     ->with('video')
                     ->limit($limit)
                     ->offset($offset)
-                    ->with('rayon')->orderBy('tarif_id desc, sorting desc');
+                    ->with('rayon')->orderBy('tarif_id desc, video_sort desc, sorting desc');
 
             }
 
@@ -153,7 +153,7 @@ class QueryParamsHelper
                     ->andWhere(['city_id' => $city['id']])
                     ->with('video')
                     ->offset($offset)
-                    ->with('rayon')->orderBy('tarif_id desc, sorting desc');
+                    ->with('rayon')->orderBy('tarif_id desc, video_sort desc, sorting desc');
 
             }
 

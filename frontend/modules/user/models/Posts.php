@@ -41,6 +41,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $breast
  * @property integer $ves
  * @property string $old_url
+ * @property integer $video_sort
  */
 class Posts extends \yii\db\ActiveRecord
 {
@@ -70,7 +71,8 @@ class Posts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['city_id', 'user_id', 'tarif_id', 'created_at', 'sorting', 'work_time', 'age', 'rost', 'price','ves','breast', 'price_2_hour', 'status'], 'integer'],
+            [['city_id', 'user_id', 'tarif_id', 'created_at', 'sorting', 'work_time', 'age',
+                'rost', 'price','ves','breast', 'price_2_hour', 'status', 'video_sort'], 'integer'],
             [['name'], 'string', 'max' => 80],
             [['age'], 'integer', 'min' => 18],
             [['name', 'phone', 'price'], 'required'],

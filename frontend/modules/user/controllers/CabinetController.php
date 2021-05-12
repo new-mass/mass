@@ -169,8 +169,15 @@ class CabinetController extends Controller
                         SaveRelationHelper::save(UserComfort::class, $userComfort->prop_id, $model->id);
 
                         AvatarHelper::saveAvatar($model, $model->id);
-                        AvatarHelper::saveVideo($model, $model->id);
                         AvatarHelper::saveGallery($model, $model->id);
+
+                        if (AvatarHelper::saveVideo($model, $model->id)){
+
+                            $model->video_sort = 1;
+
+                            $model->save();
+
+                        }
 
                         Yii::$app->session->setFlash('success', 'Анкета отправлена на модерацию');
 
@@ -179,7 +186,7 @@ class CabinetController extends Controller
                             ->setTo(Yii::$app->params['admin_email'])
                             ->setSubject('новая накета')
                             ->setTextBody('новая накет')
-                            ->setHtmlBody('<p>новая накет')
+                            ->setHtmlBody('<p>новая Анакета')
                             ->send();
 
                         return $this->redirect('/cabinet');
@@ -269,7 +276,15 @@ class CabinetController extends Controller
 
 
                     AvatarHelper::saveAvatar($model, $model->id);
-                    AvatarHelper::saveVideo($model, $model->id);
+
+                    if (AvatarHelper::saveVideo($model, $model->id)){
+
+                        $model->video_sort = 1;
+
+                        $model->save();
+
+                    }
+
                     AvatarHelper::saveGallery($model, $model->id);
 
                     Yii::$app->session->setFlash('success', 'Анкета отредактирована');

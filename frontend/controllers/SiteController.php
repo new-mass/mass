@@ -127,7 +127,7 @@ class SiteController extends Controller
             ->with('rayon')
             ->with('video')
             ->offset($pages->offset)
-            ->orderBy('tarif_id desc, sorting desc')->asArray()->all();
+            ->orderBy('tarif_id desc, video_sort desc, sorting desc')->asArray()->all();
 
         DayViewHelper::addViewListing($posts);
 
@@ -366,7 +366,7 @@ class SiteController extends Controller
                     ->with('metro')
                     ->with('rayon')
                     ->with('video')
-                    ->orderBy('sorting desc')->asArray()->all();
+                    ->orderBy('video_sort desc,sorting desc')->asArray()->all();
 
                 DayViewHelper::addViewListing($posts);
 
@@ -434,7 +434,7 @@ class SiteController extends Controller
                 ->with('video')
                 ->limit(Yii::$app->params['post_limit'])
                 ->offset($offset)
-                ->orderBy('tarif_id desc, sorting desc')->asArray()->all();
+                ->orderBy('tarif_id desc, video_sort desc, sorting desc')->asArray()->all();
 
         }elseif($params['url'] == '/new'){
 
