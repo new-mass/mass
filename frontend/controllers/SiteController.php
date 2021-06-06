@@ -483,7 +483,7 @@ class SiteController extends Controller
     public function actionRedirect($page)
     {
 
-        $newUrl = str_replace('/page-'.$page, '?page='.$page, Yii::$app->request->url);
+        $newUrl = str_replace('/page-'.$page, '?page='.$page, strstr(Yii::$app->request->url, '?page=', true));
 
         if (strpos($newUrl, '/') === false) $newUrl = '/'.$newUrl;
 
