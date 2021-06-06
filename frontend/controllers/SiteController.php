@@ -90,6 +90,9 @@ class SiteController extends Controller
 
         if (Yii::$app->request->get('show')) return $this->redirect('/', 301);
 
+        if (strpos(Yii::$app->request->url, 'show'))
+            return $this->redirect(strstr(Yii::$app->request->url, '?show', true), 301);
+
         $city_name = $city;
 
         $city = Yii::$app->cache->get('city_'.$city_name);
@@ -153,6 +156,9 @@ class SiteController extends Controller
     {
 
         if (Yii::$app->request->get('show'))
+            return $this->redirect(strstr(Yii::$app->request->url, '?show', true), 301);
+
+        if (strpos(Yii::$app->request->url, 'show'))
             return $this->redirect(strstr(Yii::$app->request->url, '?show', true), 301);
 
         if($city == 'spb' and Yii::$app->request->url == '/massazh-dlya_muzhchin-spb'){
