@@ -21,6 +21,6 @@ class m210509_113422_add_dop_sort_column_to_posts_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropColumn('posts', 'dop_sort');
+        $this->dropColumn('posts', 'video_sort');
     }
 }

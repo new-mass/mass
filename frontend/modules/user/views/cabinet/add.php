@@ -8,6 +8,7 @@ $this->registerJsFile(Yii::getAlias('@web/js/preview.js'), ['depends' => [\front
 $this->title = 'Добавить анкету';
 
 ?>
+<script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
 <div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>

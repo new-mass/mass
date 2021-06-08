@@ -6,7 +6,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css'), ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=1'), ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->title = "Пополнить баланс";
 ?>
 <script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>

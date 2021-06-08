@@ -1,12 +1,13 @@
 <?php
 /* @var $this \yii\web\View */
 /* @var $userMess \frontend\models\UserMessanger */
-$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=2'), ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=3'), ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->registerJsFile(Yii::getAlias('@web/js/preview.js'), ['depends' => [\frontend\assets\AppAsset::class]]);
 
 $this->title = 'Редактировать анкету';
 
 ?>
+<script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
 <div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>
