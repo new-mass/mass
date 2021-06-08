@@ -9,11 +9,12 @@ use yii\helpers\Html;
 $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css'), ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->title = "Пополнить баланс";
 ?>
-<div class="col-3">
+<script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
+<div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>
-<div class="col-9">
-    <div class="row">
+<div class="col-12 col-md-7 col-lg-8 col-xl-9">
+
         <div class="main-banner">
             <h1><?php echo $this->title ?></h1>
 
@@ -37,6 +38,6 @@ $this->title = "Пополнить баланс";
             <?php ActiveForm::end() ?>
 
         </div>
-    </div>
+
 
 </div>
