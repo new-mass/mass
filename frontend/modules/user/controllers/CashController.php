@@ -38,6 +38,14 @@ class CashController extends Controller
 
         if ($user->save()) {
 
+            if ($user->status == User::STATUS_INACTIVE) {
+
+                $user->status = User::STATUS_ACTIVE;
+
+                $user->save();
+
+            }
+
             $history = new Hystory();
 
             $history->user_id = $user->id;
