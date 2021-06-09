@@ -109,6 +109,10 @@ class Posts extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Comments::class, ['post_id' => 'id'])->where(['status' => 1]);
     }
+    public function getAllComments()
+    {
+        return $this->hasMany(Comments::class, ['post_id' => 'id'])->where(['in', 'status', [1,2]]);
+    }
     public function getViewsOnListing()
     {
         return $this->hasOne(PostView::class, ['post_id' => 'id']);

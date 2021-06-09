@@ -101,6 +101,10 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/user/publication/update' => 'user/post/publication',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/login' => 'user/user/login',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/pay' => 'user/cash/balance',
+
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/comment/hide' => 'user/comment/hide',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/comment/show' => 'user/comment/show',
+
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/pay' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cpay.php' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/claim/add' => 'claim/add',

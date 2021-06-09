@@ -146,6 +146,48 @@ $(document).ready(function () {
 
 });
 
+function hide_comment(object) {
+
+    var id = $(object).attr("data-id");
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/comment/hide',
+        data: 'id='+id,
+        dataType: "html",
+        cache: false,
+        success: function (data) {
+
+            $(object).text('Комментарий скрыт');
+
+        },
+
+    });
+
+
+}
+
+function show_comment(object) {
+
+    var id = $(object).attr("data-id");
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/comment/show',
+        data: 'id='+id,
+        dataType: "html",
+        cache: false,
+        success: function (data) {
+
+            $(object).text('Комментарий показан');
+
+        },
+
+    });
+
+
+}
+
 function getPhone(object) {
 
     var id = $(object).attr("data-id");
@@ -181,6 +223,8 @@ function getPhone(object) {
     }
 
 }
+
+
 
 function show_text() {
     $('.page-text-wrap').addClass('page-text-wrap-open')

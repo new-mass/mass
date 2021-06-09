@@ -230,7 +230,7 @@ class CabinetController extends Controller
     public function actionEdit($id, $city = 'moskva')
     {
         if (Yii::$app->user->isGuest) return $this->redirect('/');
-        $model = Posts::find()->where(['id' => $id])->with('comments')->one();
+        $model = Posts::find()->where(['id' => $id])->with('allComments')->one();
         $city = City::find()->select('id')->where(['name' => $city])->asArray()->one();
 
         $userCheck = new UserCheckAnket();

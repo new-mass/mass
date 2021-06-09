@@ -15,7 +15,7 @@ AppAsset::register($this);
 $searchForm = new \frontend\models\forms\SearchForm();
 $claimForm = new \frontend\models\forms\ClaimForm();
 
-$this->registerJsFile('/js/script.js?v=3', ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerJsFile('/js/script.js?v=4', ['depends' => [\frontend\assets\AppAsset::class]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

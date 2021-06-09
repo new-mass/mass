@@ -472,7 +472,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
                 <div class="anket-heading"><h2 class="big-heading">Отзывы</h2></div>
             </div>
 
-            <?php foreach ($model['comments'] as $comment) : ?>
+            <?php foreach ($model['allComments'] as $comment) : ?>
 
                 <?php if (!$comment['parent_id']) : ?>
 
@@ -501,13 +501,32 @@ $commentForm = new \frontend\modules\user\models\Comments();
                         <?= $formCom->field($commentForm, 'post_id', [ 'options' =>['class' => 'col-12']])->hiddenInput(['value' => $model['id']] )->label(false) ?>
 
                         <div class="comment-submit form-group">
-
                             <div class="btn accent-btn-1" onclick="send_comment(this)"><span>Отправить</span></div>
-
                         </div>
+
+                        <?php if ($comment['status'] == \frontend\modules\user\models\Comments::COMMENT_ON_PUBLICATION) : ?>
+
+                        <div class="comment-submit form-group">
+                            <div class="btn accent-btn-1" data-id="<?php echo $comment['id'] ?>" onclick="hide_comment(this)"><span>Скрыть отзыв</span></div>
+                        </div>
+
+                        <?php endif; ?>
+
+                        <?php if ($comment['status'] == \frontend\modules\user\models\Comments::COMMENT_HIDE) : ?>
+
+                        <div class="comment-submit form-group">
+                            <div class="btn accent-btn-1" data-id="<?php echo $comment['id'] ?>" onclick="show_comment(this)"><span>Показать</span></div>
+                        </div>
+
+                        <?php endif; ?>
+
                         <?php ActiveForm::end() ?>
 
+                        <hr>
+
                     </div>
+
+
 
                 <?php endif; ?>
 
