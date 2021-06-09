@@ -26,7 +26,7 @@ class CommentController extends Controller
     public function actionHide()
     {
         if ($comment = Comments::find()->where(['id' => \Yii::$app->request->post('id')])->with('post')->one()
-        and $comment['post']['user_id'] == \Yii::$app->user->id){
+        and ($comment['post']['user_id'] == \Yii::$app->user->id or $comment['post']['old_user_id'] == \Yii::$app->user->identity->old_id)){
 
             $comment->status = Comments::COMMENT_HIDE;
 
@@ -38,7 +38,7 @@ class CommentController extends Controller
     public function actionShow()
     {
         if ($comment = Comments::find()->where(['id' => \Yii::$app->request->post('id')])->with('post')->one()
-        and $comment['post']['user_id'] == \Yii::$app->user->id){
+        and ($comment['post']['user_id'] == \Yii::$app->user->id or $comment['post']['old_user_id'] == \Yii::$app->user->identity->old_id)){
 
             $comment->status = Comments::COMMENT_ON_PUBLICATION;
 
