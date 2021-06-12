@@ -147,7 +147,8 @@ class Posts extends \yii\db\ActiveRecord
 
     public function getGallery()
     {
-        return $this->hasMany(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 0, 'type' => Photo::TYPE_PHOTO]);
+        return $this->hasMany(Photo::class, ['user_id' => 'id' ])
+            ->where(['avatar' => 0, 'type' => Photo::TYPE_PHOTO])->orderBy('id DESC');
     }
 
     public function getServiceRelation(){
