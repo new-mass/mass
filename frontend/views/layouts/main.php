@@ -212,6 +212,7 @@ $this->registerJsFile('/js/script.js?v=4', ['depends' => [\frontend\assets\AppAs
                     <a href="/age_ot-40-do-50-let" class="marc-item">от 40 до 50 лет</a>
                     <a href="/age_ot-31-do-40-let" class="marc-item">от 31 до 40 лет</a>
                     <a href="/place_viezd" class="marc-item">Выезд</a>
+                    <a href="/new">Свежие анкеты</a>
                 </div>
             </div>
             <div class="col-12">

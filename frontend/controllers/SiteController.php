@@ -408,8 +408,9 @@ class SiteController extends Controller
             ->limit(Yii::$app->params['post_limit'])
             ->orderBy('id desc')->asArray()->all();
 
-        $meta = PageMeta::find()
-            ->where(['page_name' => PageHelper::cropUriParams($_SERVER['REQUEST_URI']), 'city_id' =>$city['id']])->asArray()->one();
+        $meta['h1'] = 'Новые анкеты';
+        $meta['title'] = 'Новые анкеты';
+        $meta['des'] = 'Новые анкеты';
 
         DayViewHelper::addViewListing($posts);
 
