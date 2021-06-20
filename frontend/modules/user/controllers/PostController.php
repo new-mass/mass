@@ -48,7 +48,7 @@ class PostController extends Controller
 
         }
 
-        throw new NotFoundHttpException();
+        throw new NotFoundHttpException('Страница не найдена');
 
     }
 

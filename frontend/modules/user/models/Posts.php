@@ -280,6 +280,7 @@ class Posts extends \yii\db\ActiveRecord
 
     public static function getPostByUrl($url)
     {
+
         $post = Posts::find()->where(['url' => $url])
             ->with('avatar')
             ->with('gallery')
@@ -296,7 +297,7 @@ class Posts extends \yii\db\ActiveRecord
             ->with('mess')
             ->limit(1)
             ->asArray()->one();
-        
+
         return $post;
         
     }
