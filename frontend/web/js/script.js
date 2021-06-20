@@ -187,6 +187,27 @@ function show_comment(object) {
 
 
 }
+function getAnketClaim(object) {
+
+    var id = $(object).attr("data-id");
+
+    $.ajax({
+        type: 'POST',
+        url: '/claim/post/get-modal',
+        data: 'id='+id,
+        dataType: "html",
+        cache: false,
+        success: function (data) {
+
+            $('#claim-modal').modal('show');
+            $('#claim-modal .modal-body').html(data);
+
+        },
+
+    });
+
+
+}
 
 function getPhone(object) {
 

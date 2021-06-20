@@ -108,6 +108,8 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/pay' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cpay.php' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/claim/add' => 'claim/add',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/claim/post/get-modal' => 'claim/get-anket-modal',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/claim/post/add' => 'claim/claim-anket',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/get-claim-modal' => 'site/get-claim-modal',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/register' => 'user/user/register',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:[a-z-0-9_]+>/page-<page:[0-9]+>' => 'site/redirect',

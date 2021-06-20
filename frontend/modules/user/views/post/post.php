@@ -189,6 +189,11 @@ $this->registerJsFile('/js/single.js?v=3', ['depends' => [\frontend\assets\AppAs
                                  onclick="getPhone(this);yaCounter50332519.reachGoal('PHONE_DETALL');return true;"
                                  data-id="<?php echo $post['id'] ?>">Показать телефон</div>
                         </div>
+                        <div class="custom-card_phone">
+                            <div class="get-phone"
+                                 onclick="getAnketClaim(this);"
+                                 data-id="<?php echo $post['id'] ?>">Написать жалобу</div>
+                        </div>
                         <br>
                     </div>
 
