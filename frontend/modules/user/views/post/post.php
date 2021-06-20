@@ -191,7 +191,7 @@ $this->registerJsFile('/js/single.js?v=3', ['depends' => [\frontend\assets\AppAs
                         </div>
                         <div class="custom-card_phone">
                             <div class="get-phone"
-                                 onclick="getAnketClaim(this);"
+                                 onclick="getAnketClaim(this);ym(50332519,'reachGoal','jaloba');"
                                  data-id="<?php echo $post['id'] ?>">Написать жалобу</div>
                         </div>
                         <br>
