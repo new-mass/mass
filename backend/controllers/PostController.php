@@ -23,6 +23,7 @@ class PostController extends Controller
     public function behaviors()
     {
         return [
+            \backend\components\behaviors\isAdminAuth::class,
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -194,7 +195,7 @@ class PostController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Posts::findOne($id)) !== null) {
+        if (($model = Posts::find()->where(['id' => $id])->with('avatar', 'gallery')->one()) !== null) {
             return $model;
         }
 

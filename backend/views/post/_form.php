@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use frontend\modules\user\models\Tarif;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Posts */
@@ -12,46 +14,95 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'city_id')->textInput() ?>
+    <div class="row">
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('Имя') ?>
+        </div>
 
-    <?= $form->field($model, 'tarif_id')->textInput() ?>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'tarif_id')
+                ->dropDownList(ArrayHelper::map(Tarif::find()->asArray()->all(), 'id', 'name')) ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'status')->textInput() ?>
+        </div>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'work_time')->textInput() ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'age')->textInput() ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'breast')->textInput() ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'ves')->textInput() ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'rost')->textInput() ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'price')->textInput() ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'price_2_hour')->textInput() ?>
+        </div>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+        <div class="col-12">
+            <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
+        </div>
 
-    <?= $form->field($model, 'sorting')->textInput() ?>
+        <div class="col-12 col-md-4">
+            <p>Главное фото</p>
+            <?php echo Html::img('http://korolev.' . Yii::$app->params['site_name'] . $model['avatar']['file']) ?>
+        </div>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <div class="col-12">
 
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+        </div>
 
-    <?= $form->field($model, 'work_time')->textInput() ?>
+        <?php if ($model['video']['file']) : ?>
 
-    <?= $form->field($model, 'age')->textInput() ?>
+        <div class="col-12 col-md-4">
+            <p>Видео</p>
+            <?php echo Html::img('http://korolev.' . Yii::$app->params['site_name'] . $model['video']['file']) ?>
+        </div>
 
-    <?= $form->field($model, 'breast')->textInput() ?>
+        <div class="col-12">
 
-    <?= $form->field($model, 'ves')->textInput() ?>
+        </div>
+        <?php endif; ?>
+        <div class="col-12">
+            <p>Галерея</p>
+            <div class="row">
 
-    <?= $form->field($model, 'rost')->textInput() ?>
+                <?php foreach ($model['gallery'] as $item) : ?>
 
-    <?= $form->field($model, 'price')->textInput() ?>
+                    <div class="col-4 col-sm-3">
+                        <?php echo Html::img('http://korolev.' . Yii::$app->params['site_name'] . $item['file']) ?>
+                    </div>
+                <?php endforeach; ?>
 
-    <?= $form->field($model, 'price_2_hour')->textInput() ?>
+            </div>
 
-    <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
+        </div>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+        <div class="col-12">
+            <strong>Добавлено: <?php echo date("Y-m-d H:i:s", $model->created_at)  ?></strong>
+            <br>
+            <strong>Обновлено: <?php echo date("Y-m-d H:i:s", $model->updated_at)  ?></strong>
+        </div>
 
-    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+    </div>
 
-    <?= $form->field($model, 'pay_time')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
