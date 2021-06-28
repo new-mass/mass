@@ -37,7 +37,18 @@ class PayController extends Controller
 
                     if ($tarif['value'] > 0){
 
-                        $user->cash = $user->cash - $tarif['value'];
+                        //если фото проверенно то делаем скидку
+                        if ($post['check_photo_status'] == Posts::PHOTO_CHECK and $tarif['value'] >= 2){
+
+                            $paySum = $tarif['value'] - 1;
+
+                        }else{
+
+                            $paySum = $tarif['value'];
+
+                        }
+
+                        $user->cash = $user->cash - $paySum;
 
                         if ($user->save()){
 
@@ -45,7 +56,7 @@ class PayController extends Controller
 
                             $post->save();
 
-                            HystoryHelper::add($user->id, $tarif['value'], $user->cash, 'Публикация анкеты '.$post['name'].' id '.$post['id']);
+                            HystoryHelper::add($user->id, $paySum, $user->cash, 'Публикация анкеты '.$post['name'].' id '.$post['id']);
 
                         }
 
