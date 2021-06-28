@@ -18,6 +18,7 @@ class Photo extends \yii\db\ActiveRecord
 
     const TYPE_VIDEO = 1;
     const TYPE_PHOTO = 0;
+    const CHECK_PHOTO = 2;
 
     /**
      * {@inheritdoc}

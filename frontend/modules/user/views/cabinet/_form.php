@@ -129,6 +129,7 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
 
         <div class="col-12 avatar-block">
+
             <p class="control-label">Аватар</p>
 
             <div class="avatar-wrap">
@@ -159,6 +160,55 @@ $commentForm = new \frontend\modules\user\models\Comments();
                             Загрузить изображение
                         </label>
 
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-12"><br></div>
+
+        <div class="col-12">
+
+            <p class="control-label">Проверочное фото</p>
+
+            <div class="avatar-wrap">
+
+                <div class="row">
+                    <div class="col-12">
+                        <p class="small-text">
+                            Анкеты которые прошли проверку по фото получают отличительный знак на анкете и скидку 1 рубль <br>
+                            на публикацию по тарифу VIP и выше<br>
+                            На проверочном фото должно быть видно лицо, должно быть четко понятно что<br>
+                            на всех фото профиля один и тот же человек.<br>
+                            В руках необходимо иметь листок с надписью от руки даты проверки.<br>
+                            Проверочное фото доступно только для Вас и администрации<br>
+                        </p>
+                        <label for="addpostform-image-check" class=" img-label form-btn">
+                            Загрузить изображение
+                        </label>
+                    </div>
+                    <div class="col-3">
+
+                        <?php if (isset($model->checkPhoto)) : ?>
+
+                            <?php $imageLink =  $model->checkPhoto['file'] ?>
+
+                        <?php else : ?>
+
+                            <?php $imageLink = '/img/no-image.png' ?>
+
+                        <?php endif; ?>
+
+                        <label style="background-image: url('../..<?php  echo $imageLink ?>')" for="addpostform-image"
+                               class="<?php if (isset($model->checkPhoto)) echo 'exist-img' ?> img-label check-prewiew">
+
+
+                            <?= $form->field($model, 'checkPhoto')->fileInput(['maxlength' => true, 'accept' => 'image/*', 'id' => 'addpostform-image-check'])->label(false) ?>
+
+                        </label>
                     </div>
                 </div>
 

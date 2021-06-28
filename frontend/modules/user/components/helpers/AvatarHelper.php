@@ -4,6 +4,7 @@
 namespace frontend\modules\user\components\helpers;
 
 use frontend\modules\user\models\Photo;
+use frontend\modules\user\models\Posts;
 use yii\web\UploadedFile;
 use Yii;
 
@@ -14,6 +15,8 @@ class AvatarHelper
         $file = UploadedFile::getInstance($model, $attributeName);
 
         if ($file) {
+
+            self::dropCheckPhotoStatus($model);
 
             return AvatarHelper::savePhoto($file, $userId, 1);
 
@@ -39,6 +42,33 @@ class AvatarHelper
         }
     }
 
+    public static function saveCheckPhoto($model, $userId)
+    {
+
+        if ($photo = Photo::find()->where(['user_id' => $userId , 'type' => Photo::CHECK_PHOTO])->limit(1)->one()){
+
+            unlink(Yii::getAlias('@frontend/web'.$photo->file));
+
+            $photo->delete();
+
+        }
+
+        $file = UploadedFile::getInstance($model, 'checkPhoto');
+
+        if ($file) {
+
+            return AvatarHelper::savePhoto($file, $userId, 0, Photo::CHECK_PHOTO);
+
+        }
+    }
+
+    public static function dropCheckPhotoStatus(Posts $model)
+    {
+        $model->check_photo_status = Posts::PHOTO_NOT_CHECK;
+
+        $model->save();
+    }
+
     public static function saveGallery($model, $userId)
     {
         $file = UploadedFile::getInstances($model, 'gallery');
@@ -51,11 +81,13 @@ class AvatarHelper
 
             }
 
+            self::dropCheckPhotoStatus($model);
+
         }
 
     }
 
-    public static function savePhoto($file, $userId, $avatar = 0)
+    public static function savePhoto($file, $userId, $avatar = 0, $type = 0)
     {
 
         if ($avatar) {
@@ -87,6 +119,8 @@ class AvatarHelper
         $photo->user_id = $userId;
 
         $photo->avatar = $avatar;
+
+        $photo->type = $type;
 
         $photo->file = $dir . $photo->file;
 

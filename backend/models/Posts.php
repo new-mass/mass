@@ -49,7 +49,7 @@ class Posts extends \frontend\modules\user\models\Posts
     public function rules()
     {
         return [
-            [['city_id', 'user_id', 'tarif_id', 'created_at', 'updated_at', 'sorting', 'work_time', 'age', 'breast', 'ves', 'rost', 'price', 'price_2_hour', 'status', 'pay_time'], 'integer'],
+            [['city_id', 'user_id', 'tarif_id', 'created_at', 'check_photo_status', 'updated_at', 'sorting', 'work_time', 'age', 'breast', 'ves', 'rost', 'price', 'price_2_hour', 'status', 'pay_time'], 'integer'],
             [['about'], 'string'],
             [['name'], 'string', 'max' => 80],
             [['phone'], 'string', 'max' => 20],
@@ -83,6 +83,7 @@ class Posts extends \frontend\modules\user\models\Posts
             'status' => 'Status',
             'url' => 'Url',
             'pay_time' => 'Pay Time',
+            'check_photo_status' => 'Проверочное фото',
         ];
     }
 

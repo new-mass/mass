@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use frontend\modules\user\models\Tarif;
+use frontend\modules\user\models\Posts;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Posts */
@@ -25,7 +26,21 @@ use frontend\modules\user\models\Tarif;
                 ->dropDownList(ArrayHelper::map(Tarif::find()->asArray()->all(), 'id', 'name')) ?>
         </div>
         <div class="col-12 col-sm-6 col-md-4">
-            <?= $form->field($model, 'status')->textInput() ?>
+            <?= $form->field($model, 'status')
+                ->dropDownList([
+                        Posts::POST_ON_MODERETION => 'Анкета на модерации',
+                        Posts::POST_ON_PUBLICATION => 'Анкета на публикации',
+                        Posts::POST_DONT_PUBLICATION => 'Анкета не публикуется',
+                ])
+            ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'check_photo_status')
+                ->dropDownList([
+                        Posts::PHOTO_NOT_CHECK => 'Фото не подтверждено',
+                        Posts::PHOTO_CHECK => 'Фото подтверждено',
+                ])
+            ?>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4">
@@ -60,6 +75,13 @@ use frontend\modules\user\models\Tarif;
         <div class="col-12 col-md-4">
             <p>Главное фото</p>
             <?php echo Html::img('http://korolev.' . Yii::$app->params['site_name'] . $model['avatar']['file']) ?>
+        </div>
+        <div class="col-12">
+
+        </div>
+        <div class="col-12 col-md-4">
+            <p>Проверочное фото</p>
+            <?php echo Html::img('http://korolev.' . Yii::$app->params['site_name'] . $model['checkPhoto']['file']) ?>
         </div>
 
         <div class="col-12">

@@ -42,12 +42,16 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $ves
  * @property string $old_url
  * @property integer $video_sort
+ * @property integer $check_photo_status
  */
 class Posts extends \yii\db\ActiveRecord
 {
     const POST_ON_MODERETION = 0;
     const POST_ON_PUBLICATION = 1;
     const POST_DONT_PUBLICATION = 2;
+
+    const PHOTO_NOT_CHECK = 0;
+    const PHOTO_CHECK = 1;
     /**
      * {@inheritdoc}
      */
@@ -72,7 +76,7 @@ class Posts extends \yii\db\ActiveRecord
     {
         return [
             [['city_id', 'user_id', 'tarif_id', 'created_at', 'sorting', 'work_time', 'age',
-                'rost', 'price','ves','breast', 'price_2_hour', 'status', 'video_sort'], 'integer'],
+                'rost', 'price','ves','breast', 'price_2_hour', 'status', 'video_sort', 'check_photo_status'], 'integer'],
             [['name'], 'string', 'max' => 80],
             [['age'], 'integer', 'min' => 18],
             [['name', 'phone', 'price'], 'required'],
@@ -134,6 +138,10 @@ class Posts extends \yii\db\ActiveRecord
     public function getVideo()
     {
         return $this->hasOne(Photo::class, ['user_id' => 'id' ])->where(['type' => Photo::TYPE_VIDEO]);
+    }
+    public function getCheckPhoto()
+    {
+        return $this->hasOne(Photo::class, ['user_id' => 'id' ])->where(['type' => Photo::CHECK_PHOTO]);
     }
     public function setVideo()
     {

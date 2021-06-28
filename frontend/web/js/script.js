@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    $('#toTop').click(function() {
+
+        $('body,html').animate({scrollTop:0},800);
+
+    });
+
     $.ajax({
         type: 'POST',
         url: '/view/count',
@@ -109,6 +115,16 @@ $(document).ready(function () {
 
 
     $(document).scroll(function () {
+
+        if($(this).scrollTop() != 0) {
+
+            $('#toTop').fadeIn();
+
+        } else {
+
+            $('#toTop').fadeOut();
+
+        }
 
         changeURL();
 
@@ -313,6 +329,17 @@ $(document).ready(function () {
     $.uploadPreview({
         input_field: "#addpostform-image",   // Default: .image-upload
         preview_box: ".avatar-prewiew",  // Default: .image-preview
+        label_field: "#image-label",    // Default: .image-label
+        label_default: "Загрузить основное фото",   // Default: Choose File
+        label_selected: "Загрузить основное фото",  // Default: Change File
+        no_label: false                 // Default: false
+    });
+});
+
+$(document).ready(function () {
+    $.uploadPreview({
+        input_field: "#addpostform-image-check",   // Default: .image-upload
+        preview_box: ".check-prewiew",  // Default: .image-preview
         label_field: "#image-label",    // Default: .image-label
         label_default: "Загрузить основное фото",   // Default: Choose File
         label_selected: "Загрузить основное фото",  // Default: Change File

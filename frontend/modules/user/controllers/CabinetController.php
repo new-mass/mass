@@ -169,6 +169,9 @@ class CabinetController extends Controller
                         SaveRelationHelper::save(UserComfort::class, $userComfort->prop_id, $model->id);
 
                         AvatarHelper::saveAvatar($model, $model->id);
+
+                        AvatarHelper::saveCheckPhoto($model, $model->id);
+
                         AvatarHelper::saveGallery($model, $model->id);
 
                         if (AvatarHelper::saveVideo($model, $model->id)){
@@ -276,6 +279,8 @@ class CabinetController extends Controller
 
 
                     AvatarHelper::saveAvatar($model, $model->id);
+
+                    AvatarHelper::saveCheckPhoto($model, $model->id);
 
                     if (AvatarHelper::saveVideo($model, $model->id)){
 
