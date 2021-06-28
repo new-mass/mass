@@ -113,6 +113,10 @@ a.desc:after {
     background-position: center;
     background-color: #DAC8AF;
 }
+.check-block{
+    left: 10px;
+    width: 80px!important;
+}
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
     padding: 15px;

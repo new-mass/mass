@@ -28,6 +28,12 @@ $metro = false;
                         </picture>
                     </a>
 
+                    <?php if ($item['check_photo_status']) : ?>
+
+                        <div class="extra-block tarif-block check-block"><p>Фото 100%</p></div>
+
+                    <?php endif; ?>
+
                     <?php if ($item['tarif_id'] == 6) : ?>
 
                         <div class="extra-block tarif-block"><p>EXTRA</p></div>

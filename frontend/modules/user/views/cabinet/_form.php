@@ -44,6 +44,11 @@ $commentForm = new \frontend\modules\user\models\Comments();
     <div class="message">
         <p>Мы не размещаем рекламу других сайтов </p>
     </div>
+<?php if (isset($model->check_photo_status) and $model->check_photo_status) : ?>
+    <div class="message">
+        <p>Фото подтверждено, при добавлении новых фото будет перепроверенно, на время проверки статус подтверждено уберается </p>
+    </div>
+<?php endif; ?>
 <div class="user-cabinet-add">
 
 
@@ -476,6 +481,9 @@ $commentForm = new \frontend\modules\user\models\Comments();
             <p class="white-text">
                 Анкеты которые публикуются по VIP, TOP, PREMIUM и EXTRA тарифу получают соответствующий стикер на
                 анкету
+                <br>
+                Анкеты которые прошли проверку по фото получают скидку 1 рубль
+                на публикацию по тарифу VIP и выше
             </p>
             <div><?= $form->field($model, 'tarif_id')->dropDownList($tarifs)->label('Выбрать тариф') ?> </div>
 
