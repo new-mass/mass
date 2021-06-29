@@ -20,8 +20,8 @@ class CheckPhotoRequestController extends Controller
     public function behaviors()
     {
         return [
+            \backend\components\behaviors\isAdminAuth::class,
             'verbs' => [
-                \backend\components\behaviors\isAdminAuth::class,
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
