@@ -21,6 +21,7 @@ class CheckPhotoRequestController extends Controller
     {
         return [
             'verbs' => [
+                \backend\components\behaviors\isAdminAuth::class,
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
