@@ -54,7 +54,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'price_2_hour',
             'about:ntext',
             'status',
-            'status',
             [
                 'attribute' => 'Статус',
                 'format' => 'raw',

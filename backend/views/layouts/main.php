@@ -9,8 +9,10 @@ use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use common\assets\FontAwesomeAsset;
 
 AppAsset::register($this);
+FontAwesomeAsset::register($this);
 \backend\assets\AdminLteAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -59,6 +61,12 @@ AppAsset::register($this);
                             <a href="/post/index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Анкеты</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/check-photo-request/index?sort=id" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Заявки на проверку фото</p>
                             </a>
                         </li>
 

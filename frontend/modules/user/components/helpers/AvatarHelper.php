@@ -3,6 +3,7 @@
 
 namespace frontend\modules\user\components\helpers;
 
+use common\models\CheckPhotoRequest;
 use frontend\modules\user\models\Photo;
 use frontend\modules\user\models\Posts;
 use yii\web\UploadedFile;
@@ -51,11 +52,19 @@ class AvatarHelper
 
             $photo->delete();
 
+            self::dropCheckPhotoStatus($model);
+
         }
 
         $file = UploadedFile::getInstance($model, 'checkPhoto');
 
         if ($file) {
+
+            $checkPhotoRequest = new CheckPhotoRequest();
+
+            $checkPhotoRequest->post_id = $userId;
+
+            $checkPhotoRequest->save();
 
             return AvatarHelper::savePhoto($file, $userId, 0, Photo::CHECK_PHOTO);
 
