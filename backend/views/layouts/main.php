@@ -58,7 +58,7 @@ FontAwesomeAsset::register($this);
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/post/index" class="nav-link">
+                            <a href="/post/index?sort=-id" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Анкеты</p>
                             </a>
@@ -80,7 +80,7 @@ FontAwesomeAsset::register($this);
     </div>
     <!-- /.sidebar -->
 </aside>
-<div class="wrap">
+<div class=" main-content">
 
     <?php
     NavBar::begin([
