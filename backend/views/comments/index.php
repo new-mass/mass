@@ -28,10 +28,29 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'text',
 
-            //'mark',
-            //'status',
-            'created_at',
-            'updated_at',
+            'status',
+            [
+                'attribute' => 'created_at',
+                'format' => 'raw',
+                'value' => function($item){
+
+                    /* @var $item \frontend\modules\user\models\Comments */
+
+                    return date("Y-m-d H:i:s", $item->created_at);
+
+                }
+            ],
+            [
+                'attribute' => 'updated_at',
+                'format' => 'raw',
+                'value' => function($item){
+
+                    /* @var $item \frontend\modules\user\models\Comments */
+
+                    return date("Y-m-d H:i:s", $item->updated_at);
+
+                }
+            ],
             [
                 'attribute' => 'Одобрить',
                 'format' => 'raw',
