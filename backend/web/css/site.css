@@ -140,6 +140,15 @@ header{
     /* 1 flex-grow, 0 flex-shrink, auto flex-basis */
     flex: 1 0 auto;
 }
+.pagination li{
+    padding: 5px 10px;
+    margin: 0 5px;
+    background: #eee;
+    border-radius: 5px;
+}
+.pagination .active{
+    background: #ccc;
+}
 footer{
     /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
     flex: 0 0 auto;

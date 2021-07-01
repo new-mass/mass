@@ -69,6 +69,12 @@ FontAwesomeAsset::register($this);
                                 <p>Заявки на проверку фото</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/comments/index?sort=id" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Комментарии</p>
+                            </a>
+                        </li>
 
 
                     </ul>
