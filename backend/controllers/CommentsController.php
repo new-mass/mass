@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use frontend\modules\user\models\comments;
+use frontend\modules\user\models\Comments;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
