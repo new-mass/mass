@@ -74,7 +74,7 @@ class AuthHandler
 
         $cityInfo = City::find()->where(['name' => $cityUrl])->asArray()->one() ;
 
-        $user = $this->createUser($email, $name, $cityInfo['url']);
+        $user = $this->createUser($email, $name, $cityInfo['id']);
 
         $transaction = User::getDb()->beginTransaction();
         if ($user->save()) {
@@ -105,7 +105,7 @@ class AuthHandler
             'created_at' => $time = time(),
             'updated_at' => $time,
             'status' => 10,
-            'city' => $city,
+            'city_id' => $city,
         ]);
     }
 
