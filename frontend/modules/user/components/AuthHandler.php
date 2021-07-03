@@ -72,7 +72,7 @@ class AuthHandler
 
         $cityUrl = $this->prepareCityUrl(Yii::$app->request->headers['host']);
 
-        $cityInfo = City::find()->where(['url' => $cityUrl])->asArray()->one() ;
+        $cityInfo = City::find()->where(['name' => $cityUrl])->asArray()->one() ;
 
         $user = $this->createUser($email, $name, $cityInfo['url']);
 
