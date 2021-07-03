@@ -31,6 +31,15 @@ $this->title = 'Войти в кабинет';
         </div>
     </div>
 
+    <div class="d-none">
+
+        <?= yii\authclient\widgets\AuthChoice::widget([
+            'baseAuthUrl' => ['/site/auth'],
+            'popupMode' => false,
+        ]) ?>
+
+    </div>
+
 </div>
 
 <div class="col-md-6 col-sm-12 padding-right">

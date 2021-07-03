@@ -25,6 +25,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\components\helpers\QueryParamsHelper;
 use frontend\components\BeforeController as Controller;
+use frontend\modules\user\components\AuthHandler;
 
 /**
  * Site controller
@@ -68,6 +69,11 @@ class SiteController extends Controller
     public function actions()
     {
         return [
+            'auth' => [
+                'class' => 'frontend\components\AuthAction',
+                'city' => Yii::$app->controller->actionParams['city'],
+                'successCallback' => [$this, 'onAuthSuccess'],
+            ],
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
@@ -77,6 +83,12 @@ class SiteController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+
+    public function onAuthSuccess($client)
+    {
+        (new AuthHandler($client))->handle();
     }
 
     /**
