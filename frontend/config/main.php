@@ -75,6 +75,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 //  => 'product/index'
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/site/auth' => 'site/auth',
                 'thumbs/<path:.*>' => 'site/thumb',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/' => 'site/index',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/page-<page:[0-9]+>' => 'site/redirect',

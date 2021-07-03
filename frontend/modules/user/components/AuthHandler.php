@@ -1,5 +1,7 @@
 <?php
 
+namespace frontend\modules\user\components;
+
 use common\models\User;
 
 use yii\authclient\ClientInterface;
