@@ -1,5 +1,3 @@
-var singleGallery = $('.carousel-inner');
-singleGallery.lightGallery();
 
 
 function getnextimg(param){

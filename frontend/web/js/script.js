@@ -116,22 +116,11 @@ $(document).ready(function () {
 
     $(document).scroll(function () {
 
-        if($(this).scrollTop() != 0) {
-
-            $('#toTop').fadeIn();
-
-        } else {
-
-            $('#toTop').fadeOut();
-
-        }
-
         changeURL();
 
         var target = $('.get-more-post-list');
-        var targetPos = target.offset().top;
         var winHeight = $(window).height();
-        var scrollToElem = targetPos - winHeight - 300;
+        var scrollToElem =  winHeight - 300;
 
         var winScrollTop = $(this).scrollTop();
 
@@ -143,6 +132,19 @@ $(document).ready(function () {
             getMorePosts();
 
         }
+
+        console.log(url);
+
+        if($(this).scrollTop() != 0) {
+
+            $('#toTop').fadeIn();
+
+        } else {
+
+            $('#toTop').fadeOut();
+
+        }
+
     })
 });
 
@@ -325,28 +327,6 @@ if (fileField){
 
 }
 
-$(document).ready(function () {
-    $.uploadPreview({
-        input_field: "#addpostform-image",   // Default: .image-upload
-        preview_box: ".avatar-prewiew",  // Default: .image-preview
-        label_field: "#image-label",    // Default: .image-label
-        label_default: "Загрузить основное фото",   // Default: Choose File
-        label_selected: "Загрузить основное фото",  // Default: Change File
-        no_label: false                 // Default: false
-    });
-});
-
-$(document).ready(function () {
-    $.uploadPreview({
-        input_field: "#addpostform-image-check",   // Default: .image-upload
-        preview_box: ".check-prewiew",  // Default: .image-preview
-        label_field: "#image-label",    // Default: .image-label
-        label_default: "Загрузить основное фото",   // Default: Choose File
-        label_selected: "Загрузить основное фото",  // Default: Change File
-        no_label: false                 // Default: false
-    });
-});
-
 function publication(obj) {
 
     var id = $(obj).attr('data-id');
@@ -495,3 +475,24 @@ $('.update-avatar').change(function(){
 
 });
 
+$(document).ready(function () {
+    $.uploadPreview({
+        input_field: "#addpostform-image",   // Default: .image-upload
+        preview_box: ".avatar-prewiew",  // Default: .image-preview
+        label_field: "#image-label",    // Default: .image-label
+        label_default: "Загрузить основное фото",   // Default: Choose File
+        label_selected: "Загрузить основное фото",  // Default: Change File
+        no_label: false                 // Default: false
+    });
+});
+
+$(document).ready(function () {
+    $.uploadPreview({
+        input_field: "#addpostform-image-check",   // Default: .image-upload
+        preview_box: ".check-prewiew",  // Default: .image-preview
+        label_field: "#image-label",    // Default: .image-label
+        label_default: "Загрузить основное фото",   // Default: Choose File
+        label_selected: "Загрузить основное фото",  // Default: Change File
+        no_label: false                 // Default: false
+    });
+});
