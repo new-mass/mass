@@ -75,6 +75,12 @@ FontAwesomeAsset::register($this);
                                 <p>Комментарии</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/user/index?sort=id" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Пользователи</p>
+                            </a>
+                        </li>
 
 
                     </ul>

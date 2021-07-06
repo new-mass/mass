@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use frontend\modules\user\models\City;
 use frontend\modules\user\models\Posts;
 use Yii;
 use yii\base\NotSupportedException;
@@ -247,6 +248,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function getCity()
+    {
+        return $this->hasOne(City::class, ['id' => 'city_id']);
     }
 
     public function getPosts()
