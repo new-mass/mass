@@ -259,4 +259,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasMany(Posts::class, ['user_id' => 'id']);
     }
+
+    public function getPostsCount()
+    {
+        return $this->hasMany(Posts::class, ['user_id' => 'id'])->count();
+    }
 }

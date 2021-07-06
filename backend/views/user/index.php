@@ -47,6 +47,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 },
             ],
+            [
+                'attribute' => 'Анкет',
+                'format' => 'raw',
+                'value' => function ($user) {
+                    /* @var $user \common\models\User */
+                    $user->getPostsCount();
+
+                    return $user['postsCount'];
+
+                },
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
