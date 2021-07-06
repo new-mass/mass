@@ -195,12 +195,14 @@ header .logo-img{
 header svg{
     vertical-align: bottom;
 }
-.user_login_form{
-    padding: 50px;
-}
-
 .main-header{
     height: 950px;
+}
+.g-recaptcha{
+    margin-bottom: 10px;
+}
+.user_login_form {
+    padding-top: 10px;
 }
 .ya-share2__list{
     background: #FFFFFF;
@@ -1143,6 +1145,15 @@ body{
 }
 .marc-item:hover{
     color: #fff;
+}
+.vk-login{
+    text-align: center;
+}
+.auth-clients{
+    padding: 0;
+}
+.auth-clients li{
+    float: none;
 }
 @media (max-width:1979px) {
     .ankets{

@@ -4,6 +4,7 @@ use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 
 /* @var $this \yii\web\View */
+/* @var $modelSign \frontend\models\SignupForm */
 
 $this->title = 'Войти в кабинет';
 
@@ -29,14 +30,15 @@ $this->title = 'Войти в кабинет';
             <?php ActiveForm::end(); ?>
 
         </div>
-    </div>
 
-    <div class="d-none">
+        <div class="vk-login">
+            <div class="anket-heading"><p>Войти через</p></div>
+            <?= yii\authclient\widgets\AuthChoice::widget([
+                'baseAuthUrl' => ['/site/auth'],
+                'popupMode' => false,
+            ]) ?>
+        </div>
 
-        <?= yii\authclient\widgets\AuthChoice::widget([
-            'baseAuthUrl' => ['/site/auth'],
-            'popupMode' => false,
-        ]) ?>
 
     </div>
 
