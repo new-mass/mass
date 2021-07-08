@@ -91,6 +91,13 @@ function getprevimg(param){
     }
 }
 
+function add_gal(){
+    var singleGallery = $('.carousel-inner');
+    singleGallery.lightGallery();
+}
+
+add_gal();
+
 $(window).scroll(function(){
 
     var target = $('.footer');
@@ -127,10 +134,9 @@ $(window).scroll(function(){
 
                 $('.recomend').append(data);
 
-                var singleGallery = $('.carousel-inner');
-                singleGallery.lightGallery();
-
                 $('.carousel').carousel();
+
+                add_gal();
 
             },
         })

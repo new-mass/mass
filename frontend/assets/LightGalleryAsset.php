@@ -11,10 +11,6 @@ class LightGalleryAsset extends AssetBundle
         'dist/css/lightgallery.css',
     ];
 
-    public $js = [
-        'dist/lightgallery.min.js',
-    ];
-
     public $depends = [
         'yii\web\YiiAsset',
     ];

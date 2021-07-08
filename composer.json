@@ -19,7 +19,7 @@
         "yiisoft/yii2-bootstrap4": "~2.0.6",
         "bower-asset/bootstrap": "4.3.1",
         "bower-asset/owl-carousel2": "2.3.4",
-        "bower-asset/lightgallery": "*",
+        "bower-asset/lightgallery": "1.4.0",
         "iutbay/yii2-imagecache" : "*",
         "bower-asset/fontawesome": "5.3.1",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",

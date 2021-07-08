@@ -3,6 +3,7 @@
 use yii\widgets\ActiveForm;
 
 $commentForm = new \frontend\modules\user\models\Comments();
+$this->registerJsFile('/js/lightgallery-all.min.js', ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->registerJsFile('/js/single.js?v=4', ['depends' => [\frontend\assets\AppAsset::class]]);
 ?>
 

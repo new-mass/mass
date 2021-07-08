@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7994fcb8a0526ab0a5c71b54e3ad6e1",
+    "content-hash": "ff078be7fd548a9b90f27a76a31142d5",
     "packages": [
         {
             "name": "bower-asset/admin-lte",
@@ -77,7 +77,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -92,18 +92,24 @@
         },
         {
             "name": "bower-asset/lightgallery",
-            "version": "2.1.6",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:sachinchoolur/lightGallery.git",
-                "reference": "6286b3e52cdcf9e258d7b8b7f0cfef076bfcc58b"
+                "reference": "7b7603e9b1bbabee2228fb8411f34ad67993c130"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sachinchoolur/lightGallery/zipball/6286b3e52cdcf9e258d7b8b7f0cfef076bfcc58b",
-                "reference": "6286b3e52cdcf9e258d7b8b7f0cfef076bfcc58b"
+                "url": "https://api.github.com/repos/sachinchoolur/lightGallery/zipball/7b7603e9b1bbabee2228fb8411f34ad67993c130",
+                "reference": "7b7603e9b1bbabee2228fb8411f34ad67993c130"
             },
-            "type": "bower-asset"
+            "require": {
+                "bower-asset/jquery": ">=1.7.0"
+            },
+            "type": "bower-asset",
+            "license": [
+                "GPLv3"
+            ]
         },
         {
             "name": "bower-asset/owl-carousel2",
@@ -2025,16 +2031,16 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.14.1",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1"
+                "reference": "89c6201c74db25fa759ff16e78a4d8f32547770e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1",
-                "reference": "ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/89c6201c74db25fa759ff16e78a4d8f32547770e",
+                "reference": "89c6201c74db25fa759ff16e78a4d8f32547770e",
                 "shasum": ""
             },
             "require": {
@@ -2082,7 +2088,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2021-03-30T06:27:33+00:00"
+            "time": "2021-07-06T20:39:40+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
