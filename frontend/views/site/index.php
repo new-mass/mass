@@ -133,9 +133,9 @@ echo '</div>';
 if ($meta['text'] and $meta['h2']){
 
     echo '<div class="container">';
-    echo '<div class="row page-text page-text-wrap-open">';
+    echo '<div class="row page-text ">';
 
-    echo '<div class="col-12 page-text-wrap">';
+    echo '<div class="col-12 page-text-wrap page-text-wrap-open">';
 
     echo '<h2 class="h1">'.$meta['h2'].'</h2>';
 
