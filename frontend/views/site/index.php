@@ -133,7 +133,7 @@ echo '</div>';
 if ($meta['text'] and $meta['h2']){
 
     echo '<div class="container">';
-    echo '<div class="row page-text">';
+    echo '<div class="row page-text page-text-wrap-open">';
 
     echo '<div class="col-12 page-text-wrap">';
 
