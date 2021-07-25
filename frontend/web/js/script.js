@@ -119,8 +119,9 @@ $(document).ready(function () {
         changeURL();
 
         var target = $('.get-more-post-list');
+        var targetPos = target.offset().top;
         var winHeight = $(window).height();
-        var scrollToElem =  winHeight - 300;
+        var scrollToElem = targetPos - winHeight - 300;
 
         var winScrollTop = $(this).scrollTop();
 
