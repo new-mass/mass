@@ -11,7 +11,7 @@ class MetaTagsHelper
         $pol = '';
 
         if ($post['pol'] == 2) $pol = 'Массажистка ';
-        else $pol = 'Массажист';
+        else $pol = 'Массажистка';
 
         return $pol . ' ' . $post['name'] . ' возраст ' . $post['age'] . ' цена за сеанс ' . $post['price'] . ' рублей, город ' . $city['value'];
 
@@ -21,7 +21,7 @@ class MetaTagsHelper
         $pol = '';
 
         if ($post['pol'] == 2) $pol = 'Массажистка ';
-        else $pol = 'Массажист';
+        else $pol = 'Массажистка';
 
         if (iconv_strlen($post['about']) < 100) {
 
