@@ -13,7 +13,8 @@ class MetaTagsHelper
         if ($post['pol'] == 2) $pol = 'Массажистка ';
         else $pol = 'Массажистка';
 
-        return $pol . ' ' . $post['name'] . ' возраст ' . $post['age'] . ' цена за сеанс ' . $post['price'] . ' рублей, город ' . $city['value'];
+        return $pol . ' ' . $post['name'] . ' возраст ' . $post['age'] . ' цена за сеанс ' .
+            $post['price'] . ' рублей, город ' . $city['value'] . ' номер телефона '.$post['phone'];
 
     }
     public static function singleDes($post, $city){
@@ -25,7 +26,7 @@ class MetaTagsHelper
 
         if (iconv_strlen($post['about']) < 100) {
 
-            return $pol . ' ' . $post['name'] . ' работаю в городе ' . $city['value'] . ' , стоимость сеанса составляет ' . $post['price'] . ' рублей, жду Ваших звонков';
+            return $pol . ' ' . $post['name'] . ' работаю в городе ' . $city['value'] . ' , стоимость сеанса составляет ' . $post['price'] . ' рублей, жду Ваших звонков ID '.$post['id'] ;
 
         } else {
 
