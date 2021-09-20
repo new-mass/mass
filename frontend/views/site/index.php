@@ -130,7 +130,7 @@ echo '<div class="row">';
 
 echo '</div>';
 
-if ($meta['text'] and $meta['h2']){
+if ($meta['text'] and $meta['h2'] and false){
 
     echo '<div class="container">';
     echo '<div class="row page-text ">';
