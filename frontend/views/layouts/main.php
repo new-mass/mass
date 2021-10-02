@@ -82,13 +82,13 @@ $this->registerJsFile('/js/script.js?v=5', ['depends' => [\frontend\assets\AppAs
 
     <ul class="main-nav_list" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
 
-        <li itemprop="name"><a itemprop="url" title="Главная страница" href="/"> Главная</a> </li>
-        <li itemprop="name"><a itemprop="url" title="Страница эротического массажа" href="/service_eroticheskiy">Эротический массаж</a></li>
-        <li itemprop="name"><a itemprop="url" title="Страница тайского массажа" href="/service_tayskiy">Тайский массаж</a></li>
-        <li itemprop="name"><a itemprop="url" title="Массж надому" href="/place_appartamentu">На дому</a></li>
-        <li itemprop="name"><a itemprop="url" title="Элитные мастера массажа" href="/price_ot-3000">Элитные массажистки</a></li>
-        <li itemprop="name"><a itemprop="url" title="Анкеты мастеров массажа которые делают массаж для мужчин" href="/massazh-dlya_muzhchin">Массаж для мужчин</a></li>
-        <li itemprop="name"><a itemprop="url" title="Новые анкеты" href="/new">Новые анкеты</a></li>
+        <li itemprop="name"><a itemprop="url"  href="/"> Главная</a> </li>
+        <li itemprop="name"><a itemprop="url"  href="/service_eroticheskiy">Эротический</a></li>
+        <li itemprop="name"><a itemprop="url"  href="/service_tayskiy">Тайский</a></li>
+        <li itemprop="name"><a itemprop="url"  href="/place_appartamentu">На дому</a></li>
+        <li itemprop="name"><a itemprop="url"  href="/price_ot-3000">Элитные</a></li>
+        <li itemprop="name"><a itemprop="url"  href="/massazh-dlya_muzhchin">Для мужчин</a></li>
+        <li itemprop="name"><a itemprop="url"  href="/new">Новые анкеты</a></li>
 
         <li>
             <a class="teh-pod white-text" data-toggle="modal" data-target="#claim-modal" href="#">Техподдержка</a>
@@ -206,8 +206,8 @@ $this->registerJsFile('/js/script.js?v=5', ['depends' => [\frontend\assets\AppAs
         ]) ?>
             <div class="col-12">
                 <div class="marc-wrap">
-                    <a href="/massazh-dlya_muzhchin" class="marc-item">Массаж для мужчин</a>
-                    <a href="/service_eroticheskiy" class="marc-item">Эротический массаж</a>
+                    <a href="/massazh-dlya_muzhchin" class="marc-item">Для мужчин</a>
+                    <a href="/service_eroticheskiy" class="marc-item">Эротический</a>
                     <a href="/service_massagh-lingama" class="marc-item">Массаж лингама</a>
                     <a href="/age_ot-40-do-50-let" class="marc-item">от 40 до 50 лет</a>
                     <a href="/age_ot-31-do-40-let" class="marc-item">от 31 до 40 лет</a>
