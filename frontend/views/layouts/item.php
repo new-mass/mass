@@ -22,7 +22,7 @@ $metro = false;
 
                                 <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>">
 
-                            <img width="255px" height="335px" loading="lazy" class="img-<?php echo $item['id']; ?> img-on-listing" src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>" alt="Массажистка <?php echo $item['name'] ?>" title="Массажистка <?php echo $item['name'] ?> ">
+                            <img width="255px" height="335px" loading="lazy" class="img-<?php echo $item['id']; ?> img-on-listing" src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>" alt="Массажистка <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
 
                             <?php endif; ?>
                         </picture>
