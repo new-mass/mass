@@ -176,12 +176,12 @@ class SiteController extends Controller
         if (strpos(Yii::$app->request->url, 'show'))
             return $this->redirect(strstr(Yii::$app->request->url, '?show', true), 301);
 
-        if($city == 'spb' and Yii::$app->request->url == '/massazh-dlya_muzhchin-spb'){
+        if($city == 'spb' and strstr(Yii::$app->request->url , 'massazh-dlya_muzhchin-spb' )){
             header('Location: /massazh-dlya_muzhchin', true, 301);
             exit();
         }
 
-        if($city == 'spb' and Yii::$app->request->url == '/ehroticheskij_massazh-spb'){
+        if($city == 'spb' and strstr(Yii::$app->request->url , 'ehroticheskij_massazh-spb' )){
             header('Location: /service_eroticheskiy', true, 301);
             exit();
         }
