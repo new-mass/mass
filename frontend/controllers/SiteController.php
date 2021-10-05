@@ -11,9 +11,14 @@ use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use frontend\modules\user\components\helpers\SaveNameHelper;
 use frontend\modules\user\models\City;
+use frontend\modules\user\models\MassagDlya;
+use frontend\modules\user\models\Metro;
 use frontend\modules\user\models\PhoneView;
+use frontend\modules\user\models\Place;
 use frontend\modules\user\models\Posts;
 use frontend\modules\user\models\PostView;
+use frontend\modules\user\models\Rayon;
+use frontend\modules\user\models\Service;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\data\Pagination;
@@ -436,6 +441,46 @@ class SiteController extends Controller
             'city' => $city,
             'meta' => $meta,
         ]);
+    }
+
+    public function actionRobot($city = 'moskva')
+    {
+        if ($city == 'moskva') $host = Yii::$app->params['site_name'];
+
+        else $host = $city . '.' . Yii::$app->params['site_name'];
+
+        return $this->renderFile('@app/views/site/robot.php', [
+            'host' => $host
+        ]);
+    }
+
+    public function actionMap($city)
+    {
+
+        $cityInfo = City::getCity($city);
+
+        $metro = Metro::find()->where(['city_id' => $cityInfo['id']])->asArray()->all();
+        $rayon = Rayon::find()->where(['city_id' => $cityInfo['id']])->asArray()->all();
+        $service = Service::find()->asArray()->all();
+
+        $massgDlya = MassagDlya::find()->all();
+        $place = Place::find()->all();
+
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        $headers = Yii::$app->response->headers;
+        $headers->add('Content-Type', 'text/xml');
+
+        $posts = Posts::find()->where(['city_id' => $cityInfo['id']])->asArray()->all();
+
+        return $this->renderFile(Yii::getAlias('@frontend/views/site/map.php'), [
+            'metro' => $metro,
+            'rayon' => $rayon,
+            'service' => $service,
+            'place' => $place,
+            'massgDlya' => $massgDlya,
+            'posts' => $posts,
+        ]);
+
     }
 
     public function actionGetMorePost($city = 'moskva')

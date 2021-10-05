@@ -113,6 +113,8 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/claim/post/add' => 'claim/claim-anket',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/get-claim-modal' => 'site/get-claim-modal',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/register' => 'user/user/register',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/sitemap.xml' => 'site/map',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/robots.txt' => 'site/robot',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:[a-z-0-9_]+>/page-<page:[0-9]+>' => 'site/redirect',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:[a-z-0-9_]+>' => 'site/filter',
 

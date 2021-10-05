@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use frontend\modules\user\models\City;
 use Yii;
 
 /**
@@ -55,5 +56,10 @@ class PageMeta extends \yii\db\ActiveRecord
             'h2' => 'H2',
             'text' => 'Text',
         ];
+    }
+
+    public function getCity()
+    {
+        return $this->hasOne(City::class, ['id' => 'city_id']);
     }
 }

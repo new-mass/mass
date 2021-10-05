@@ -3,6 +3,7 @@
 
 namespace frontend\components\helpers;
 
+use frontend\modules\user\models\Photo;
 use frontend\modules\user\models\Posts;
 use yii\helpers\ArrayHelper;
 use frontend\modules\user\models\City;
@@ -151,6 +152,27 @@ class QueryParamsHelper
 
                 return $id->andWhere(['status' => 1])->with('avatar')->with('metro')->limit($limit)
                     ->andWhere(['city_id' => $city['id']])
+                    ->with('video')
+                    ->offset($offset)
+                    ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
+
+            }
+
+            if (strstr($value, 'video')) {
+
+                $postIds = Photo::find()
+                    ->where(['type' => Photo::TYPE_VIDEO])
+                    ->select('user_id')
+                    ->asArray()->all();
+
+                $id = Posts::find();
+
+                return $id->andWhere(['status' => 1])
+                    ->with('avatar')
+                    ->with('metro')
+                    ->limit($limit)
+                    ->andWhere(['city_id' => $city['id']])
+                    ->andWhere(['in', 'id', ArrayHelper::getColumn($postIds, 'id')])
                     ->with('video')
                     ->offset($offset)
                     ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');

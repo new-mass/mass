@@ -164,7 +164,7 @@
 
                     foreach ($ageList as $ageItem) {
 
-                        echo '<a class="service-href" title="Страница массажистов возрастом  ' . $ageItem['value'] . '" href="/age_' . $ageItem['url'] . '" >' . $ageItem['value'] . '</a>';
+                        echo '<a class="service-href" href="/age_' . $ageItem['url'] . '" >' . $ageItem['value'] . '</a>';
 
                     }
 
@@ -209,16 +209,16 @@
 </svg>
 </span>
             <span class="filter-drop-down">
-<a class="service-href" title="Страница массажистов возрастом  От 18 до 20 лет" href="/age_ot-18-do-20-let">От 18 до 20 лет</a><a
-                        class="service-href" title="Страница массажистов возрастом  От 21 до 25 лет"
-                        href="/age_ot-21-do-25-let">От 21 до 25 лет</a><a class="service-href"
-                                                                          title="Страница массажистов возрастом  От 26 до 30 лет"
+<a class="service-href" href="/age_ot-18-do-20-let">От 18 до 20 лет</a>
+                <a
+                        class="service-href"
+                        href="/age_ot-21-do-25-let">От 21 до 25 лет</a>
+                <a class="service-href"
                                                                           href="/age_ot-26-do-30-let">От 26 до 30 лет</a><a
-                        class="service-href" title="Страница массажистов возрастом  От 31 до 40 лет"
                         href="/age_ot-31-do-40-let">От 31 до 40 лет</a><a class="service-href"
-                                                                          title="Страница массажистов возрастом  от 40 до 50 лет"
+
                                                                           href="/age_ot-40-do-50-let">от 40 до 50 лет</a><a
-                        class="service-href" title="Страница массажистов возрастом  Старше 51 года"
+                        class="service-href"
                         href="/age_starshe-51-goda">Старше 51 года</a> </span>
         </li>
         <li class="filter-li">
@@ -231,11 +231,11 @@
 </svg>
 </span>
             <ul class="filter-drop-down">
-                <a class="service-href" title="Страница массажистов с ценой  До 2.000 Рублей" href="/price_do-2000">До
+                <a class="service-href"href="/price_do-2000">До
                         2.000 Рублей</a>
-                <a class="service-href" title="Страница массажистов с ценой  От 2.000 до 3.000 Рублей"
+                <a class="service-href"
                        href="/price_ot-2000-do-3000">От 2.000 до 3.000 Рублей</a>
-                <a class="service-href" title="Страница массажистов с ценой  От 3.000 Рублей" href="/price_ot-3000">От
+                <a class="service-href" href="/price_ot-3000">От
                         3.000 Рублей</a>
             </ul>
         </li>
