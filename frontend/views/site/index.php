@@ -7,6 +7,8 @@
 /* @var $pages array */
 /* @var $tag array */
 
+use yii\helpers\Url;
+
 $this->title = $meta['title'];
 
 $this->registerMetaTag([
@@ -23,6 +25,7 @@ if (isset($tag) and $tag){
 
 }
 
+$this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
 echo '<div class="col-12">';
 echo '<div class="row fisrst-content">';
