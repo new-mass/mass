@@ -25,8 +25,6 @@ if (isset($tag) and $tag){
 
 }
 
-$this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
-
 echo '<div class="col-12">';
 echo '<div class="row fisrst-content">';
 if (strpos(Yii::$app->request->url,'?')){
