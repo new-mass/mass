@@ -8,6 +8,7 @@ header('Content-Type: text/plain; charset=UTF-8');
     Disallow: */amp*
     Disallow: /amp*
     Disallow: /site/*
+    Disallow: /new-post
     Host: https://<?php echo $host.PHP_EOL ?>
     Sitemap: https://<?php echo $host ?>/sitemap.xml
 <?php exit() ?>
