@@ -4,16 +4,14 @@
 /* @var $city array */
 /* @var $this \yii\web\View */
 
-use frontend\assets\OwlAsset;
 use frontend\assets\LightGalleryAsset;
 use frontend\components\MetaTagsHelper;
-
 
 $this->title = MetaTagsHelper::singleTitle($post, $city);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $des = MetaTagsHelper::singleDes($post, $city)
+    'content' => $des = MetaTagsHelper::singleDes($post, $city).' ID '.$post['id'].' номер '.$post['phone']
 ]);
 
 $this->registerMetaTag([
@@ -38,7 +36,7 @@ $this->registerMetaTag([
 LightGalleryAsset::register($this);
 
 ?>
-<div class="col-12" itemscope="" itemtype="http://schema.org/Product">
+<div class="col-12">
 
     <?php
 
