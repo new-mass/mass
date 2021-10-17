@@ -36,7 +36,7 @@
                         foreach ($metro as $metroItem) {
 
 
-                            echo '<a class="service-href" title="Массажистки у метро  ' . $metroItem['value'] . '" href="/metro_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+                            echo '<a class="service-href" href="/metro_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
 
                         }
 
@@ -62,7 +62,7 @@
                     foreach ($rayon as $metroItem) {
 
 
-                        echo '<a class="service-href" title="Массажистки в районе  ' . $metroItem['value'] . '" href="/rayon_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+                        echo '<a class="service-href" href="/rayon_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
 
                     }
 
@@ -87,7 +87,7 @@
 
                             foreach ($service as $serviceItem) {
 
-                                echo '<a class="service-href" title="Страница массажистов с услугой  ' . $serviceItem['value'] . '" href="/service_' . $serviceItem['url'] . '" >' . $serviceItem['value'] . '</a>';
+                                echo '<a class="service-href" href="/service_' . $serviceItem['url'] . '" >' . $serviceItem['value'] . '</a>';
 
                             }
 
@@ -113,7 +113,7 @@
 
                 foreach ($massagDlya as $massazhDlyaItem) {
 
-                    echo '<a class="service-href" title="Массажист для   ' . $massazhDlyaItem['value'] . '" href="/massazh-dlya_' . $massazhDlyaItem['url'] . '" >Массаж для  ' . $massazhDlyaItem['value'] . '</a>';
+                    echo '<a class="service-href" href="/massazh-dlya_' . $massazhDlyaItem['url'] . '" >Массаж для  ' . $massazhDlyaItem['value'] . '</a>';
                 }
 
                 ?>
@@ -138,7 +138,7 @@
                     foreach ($place as $placeList) {
 
 
-                        echo '<a class="service-href" title="Место встречи с массажистом  ' . $placeList['value'] . '" href="/place_' . $placeList['url'] . '" >' . $placeList['value'] . '</a>';
+                        echo '<a class="service-href" href="/place_' . $placeList['url'] . '" >' . $placeList['value'] . '</a>';
 
                     }
 
@@ -189,7 +189,7 @@
 
                     foreach ($pricelList as $priceItem) {
 
-                        echo '<li><a class="service-href" title="Страница массажистов с ценой  ' . $priceItem['value'] . '" href="/price_' . $priceItem['url'] . '" >' . $priceItem['value'] . '</a></li>';
+                        echo '<li><a class="service-href" href="/price_' . $priceItem['url'] . '" >' . $priceItem['value'] . '</a></li>';
 
 
                     }
@@ -231,7 +231,7 @@
 </svg>
 </span>
             <ul class="filter-drop-down">
-                <a class="service-href"href="/price_do-2000">До
+                <a class="service-href" href="/price_do-2000">До
                         2.000 Рублей</a>
                 <a class="service-href"
                        href="/price_ot-2000-do-3000">От 2.000 до 3.000 Рублей</a>
