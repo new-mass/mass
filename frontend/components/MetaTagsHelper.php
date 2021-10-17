@@ -27,7 +27,7 @@ class MetaTagsHelper
         if (iconv_strlen($post['about']) < 100) {
 
             return $pol . ' ' . $post['name'] . ' работаю в городе ' . $city['value'] . ' , стоимость сеанса составляет '
-                . $post['price'] . ' рублей, жду Ваших звонков ID '.$post['id'] ;
+                . $post['price'] . ' рублей, жду Ваших звонков ' ;
 
         } else {
 
@@ -54,7 +54,7 @@ class MetaTagsHelper
                 }
 
             }
-            return implode('.', $string).' ID '.$post['id'];
+            return implode('.', $string);
 
         }
     }
