@@ -46,19 +46,19 @@ class AvatarHelper
     public static function saveCheckPhoto($model, $userId)
     {
 
-        if ($photo = Photo::find()->where(['user_id' => $userId , 'type' => Photo::CHECK_PHOTO])->limit(1)->one()){
-
-            unlink(Yii::getAlias('@frontend/web'.$photo->file));
-
-            $photo->delete();
-
-            self::dropCheckPhotoStatus($model);
-
-        }
-
         $file = UploadedFile::getInstance($model, 'checkPhoto');
 
         if ($file) {
+
+            if ($photo = Photo::find()->where(['user_id' => $userId , 'type' => Photo::CHECK_PHOTO])->limit(1)->one()){
+
+                unlink(Yii::getAlias('@frontend/web'.$photo->file));
+
+                $photo->delete();
+
+                self::dropCheckPhotoStatus($model);
+
+            }
 
             $checkPhotoRequest = new CheckPhotoRequest();
 
