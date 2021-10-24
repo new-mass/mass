@@ -50,19 +50,4 @@ LightGalleryAsset::register($this);
 
     </div>
 
-    <div class="row">
-        <div class="col-12 "><h3 class="big-heading pop pop-heading">Популярные анкеты:</h3></div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 preload-single">
-            <p>Загрузка анкеты...</p>
-            <div class="container">
-                <div class="dash uno"></div>
-                <div class="dash dos"></div>
-                <div class="dash tres"></div>
-                <div class="dash cuatro"></div>
-            </div>
-        </div>
-    </div>
 </div>
