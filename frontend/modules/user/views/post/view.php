@@ -46,8 +46,4 @@ LightGalleryAsset::register($this);
 
     ?>
 
-    <div class="recomend">
-
-    </div>
-
 </div>
