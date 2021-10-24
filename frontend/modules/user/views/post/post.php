@@ -129,7 +129,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
                                         <?php endif; ?>
                                     </div>
                                     <div class="col-9">
-                                        <div class="anket-heading"><h2 class="anket-heading">Обо мне:</h2></div>
+                                        <div class="anket-heading"><p class="anket-heading">Обо мне:</p></div>
                                         <div class="anket-about" itemprop="description">
                                             <?php echo $post['about'] ?>
                                         </div>
@@ -200,7 +200,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
 
                     <?php if (!empty($post['mess'])) : ?>
 
-                        <div class="anket-heading"><h2 class="big-heading">Мессенджеры на мой номер</h2></div>
+                        <div class="anket-heading"><p class="big-heading">Мессенджеры на мой номер</p></div>
 
                         <div class="anket-parameters">
 
@@ -216,7 +216,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
 
                     <?php if (!empty($post['service'])) : ?>
 
-                        <div class="anket-heading"><h2 class="big-heading">Я предлагаю</h2></div>
+                        <div class="anket-heading"><p class="big-heading">Я предлагаю</p></div>
                         <div class="service_list">
                             <ul class="service_ul">
                                 <?php foreach ($post['service'] as $item) : ?>
@@ -229,7 +229,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
 
                     <?php if (!empty($post['comfort'])) : ?>
 
-                        <div class="anket-heading"><h2 class="big-heading">Удобства</h2></div>
+                        <div class="anket-heading"><p class="big-heading">Удобства</p></div>
                         <div class="service_list">
                             <ul class="service_ul">
                                 <?php foreach ($post['comfort'] as $item) : ?>
@@ -439,7 +439,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
                         <?php if ($post['comments']) : ?>
 
                             <div class="col-12">
-                                <div class="anket-heading"><h2 class="big-heading">Отзывы</h2></div>
+                                <div class="anket-heading"><p class="big-heading">Отзывы</p></div>
                             </div>
 
                             <?php foreach ($post['comments'] as $comment) : ?>
