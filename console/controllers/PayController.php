@@ -54,7 +54,7 @@ class PayController extends Controller
 
                         if ($user->save()) {
 
-                            $post['pay_time'] = time() + 3600;
+                            $post['pay_time'] = time() + (3600 * 24);
 
                             $post->save();
 
