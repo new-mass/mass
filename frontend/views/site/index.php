@@ -74,6 +74,13 @@ if ($posts) {
         }
     </script>
     <?php endif; ?>
+<?php
+
+if (count($posts) > 11)
+    echo \yii\helpers\Html::tag('div','Показать еще', ['onclick' => 'get_more()', 'class' => 'get_more']);
+
+
+?>
     <div class="row">
         <div class="col-12">
             <?php
@@ -89,8 +96,6 @@ if ($posts) {
 
 <?php
 
-if (count($posts) > 11)
-    echo \yii\helpers\Html::tag('div','Показать еще', ['onclick' => 'get_more()', 'class' => 'get_more']);
 
 if ($more_posts) {
 
