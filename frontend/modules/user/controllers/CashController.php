@@ -86,6 +86,8 @@ class CashController extends Controller
 
             $userBalanceNotification->user_id = Yii::$app->user->id;
 
+            $userBalanceNotification->balance_event = 50;
+
             $userBalanceNotification->is_send_notification = UserBalanceNotification::NOTIFICATION_OPEN;
 
             $userBalanceNotification->save();
