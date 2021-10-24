@@ -114,7 +114,7 @@ $(document).ready(function () {
 
 
 
-    $(document).scroll(function () {
+/*    $(document).scroll(function () {
 
         changeURL();
 
@@ -146,9 +146,12 @@ $(document).ready(function () {
 
         }
 
-    })
+    })*/
 });
 
+function get_more(){
+    getMorePosts();
+}
 
 function inView($elem) {
     var $window = $(window);
@@ -380,6 +383,7 @@ function getMorePosts() {
                 $('.preload').html();
                 $(object).remove();
                 $('.pagination').remove();
+                $('.get_more').remove();
             }
 
             $('.preload').css('display' , 'none');

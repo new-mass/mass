@@ -89,7 +89,12 @@ if ($posts) {
 
 <?php
 
+if (count($posts) > 11)
+    echo \yii\helpers\Html::tag('div','Показать еще', ['onclick' => 'get_more()', 'class' => 'get_more']);
+
 if ($more_posts) {
+
+    echo '<div class="row">';
 
     echo '<div class="col-12">';
 
@@ -107,9 +112,10 @@ if ($more_posts) {
 
         echo '</div>';
 
+
     }
 }
-
+echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</div>';
