@@ -114,39 +114,11 @@ $(document).ready(function () {
 
 
 
-/*    $(document).scroll(function () {
+    $(document).scroll(function () {
 
         changeURL();
 
-        var target = $('.get-more-post-list');
-        var targetPos = target.offset().top;
-        var winHeight = $(window).height();
-        var scrollToElem = targetPos - winHeight - 300;
-
-        var winScrollTop = $(this).scrollTop();
-
-        var page = Number($('.content').attr('data-page'));
-        var url  = $('.content').attr('data-url');
-
-        if(winScrollTop > scrollToElem){
-
-            getMorePosts();
-
-        }
-
-        console.log(url);
-
-        if($(this).scrollTop() != 0) {
-
-            $('#toTop').fadeIn();
-
-        } else {
-
-            $('#toTop').fadeOut();
-
-        }
-
-    })*/
+    })
 });
 
 function get_more(){
