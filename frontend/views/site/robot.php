@@ -7,7 +7,6 @@ header('Content-Type: text/plain; charset=UTF-8');
     Disallow: */no-age*
     Disallow: */amp*
     Disallow: /amp*
-    Disallow: /site/*
     Disallow: /*?__cf*
     Disallow: /new-post
     Host: https://<?php echo $host.PHP_EOL ?>

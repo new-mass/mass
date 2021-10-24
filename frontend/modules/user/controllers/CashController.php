@@ -4,6 +4,7 @@
 namespace frontend\modules\user\controllers;
 
 use common\models\User;
+use common\models\UserBalanceNotification;
 use frontend\modules\user\models\Hystory;
 use frontend\components\BeforeController as Controller;
 use Yii;
@@ -79,6 +80,19 @@ class CashController extends Controller
 
         $payForm = new PayForm();
 
+        if (!$userBalanceNotification = UserBalanceNotification::find()->where(['user_id' => Yii::$app->user->id])->one()){
+
+            $userBalanceNotification = new UserBalanceNotification();
+
+            $userBalanceNotification->user_id = Yii::$app->user->id;
+
+            $userBalanceNotification->is_send_notification = UserBalanceNotification::NOTIFICATION_OPEN;
+
+            $userBalanceNotification->save();
+
+        }
+
+
         if ($payForm->load(Yii::$app->request->post()) and $payForm->validate()){
 
             $order_id = Yii::$app->user->id.'_'.$city;
@@ -99,6 +113,7 @@ class CashController extends Controller
         return $this->render('balance', [
             'city' => $city,
             'payForm' => $payForm,
+            'userBalanceNotification' => $userBalanceNotification,
         ]);
     }
 }

@@ -2,6 +2,7 @@
 /* @var $this \yii\web\View */
 /* @var $payForm \frontend\modules\user\models\forms\PayForm */
 /* @var $items array */
+/* @var $userBalanceNotification \common\models\UserBalanceNotification */
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
@@ -16,6 +17,7 @@ $this->title = "Пополнить баланс";
 <div class="col-12 col-md-7 col-lg-8 col-xl-9">
 
         <div class="main-banner">
+
             <h1><?php echo $this->title ?></h1>
 
             <?php
@@ -37,7 +39,41 @@ $this->title = "Пополнить баланс";
 
             <?php ActiveForm::end() ?>
 
+            <h1>Получать уведомление о низком балансе</h1>
+
+            <?php
+
+            $form = ActiveForm::begin([
+                'id' => 'pay-form',
+                'options' => ['class' => 'form-horizontal'],
+            ])
+
+            ?>
+
+            <?= $form->field($userBalanceNotification, 'user_id')
+                ->hiddenInput()->label(false) ?>
+
+            <?= $form->field($userBalanceNotification, 'is_send_notification')
+                ->dropDownList([
+                    \common\models\UserBalanceNotification::NOTIFICATION_OPEN =>'Да' ,
+                    \common\models\UserBalanceNotification::NOTIFICATION_CLOSE => 'Нет',
+                ])->label('Получать уведомления') ?>
+
+
+            <?= $form->field($userBalanceNotification, 'balance_event')
+                ->textInput()->label('Баланс о котором нужно уведомить') ?>
+
+            <div class="form-group">
+
+                <?= Html::submitButton('Изменить', ['class' => 'btn accent-btn-1']) ?>
+
+            </div>
+
+            <?php ActiveForm::end() ?>
+
         </div>
+
+
 
 
 </div>
