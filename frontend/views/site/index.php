@@ -67,7 +67,7 @@ if ($posts) {
 <?php else : ?>
 
 "url": "https://<?php echo $city['name'] ?>.e-mass.top",
-"logo": "https://korolev.e-mass.top/imgs/logo.png"
+"logo": "https://<?php echo $city['name'] ?>.e-mass.top/imgs/logo.png"
 
 <?php endif; ?>
 
