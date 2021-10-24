@@ -94,6 +94,14 @@ class CashController extends Controller
 
         }
 
+        if ($userBalanceNotification->load(Yii::$app->request->post()) and $userBalanceNotification->validate()){
+
+            Yii::$app->session->setFlash('success','Сохранено');
+
+            $userBalanceNotification->save();
+
+        }
+
 
         if ($payForm->load(Yii::$app->request->post()) and $payForm->validate()){
 
