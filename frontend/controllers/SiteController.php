@@ -5,6 +5,7 @@ use common\models\Webmaster;
 use frontend\components\helpers\DayViewHelper;
 use frontend\components\helpers\PageHelper;
 use frontend\components\helpers\PhoneViewHelper;
+use frontend\components\helpers\PostOrderHelper;
 use frontend\models\forms\SearchForm;
 use frontend\models\PageMeta;
 use frontend\models\ResendVerificationEmailForm;
@@ -141,7 +142,7 @@ class SiteController extends Controller
 
         $countQuery = clone $posts;
 
-        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'forcePageParam' => false]);
 
         $pages->defaultPageSize = Yii::$app->params['post_limit'];
 
@@ -150,9 +151,11 @@ class SiteController extends Controller
             ->with('rayon')
             ->with('video')
             ->offset($pages->offset)
-            ->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc')->asArray()->all();
+            ->orderBy(PostOrderHelper::getOrderAndSetOrderCookie());
 
         DayViewHelper::addViewListing($posts);
+
+        $posts = $posts->asArray()->all();
 
         PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
 
@@ -201,11 +204,11 @@ class SiteController extends Controller
 
             $countQuery = clone $posts;
 
-            $pages = new Pagination(['totalCount' => $countQuery->count()]);
+            $pages = new Pagination(['totalCount' => $countQuery->count(), 'forcePageParam' => false]);
 
             $pages->defaultPageSize = Yii::$app->params['post_limit'];
 
-            $posts = $posts->offset($pages->offset)->orderBy('tarif_id desc, sorting desc')->asArray()->all();
+            $posts = $posts->offset($pages->offset)->orderBy(PostOrderHelper::getOrderAndSetOrderCookie())->asArray()->all();
 
         }
 
@@ -504,7 +507,7 @@ class SiteController extends Controller
                 ->with('video')
                 ->limit(Yii::$app->params['post_limit'])
                 ->offset($offset)
-                ->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc')->asArray()->all();
+                ->orderBy(PostOrderHelper::getOrderAndSetOrderCookie())->asArray()->all();
 
         }elseif($params['url'] == '/new'){
 
@@ -523,7 +526,7 @@ class SiteController extends Controller
 
             $posts = QueryParamsHelper::getParams($params['url'], $city, Yii::$app->params['post_limit'], $offset);
 
-            $posts = $posts->asArray()->all();
+            $posts = $posts->orderBy(PostOrderHelper::getOrderAndSetOrderCookie())->asArray()->all();
 
         }
 

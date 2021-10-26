@@ -1,5 +1,19 @@
 $(document).ready(function () {
 
+    $( ".sort_select" ).change(function() {
+
+        var redirectUrl = location.pathname ;
+
+        if ($('.sort_select').val()){
+
+            var redirectUrl = location.pathname + '?' + $('.sort_select').val();
+
+        }
+
+        window.location.href = redirectUrl;
+
+    });
+
     $('#toTop').click(function() {
 
         $('body,html').animate({scrollTop:0},800);
