@@ -9,7 +9,6 @@ header('Content-Type: text/plain; charset=UTF-8');
     Disallow: /amp*
     Disallow: /*?__cf*
     Disallow: /new-post
-    Disallow: /site*
     Clean-param: price
     Host: https://<?php echo $host.PHP_EOL ?>
     Sitemap: https://<?php echo $host ?>/sitemap.xml
