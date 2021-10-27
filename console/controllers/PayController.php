@@ -69,7 +69,7 @@ class PayController extends Controller
                                 ->one()) {
                                 if ($user->cash <= $userNotification->balance_event
                                     and $userNotification->is_send_notification == UserBalanceNotification::NOTIFICATION_OPEN
-                                    and $userNotification->last_notification_send < (time() + (3600 * 2 ))) {
+                                    and $userNotification->last_notification_send < (time() + (3600 * 24 ))) {
 
                                     if (Yii::$app->mailer->compose()
                                         ->setFrom(Yii::$app->params['admin_email'])
