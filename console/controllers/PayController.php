@@ -69,7 +69,7 @@ class PayController extends Controller
                                 ->one()) {
                                 if ($user->cash <= $userNotification->balance_event
                                     and $userNotification->is_send_notification == UserBalanceNotification::NOTIFICATION_OPEN
-                                    and $userNotification->last_notification_send < (time() + (3600 * 24 ))) {
+                                    and $userNotification->last_notification_send < time()) {
 
                                     if (Yii::$app->mailer->compose()
                                         ->setFrom(Yii::$app->params['admin_email'])
@@ -78,7 +78,7 @@ class PayController extends Controller
                                         ->setTextBody('На Вашем балансе осталось ' . $user->cash . ' руб. Что бы отключить уведомления перейдите в раздел "Пополнить баланс"')
                                         ->setHtmlBody('<p>На Вашем балансе осталось ' . $user->cash . ' руб. Что бы отключить уведомления перейдите в раздел "Пополнить баланс"</p>')
                                         ->send()) {
-                                        $userNotification->last_notification_send = time();
+                                        $userNotification->last_notification_send = time() + (3600 * 24);
 
                                         $userNotification->save();
                                     }
