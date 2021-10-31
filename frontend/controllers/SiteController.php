@@ -165,7 +165,7 @@ class SiteController extends Controller
 
         $main = true;
 
-        return $this->render('index', [
+        if($meta) return $this->render('index', [
             'posts' => $posts,
             'meta' => $meta,
             'main' => $main,
@@ -173,6 +173,16 @@ class SiteController extends Controller
             'tag' => $tag,
             'city' => $city,
             ]);
+
+        {
+
+            Yii::$app->response->statusCode = 404;
+
+            return $this->render('error', [
+                'message' => 'Такой страницы нет'
+            ]);
+
+        }
     }
 
     public function actionFilter( $city= 'moskva', $param)
