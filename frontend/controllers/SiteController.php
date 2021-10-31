@@ -222,9 +222,13 @@ class SiteController extends Controller
 
         }
 
-        DayViewHelper::addViewListing($posts);
+        if ($posts){
 
-        PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
+            DayViewHelper::addViewListing($posts);
+
+            PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
+
+        }
 
         Yii::$app->params['meta'] = $meta;
 
@@ -237,6 +241,7 @@ class SiteController extends Controller
             ->all();
 
 
+        if ($meta)
 
         return $this->render('index', [
             'posts' => $posts,
@@ -246,6 +251,18 @@ class SiteController extends Controller
             'more_posts' => $more_posts,
             'pages' => $pages,
         ]);
+
+        else {
+
+            Yii::$app->response->statusCode = 404;
+
+            return $this->render('error', [
+                'message' => 'Такой страницы нет'
+            ]);
+
+        }
+
+
     }
 
     public function actionNew($city = 'moskva')
