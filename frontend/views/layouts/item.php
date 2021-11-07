@@ -34,11 +34,10 @@ $metro = false;
 
                                     <a target="_blank" href="/anketa/<?php echo $item['url'] ?>">
 
-                                        <img width="350px" height="524" loading="lazy"
-                                             data-id="<?php echo $item['id'] ?>" class="photo photo-list img-on-listing"
-                                             src="<?php echo $item['avatar']['file'] ?>"
-                                             alt="Массажистка   <?php echo $item['name'] ?> "
-                                             title="Массажистка <?php echo $item['name'] ?> ">
+                                        <img width="255px" height="335px" loading="lazy"
+                                             class="img-<?php echo $item['id']; ?> img-on-listing"
+                                             src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
+                                             alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
                                     </a>
 
                                 </picture>
@@ -56,11 +55,10 @@ $metro = false;
 
                                         <a target="_blank"  href="/anketa/<?php echo $item['url'] ?>">
 
-                                            <img loading="lazy" data-id="<?php echo $file['id'] ?>"
-                                                 class="photo photo-list"
-                                                 src="<?php echo $file['file'] ?>"
-                                                 alt="Массажистка <?php echo $file['name'] ?> "
-                                                 title="Массажистка <?php echo $file['name'] ?> ">
+                                            <img width="255px" height="335px" loading="lazy"
+                                                 class="img-<?php echo $item['id']; ?> img-on-listing"
+                                                 src="<?= Yii::$app->imageCache->thumbSrc($file['file'], '255_335') ?>"
+                                                 alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
                                         </a>
                                     </picture>
 
