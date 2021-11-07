@@ -220,8 +220,7 @@ $metro = false;
                     <div class="get-phone"
                          onclick="getPhone(this);yaCounter50332519.reachGoal('PHONE');return true;"
                          data-phone="<?php echo $str ?>"
-                         data-id="<?php echo $item['id'] ?>">Показать телефон
-                    </div>
+                         data-id="<?php echo $item['id'] ?>">Показать телефон</div>
                 </div>
             </div>
         </div>
