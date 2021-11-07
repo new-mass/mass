@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-    $( ".sort_select" ).change(function() {
+    $('.carousel').carousel();
+
+    $( ".sort_select").change(function() {
 
         var redirectUrl = location.pathname ;
 
@@ -376,6 +378,8 @@ function getMorePosts() {
 
             $(".fisrst-content").removeClass('ankets-bg');
             $(".fisrst-content").append(data);
+
+            $('.carousel').carousel();
 
         },
 

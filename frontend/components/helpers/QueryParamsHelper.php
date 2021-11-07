@@ -56,6 +56,7 @@ class QueryParamsHelper
                                     ->with('metro')
                                     ->with('rayon')
                                     ->with('video')
+                                    ->with('gallery')
                                     ->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc')
                                     ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
                                     ->limit($limit)
@@ -102,6 +103,7 @@ class QueryParamsHelper
                     ->with('avatar')
                     ->with('metro')
                     ->with('video')
+                    ->with('gallery')
                     ->limit($limit)
                     ->offset($offset)
                     ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
@@ -153,6 +155,7 @@ class QueryParamsHelper
                 return $id->andWhere(['status' => 1])->with('avatar')->with('metro')->limit($limit)
                     ->andWhere(['city_id' => $city['id']])
                     ->with('video')
+                    ->with('gallery')
                     ->offset($offset)
                     ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
 
@@ -170,6 +173,7 @@ class QueryParamsHelper
                 return $id->andWhere(['status' => 1])
                     ->with('avatar')
                     ->with('metro')
+                    ->with('gallery')
                     ->limit($limit)
                     ->andWhere(['city_id' => $city['id']])
                     ->andWhere(['in', 'id', ArrayHelper::getColumn($postIds, 'id')])

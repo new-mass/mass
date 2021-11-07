@@ -415,7 +415,9 @@ header .owl-stage-outer{
     padding: 7px 6px;
     text-align: center;
 }
-
+.post-item .gallery{
+    margin-top: 0px;
+}
 .select-cust select {
     color: #000;
     appearance: none;

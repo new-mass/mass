@@ -150,6 +150,7 @@ class SiteController extends Controller
             ->with('metro')
             ->with('rayon')
             ->with('video')
+            ->with('gallery')
             ->offset($pages->offset)
             ->orderBy(PostOrderHelper::getOrderAndSetOrderCookie());
 
@@ -285,6 +286,7 @@ class SiteController extends Controller
         $posts = Posts::find()->where(['status' => 1])
             ->andWhere(['city_id' => $city['id']])
             ->with('video')
+            ->with('gallery')
             ->with('avatar')->orderBy('id desc')->asArray()->all();
 
         return $this->renderFile(Yii::getAlias('@app/views/site/new.php' ), [
@@ -425,6 +427,8 @@ class SiteController extends Controller
                     ->with('metro')
                     ->with('rayon')
                     ->with('video')
+                    ->with('gallery')
+
                     ->orderBy('check_photo_status desc, video_sort desc, sorting desc')->asArray()->all();
 
                 DayViewHelper::addViewListing($posts);
@@ -455,6 +459,7 @@ class SiteController extends Controller
             ->with('metro')
             ->with('rayon')
             ->with('video')
+            ->with('gallery')
             ->limit(Yii::$app->params['post_limit'])
             ->orderBy('id desc')->asArray()->all();
 
@@ -532,6 +537,7 @@ class SiteController extends Controller
                 ->with('metro')
                 ->with('rayon')
                 ->with('video')
+                ->with('gallery')
                 ->limit(Yii::$app->params['post_limit'])
                 ->offset($offset)
                 ->orderBy(PostOrderHelper::getOrderAndSetOrderCookie())->asArray()->all();
@@ -544,6 +550,7 @@ class SiteController extends Controller
                 ->with('metro')
                 ->with('rayon')
                 ->with('video')
+                ->with('gallery')
                 ->orderBy('id desc')
                 ->limit(Yii::$app->params['post_limit'])
                 ->offset($offset)
