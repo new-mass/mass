@@ -55,10 +55,11 @@ $metro = false;
 
                                         <a target="_blank"  href="/anketa/<?php echo $item['url'] ?>">
 
-                                            <img width="255px" height="335px" loading="lazy"
-                                                 class="img-<?php echo $item['id']; ?> img-on-listing"
-                                                 src="<?= Yii::$app->imageCache->thumbSrc($file['file'], '255_335') ?>"
-                                                 alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
+                                            <img loading="lazy" data-id="<?php echo $file['id'] ?>"
+                                                 class="photo photo-list"
+                                                 src="<?php echo $file['file'] ?>"
+                                                 alt="Массажистка <?php echo $item['name'] ?> "
+                                                 title="Массажистка <?php echo $item['name'] ?> ">
                                         </a>
                                     </picture>
 
