@@ -11,7 +11,7 @@ $metro = false;
 
                 <div class="gallery">
 
-                    <div id="carousel-<?php echo $item['id'] ?>" class="carousel slide" data-ride="carousel">
+                    <div id="carousel-<?php echo $item['id'] ?>" data-interval="false" class="carousel slide" data-ride="carousel">
 
                         <div class="carousel-inner">
 
