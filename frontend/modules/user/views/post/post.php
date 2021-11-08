@@ -38,7 +38,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
                                                 <source srcset="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '350_524') ?>">
 
                                                 <img width="350px" height="524"  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list img-on-listing"
-                                                      src="<?php echo $post['avatar']['file'] ?>"
+                                                      src="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '510_764') ?>"
                                                       alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
 
                                             </picture>

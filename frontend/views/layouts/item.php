@@ -21,9 +21,6 @@ $metro = false;
                                 <picture href="<?php echo $item['avatar']['file'] ?>"
                                          class="carousel-item active picture-<?php echo $item['id'] ?>">
 
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
-                                            media="(max-width: 768px)">
-
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '330_494') ?>"
                                             media="(max-width: 991px)">
 
@@ -32,11 +29,14 @@ $metro = false;
 
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '350_524') ?>">
 
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
+                                            media="(max-width: 768px)">
+
                                     <a target="_blank" href="/anketa/<?php echo $item['url'] ?>">
 
                                         <img width="255px" height="335px" loading="lazy"
                                              class="img-<?php echo $item['id']; ?> img-on-listing"
-                                             src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
+                                             src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
                                              alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
                                     </a>
 
