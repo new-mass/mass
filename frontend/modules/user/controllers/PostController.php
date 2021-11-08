@@ -33,7 +33,7 @@ class PostController extends Controller
 
         $city = City::getCity($city);
 
-        if ($post = Posts::getPostByUrl($url)){
+        if ($post = Posts::getPostByUrl($url, $city['id'])){
 
             SingleViewPost::updateAllCounters(['count' => 1], ['post_id' =>$post['id'] ]);
 
