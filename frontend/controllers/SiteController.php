@@ -80,21 +80,15 @@ class SiteController extends Controller
                 'city' => Yii::$app->controller->actionParams['city'],
                 'successCallback' => [$this, 'onAuthSuccess'],
             ],
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
             'thumb' => 'iutbay\yii2imagecache\ThumbAction',
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
-    }
-
-    public function actionError()
-    {
-        Yii::$app->response->statusCode = 404;
-
-        return $this->render('error', [
-            'message' => 'Такой страницы нет'
-        ]);
     }
 
 
