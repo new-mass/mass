@@ -7,7 +7,7 @@
 use frontend\assets\LightGalleryAsset;
 use frontend\components\MetaTagsHelper;
 
-$this->title = MetaTagsHelper::singleTitle($post, $city);
+$this->title = MetaTagsHelper::singleTitle($post, $city).' id '.$post['id'];
 
 $this->registerMetaTag([
     'name' => 'description',
