@@ -13,13 +13,16 @@ $metro = false;
 
                     <div id="carousel-<?php echo $item['id'] ?>" data-interval="false" class="carousel slide" data-ride="carousel">
 
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" onclick="redirect(this)" data-url="/anketa/<?php echo $item['url'] ?>">
 
                             <?php if ($item['avatar']['file']) : ?>
 
 
                                 <picture href="<?php echo $item['avatar']['file'] ?>"
                                          class="carousel-item active picture-<?php echo $item['id'] ?>">
+
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
+                                            media="(max-width: 768px)">
 
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '330_494') ?>"
                                             media="(max-width: 991px)">
@@ -29,16 +32,10 @@ $metro = false;
 
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '350_524') ?>">
 
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
-                                            media="(max-width: 768px)">
-
-                                    <a target="_blank" href="/anketa/<?php echo $item['url'] ?>">
-
                                         <img width="255px" height="335px" loading="lazy"
                                              class="img-<?php echo $item['id']; ?> img-on-listing"
-                                             src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
+                                             src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
                                              alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
-                                    </a>
 
                                 </picture>
 

@@ -68,6 +68,13 @@ $(document).ready(function () {
 
 
 });
+
+function redirect(object){
+
+    window.open($(object).attr('data-url'), '_blank');
+
+}
+
 function debounce(func, wait, immediate) {
     var timeout;
     return function() {
