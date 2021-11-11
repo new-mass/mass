@@ -245,12 +245,16 @@ $claimForm = new \frontend\models\forms\ClaimForm();
     <script type="text/javascript" >
 
         window.addEventListener('scroll', function() {
-            $.getScript("/js/metrica.js", function(data, textStatus, jqxhr) {
-                console.log(data); // данные
-            });
+            loadMetrica
         });
 
+        window.addEventListener('mousemove', function() {
+            loadMetrica()
+        });
 
+        function loadMetrica(){
+            $.getScript("/js/metrica.js");
+        }
 
     </script>
 </body>
