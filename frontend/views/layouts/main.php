@@ -245,11 +245,11 @@ $claimForm = new \frontend\models\forms\ClaimForm();
     <script type="text/javascript" >
 
         window.addEventListener('scroll', function() {
-            loadMetrica
+            loadMetrica();
         });
 
         window.addEventListener('mousemove', function() {
-            loadMetrica()
+            loadMetrica();
         });
 
         function loadMetrica(){
