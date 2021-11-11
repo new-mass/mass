@@ -253,7 +253,7 @@ $claimForm = new \frontend\models\forms\ClaimForm();
             $.getScript("/js/metrica.js");
         }
 
-        setTimeout(loadMetrica, 1000);
+        setTimeout(loadMetrica, 2000);
 
     </script>
 </body>
