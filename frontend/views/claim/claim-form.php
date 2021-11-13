@@ -11,7 +11,7 @@ $form = ActiveForm::begin([
     'action' => '/claim/post/add',
     'options' => ['class' => 'form-horizontal'],
 ]) ?>
-    <h5 class="modal-title margin-top-20" id="exampleModalLabel">Опишите Вашу проблему</h5>
+    <p class="modal-title margin-top-20" id="exampleModalLabel">Опишите Вашу проблему</p>
 <?= $form->field($claimForm, 'post_id')->hiddenInput(['value' => $id])->label(false) ?>
 <?= $form->field($claimForm, 'reason')
     ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\ReasonClaim::find()->asArray()->all(), 'id', 'value'))

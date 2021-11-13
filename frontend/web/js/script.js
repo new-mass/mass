@@ -208,6 +208,8 @@ function getAnketClaim(object) {
 
     var id = $(object).attr("data-id");
 
+    $('#claim-modal .modal-body').html('');
+
     $.ajax({
         type: 'POST',
         url: '/claim/post/get-modal',
@@ -222,8 +224,31 @@ function getAnketClaim(object) {
         },
 
     });
+}
+function getCall(object) {
 
+    var id = $(object).attr("data-id");
 
+    $('#claim-modal .modal-body').html('');
+
+    $.ajax({
+        type: 'POST',
+        url: '/call/get',
+        data: 'id='+id,
+        dataType: "html",
+        cache: false,
+        success: function (data) {
+
+            $('#claim-modal').modal('show');
+            $('#claim-modal .modal-body').html(data);
+
+            $.getScript("/js/jquery.maskedinput.min.js", function(data, textStatus, jqxhr) {
+                $("#requestcall-phone").mask("+7 (999) 99-99-999");
+            });
+
+        },
+
+    });
 }
 
 function getPhone(object) {
