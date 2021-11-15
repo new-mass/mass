@@ -28,13 +28,13 @@ class UserController extends Controller
 
         $modelLogin->city_id = $cityInfo['id'];
 
-        if (Yii::$app->request->isPost and $modelLogin->load(Yii::$app->request->post()) && $modelLogin->login()) {
+        if ($modelLogin->load(Yii::$app->request->post()) && $modelLogin->login()) {
 
             return $this->redirect('/cabinet');
 
         } else {
 
-            if ($user = User::find()->where(['email' => $modelLogin->email])->one()){
+            if (Yii::$app->request->isPost and $user = User::find()->where(['email' => $modelLogin->email])->one()){
 
                 $cityInfo = City::find()->where(['id' => $user->city_id])->one();
 
@@ -46,11 +46,13 @@ class UserController extends Controller
 
             $modelLogin->password = '';
 
-            return $this->render('login', [
-                'model' => $modelLogin,
-                'modelSign' => $modelSign,
-            ]);
         }
+
+        return $this->render('login', [
+            'model' => $modelLogin,
+            'modelSign' => $modelSign,
+        ]);
+
     }
 
     /**
