@@ -45,7 +45,7 @@ class CallController extends Controller
 
             if ($post = Posts::findOne(['id' => $callForm->post_id])){
 
-                if (!$post['old_user_id']) $user = User::findOne(['id' => $post['user_id']]);
+                if (!$post['old_user_id']) $user = User::findOne(['id' => $post['user_id'], 'city_id' => $post['city_id']]);
                 else $user = User::findOne(['old_id' => $post['old_user_id']]);
 
                 if ($user){
