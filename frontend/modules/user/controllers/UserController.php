@@ -4,6 +4,7 @@
 namespace frontend\modules\user\controllers;
 
 use common\models\LoginForm;
+use common\models\User;
 use frontend\models\SignupForm;
 use frontend\modules\user\models\City;
 use frontend\components\BeforeController as Controller;
@@ -25,8 +26,6 @@ class UserController extends Controller
 
         $cityInfo = City::find()->where(['name' => $city])->asArray()->one();
 
-
-
         $modelLogin->city_id = $cityInfo['id'];
 
         if ($modelLogin->load(Yii::$app->request->post()) && $modelLogin->login()) {
@@ -34,6 +33,17 @@ class UserController extends Controller
             return $this->redirect('/cabinet');
 
         } else {
+
+            if ($user = User::find()->where(['email' => $modelLogin->email])->one()){
+
+                $cityInfo = City::find()->where(['id' => $user->city_id])->one();
+
+                if ($cityInfo->url == 'moskva') return $this->redirect('https:/e-mass.top/cabinet/login');
+
+                else return $this->redirect('https:/'.$cityInfo->url.'.e-mass.top/cabinet/login');
+
+            }
+
             $modelLogin->password = '';
 
             return $this->render('login', [
