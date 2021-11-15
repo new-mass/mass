@@ -217,7 +217,9 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 </div>
 
 <footer class="footer">
-
+    <a href="https://freekassa.ru" target="_blank" rel="noopener noreferrer noindex noindex nofollow">
+        <img src="https://cdn.freekassa.ru/banners/big-dark-1.png" title="Прием платежей на сайте для физических лиц и т.д.">
+    </a>
 </footer>
 <div class="modal fade" id="claim-modal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog" role="document">
