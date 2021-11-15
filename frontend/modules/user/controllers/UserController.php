@@ -38,9 +38,9 @@ class UserController extends Controller
 
                 $cityInfo = City::find()->where(['id' => $user->city_id])->one();
 
-                if ($cityInfo->value == 'moskva') return $this->redirect('https:/e-mass.top/cabinet/login');
+                if ($cityInfo->name == 'moskva') return $this->redirect('https://e-mass.top/cabinet/login');
 
-                else return $this->redirect('https:/'.$cityInfo->value.'.e-mass.top/cabinet/login');
+                else return $this->redirect('https://'.$cityInfo->name.'.e-mass.top/cabinet/login');
 
             }
 
