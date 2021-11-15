@@ -28,7 +28,7 @@ class UserController extends Controller
 
         $modelLogin->city_id = $cityInfo['id'];
 
-        if ($modelLogin->load(Yii::$app->request->post()) && $modelLogin->login()) {
+        if (Yii::$app->request->isPost and $modelLogin->load(Yii::$app->request->post()) && $modelLogin->login()) {
 
             return $this->redirect('/cabinet');
 
