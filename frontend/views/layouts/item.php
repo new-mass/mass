@@ -214,10 +214,11 @@ $metro = false;
                 ?>
 
                 <div class="custom-card_phone">
-                    <div class="get-phone"
+                    <a class="get-phone d-block"
                          onclick="getPhone(this);yaCounter50332519.reachGoal('PHONE');return true;"
                          data-phone="<?php echo $str ?>"
-                         data-id="<?php echo $item['id'] ?>">Показать телефон</div>
+                           href="tel:<?php echo $str ?>"
+                         data-id="<?php echo $item['id'] ?>">Показать телефон</a>
                 </div>
             </div>
         </div>

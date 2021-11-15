@@ -274,14 +274,14 @@ function getPhone(object) {
             cache: false,
             success: function (data) {
 
-                $(object).html('<a href="tel: +' +phone+ '">' +phone+ '</a>');
+                $(object).html(phone);
                 window.location.href="tel: +"+phone;
 
             },
 
         });
 
-        $(object).html('<a href="tel: +' +phone+ '">' +phone+ '</a>');
+        $(object).html(phone);
 
     }
 

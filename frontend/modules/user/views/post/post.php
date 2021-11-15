@@ -185,10 +185,10 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
 
                     <div class="anket-parameters">
                         <div class="custom-card_phone">
-                            <div class="get-phone"
+                            <a class="get-phone d-block"
                                  data-phone="<?php echo $str ?>"
                                  onclick="getPhone(this);yaCounter50332519.reachGoal('PHONE_DETALL');return true;"
-                                 data-id="<?php echo $post['id'] ?>">Показать телефон</div>
+                                 data-id="<?php echo $post['id'] ?>">Показать телефон</a>
                         </div>
                         <div class="custom-card_phone">
                             <div class="get-phone"
