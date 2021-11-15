@@ -20,6 +20,11 @@ use yii\behaviors\TimestampBehavior;
  */
 class RequestCall extends \yii\db\ActiveRecord
 {
+
+    const REQUEST_NOT_VIEW = 0;
+    const REQUEST_VIEW = 1;
+    const REQUEST_HIDE = 2;
+
     /**
      * {@inheritdoc}
      */
@@ -56,6 +61,27 @@ class RequestCall extends \yii\db\ActiveRecord
     public function cleanPhone($attribute, $params)
     {
         $this->phone = preg_replace('/[^0-9]/', '', $this->phone);
+    }
+
+
+    public static function setRead($userId)
+    {
+        if ($notReadPost = self::find()->where(['status' => self::REQUEST_NOT_VIEW, 'user_id' => $userId])->all()){
+
+            foreach ($notReadPost as $item){
+
+                $item->status = self::REQUEST_VIEW;
+
+                $item->save();
+
+            }
+
+        }
+    }
+
+    public static function countNotRead($userId)
+    {
+        return self::find()->where(['user_id' => $userId, 'status' => self::REQUEST_NOT_VIEW])->count();
     }
 
     /**

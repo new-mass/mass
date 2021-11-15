@@ -9,6 +9,15 @@
     <ul>
         <li><a href="/cabinet">Главная страница</a></li>
         <li><a href="/cabinet/add">Добавить анкету</a></li>
+        <li><a href="/cabinet/call">Заказы на звонок</a> <?php
+
+            if ($count = \common\models\RequestCall::countNotRead(Yii::$app->user->id)) : ?>
+
+                +<?php echo $count ?>
+
+            <?php endif; ?>
+
+        </li>
         <li><a href="/cabinet/history">История платежей</a></li>
         <li><a href="/cabinet/pay">Пополнить баланс (<?php echo Yii::$app->user->identity->cash ?>)</a></li>
         <li><a href="/cabinet/faq">Ответы на вопросы</a></li>

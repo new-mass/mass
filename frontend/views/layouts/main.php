@@ -181,7 +181,10 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 
     <div class="container">
 
-        <?php if (Yii::$app->controller->id != 'cabinet' and Yii::$app->controller->id != 'cash' and Yii::$app->controller->id != 'hystory') : ?>
+        <?php if (Yii::$app->controller->id != 'cabinet'
+            and Yii::$app->controller->id != 'cash'
+            and Yii::$app->controller->id != 'hystory'
+            and Yii::$app->controller->id != 'call') : ?>
             <?php echo \frontend\widgets\FilterWidget::widget(['city' => Yii::$app->controller->actionParams['city']]); ?>
         <?php endif ?>
 

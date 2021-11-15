@@ -99,6 +99,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/up' => 'user/cabinet/up',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/delete-photo' => 'user/cabinet/delete',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/logout' => 'user/user/logout',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/call' => 'user/call/index',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/user/publication/update' => 'user/post/publication',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/login' => 'user/user/login',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/pay' => 'user/cash/balance',
