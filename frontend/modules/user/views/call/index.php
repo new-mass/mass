@@ -2,7 +2,7 @@
 /* @var $this \yii\web\View */
 /* @var $requestCallList \common\models\RequestCall[] */
 
-$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=1'), ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=2'), ['depends' => [\frontend\assets\AppAsset::class]]);
 
 $this->title = "Заявки на звонок";
 
