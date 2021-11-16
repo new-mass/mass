@@ -8,6 +8,13 @@
 use yii\helpers\Html;
 
 $this->title = $name;
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Страница не найдена'
+]);
+
+
 ?>
 <div class="site-error col-12">
 
