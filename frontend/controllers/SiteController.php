@@ -268,7 +268,8 @@ class SiteController extends Controller
             Yii::$app->response->statusCode = 404;
 
             return $this->render('error', [
-                'message' => 'Такой страницы нет'
+                'message' => 'Такой страницы нет',
+                'name' => '404',
             ]);
 
         }
