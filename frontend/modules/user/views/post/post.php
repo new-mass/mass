@@ -143,8 +143,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
                 </div>
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="name-price-wrap">
-                        <h1 class="user-name-single" itemprop="name"> <?php echo $post['name'] ?>
-                        </h1>
+                        <h1 class="user-name-single" itemprop="name"> <?php echo $post['name'] ?></h1>
                         <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
                             <meta itemprop="priceValidUntil" content="2022-11-11">
                             <link itemprop="availability" href="https://schema.org/InStock">
@@ -153,6 +152,13 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
 </span>
                             <meta itemprop="priceCurrency" content="RUB">
                         </div>
+                        <?php if ($post['check_photo_status']) : ?>
+
+                            <div class="check-text">
+                                Фото проверенно
+                            </div>
+
+                        <?php endif; ?>
                     </div>
                     <div class="info-wrap">
                         <?php if ( $post['age'] ) : ?>

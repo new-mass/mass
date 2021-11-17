@@ -415,6 +415,12 @@ header .owl-stage-outer{
     padding: 7px 6px;
     text-align: center;
 }
+.check-text{
+    color: #13ce80;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
 .post-item .gallery{
     margin-top: 0px;
 }
