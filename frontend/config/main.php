@@ -16,6 +16,9 @@ return [
         'user' => [
             'class' => 'frontend\modules\user\User',
         ],
+        'chat' => [
+            'class' => 'frontend\modules\chat\Chat',
+        ],
     ],
     'components' => [
         'request' => [
