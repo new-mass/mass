@@ -386,8 +386,8 @@ header .owl-stage-outer{
     cursor: pointer;
 }
 .get_more{
-    padding: 15px;
-    max-width: 140px;
+    padding: 10px;
+    max-width: 175px;
     height: inherit;
     margin: auto;
     margin-bottom: 15px;
@@ -673,7 +673,7 @@ span.rewiew-date {
     right: 10px!important;
     bottom: 10px;
 }
-.anket-heading .big-heading{
+.big-heading{
     font-family: Oxygen;
     font-style: normal;
     font-weight: normal;

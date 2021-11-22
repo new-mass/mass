@@ -135,14 +135,17 @@ $(document).ready(function () {
         $('.filter-ul').toggle(150);
     });
 
-
-
-    $(document).scroll(function () {
-
-        changeURL();
-
-    })
 });
+
+$(document).scroll(function () {
+
+    console.log($('#toTop'));
+
+    $('#toTop').show(100);
+
+    changeURL();
+
+})
 
 function get_more(){
     getMorePosts();

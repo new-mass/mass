@@ -98,14 +98,9 @@ function add_gal(){
 
 add_gal();
 
-$(window).scroll(function(){
+function get_recom_post(){
 
     var target = $('.footer');
-    var targetPos = target.offset().top;
-    var winHeight = $(window).height();
-    var scrollToElem = targetPos - winHeight - 400;
-
-    var winScrollTop = $(this).scrollTop();
 
     var id = '';
 
@@ -115,30 +110,31 @@ $(window).scroll(function(){
 
     });
 
-    if(winScrollTop > scrollToElem){
+    $.ajax({
+        type: 'POST',
+        url: '/getrecom',
+        data: 'post_id='+id,
+        async:false,
+        dataType: "html",
+        cache: false,
+        success: function (data){
 
-        $.ajax({
-            type: 'POST',
-            url: '/getrecom',
-            data: 'post_id='+id,
-            async:false,
-            dataType: "html",
-            cache: false,
-            success: function (data){
+            if (data == ''){
+                $('.preload-single').html('');
+                $('.pop-heading').remove();
+            }
 
-                if (data == ''){
-                    $('.preload-single').html('');
-                    $('.pop-heading').remove();
+            $('.recomend').append(data);
 
-                }
+            $('.carousel').carousel();
 
-                $('.recomend').append(data);
+            add_gal();
 
-                $('.carousel').carousel();
+        },
+    })
 
-                add_gal();
+}
 
-            },
-        })
-    }
-});
+$(document).ready(
+    get_recom_post()
+);

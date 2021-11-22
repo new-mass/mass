@@ -47,24 +47,16 @@ LightGalleryAsset::register($this);
     ?>
 
     <div class="row">
-        <div class="col-12 "><p class="big-heading pop pop-heading">Популярные анкеты:</p></div>
+        <div class="col-12 "><p class="big-heading pop pop-heading big-heading">Популярные анкеты:</p></div>
     </div>
 
     <div class="recomend">
 
     </div>
 
-
-
     <div class="row">
-        <div class="col-12 preload-single">
-            <p>Загрузка анкеты...</p>
-            <div class="container">
-                <div class="dash uno"></div>
-                <div class="dash dos"></div>
-                <div class="dash tres"></div>
-                <div class="dash cuatro"></div>
-            </div>
+        <div class="col-12">
+            <div class="get_more" onclick="get_recom_post();ym(50332519,'reachGoal','MORE_SINGLE');">Следующая анкета</div>
         </div>
     </div>
 
