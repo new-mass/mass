@@ -138,9 +138,13 @@ $claimForm = new \frontend\models\forms\ClaimForm();
                             'action' => '/search',
                             'options' => ['class' => 'search-form'],
                         ]) ?>
-                        <?= $form->field($searchForm, 'name')->textInput(['placeholder' => 'Введите имя'])->label(false) ?>
+                        <?= $form->field($searchForm, 'name')
+                            ->textInput(['placeholder' => 'Имя или номер'])->label(false) ?>
 
-                        <?= Html::submitButton('<i class="fas fa-search"></i>', ['class' => 'search-form_submit']) ?>
+                        <?= Html::submitButton('<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.9084 15.0247L11.5511 10.6673C12.3775 9.64696 12.875 8.34981 12.875 6.93752C12.875 3.66359 10.2114 1 6.93749 1C3.66356 1 1 3.66359 1 6.93752C1 10.2115 3.66359 12.875 6.93752 12.875C8.34981 12.875 9.64696 12.3775 10.6673 11.5511L15.0247 15.9085C15.1468 16.0305 15.3446 16.0305 15.4667 15.9085L15.9085 15.4666C16.0305 15.3446 16.0305 15.1467 15.9084 15.0247ZM6.93752 11.625C4.35268 11.625 2.25001 9.52236 2.25001 6.93752C2.25001 4.35268 4.35268 2.25001 6.93752 2.25001C9.52236 2.25001 11.625 4.35268 11.625 6.93752C11.625 9.52236 9.52236 11.625 6.93752 11.625Z" fill="#FB474A" stroke="#FB474A"/>
+</svg>
+', ['class' => 'search-form_submit']) ?>
 
                         <?php ActiveForm::end() ?>
 
@@ -217,6 +221,32 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 </div>
 
 <footer class="footer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-6 col-lg-4 col-md-6 col-sm-8   search-form-wrap search-form-wrap-footer">
+
+                <?php
+
+                $form = ActiveForm::begin([
+                    'action' => '/search',
+                    'options' => ['class' => 'search-form'],
+                ]) ?>
+                <?= $form->field($searchForm, 'name')
+                    ->textInput(['placeholder' => 'Поиск по имени или номеру'])->label(false) ?>
+
+                <?= Html::submitButton('<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.9084 15.0247L11.5511 10.6673C12.3775 9.64696 12.875 8.34981 12.875 6.93752C12.875 3.66359 10.2114 1 6.93749 1C3.66356 1 1 3.66359 1 6.93752C1 10.2115 3.66359 12.875 6.93752 12.875C8.34981 12.875 9.64696 12.3775 10.6673 11.5511L15.0247 15.9085C15.1468 16.0305 15.3446 16.0305 15.4667 15.9085L15.9085 15.4666C16.0305 15.3446 16.0305 15.1467 15.9084 15.0247ZM6.93752 11.625C4.35268 11.625 2.25001 9.52236 2.25001 6.93752C2.25001 4.35268 4.35268 2.25001 6.93752 2.25001C9.52236 2.25001 11.625 4.35268 11.625 6.93752C11.625 9.52236 9.52236 11.625 6.93752 11.625Z" fill="#FB474A" stroke="#FB474A"/>
+</svg>
+', ['class' => 'search-form_submit']) ?>
+
+                <?php ActiveForm::end() ?>
+
+            </div>
+        </div>
+    </div>
+
+
     <a href="https://freekassa.ru" target="_blank" rel="noopener noreferrer noindex noindex nofollow">
         <img src="https://cdn.freekassa.ru/banners/big-dark-1.png" title="Прием платежей на сайте для физических лиц и т.д.">
     </a>

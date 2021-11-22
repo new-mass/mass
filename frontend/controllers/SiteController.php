@@ -417,13 +417,16 @@ class SiteController extends Controller
 
             if ($searchModel->load(Yii::$app->request->post()) and $searchModel->validate()){
 
-                $meta['title'] = 'Поиск по имени '.$searchModel->name;
-                $meta['des'] = 'Поиск по имени '.$searchModel->name;
-                $meta['h1'] = 'Поиск по имени '.$searchModel->name;
+                $meta['title'] = 'Поиск  '.$searchModel->name;
+                $meta['des'] = 'Поиск '.$searchModel->name;
+                $meta['h1'] = 'Поиск '.$searchModel->name;
 
                 Yii::$app->params['meta'] = $meta;
 
-                $posts = Posts::find()->where(['like', 'name', $searchModel->name])->with('avatar')
+                $posts = Posts::find()
+                    ->where(['like', 'name', $searchModel->name])
+                    ->orWhere(['like', 'phone', $searchModel->name])
+                    ->with('avatar')
                     ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
                     ->with('metro')
                     ->with('rayon')

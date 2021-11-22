@@ -187,7 +187,7 @@ body{
     font-family: Roboto, sans-serif;
 }
 header, .ankets{
-    padding: 27px 30px;
+    padding: 20px 30px;
 }
 header .logo-img{
     max-width: 148px;
@@ -252,7 +252,7 @@ input[type="text"]::-moz-placeholder {
     border: none;
     color:#FB474A;
     position: absolute;
-    top: 7px;
+    top: 3px;
     right: 7px;
 }
 h1{
@@ -1552,6 +1552,9 @@ body{
     }
     .search-form-wrap{
         display: none;
+    }
+    .search-form-wrap-footer{
+        display: block;
     }
 }
 @media (max-width:539px) {
