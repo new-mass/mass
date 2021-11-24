@@ -19,7 +19,6 @@ class CallController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'get' => ['post'],
-                    'add' => ['post'],
                 ],
             ],
         ];
@@ -39,6 +38,9 @@ class CallController extends Controller
 
     public function actionAdd()
     {
+
+        if (!Yii::$app->request->isPost) return $this->goHome();
+
         $callForm = new RequestCall();
 
         if ($callForm->load(Yii::$app->request->post())){
