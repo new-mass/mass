@@ -8,6 +8,7 @@ header('Content-Type: text/plain; charset=UTF-8');
     Disallow: */amp*
     Disallow: /amp*
     Disallow: /cpay*
+    Disallow: /call/*
     Disallow: /*?__cf*
     Disallow: /new-post
     Clean-param: price
