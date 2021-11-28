@@ -78,6 +78,8 @@ use yii\helpers\ArrayHelper;
 
             <?php endif; ?>
 
+            <p class="filter-info">Нажмите на ползунок потом на нужную позицию</p>
+
 
             <div class="input-wrap">
                 <div class="gray-text m-bottom-15">Цена</div>

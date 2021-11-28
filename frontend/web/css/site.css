@@ -1298,6 +1298,9 @@ body{
 .hide-btn{
     display: none;
 }
+.filter-info{
+    display: none;
+}
 @media (max-width:1366px) {
     .ankets{
         padding: 0;
@@ -1529,6 +1532,9 @@ body{
 }
 
 @media (max-width:767px) {
+    .filter-info{
+        display: block;
+    }
     #filter-form > div {
         -ms-flex: 0 0 44%;
         flex: 0 0 44%;
