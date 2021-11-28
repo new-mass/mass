@@ -23,6 +23,8 @@ class BigFilterWidget extends Widget
         $metro = false;
         $rayon = false;
 
+        if ($this->city == 'e-mass') $this->city = 'moskva';
+
         if ($this->city
             and $city = City::getCity($this->city)){
 
