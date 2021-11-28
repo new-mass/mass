@@ -4,19 +4,7 @@
 <?php /* @var $massagDlya array */ ?>
 <?php /* @var $place array */ ?>
 
-<div class="filter">
-
-    <div class="mobile-filter">
-        <div class="open-filter-btn">
-            <span>Развернуть фильтр поиска</span>
-            <span class="d-none">Свернуть фильтр</span>
-        </div>
-
-        <div class="mobile-filter-content-wrap">
-
-        </div>
-
-    </div>
+<div class="">
 
     <ul class="filter-ul">
 

@@ -189,7 +189,9 @@ $claimForm = new \frontend\models\forms\ClaimForm();
             and Yii::$app->controller->id != 'cash'
             and Yii::$app->controller->id != 'hystory'
             and Yii::$app->controller->id != 'call') : ?>
-            <?php echo \frontend\widgets\FilterWidget::widget(['city' => Yii::$app->controller->actionParams['city']]); ?>
+
+            <?php echo \frontend\widgets\BigFilterWidget::widget(['city' => Yii::$app->controller->actionParams['city']]) ?>
+
         <?php endif ?>
 
         <div class="row content">
@@ -223,6 +225,14 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 <footer class="footer">
 
     <div class="container">
+        <?php if (Yii::$app->controller->id != 'cabinet'
+            and Yii::$app->controller->id != 'cash'
+            and Yii::$app->controller->id != 'hystory'
+            and Yii::$app->controller->id != 'call') : ?>
+
+            <?php echo \frontend\widgets\FilterWidget::widget(['city' => Yii::$app->controller->actionParams['city']]); ?>
+
+        <?php endif ?>
         <div class="row">
             <div class="col-xl-3 col-6 col-lg-4 col-md-6 col-sm-8   search-form-wrap search-form-wrap-footer">
 

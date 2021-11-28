@@ -197,21 +197,6 @@
     color: #FFFFFF;
     cursor: pointer;
 }
-.select-cust select{
-    color: #000;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    background: #fff;
-    border: 1px solid #EDEDED;
-    max-width: 448px;
-    background:  url("../img/down.png") ;
-    background-repeat: no-repeat;
-    background-position: bottom 15px right 15px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
-    border-radius: 10px;
-}
 .form-group.field-userpol-pol_id {
     margin-top: 40px;
 }

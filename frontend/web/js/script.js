@@ -1,4 +1,53 @@
+
+function make_filter(){
+
+    $( "#slider-range-price" ).slider({
+        range: true,
+        min: 1000,
+        max: 10000,
+        values: [ $( "#findmodel-min_price" ).val(), $( "#findmodel-max_price" ).val() ],
+        slide: function( event, ui ) {
+
+            $( "#findmodel-min_price" ).val( ui.values[ 0 ] );
+            $( "#findmodel-max_price" ).val( ui.values[ 1 ] );
+
+            $('.price-range-wrap .min').html(ui.values[ 0 ] );
+            $('.price-range-wrap .max').html(ui.values[ 1 ] );
+
+        },
+        create: function (event, ui) {
+            $('.price-range-wrap .min').html($( "#findmodel-min_price" ).val());
+            $('.price-range-wrap .max').html($( "#findmodel-max_price" ).val());
+        },
+    });
+
+    $( "#slider-age").slider({
+        range: true,
+        min: 18,
+        max: 99,
+        values: [ $( "#findmodel-min_age").val(), $( "#findmodel-max_price" ).val() ],
+        slide: function( event, ui ) {
+
+            $( "#findmodel-min_age").val( ui.values[ 0 ] );
+            $( "#findmodel-max_age").val( ui.values[ 1 ] );
+
+            $('.age-range-wrap .min').html(ui.values[ 0 ] );
+            $('.age-range-wrap .max').html(ui.values[ 1 ] );
+
+        },
+        create: function (event, ui) {
+            $('.age-range-wrap .min').html($( "#findmodel-min_age").val());
+            $('.age-range-wrap .max').html($( "#findmodel-max_age").val());
+        },
+    });
+}
+
 $(document).ready(function () {
+
+    $.getScript( "/js/jquery-ui.min.js", function( data, textStatus, jqxhr ) {
+        make_filter();
+    });
+
 
     $('.carousel').carousel();
 
@@ -131,15 +180,14 @@ $(document).ready(function () {
 
     });
 
-    $('.mobile-filter').on('click', function () {
-        $('.filter-ul').toggle(150);
+    $('.open-filter-btn').on('click', function () {
+        $('.mobile-filter-content-wrap').toggle(150);
+        $('.open-filter-btn span').toggle(10);
     });
 
 });
 
 $(document).scroll(function () {
-
-    console.log($('#toTop'));
 
     $('#toTop').show(100);
 
