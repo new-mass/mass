@@ -186,9 +186,9 @@ class FindController extends Controller
 
         }
 
-        $posts = Posts::find()->andWhere(['city_id' => $city['id']]);
+        $posts = Posts::find()->andWhere(['city_id' => $city['id']])->orderBy(Posts::getOrder());
 
-            if ($ids) $posts = $posts->andWhere(['in', 'id', $ids])->orderBy(Posts::getOrder());
+            if ($ids) $posts = $posts->andWhere(['in', 'id', $ids]);
 
             $posts = $posts->andWhere(['>=' , 'age', $params['min_age']])
             ->andWhere(['<=' , 'age', $params['max_age']])
