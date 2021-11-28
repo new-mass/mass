@@ -71,7 +71,7 @@ class Posts extends \yii\db\ActiveRecord
 
     public static function getOrder()
     {
-        return 'check_photo_status desc, video_sort desc, sorting desc';
+        return 'tarif_id desc, check_photo_status desc, video_sort desc, sorting desc';
     }
 
     /**
