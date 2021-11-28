@@ -29,7 +29,7 @@ use yii\helpers\ArrayHelper;
 
             $form = ActiveForm::begin([
                 'id' => 'filter-form',
-                'action' => 'filter',
+                'action' => '/filter',
                 'method' => 'get',
                 'options' => ['class' => 'form-horizontal'],
             ]) ?>
