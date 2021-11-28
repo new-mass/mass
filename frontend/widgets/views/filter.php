@@ -4,7 +4,7 @@
 <?php /* @var $massagDlya array */ ?>
 <?php /* @var $place array */ ?>
 
-<div class="">
+<div class="d-none">
 
     <ul class="filter-ul">
 

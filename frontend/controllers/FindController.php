@@ -3,15 +3,13 @@
 
 namespace frontend\controllers;
 
-use common\models\City;
-use frontend\helpers\MetaBuilder;
-use frontend\models\UserMetro;
+use frontend\modules\user\models\City;
+use frontend\modules\user\models\relation\UserMassagDlya;
+use frontend\modules\user\models\relation\UserMetro;
 use frontend\modules\user\models\Posts;
-use frontend\modules\user\models\UserHairColor;
-use frontend\modules\user\models\UserNational;
-use frontend\modules\user\models\UserPlace;
-use frontend\modules\user\models\UserRayon;
-use frontend\modules\user\models\UserService;
+use frontend\modules\user\models\relation\UserService;
+use frontend\modules\user\models\relation\UserRayon;
+use frontend\modules\user\models\relation\UserPlace;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -24,7 +22,7 @@ class FindController extends Controller
 
         $this->enableCsrfValidation = false;
 
-        $params = Yii::$app->request->get();
+        $params = Yii::$app->request->get('FindModel');
 
         $city = City::getCity($city);
 
@@ -36,11 +34,11 @@ class FindController extends Controller
 
             $filter = true;
 
-            $id = UserMetro::find()->where(['metro_id' => $params['metro']])->select('post_id')->asArray()->all();
+            $id = UserMetro::find()->where(['prop_id' => $params['metro']])->select('user_id')->asArray()->all();
 
             if ($id) {
 
-                $result = ArrayHelper::getColumn($id, 'post_id');
+                $result = ArrayHelper::getColumn($id, 'user_id');
 
                 if (!empty($ids)) {
 
@@ -66,11 +64,11 @@ class FindController extends Controller
 
             $filter = true;
 
-            $id = UserRayon::find()->where(['rayon_id' => $params['rayon']])->select('post_id')->asArray()->all();
+            $id = UserRayon::find()->where(['prop_id' => $params['rayon']])->select('user_id')->asArray()->all();
 
             if ($id) {
 
-                $result = ArrayHelper::getColumn($id, 'post_id');
+                $result = ArrayHelper::getColumn($id, 'user_id');
 
                 if (!empty($ids)) {
 
@@ -96,13 +94,12 @@ class FindController extends Controller
 
             $filter = true;
 
-            $id = UserService::find()->where(['service_id' => $params['service']])
-                ->andWhere(['city_id' => $city['id']])
-                ->select('post_id')->asArray()->all();
+            $id = UserService::find()->where(['prop_id' => $params['service']])
+                ->select('user_id')->asArray()->all();
 
             if ($id) {
 
-                $result = ArrayHelper::getColumn($id, 'post_id');
+                $result = ArrayHelper::getColumn($id, 'user_id');
 
                 if (!empty($ids)) {
 
@@ -128,13 +125,12 @@ class FindController extends Controller
 
             $filter = true;
 
-            $id = UserPlace::find()->where(['place_id' => $params['place']])
-                ->andWhere(['city_id' => $city['id']])
-                ->select('post_id')->asArray()->all();
+            $id = UserPlace::find()->where(['prop_id' => $params['place']])
+                ->select('user_id')->asArray()->all();
 
             if ($id) {
 
-                $result = ArrayHelper::getColumn($id, 'post_id');
+                $result = ArrayHelper::getColumn($id, 'user_id');
 
                 if (!empty($ids)) {
 
@@ -156,17 +152,19 @@ class FindController extends Controller
 
         }
 
-        if ($params['naci']) {
+        if ($params['massagDlya']) {
 
             $filter = true;
 
-            $id = UserNational::find()->where(['national_id' => $params['place']])
-                ->andWhere(['city_id' => $city['id']])
-                ->select('post_id')->asArray()->all();
+            $id = UserMassagDlya::find()
+                ->where(['prop_id' => $params['place']])
+                ->select('user_id')
+                ->asArray()
+                ->all();
 
             if ($id) {
 
-                $result = ArrayHelper::getColumn($id, 'post_id');
+                $result = ArrayHelper::getColumn($id, 'user_id');
 
                 if (!empty($ids)) {
 
@@ -188,96 +186,24 @@ class FindController extends Controller
 
         }
 
-        if ($params['hair']) {
+        $posts = Posts::find()->andWhere(['city_id' => $city['id']]);
 
-            $filter = true;
-
-            $id = UserHairColor::find()->where(['hair_color_id' => $params['hair']])
-                ->andWhere(['city_id' => $city['id']])
-                ->select('post_id')->asArray()->all();
-
-            if ($id) {
-
-                $result = ArrayHelper::getColumn($id, 'post_id');
-
-                if (!empty($ids)) {
-
-                    $ids = array_intersect($ids, $result);
-
-                } else {
-
-                    $ids = $result;
-
-                }
-
-            }
-
-            if (empty($result)) {
-                $ids = [
-                    '0' => 0
-                ];
-            }
-
-        }
-
-        $posts = Posts::find()->limit(Yii::$app->params['post_limit'])->andWhere(['city_id' => $city['id']]);
             if ($ids) $posts = $posts->andWhere(['in', 'id', $ids])->orderBy(Posts::getOrder());
 
-            $posts = $posts->andWhere(['>=' , 'age', $params['age-from']])
-            ->andWhere(['<=' , 'age', $params['age-to']])
-            ->andWhere(['>=' , 'rost', $params['rost-from']])
-            ->andWhere(['<=' , 'rost', $params['rost-to']])
-            ->andWhere(['>=' , 'ves', $params['ves-from']])
-            ->andWhere(['<=' , 'ves', $params['ves-to']])
-            ->andWhere(['>=' , 'breast', $params['grud-from']])
-            ->andWhere(['<=' , 'breast', $params['grud-to']])
-            ->andWhere(['>=' , 'price', $params['price-1-from']])
-            ->andWhere(['<=' , 'price', $params['price-1-to']])
+            $posts = $posts->andWhere(['>=' , 'age', $params['min_age']])
+            ->andWhere(['<=' , 'age', $params['max_age']])
+            ->andWhere(['>=' , 'price', $params['min_price']])
+            ->andWhere(['<=' , 'price', $params['max_price']])
         ;
 
-        if ($params['check-photo']) $posts = $posts->andWhere(['check_photo_status' => 1]);
-        if ($params['video']) $posts = $posts->andWhere(['<>' , 'video' , '']);
-        if ($params['new']) $posts = $posts->orderBy('id DESC');
-
-        if (Yii::$app->request->isPost){
-
-            $posts->offset(Yii::$app->params['post_limit'] * Yii::$app->request->post('page'));
-
-            $posts = $posts->all();
-
-            if (\count($posts)) {
-
-                $page = Yii::$app->request->post('page') + 1;
-
-                echo '<div data-url="/'.Yii::$app->request->url.'/page-'.$page.'" class="col-12"></div>';
-
-            }
-
-            if (Yii::$app->user->isGuest) $class = 'col-6 col-sm-6 col-md-4 col-lg-3';
-            else $class = 'col-6 col-sm-6 col-md-4 col-lg-4';
-
-            foreach ($posts as $post){
-
-                echo $this->renderFile('@app/views/layouts/article.php', [
-                    'post' => $post,
-                    'cssClass' => $class,
-                ]);
-
-            }
-
-            exit();
-
-        }
-
         $posts = $posts
-            ->with('avatar', 'metro', 'selphiCount', 'partnerId')
-            ->andWhere(['status' => Posts::POST_ON_PUPLICATION_STATUS])
-            ->asArray()
+            ->with('avatar', 'metro', 'rayon', 'video', 'gallery')
+            ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
             ->all();
 
         $title  = 'Поиск';
         $des    = 'Поиск';
-        $h1     = 'Поиск по параметрам';
+        $h1     = 'Поиск';
 
         return $this->render('index', [
             'posts' => $posts,

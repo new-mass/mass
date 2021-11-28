@@ -29,6 +29,8 @@ use yii\helpers\ArrayHelper;
 
             $form = ActiveForm::begin([
                 'id' => 'filter-form',
+                'action' => 'filter',
+                'method' => 'get',
                 'options' => ['class' => 'form-horizontal'],
             ]) ?>
 
@@ -37,6 +39,12 @@ use yii\helpers\ArrayHelper;
                 <?= $form->field($model, 'metro')
                     ->dropDownList(ArrayHelper::map($metro, 'id', 'value'))
                     ->label('Выбрать метро') ?>
+
+            <?php elseif ($rayon) : ?>
+
+                <?= $form->field($model, 'rayon')
+                    ->dropDownList(ArrayHelper::map($rayon, 'id', 'value'))
+                    ->label('Выбрать район') ?>
 
             <?php endif; ?>
 

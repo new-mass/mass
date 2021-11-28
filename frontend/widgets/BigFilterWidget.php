@@ -35,6 +35,12 @@ class BigFilterWidget extends Widget
         $place = Place::getData();
         $massagDlya = MassagDlya::getData();
 
+        if ($metro) array_unshift($metro, ['id' => 0, 'value' => 'Выбрать']);
+        if ($rayon) array_unshift($rayon, ['id' => 0, 'value' => 'Выбрать']);
+        if ($service) array_unshift($service, ['id' => 0, 'value' => 'Выбрать']);
+        if ($place) array_unshift($place, ['id' => 0, 'value' => 'Выбрать']);
+        if ($massagDlya) array_unshift($massagDlya, ['id' => 0, 'value' => 'Выбрать']);
+
         $model = new FindModel();
 
         return $this->render('big-filter', [

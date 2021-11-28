@@ -94,7 +94,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<url:user-[a-z-0-9]+>' => 'user/post/redirect',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/getrecom' => 'user/post/more-post',
 
-                '<protocol>://<city:[a-z-0-9]+>.<domain>/find' => 'find/index',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/filter' => 'find/index',
 
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet/history' => 'user/hystory/index',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cabinet' => 'user/cabinet/index',

@@ -69,6 +69,11 @@ class Posts extends \yii\db\ActiveRecord
         return 'posts';
     }
 
+    public static function getOrder()
+    {
+        return 'check_photo_status desc, video_sort desc, sorting desc';
+    }
+
     /**
      * {@inheritdoc}
      */
