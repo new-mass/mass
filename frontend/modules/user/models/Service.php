@@ -50,7 +50,7 @@ class Service extends \yii\db\ActiveRecord
 
         if ($rayon === false) {
 
-            $rayon = Service::find()->asArray()->all();
+            $rayon = Service::find()->asArray()->orderBy('value')->all();
 
             Yii::$app->cache->set('service', $rayon);
 

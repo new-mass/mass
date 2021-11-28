@@ -52,7 +52,7 @@ class Metro extends \yii\db\ActiveRecord
 
         if ($tag === false) {
 
-            $tag = Metro::find()->where(['city_id' => $city_id])->asArray()->all();
+            $tag = Metro::find()->where(['city_id' => $city_id])->orderBy('value')->asArray()->all();
 
             Yii::$app->cache->set('metro_'.$city_id, $tag);
 

@@ -53,7 +53,7 @@ class Rayon extends \yii\db\ActiveRecord
 
         if ($rayon === false) {
 
-            $rayon = Rayon::find()->where(['city_id' => $city_id])->asArray()->all();
+            $rayon = Rayon::find()->where(['city_id' => $city_id])->orderBy('value')->asArray()->all();
 
             Yii::$app->cache->set('rayon_'.$city_id, $rayon);
 
