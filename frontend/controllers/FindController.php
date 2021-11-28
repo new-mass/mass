@@ -16,7 +16,7 @@ use yii\web\Controller;
 class FindController extends Controller
 {
 
-    public function actionIndex($city = 'moskva')
+    public function actionIndex( $city= 'moskva' )
     {
 
         $this->enableCsrfValidation = false;
