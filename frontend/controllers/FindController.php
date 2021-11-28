@@ -1,6 +1,5 @@
 <?php
 
-
 namespace frontend\controllers;
 
 use frontend\modules\user\models\City;

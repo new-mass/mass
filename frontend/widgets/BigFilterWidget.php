@@ -43,6 +43,10 @@ class BigFilterWidget extends Widget
 
         $model = new FindModel();
 
+        if (Yii::$app->request->get('FindModel')) $model->load(Yii::$app->request->get());
+
+        $params = Yii::$app->request->get('FindModel');
+
         return $this->render('big-filter', [
             'model' => $model,
             'metro' => $metro,
@@ -50,6 +54,7 @@ class BigFilterWidget extends Widget
             'service' => $service,
             'place' => $place,
             'massagDlya' => $massagDlya,
+            'params' => $params,
         ]);
     }
 }

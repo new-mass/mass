@@ -25,7 +25,7 @@ function make_filter(){
         range: true,
         min: 18,
         max: 99,
-        values: [ $( "#findmodel-min_age").val(), $( "#findmodel-max_price" ).val() ],
+        values: [ $( "#findmodel-min_age").val(), $( "#findmodel-max_age").val() ],
         slide: function( event, ui ) {
 
             $( "#findmodel-min_age").val( ui.values[ 0 ] );

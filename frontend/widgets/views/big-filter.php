@@ -90,7 +90,7 @@ use yii\helpers\ArrayHelper;
                                 'class' => 'form-input range-input',
                                 'placeholder' => '',
                                 'template' => '{input}',
-                                'value' => 1000,
+                                'value' => $params['min_price'] ?? 1000,
                             ])
                             ->label(false) ?>
 
@@ -100,7 +100,7 @@ use yii\helpers\ArrayHelper;
                                 'class' => 'form-input range-input',
                                 'placeholder' => '',
                                 'template' => '{input}',
-                                'value' => 10000,
+                                'value' => $params['max_price'] ?? 10000,
                             ])
                             ->label(false) ?>
 
@@ -124,7 +124,7 @@ use yii\helpers\ArrayHelper;
                                 'class' => 'form-input range-input',
                                 'placeholder' => '',
                                 'template' => '{input}',
-                                'value' => 18,
+                                'value' => $params['min_age'] ?? 18,
                             ])
                             ->label(false) ?>
 
@@ -134,7 +134,7 @@ use yii\helpers\ArrayHelper;
                                 'class' => 'form-input range-input',
                                 'placeholder' => '',
                                 'template' => '{input}',
-                                'value' => 99,
+                                'value' => $params['max_age'] ?? 99,
                             ])
                             ->label(false) ?>
 
