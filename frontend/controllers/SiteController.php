@@ -189,6 +189,8 @@ class SiteController extends Controller
     public function actionFilter( $city= 'moskva', $param)
     {
 
+        if ($city == 'e-mass') $city = 'moskva';
+
         if (Yii::$app->request->get('show'))
             return $this->redirect(strstr(Yii::$app->request->url, '?show', true), 301);
 
