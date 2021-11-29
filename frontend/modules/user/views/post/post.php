@@ -128,12 +128,18 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
                                                  alt=" <?php echo $post['name'] ?> " title=" <?php echo $post['name'] ?> ">
                                         <?php endif; ?>
                                     </div>
-                                    <div class="col-9">
-                                        <div class="anket-heading"><p class="anket-heading">Обо мне:</p></div>
-                                        <div class="anket-about" itemprop="description">
-                                            <?php echo $post['about'] ?>
+
+                                    <?php if($post['about']) : ?>
+
+                                        <div class="col-9">
+                                            <div class="anket-heading"><p class="anket-heading">Обо мне:</p></div>
+                                            <div class="anket-about" itemprop="description">
+                                                <?php echo $post['about'] ?>
+                                            </div>
                                         </div>
-                                    </div>
+
+                                    <?php endif; ?>
+
                                 </div>
                             </div>
 
