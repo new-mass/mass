@@ -185,6 +185,16 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 
     <div class="container">
 
+        <?=  Breadcrumbs::widget([
+            'itemTemplate' => "<li>{link}</li> \n",
+            'homeLink' => [
+                'label' => 'Главная ',
+                'url' => Yii::$app->homeUrl,
+            ],
+            'links' => isset(Yii::$app->params['breadcrumbs']) ? Yii::$app->params['breadcrumbs'] : [],
+            'options' => ['class' => 'breadcrumb', 'style' => ''],
+        ]); ?>
+
         <?php if (Yii::$app->controller->id != 'cabinet'
             and Yii::$app->controller->id != 'cash'
             and Yii::$app->controller->id != 'hystory'
@@ -195,9 +205,7 @@ $claimForm = new \frontend\models\forms\ClaimForm();
         <?php endif ?>
 
         <div class="row content">
-            <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+
             <div class="col-12">
                 <div class="marc-wrap">
                     <a href="/massazh-dlya_muzhchin" class="marc-item">Для мужчин</a>

@@ -31,6 +31,10 @@ class FindController extends Controller
 
         $filter = false;
 
+        Yii::$app->params['breadcrumbs'][] = array(
+            'label'=> 'Поиск ',
+        );
+
         if ($params['metro']) {
 
             $filter = true;

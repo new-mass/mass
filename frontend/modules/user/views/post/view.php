@@ -35,6 +35,10 @@ $this->registerMetaTag([
 
 LightGalleryAsset::register($this);
 
+Yii::$app->params['breadcrumbs'][] = array(
+    'label' => ucfirst($post['name']) ,
+);
+
 ?>
 <div class="col-12">
 

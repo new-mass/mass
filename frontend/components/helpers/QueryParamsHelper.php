@@ -8,6 +8,7 @@ use frontend\modules\user\models\Posts;
 use yii\helpers\ArrayHelper;
 use frontend\modules\user\models\City;
 use common\models\FilterParams;
+use Yii;
 
 class QueryParamsHelper
 {
@@ -50,6 +51,10 @@ class QueryParamsHelper
 
                             if ($ids = $classRelationName::find()->select('user_id')->where([$filter_param['column_param_name'] => $id['id']])->asArray()->all()){
 
+                                Yii::$app->params['breadcrumbs'][] = array(
+                                    'label'=> $id['value'],
+                                );
+
                                 return Posts::find()->where(['in', 'id', ArrayHelper::getColumn($ids, 'user_id')])
                                     ->andWhere(['city_id' => $city['id']])
                                     ->with('avatar')
@@ -81,14 +86,32 @@ class QueryParamsHelper
 
                 $price_params = array();
 
-                if ($url == 'do-2000') $price_params[] = ['<', 'price', 2000];
+                if ($url == 'do-2000') {
+
+                    $price_params[] = ['<', 'price', 2000];
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Цена до 2000',
+                    );
+
+                }
 
                 if ($url == 'ot-2000-do-3000') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Цена от 2000 до 3000',
+                    );
+
                     $price_params[] = ['>=', 'price', 2000];
                     $price_params[] = ['<=', 'price', 2999];
                 }
 
                 if ($url == 'ot-3000') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Цена от 3000',
+                    );
+
                     $price_params[] = ['>=', 'price', 3001];
                 }
 
@@ -117,31 +140,61 @@ class QueryParamsHelper
                 $price_params = array();
 
                 if ($url == 'ot-18-do-20-let') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Возраст от 18 до 20',
+                    );
+
                     $price_params[] = ['>=', 'age', 18];
                     $price_params[] = ['<=', 'age', 20];
                 }
 
                 if ($url == 'ot-21-do-25-let') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Возраст от 21 до 25',
+                    );
+
                     $price_params[] = ['>=', 'age', 21];
                     $price_params[] = ['<=', 'age', 25];
                 }
 
                 if ($url == 'ot-26-do-30-let') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Возраст от 26 до 30',
+                    );
+
                     $price_params[] = ['>=', 'age', 26];
                     $price_params[] = ['<=', 'age', 30];
                 }
 
                 if ($url == 'ot-31-do-40-let') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Возраст от 31 до 40',
+                    );
+
                     $price_params[] = ['>=', 'age', 31];
                     $price_params[] = ['<=', 'age', 40];
                 }
 
                 if ($url == 'ot-40-do-50-let') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Возраст от 40 до 50',
+                    );
+
                     $price_params[] = ['>=', 'age', 40];
                     $price_params[] = ['<=', 'age', 50];
                 }
 
                 if ($url == 'starshe-51-goda') {
+
+                    Yii::$app->params['breadcrumbs'][] = array(
+                        'label'=> 'Возраст от 51',
+                    );
+
                     $price_params[] = ['>=', 'age', 51];
                 }
 
@@ -162,6 +215,10 @@ class QueryParamsHelper
             }
 
             if (strstr($value, 'video')) {
+
+                Yii::$app->params['breadcrumbs'][] = array(
+                    'label'=> 'Видео',
+                );
 
                 $postIds = Photo::find()
                     ->where(['type' => Photo::TYPE_VIDEO])

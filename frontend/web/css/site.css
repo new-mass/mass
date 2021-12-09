@@ -1277,7 +1277,6 @@ body{
 }
 #filter-form{
     display: flex;
-    padding-top: 25px;
 }
 #filter-form > div{
     width: 140px;
@@ -1300,6 +1299,26 @@ body{
 }
 .filter-info{
     display: none;
+}
+.breadcrumb {
+    background: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 12px;
+}
+.breadcrumb li{
+    margin-right: 5px;
+    background: #FB474A;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+.breadcrumb li a{
+    color: #fff;
+}
+.breadcrumb .active{
+    background: #DCDCDC;
 }
 @media (max-width:1366px) {
     .ankets{

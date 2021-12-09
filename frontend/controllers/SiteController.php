@@ -292,6 +292,10 @@ class SiteController extends Controller
             ->with('gallery')
             ->with('avatar')->orderBy('id desc')->asArray()->all();
 
+        Yii::$app->params['breadcrumbs'][] = array(
+            'label'=> 'Новые анкеты',
+        );
+
         return $this->renderFile(Yii::getAlias('@app/views/site/new.php' ), [
             'posts' => $posts
         ]);
@@ -419,6 +423,10 @@ class SiteController extends Controller
 
             if ($searchModel->load(Yii::$app->request->post()) and $searchModel->validate()){
 
+                Yii::$app->params['breadcrumbs'][] = array(
+                    'label'=> 'Поиск  '.$searchModel->name,
+                );
+
                 $meta['title'] = 'Поиск  '.$searchModel->name;
                 $meta['des'] = 'Поиск '.$searchModel->name;
                 $meta['h1'] = 'Поиск '.$searchModel->name;
@@ -476,6 +484,10 @@ class SiteController extends Controller
         DayViewHelper::addViewListing($posts);
 
         PostView::updateAllCounters(['count' => 1], [ 'in', 'post_id' , ArrayHelper::getColumn($posts, 'id')]);
+
+        Yii::$app->params['breadcrumbs'][] = array(
+            'label'=> 'Новые анкеты',
+        );
 
         return $this->render('index', [
             'posts' => $posts,
