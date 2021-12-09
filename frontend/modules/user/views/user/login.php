@@ -9,6 +9,7 @@ use yii\bootstrap4\Html;
 $this->title = 'Войти в кабинет';
 
 ?>
+<script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <div class="col-md-6 col-sm-12">
