@@ -233,14 +233,7 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 <footer class="footer">
 
     <div class="container">
-        <?php if (Yii::$app->controller->id != 'cabinet'
-            and Yii::$app->controller->id != 'cash'
-            and Yii::$app->controller->id != 'hystory'
-            and Yii::$app->controller->id != 'call') : ?>
 
-            <?php echo \frontend\widgets\FilterWidget::widget(['city' => Yii::$app->controller->actionParams['city']]); ?>
-
-        <?php endif ?>
         <div class="row">
             <div class="col-xl-3 col-6 col-lg-4 col-md-6 col-sm-8   search-form-wrap search-form-wrap-footer">
 
@@ -262,7 +255,18 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 
             </div>
         </div>
+
+        <?php if (Yii::$app->controller->id != 'cabinet'
+            and Yii::$app->controller->id != 'cash'
+            and Yii::$app->controller->id != 'hystory'
+            and Yii::$app->controller->id != 'call') : ?>
+
+            <?php echo \frontend\widgets\FilterWidget::widget(['city' => Yii::$app->controller->actionParams['city']]); ?>
+
+        <?php endif ?>
+
     </div>
+
 
 
     <a href="https://freekassa.ru" target="_blank" rel="noopener noreferrer noindex noindex nofollow">
@@ -288,6 +292,7 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 
             </div>
     </div>
+</div>
 </div>
 
 <?php $this->endBody() ?>
