@@ -31,7 +31,7 @@ class MailHelper
         return Html::a('Пополнить счет на '.$sum.' руб ', PayLinkBuilder::buildPayLink($city, $userId, $sum));
     }
 
-    public static function lowBalanceMessage(User $user)
+    public static function lowBalanceMessage(User $user) : bool
     {
         $city = City::find()->where(['id' => $user['city_id']])->one();
 
