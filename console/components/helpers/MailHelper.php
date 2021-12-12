@@ -22,7 +22,7 @@ class MailHelper
             ->setTo($user['email'])
             ->setSubject('Остановка публикации анкеты на сайте e-mass')
             ->setTextBody('Анкета ' . $post['name'] . ' снята с публикации из за низкого баланса '.$payBalanceText )
-            ->setHtmlBody('<p>Анкета ' . $post['name'] . ' снята с публикации из за низкого баланса</p><br>'.$payBalanceText)
+            ->setHtmlBody('<p>Анкета ' . $post['name'] . ' снята с публикации из за низкого баланса</p>'.$payBalanceText)
             ->send();
     }
 
@@ -42,7 +42,7 @@ class MailHelper
             ->setTo($user['email'])
             ->setSubject('Уведомление о низком балансе на сайте e-mass')
             ->setTextBody('На Вашем балансе осталось ' . $user->cash . ' руб. Что бы отключить уведомления перейдите в раздел "Пополнить баланс"' .$payBalanceText)
-            ->setHtmlBody('<p>На Вашем балансе осталось ' . $user->cash . ' руб. Что бы отключить уведомления перейдите в раздел "Пополнить баланс"</p><br>' . $payBalanceText)
+            ->setHtmlBody('<p>На Вашем балансе осталось ' . $user->cash . ' руб. Что бы отключить уведомления перейдите в раздел "Пополнить баланс"</p>' . $payBalanceText)
             ->send();
     }
 
