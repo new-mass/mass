@@ -3,6 +3,7 @@
 
 namespace frontend\modules\user\controllers;
 
+use common\components\PayLinkBuilder;
 use common\models\User;
 use common\models\UserBalanceNotification;
 use frontend\modules\user\models\Hystory;
@@ -105,18 +106,9 @@ class CashController extends Controller
 
         if ($payForm->load(Yii::$app->request->post()) and $payForm->validate()){
 
-            $order_id = Yii::$app->user->id.'_'.$city;
+            $payLink = PayLinkBuilder::buildPayLink($city, Yii::$app->user->id, $payForm->sum);
 
-            $sign = \md5(Yii::$app->params['merchant_id'].':'.$payForm->sum.':'.Yii::$app->params['fk_merchant_key'].':'.$order_id);
-
-            $cassa_url = 'https://www.free-kassa.ru/merchant/cash.php?';
-
-            $params = 'm='.Yii::$app->params['merchant_id'].
-                '&oa='.$payForm->sum.
-                '&o='.$order_id.
-                '&s='.$sign;
-
-            Yii::$app->response->redirect($cassa_url.$params, 301, false);
+            Yii::$app->response->redirect($payLink, 301, false);
 
         }
 

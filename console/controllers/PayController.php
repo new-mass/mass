@@ -6,6 +6,7 @@ namespace console\controllers;
 use common\components\HystoryHelper;
 use common\models\User;
 use common\models\UserBalanceNotification;
+use console\components\helpers\MailHelper;
 use frontend\modules\user\models\Hystory;
 use frontend\modules\user\models\Posts;
 use frontend\modules\user\models\Tarif;
@@ -71,16 +72,12 @@ class PayController extends Controller
                                     and $userNotification->is_send_notification == UserBalanceNotification::NOTIFICATION_OPEN
                                     and $userNotification->last_notification_send < time()) {
 
-                                    if (Yii::$app->mailer->compose()
-                                        ->setFrom(Yii::$app->params['admin_email'])
-                                        ->setTo($user['email'])
-                                        ->setSubject('Уведомление о низком балансе на сайте e-mass')
-                                        ->setTextBody('На Вашем балансе осталось ' . $user->cash . ' руб. Что бы отключить уведомления перейдите в раздел "Пополнить баланс"')
-                                        ->setHtmlBody('<p>На Вашем балансе осталось ' . $user->cash . ' руб. Что бы отключить уведомления перейдите в раздел "Пополнить баланс"</p>')
-                                        ->send()) {
+                                    if (MailHelper::lowBalanceMessage($user)) {
+
                                         $userNotification->last_notification_send = time() + (3600 * 24);
 
                                         $userNotification->save();
+
                                     }
 
                                 }
@@ -118,13 +115,7 @@ class PayController extends Controller
 
                         $user = User::find()->where(['id' => $post['user_id']])->one();
 
-                        Yii::$app->mailer->compose()
-                            ->setFrom(Yii::$app->params['admin_email'])
-                            ->setTo($user['email'])
-                            ->setSubject('Остановка публикации анкеты на сайте e-mass')
-                            ->setTextBody('Анкета ' . $post['name'] . ' снята с публикации из за низкого баланса')
-                            ->setHtmlBody('<p>Анкета ' . $post['name'] . ' снята с публикации из за низкого баланса</p>')
-                            ->send();
+                        MailHelper::stopPuplicationMessage($user, $post);
 
                     }
 
