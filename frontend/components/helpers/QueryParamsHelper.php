@@ -49,28 +49,27 @@ class QueryParamsHelper
 
                         if ($id and $classRelationName) {
 
-                            if ($ids = $classRelationName::find()->select('user_id')->where([$filter_param['column_param_name'] => $id['id']])->asArray()->all()){
+                            if (!empty($ids)) {
 
-                                Yii::$app->params['breadcrumbs'][] = array(
-                                    'label'=> $id['value'],
-                                );
+                                $relationsIds = ArrayHelper::getColumn($classRelationName::find()
+                                    ->where([$filter_param['column_param_name'] => $id['id']])
+                                    ->asArray()->all(), 'user_id');
 
-                                return Posts::find()->where(['in', 'id', ArrayHelper::getColumn($ids, 'user_id')])
-                                    ->andWhere(['city_id' => $city['id']])
-                                    ->with('avatar')
-                                    ->with('metro')
-                                    ->with('rayon')
-                                    ->with('video')
-                                    ->with('gallery')
-                                    ->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc')
-                                    ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
-                                    ->limit($limit)
-                                    ->offset($offset)
-                                   ;
+                                $ids = array_intersect($ids, $relationsIds) ;
+
+                            } else {
+
+                                $ids = ArrayHelper::getColumn($classRelationName::find()
+                                    ->where([$filter_param['column_param_name'] => $id['id']])
+                                    ->asArray()->all(), 'user_id');
 
                             }
 
-                            return false;
+                            if (empty($ids)) {
+                                $ids[] = [
+                                    '0' => 0
+                                ];
+                            }
 
                         }
 
@@ -115,21 +114,11 @@ class QueryParamsHelper
                     $price_params[] = ['>=', 'price', 3001];
                 }
 
-                $id = Posts::find();
-
                 foreach ($price_params as $price_param) {
-                    $id->andWhere($price_param);
-                }
 
-                return $id->andWhere(['status' => 1])
-                    ->andWhere(['city_id' => $city['id']])
-                    ->with('avatar')
-                    ->with('metro')
-                    ->with('video')
-                    ->with('gallery')
-                    ->limit($limit)
-                    ->offset($offset)
-                    ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
+                    $query_params[] = $price_param;
+
+                }
 
             }
 
@@ -198,19 +187,11 @@ class QueryParamsHelper
                     $price_params[] = ['>=', 'age', 51];
                 }
 
-
-                $id = Posts::find();
-
                 foreach ($price_params as $price_param) {
-                    $id->andWhere($price_param);
-                }
 
-                return $id->andWhere(['status' => 1])->with('avatar')->with('metro')->limit($limit)
-                    ->andWhere(['city_id' => $city['id']])
-                    ->with('video')
-                    ->with('gallery')
-                    ->offset($offset)
-                    ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
+                    $query_params[] = $price_param;
+
+                }
 
             }
 
@@ -241,6 +222,31 @@ class QueryParamsHelper
             }
 
         }
+
+        if ($ids) {
+
+            $query_params[] = ['in', 'id', $ids];
+
+        }
+
+        $posts = Posts::find();
+
+        foreach ($query_params as $query_param){
+
+            $posts = $posts->andWhere($query_param);
+
+        }
+
+        return $posts->andWhere(['status' => 1])
+            ->andWhere(['city_id' => $city['id']])
+            ->with('avatar')
+            ->with('metro')
+            ->with('video')
+            ->with('gallery')
+            ->limit($limit)
+            ->offset($offset)
+            ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
+
 
     }
 

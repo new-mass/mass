@@ -125,6 +125,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/sitemap.xml' => 'site/map',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/robots.txt' => 'site/robot',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:[a-z-0-9_]+>/page-<page:[0-9]+>' => 'site/redirect',
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:([a-z-0-9_]+/)[a-z-0-9_]+>' => 'site/filter',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/<param:[a-z-0-9_]+>' => 'site/filter',
 
             ],
