@@ -38,6 +38,8 @@ if (strpos(Yii::$app->request->url, '?')) {
 
 if ($meta) echo '<div class="col-12"><h1 class="h1">' . $meta['h1'] . '</h1></div>';
 
+echo \frontend\widgets\LinkWidget::widget(['url' => Yii::$app->request->url]);
+
 echo ContentSortWidget::widget();
 
 if ($posts) {

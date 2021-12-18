@@ -64,6 +64,12 @@ FontAwesomeAsset::register($this);
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/link/index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Метки страниц</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/check-photo-request/index?sort=id" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Заявки на проверку фото</p>
