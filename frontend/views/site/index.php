@@ -92,10 +92,10 @@ if (count($posts) > 11)
         <div class="col-12">
             <?php
 
-            if ($pages) echo \yii\widgets\LinkPager::widget([
+            if ($pages) echo str_replace('%2F', '/', \yii\widgets\LinkPager::widget([
                 'pagination' => $pages,
                 'maxButtonCount' => 5,
-            ]);
+            ])) ;
 
             ?>
         </div>
