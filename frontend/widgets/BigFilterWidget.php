@@ -33,7 +33,7 @@ class BigFilterWidget extends Widget
 
         }
 
-        $service = Service::getService();
+        $service = Service::getService(true);
         $place = Place::getData();
         $massagDlya = MassagDlya::getData();
 
