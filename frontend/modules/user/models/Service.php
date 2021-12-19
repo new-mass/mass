@@ -10,9 +10,14 @@ use Yii;
  * @property int $id
  * @property string|null $url
  * @property string|null $value
+ * @property integer $status
  */
 class Service extends \yii\db\ActiveRecord
 {
+
+    const STATUS_HIDE = 0;
+    const STATUS_OPEN = 1;
+
     /**
      * {@inheritdoc}
      */
@@ -43,14 +48,16 @@ class Service extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getService()
+    public static function getService($all = false)
     {
 
         $rayon = Yii::$app->cache->get('service');
 
         if ($rayon === false) {
 
-            $rayon = Service::find()->asArray()->orderBy('value')->all();
+            $rayon = Service::find();
+            if ($all) $rayon = $rayon->where(['status' => self::STATUS_OPEN]);
+            $rayon = $rayon->asArray()->orderBy('value')->all();
 
             Yii::$app->cache->set('service', $rayon);
 
