@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use frontend\modules\user\models\Tarif;
 use common\assets\FontAwesomeAsset;
+use frontend\modules\user\models\Posts;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\user\models\Posts */
@@ -114,6 +115,15 @@ $commentForm = new \frontend\modules\user\models\Comments();
 
         <div class="col-6 col-lg-4 col-xl-3 select-cust">
             <div><?= $form->field($userPol, 'prop_id')->dropDownList($pol)->label('Выбрать пол') ?> </div>
+        </div>
+
+        <div class="col-12"></div>
+
+        <div class="col-6 col-lg-4 col-xl-5 select-cust">
+            <div><?= $form->field($model, 'type')->dropDownList([
+                    Posts::TYPE_INDI => 'Частный(ая) массажист(ка)',
+                    Posts::TYPE_SALON => 'Салон'
+                ])->label('Выбрать тип анкеты') ?> </div>
         </div>
 
         <div class="col-12"></div>

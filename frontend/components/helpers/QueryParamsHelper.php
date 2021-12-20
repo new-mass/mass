@@ -221,6 +221,26 @@ class QueryParamsHelper
 
             }
 
+            if (strstr($value, 'salon')) {
+
+                Yii::$app->params['breadcrumbs'][] = array(
+                    'label'=> 'Салон',
+                );
+
+                $query_params[] = ['type' => Posts::TYPE_SALON];
+
+            }
+
+            if (strstr($value, 'indi')) {
+
+                Yii::$app->params['breadcrumbs'][] = array(
+                    'label'=> 'Частные',
+                );
+
+                $query_params[] = ['type' => Posts::TYPE_INDI];
+
+            }
+
         }
 
         if ($ids) {

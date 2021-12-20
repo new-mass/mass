@@ -43,6 +43,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $old_url
  * @property integer $video_sort
  * @property integer $check_photo_status
+ * @property integer $type
  */
 class Posts extends \yii\db\ActiveRecord
 {
@@ -52,6 +53,9 @@ class Posts extends \yii\db\ActiveRecord
 
     const PHOTO_NOT_CHECK = 0;
     const PHOTO_CHECK = 1;
+
+    const TYPE_INDI = 0;
+    const TYPE_SALON = 1;
     /**
      * {@inheritdoc}
      */
@@ -81,7 +85,7 @@ class Posts extends \yii\db\ActiveRecord
     {
         return [
             [['city_id', 'user_id', 'tarif_id', 'created_at', 'sorting', 'work_time', 'age',
-                'rost', 'price','ves','breast', 'price_2_hour', 'status', 'video_sort', 'check_photo_status'], 'integer'],
+                'rost', 'price','ves','breast', 'price_2_hour', 'status', 'video_sort', 'check_photo_status', 'type'], 'integer'],
             [['name'], 'string', 'max' => 80],
             [['age'], 'integer', 'min' => 18],
             [['name', 'phone', 'price'], 'required'],
@@ -111,6 +115,7 @@ class Posts extends \yii\db\ActiveRecord
             'breast' => 'Размер груди',
             'ves' => 'Вес',
             'video' => 'Видео',
+            'type' => 'Тип анкеты',
         ];
     }
 

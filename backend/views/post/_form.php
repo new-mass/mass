@@ -42,6 +42,14 @@ use frontend\modules\user\models\Posts;
                 ])
             ?>
         </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'type')
+                ->dropDownList([
+                        Posts::TYPE_INDI => 'Инди',
+                        Posts::TYPE_SALON => 'Салон',
+                ])
+            ?>
+        </div>
 
         <div class="col-12 col-sm-6 col-md-4">
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
