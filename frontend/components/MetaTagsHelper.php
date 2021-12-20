@@ -13,6 +13,8 @@ class MetaTagsHelper
         if ($post['pol'] == 2) $pol = 'Массажистка ';
         else $pol = 'Массажистка';
 
+        if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $pol = 'Салон';
+
         return $pol . ' ' . $post['name'] . ' возраст ' . $post['age'] . ' цена за сеанс ' .
             $post['price'] . ' рублей, город ' . $city['value'] . ' номер телефона '.$post['phone'];
 
@@ -23,6 +25,8 @@ class MetaTagsHelper
 
         if ($post['pol'] == 2) $pol = 'Массажистка ';
         else $pol = 'Массажистка';
+
+        if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $pol = 'Салон';
 
         if (iconv_strlen($post['about']) < 100) {
 

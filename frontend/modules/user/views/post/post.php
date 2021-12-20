@@ -1,13 +1,18 @@
 <?php
 
+/* @var $post array */
+
 use yii\widgets\ActiveForm;
 
 $commentForm = new \frontend\modules\user\models\Comments();
 $this->registerJsFile('/js/lightgallery-all.min.js', ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAsset::class]]);
-?>
 
-<?php /* @var $post array */ ?>
+$typePref = 'Массажистка';
+
+if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref = 'Салон';
+
+?>
 
 <div data-view-id="<?php echo $post['id'] ?>" data-post-id="<?php echo $post['id'] ?>" data-page-url="/anketa/<?php echo $post['url'] ?>"
      data-state-title=" <?php echo $post['name'] ?> "></div>
@@ -39,7 +44,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
 
                                                 <img width="350px" height="524"  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list img-on-listing"
                                                       src="<?= Yii::$app->imageCache->thumbSrc($post['avatar']['file'], '510_764') ?>"
-                                                      alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+                                                      alt="<?php echo $typePref ?>   <?php echo $post['name'] ?> " title="<?php echo $typePref ?> <?php echo $post['name'] ?> ">
 
                                             </picture>
 
@@ -53,7 +58,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
 
                                                     <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
                                                           src="<?php echo $item['file'] ?>"
-                                                          alt="Массажистка   <?php echo $post['name'] ?> " title="Массажистка <?php echo $post['name'] ?> ">
+                                                          alt="<?php echo $typePref ?>   <?php echo $post['name'] ?> " title="<?php echo $typePref ?> <?php echo $post['name'] ?> ">
 
                                                 </picture>
 
@@ -132,7 +137,7 @@ $this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAs
                                     <?php if($post['about']) : ?>
 
                                         <div class="col-9">
-                                            <div class="anket-heading"><p class="anket-heading">Обо мне:</p></div>
+                                            <div class="anket-heading"><p class="anket-heading">Описание: </p></div>
                                             <div class="anket-about" itemprop="description">
                                                 <?php echo $post['about'] ?>
                                             </div>
