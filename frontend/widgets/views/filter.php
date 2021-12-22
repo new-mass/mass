@@ -13,288 +13,142 @@
 
 <div class="botoom-filter-wrap">
 
-    <ul class="filter-ul">
+    <?php if (isset($metro) and !empty($metro)) : ?>
 
-        <?php if (isset($metro) and !empty($metro)) : ?>
+        <div class="filter-list">
 
-            <li class="filter-li">
-                <span class="filter-li-item" data-toggle="modal"
-                      data-target="#metro-modal">Выбрать метро <?php echo $img ?> </span>
-            </li>
+            <div class="filter-list-heading">
+                Выбрать метро:
+            </div>
 
-        <?php endif; ?>
+            <?php
 
-        <?php if (isset($rayon) and !empty($rayon)) : ?>
+            foreach ($metro as $metroItem) {
 
-            <li class="filter-li">
-                <span class="filter-li-item" data-toggle="modal"
-                      data-target="#rayon-modal"> Выбрать район <?php echo $img ?> </span>
-            </li>
+                echo '<a class="service-href filter-list-item" href="/metro_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
 
-        <?php endif; ?>
+            }
 
-        <?php if (isset($service) and !empty($service)) : ?>
+            ?>
 
-            <li class="filter-li">
-                <span class="filter-li-item" data-toggle="modal"
-                      data-target="#service-modal">Выбрать услугу <?php echo $img ?> </span>
-            </li>
+        </div>
 
-        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if (isset($rayon) and !empty($rayon)) : ?>
+
+        <div class="filter-list">
+
+            <div class="filter-list-heading">
+                Выбрать район:
+            </div>
+
+            <?php
+
+            foreach ($rayon as $metroItem) {
+
+                echo '<a class="service-href filter-list-item" href="/rayon_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+
+            }
+
+            ?>
+
+        </div>
+
+    <?php endif; ?>
+
+    <?php if (isset($service) and !empty($service)) : ?>
+
+        <div class="filter-list">
+
+            <div class="filter-list-heading">
+                Выбрать услугу:
+            </div>
+
+            <?php
+
+            foreach ($service as $metroItem) {
+
+                echo '<a class="service-href filter-list-item" href="/service_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+
+            }
+
+            ?>
+
+        </div>
+
+    <?php endif; ?>
+
+    <?php if (isset($massagDlya) and !empty($massagDlya)) : ?>
+
+        <div class="filter-list">
+
+            <div class="filter-list-heading">
+                Для кого массаж:
+            </div>
+
+            <?php
+
+            foreach ($massagDlya as $metroItem) {
+
+                echo '<a class="service-href filter-list-item" href="/massazh-dlya_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+
+            }
+
+            ?>
+
+        </div>
+
+    <?php endif; ?>
+
+    <?php if (isset($place) and !empty($place)) : ?>
+
+        <div class="filter-list">
+
+            <div class="filter-list-heading">
+                Место встречи:
+            </div>
+
+            <?php
+
+            foreach ($place as $metroItem) {
+
+                echo '<a class="service-href filter-list-item" href="/place_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
+
+            }
+
+            ?>
+
+        </div>
+
+    <?php endif; ?>
 
 
-        <?php if (isset($massagDlya) and !empty($massagDlya)) : ?>
+    <div class="filter-list">
 
-            <li class="filter-li">
-                <span class="filter-li-item" data-toggle="modal"
-                      data-target="#dlya-modal"> Для кого массаж <?php echo $img ?> </span>
-            </li>
+        <div class="filter-list-heading">
+            Возраст:
+        </div>
 
-        <?php endif; ?>
+        <a class="service-href filter-list-item" href="/age_ot-18-do-20-let">От 18 до 20 лет</a>
+        <a class="service-href filter-list-item" href="/age_ot-21-do-25-let">От 21 до 25 лет</a>
+        <a class="service-href filter-list-item" href="/age_ot-26-do-30-let">От 26 до 30 лет</a>
+        <a class="service-href filter-list-item" href="/age_ot-31-do-40-let">От 31 до 40 лет</a>
+        <a class="service-href filter-list-item" href="/age_ot-40-do-50-let">от 40 до 50 лет</a>
+        <a class="service-href filter-list-item" href="/age_starshe-51-goda">Старше 51 года</a>
 
-        <?php if (isset($place) and !empty($place)) : ?>
+    </div>
 
-            <li class="filter-li">
-                <span class="filter-li-item" data-toggle="modal"
-                      data-target="#place-modal"> Место встречи <?php echo $img ?> </span>
-            </li>
+    <div class="filter-list">
 
-        <?php endif; ?>
+        <div class="filter-list-heading">
+            Цена:
+        </div>
 
-        <li class="filter-li">
-            <span class="filter-li-item" data-toggle="modal"
-                  data-target="#age-modal"> Возраст <?php echo $img ?></span>
-        </li>
+        <a class="service-href filter-list-item" href="/price_do-2000">До 2.000 Рублей</a>
+        <a class="service-href filter-list-item" href="/price_ot-2000-do-3000">От 2.000 до 3.000 Рублей</a>
+        <a class="service-href filter-list-item" href="/price_ot-3000">От 3.000 Рублей</a>
 
-        <li class="filter-li">
-            <span class="filter-li-item" data-toggle="modal"
-                  data-target="#price-modal"> Цена <?php echo $img ?> </span>
-        </li>
-
-    </ul>
+    </div>
 
 </div>
-
-<?php if ($metro) : ?>
-
-    <div class="modal fade list-service-modal" id="metro-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#FB474A"/>
-                    <rect y="18.2236" width="25" height="2" rx="1" transform="rotate(-45 0 18.2236)" fill="#FB474A"/>
-                    </svg>
-                    </span>
-                    </button>
-
-                </div>
-                <div class="modal-body claim-modal-body">
-
-                    <?php
-
-                    foreach ($metro as $metroItem) {
-
-
-                        echo '<a class="service-href" href="/metro_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
-
-                    }
-
-                    ?>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php endif; ?>
-
-<?php if ($rayon) : ?>
-
-    <div class="modal fade list-service-modal" id="rayon-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#FB474A"/>
-                    <rect y="18.2236" width="25" height="2" rx="1" transform="rotate(-45 0 18.2236)" fill="#FB474A"/>
-                    </svg>
-                    </span>
-                    </button>
-
-                </div>
-                <div class="modal-body claim-modal-body">
-
-                    <?php
-
-                    foreach ($rayon as $metroItem) {
-
-
-                        echo '<a class="service-href" href="/rayon_' . $metroItem['url'] . '" >' . $metroItem['value'] . '</a>';
-
-                    }
-
-                    ?>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php endif; ?>
-
-<?php if ($service) : ?>
-
-    <div class="modal fade list-service-modal" id="service-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#FB474A"/>
-                    <rect y="18.2236" width="25" height="2" rx="1" transform="rotate(-45 0 18.2236)" fill="#FB474A"/>
-                    </svg>
-                    </span>
-                    </button>
-
-                </div>
-                <div class="modal-body claim-modal-body">
-
-                    <?php
-
-                    foreach ($service as $serviceItem) {
-
-                        echo '<a href="/service_' . $serviceItem['url'] . '" >' . $serviceItem['value'] . '</a>';
-
-                    }
-
-                    ?>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php endif; ?>
-
-
-<div class="modal fade list-service-modal" id="dlya-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#FB474A"/>
-                    <rect y="18.2236" width="25" height="2" rx="1" transform="rotate(-45 0 18.2236)" fill="#FB474A"/>
-                    </svg>
-                    </span>
-                </button>
-
-            </div>
-            <div class="modal-body claim-modal-body">
-
-                <?php
-
-                foreach ($massagDlya as $massazhDlyaItem) {
-
-                    echo '<a class="service-href" href="/massazh-dlya_' . $massazhDlyaItem['url'] . '" >Массаж для  ' . $massazhDlyaItem['value'] . '</a>';
-                }
-
-                ?>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade list-service-modal" id="place-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#FB474A"/>
-                    <rect y="18.2236" width="25" height="2" rx="1" transform="rotate(-45 0 18.2236)" fill="#FB474A"/>
-                    </svg>
-                    </span>
-                </button>
-
-            </div>
-            <div class="modal-body claim-modal-body">
-
-                <?php
-
-                foreach ($place as $placeList) {
-
-
-                    echo '<a class="service-href" href="/place_' . $placeList['url'] . '" >' . $placeList['value'] . '</a>';
-
-                }
-
-                ?>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade list-service-modal" id="age-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#FB474A"/>
-                    <rect y="18.2236" width="25" height="2" rx="1" transform="rotate(-45 0 18.2236)" fill="#FB474A"/>
-                    </svg>
-                    </span>
-                </button>
-
-            </div>
-            <div class="modal-body claim-modal-body">
-
-                <a class="service-href" href="/age_ot-18-do-20-let">От 18 до 20 лет</a>
-                <a class="service-href" href="/age_ot-21-do-25-let">От 21 до 25 лет</a>
-                <a class="service-href" href="/age_ot-26-do-30-let">От 26 до 30 лет</a>
-                <a href="/age_ot-31-do-40-let">От 31 до 40 лет</a>
-                <a class="service-href" href="/age_ot-40-do-50-let">от 40 до 50 лет</a>
-                <a class="service-href" href="/age_starshe-51-goda">Старше 51 года</a>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade list-service-modal" id="price-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#FB474A"/>
-                    <rect y="18.2236" width="25" height="2" rx="1" transform="rotate(-45 0 18.2236)" fill="#FB474A"/>
-                    </svg>
-                    </span>
-                </button>
-
-            </div>
-            <div class="modal-body claim-modal-body">
-
-                <a class="service-href" href="/price_do-2000">До 2.000 Рублей</a>
-                <a class="service-href" href="/price_ot-2000-do-3000">От 2.000 до 3.000 Рублей</a>
-                <a class="service-href" href="/price_ot-3000">От 3.000 Рублей</a>
-
-            </div>
-        </div>
-    </div>
-</div>
-

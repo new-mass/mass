@@ -1329,6 +1329,28 @@ body{
     justify-content: center;
     flex-wrap: wrap;
 }
+.filter-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.filter-list-heading{
+    font-size: 20px;
+    flex: 100%;
+    text-align: left;
+}
+.filter-list-item{
+    margin-right: 15px;
+}
+.service-href.filter-list-item {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 202.69%;
+    text-decoration-line: underline;
+    color: #7D7D7D;
+}
 @media (max-width:1366px) {
     .ankets{
         padding: 0;
