@@ -19,8 +19,8 @@ use yii\helpers\ArrayHelper;
     <div class="mobile-filter">
 
         <div class="open-filter-btn">
-            <span>Развернуть фильтр поиска</span>
-            <span class="hide-btn">Свернуть фильтр</span>
+            <span class="hide-btn">Развернуть фильтр поиска</span>
+            <span >Свернуть фильтр</span>
         </div>
 
         <div class="mobile-filter-content-wrap">

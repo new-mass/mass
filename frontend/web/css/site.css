@@ -1413,7 +1413,6 @@ body{
         border-radius: 10px;
     }
     .mobile-filter-content-wrap{
-        display: none;
         padding: 0px 20px 20px 20px;
     }
     header .owl-stage-outer {

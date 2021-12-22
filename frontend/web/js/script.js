@@ -40,12 +40,21 @@ function make_filter(){
             $('.age-range-wrap .max').html($( "#findmodel-max_age").val());
         },
     });
+
+    return true;
+
 }
 
 $(document).ready(function () {
 
     $.getScript( "/js/jquery-ui.min.js", function( data, textStatus, jqxhr ) {
-        make_filter();
+
+        if (make_filter() && $(window).width() < 1200){
+
+            $('.open-filter-btn').trigger('click');
+
+        }
+
     });
 
 
@@ -181,8 +190,8 @@ $(document).ready(function () {
     });
 
     $('.open-filter-btn').on('click', function () {
-        $('.mobile-filter-content-wrap').toggle(150);
-        $('.open-filter-btn span').toggle(10);
+        $('.mobile-filter-content-wrap').toggle(300);
+        $('.open-filter-btn span').toggle(300);
     });
 
 });
