@@ -429,6 +429,32 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
                             <?php endif; ?>
                         </div>
 
+                        <div class="single-photo-list">
+
+                            <div class="anket-heading"><p>Фото</p></div>
+
+                            <div class="single-photo-list">
+
+                                <?php if ($post['gallery']) : ?>
+
+                                    <?php foreach ($post['gallery'] as $item) :  ?>
+
+                                        <picture href="<?php echo $item['file'] ?>" class=" picture-<?php echo $post['id'] ?>">
+
+                                            <img  loading="lazy" data-id="<?php echo $post['id'] ?>" class="photo photo-list"
+                                                  src="<?php echo $item['file'] ?>"
+                                                  alt="<?php echo $typePref ?>   <?php echo $post['name'] ?> " title="<?php echo $typePref ?> <?php echo $post['name'] ?> ">
+
+                                        </picture>
+
+                                    <?php endforeach; ?>
+
+                                <?php endif; ?>
+
+                            </div>
+
+                        </div>
+
                         <div class="col-12">
                             <div class="comment prop">
                                 <div class="anket-heading"><p>Оставить отзыв</p></div>
@@ -457,6 +483,8 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
 
                             </div>
                         </div>
+
+
 
                         <?php if ($post['comments']) : ?>
 
