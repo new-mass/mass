@@ -251,7 +251,7 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
 
                     <div class="single-photo-list col-12">
 
-                        <div class="anket-heading"><p>Фото</p></div>
+                        <div class="anket-heading"><p class="big-heading">Фото</p></div>
 
                         <div class="single-photo-list">
 
