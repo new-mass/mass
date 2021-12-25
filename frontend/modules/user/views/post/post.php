@@ -283,7 +283,7 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
 
                     <?php if (!empty($post['service'])) : ?>
 
-                        <div class="anket-heading"><p class="big-heading">Я предлагаю</p></div>
+                        <div class="anket-heading"><p class="big-heading">Услуги</p></div>
                         <div class="service_list">
                             <ul class="service_ul">
                                 <?php foreach ($post['service'] as $item) : ?>
@@ -292,6 +292,25 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
+                        </div>
+
+                    <?php endif; ?>
+
+                    <?php if (!empty($post['metro'][0]['x'])) : ?>
+
+                        <div class="anket-heading"><p class="big-heading">Карта</p></div>
+                        <div class="service_list">
+                            <?php if (isset($post['metro'][0]['x'])) : ?>
+                                <div id="map-<?php echo $post['id'] ?>"
+                                     class="yandex-map map-not-exist"
+                                     data-map="map-<?php echo $post['id'] ?>"
+                                     data-id="<?php echo $post['id'] ?>"
+                                     data-x="<?php echo $post['metro'][0]['x'] ?>"
+                                     data-y="<?php echo $post['metro'][0]['y'] ?>" style="  height: 400px">
+
+                                </div>
+
+                            <?php endif; ?>
                         </div>
 
                     <?php endif; ?>

@@ -1,43 +1,100 @@
+function init_yandex_map(object) {
 
-function make_filter(){
+    var map_name = $(object).attr('data-map');
 
-    $( "#slider-range-price" ).slider({
+    var x = $(object).attr('data-x');
+    var y = $(object).attr('data-y');
+
+    if (typeof ymaps == 'undefined') {
+
+        $.getScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU", function (data, textStatus, jqxhr) {
+            ymaps.ready(function () {
+
+                $('.map').each(init(map_name, x, y));
+
+
+            })
+        });
+    } else {
+
+        ymaps.ready(function () {
+
+            $('.map').each(init(map_name, x, y));
+
+        })
+    }
+
+}
+
+function init(map_name, x, y) {
+
+    var myMap = new ymaps.Map(map_name, {
+        center: [x, y],
+        zoom: 13,
+    });
+
+    // Все виды меток
+    // https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/option.presetStorage-docpage/
+
+
+    // Собственное изображение для метки с контентом
+    var placemark4 = new ymaps.Placemark([x, y], {
+        // hintContent: 'Собственный значок метки с контентом',
+    }, {
+        // Опции.
+
+        // Необходимо указать данный тип макета.
+        iconLayout: 'default#image',
+
+    });
+
+    myMap.geoObjects.add(placemark4);
+}
+
+function map() {
+    ymaps.ready(init);
+}
+
+
+function make_filter() {
+
+    $("#slider-range-price").slider({
         range: true,
         min: 1000,
         max: 10000,
-        values: [ $( "#findmodel-min_price" ).val(), $( "#findmodel-max_price" ).val() ],
-        slide: function( event, ui ) {
+        values: [$("#findmodel-min_price").val(), $("#findmodel-max_price").val()],
+        slide: function (event, ui) {
 
-            $( "#findmodel-min_price" ).val( ui.values[ 0 ] );
-            $( "#findmodel-max_price" ).val( ui.values[ 1 ] );
+            $("#findmodel-min_price").val(ui.values[0]);
+            $("#findmodel-max_price").val(ui.values[1]);
 
-            $('.price-range-wrap .min').html(ui.values[ 0 ] );
-            $('.price-range-wrap .max').html(ui.values[ 1 ] );
+            $('.price-range-wrap .min').html(ui.values[0]);
+            $('.price-range-wrap .max').html(ui.values[1]);
 
         },
         create: function (event, ui) {
-            $('.price-range-wrap .min').html($( "#findmodel-min_price" ).val());
-            $('.price-range-wrap .max').html($( "#findmodel-max_price" ).val());
+            $('.price-range-wrap .min').html($("#findmodel-min_price").val());
+            $('.price-range-wrap .max').html($("#findmodel-max_price").val());
         },
     });
 
-    $( "#slider-age").slider({
+    $("#slider-age").slider({
         range: true,
         min: 18,
         max: 99,
-        values: [ $( "#findmodel-min_age").val(), $( "#findmodel-max_age").val() ],
-        slide: function( event, ui ) {
+        values: [$("#findmodel-min_age").val(), $("#findmodel-max_age").val()],
+        slide: function (event, ui) {
 
-            $( "#findmodel-min_age").val( ui.values[ 0 ] );
-            $( "#findmodel-max_age").val( ui.values[ 1 ] );
+            $("#findmodel-min_age").val(ui.values[0]);
+            $("#findmodel-max_age").val(ui.values[1]);
 
-            $('.age-range-wrap .min').html(ui.values[ 0 ] );
-            $('.age-range-wrap .max').html(ui.values[ 1 ] );
+            $('.age-range-wrap .min').html(ui.values[0]);
+            $('.age-range-wrap .max').html(ui.values[1]);
 
         },
         create: function (event, ui) {
-            $('.age-range-wrap .min').html($( "#findmodel-min_age").val());
-            $('.age-range-wrap .max').html($( "#findmodel-max_age").val());
+            $('.age-range-wrap .min').html($("#findmodel-min_age").val());
+            $('.age-range-wrap .max').html($("#findmodel-max_age").val());
         },
     });
 
@@ -47,9 +104,9 @@ function make_filter(){
 
 $(document).ready(function () {
 
-    $.getScript( "/js/jquery-ui.min.js", function( data, textStatus, jqxhr ) {
+    $.getScript("/js/jquery-ui.min.js", function (data, textStatus, jqxhr) {
 
-        if (make_filter() && $(window).width() < 1200){
+        if (make_filter() && $(window).width() < 1200) {
 
             $('.open-filter-btn').trigger('click');
 
@@ -60,11 +117,11 @@ $(document).ready(function () {
 
     $('.carousel').carousel();
 
-    $( ".sort_select").change(function() {
+    $(".sort_select").change(function () {
 
-        var redirectUrl = location.pathname ;
+        var redirectUrl = location.pathname;
 
-        if ($('.sort_select').val()){
+        if ($('.sort_select').val()) {
 
             var redirectUrl = location.pathname + '?' + $('.sort_select').val();
 
@@ -74,9 +131,9 @@ $(document).ready(function () {
 
     });
 
-    $('#toTop').click(function() {
+    $('#toTop').click(function () {
 
-        $('body,html').animate({scrollTop:0},800);
+        $('body,html').animate({scrollTop: 0}, 800);
 
     });
 
@@ -127,7 +184,7 @@ $(document).ready(function () {
 
 });
 
-function redirect(object){
+function redirect(object) {
 
     window.open($(object).attr('data-url'), '_blank');
 
@@ -135,9 +192,9 @@ function redirect(object){
 
 function debounce(func, wait, immediate) {
     var timeout;
-    return function() {
+    return function () {
         var context = this, args = arguments;
-        var later = function() {
+        var later = function () {
             timeout = null;
             if (!immediate) func.apply(context, args);
         };
@@ -147,12 +204,13 @@ function debounce(func, wait, immediate) {
         if (callNow) func.apply(context, args);
     };
 }
-var changeURL = debounce(function() {
-    $('[data-page-url]').each(function() {
+
+var changeURL = debounce(function () {
+    $('[data-page-url]').each(function () {
 
         if (inView($(this))) {
 
-            if(location.pathname + window.location.search !== $(this).attr('data-page-url') ){
+            if (location.pathname + window.location.search !== $(this).attr('data-page-url')) {
 
                 window.history.pushState('', document.title, $(this).attr('data-page-url'));
 
@@ -198,13 +256,24 @@ $(document).ready(function () {
 
 $(document).scroll(function () {
 
+    $(".yandex-map").each(function (index) {
+
+        if ($(this).hasClass('map-not-exist')) {
+
+            $(this).removeClass('map-not-exist');
+            init_yandex_map(this);
+
+        }
+
+    });
+
     $('#toTop').show(100);
 
     changeURL();
 
 })
 
-function get_more(){
+function get_more() {
     getMorePosts();
 }
 
@@ -219,6 +288,7 @@ function inView($elem) {
 
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
+
 $(document).ready(function () {
 
 });
@@ -230,7 +300,7 @@ function hide_comment(object) {
     $.ajax({
         type: 'POST',
         url: '/cabinet/comment/hide',
-        data: 'id='+id,
+        data: 'id=' + id,
         dataType: "html",
         cache: false,
         success: function (data) {
@@ -251,7 +321,7 @@ function show_comment(object) {
     $.ajax({
         type: 'POST',
         url: '/cabinet/comment/show',
-        data: 'id='+id,
+        data: 'id=' + id,
         dataType: "html",
         cache: false,
         success: function (data) {
@@ -264,6 +334,7 @@ function show_comment(object) {
 
 
 }
+
 function getAnketClaim(object) {
 
     var id = $(object).attr("data-id");
@@ -273,7 +344,7 @@ function getAnketClaim(object) {
     $.ajax({
         type: 'POST',
         url: '/claim/post/get-modal',
-        data: 'id='+id,
+        data: 'id=' + id,
         dataType: "html",
         cache: false,
         success: function (data) {
@@ -285,6 +356,7 @@ function getAnketClaim(object) {
 
     });
 }
+
 function getCall(object) {
 
     var id = $(object).attr("data-id");
@@ -294,7 +366,7 @@ function getCall(object) {
     $.ajax({
         type: 'POST',
         url: '/call/get',
-        data: 'id='+id,
+        data: 'id=' + id,
         dataType: "html",
         cache: false,
         success: function (data) {
@@ -302,7 +374,7 @@ function getCall(object) {
             $('#claim-modal').modal('show');
             $('#claim-modal .modal-body').html(data);
 
-            $.getScript("/js/jquery.maskedinput.min.js", function(data, textStatus, jqxhr) {
+            $.getScript("/js/jquery.maskedinput.min.js", function (data, textStatus, jqxhr) {
                 $("#requestcall-phone").mask("+7 (999) 99-99-999");
             });
 
@@ -328,14 +400,14 @@ function getPhone(object) {
             url: '/phone',
             data: info,
             dataType: "html",
-            beforeSend: function(){
+            beforeSend: function () {
                 $(object).html('<img style="height: 27px" id="imgcode" src="/img/pre.gif">');
             },
             cache: false,
             success: function (data) {
 
                 $(object).html(phone);
-                window.location.href="tel: +"+phone;
+                window.location.href = "tel: +" + phone;
 
             },
 
@@ -346,7 +418,6 @@ function getPhone(object) {
     }
 
 }
-
 
 
 function show_text() {
@@ -386,7 +457,7 @@ function send_comment(object) {
 var fileField = document.getElementById('addpostform-gallary');
 var preview = document.getElementById('preview');
 
-if (fileField){
+if (fileField) {
 
     fileField.addEventListener('change', function (event) {
         $('.no-img-item').remove();
@@ -439,18 +510,18 @@ function getMorePosts() {
 
     var dataOffset = Number(offset) + Number(limit);
 
-    $('.preload').css('display' , 'block');
+    $('.preload').css('display', 'block');
 
 
     $.ajax({
         type: 'POST',
         url: '/get-more-post-list',
-        data: 'url=' +url+'&offset='+offset,
-        async:false,
+        data: 'url=' + url + '&offset=' + offset,
+        async: false,
         dataType: "html",
-        beforeSend: function(){
+        beforeSend: function () {
 
-            $(object).attr("data-offset" , dataOffset);
+            $(object).attr("data-offset", dataOffset);
 
             if (Number(offset) > 20) {
             }
@@ -459,14 +530,14 @@ function getMorePosts() {
         cache: false,
         success: function (data) {
 
-            if (data == ''){
+            if (data == '') {
                 $('.preload').html();
                 $(object).remove();
                 $('.pagination').remove();
                 $('.get_more').remove();
             }
 
-            $('.preload').css('display' , 'none');
+            $('.preload').css('display', 'none');
 
             $(".fisrst-content").removeClass('ankets-bg');
             $(".fisrst-content").append(data);
@@ -478,17 +549,18 @@ function getMorePosts() {
     });
 
 }
-function up_anket(object){
+
+function up_anket(object) {
 
     var id = $(object).attr('data-id');
 
     $.ajax({
         type: 'POST',
         url: '/cabinet/up',
-        data: 'id=' +id,
-        async:false,
+        data: 'id=' + id,
+        async: false,
         dataType: "html",
-        beforeSend: function(){
+        beforeSend: function () {
             $(object).text('Отправка запроса...');
         },
         cache: false,
@@ -500,21 +572,21 @@ function up_anket(object){
 
 }
 
-$( "#addpostform-video" ).change(function() {
-    $( ".get-video-btn" ).text('Видео выбрано');
-    $( ".video-cabinet" ).remove();
+$("#addpostform-video").change(function () {
+    $(".get-video-btn").text('Видео выбрано');
+    $(".video-cabinet").remove();
 
 });
 
-function delete_photo(object){
+function delete_photo(object) {
 
     var id = $(object).attr('data-id');
 
     $.ajax({
         type: 'POST',
         url: '/cabinet/delete-photo',
-        data: 'id=' +id,
-        async:false,
+        data: 'id=' + id,
+        async: false,
         dataType: "html",
         cache: false,
         success: function (data) {
@@ -525,7 +597,7 @@ function delete_photo(object){
 
 }
 
-$('.update-avatar').change(function(){
+$('.update-avatar').change(function () {
 
     files = this.files;
 
@@ -537,18 +609,18 @@ $('.update-avatar').change(function(){
         url: '/cabinet/update-avatar',
         type: 'POST',
         data: formData,
-        datatype:'json',
+        datatype: 'json',
         // async: false,
-        beforeSend: function() {
+        beforeSend: function () {
             $(this).siblings('label').text('Загрузка');
         },
         success: function (data) {
 
-            $(tmp).closest('.new-anket').find('.photo-list').attr('src', data );
+            $(tmp).closest('.new-anket').find('.photo-list').attr('src', data);
 
         },
 
-        complete: function() {
+        complete: function () {
             // success alerts
         },
 
