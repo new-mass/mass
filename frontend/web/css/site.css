@@ -1354,6 +1354,14 @@ body{
 .single-photo-list img{
     margin-bottom: 15px;
 }
+.avatar-prewiew{
+    width: 61px;
+    height: 61px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #DAC8AF;
+}
 @media (max-width:1366px) {
     .ankets{
         padding: 0;
