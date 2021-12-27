@@ -204,6 +204,7 @@ class FindController extends Controller
         $posts = $posts
             ->with('avatar', 'metro', 'rayon', 'video', 'gallery')
             ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
+            ->andWhere(['hide' => Posts::POSTS_SHOW])
             ->all();
 
         $title  = 'Поиск';

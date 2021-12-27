@@ -56,6 +56,11 @@ class Posts extends \yii\db\ActiveRecord
 
     const TYPE_INDI = 0;
     const TYPE_SALON = 1;
+
+    const POSTS_HIDE = 1;
+    const POSTS_SHOW = 0;
+
+
     /**
      * {@inheritdoc}
      */
@@ -313,6 +318,7 @@ class Posts extends \yii\db\ActiveRecord
             ->with('comments')
             ->with('comfort')
             ->with('mess')
+            ->andWhere(['hide' => Posts::POSTS_SHOW])
             ->limit(1)
             ->asArray()->one();
 

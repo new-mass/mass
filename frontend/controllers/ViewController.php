@@ -29,6 +29,7 @@ class ViewController extends Controller
             ->with('avatar')
             ->with('metro')
             ->with('rayon')
+            ->andWhere(['hide' => Posts::POSTS_SHOW])
             ->orderBy('sorting desc')->asArray()->all();
 
         DayViewHelper::addViewListing($posts);

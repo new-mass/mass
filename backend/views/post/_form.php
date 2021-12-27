@@ -50,6 +50,14 @@ use frontend\modules\user\models\Posts;
                 ])
             ?>
         </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <?= $form->field($model, 'hide')
+                ->dropDownList([
+                        Posts::POSTS_HIDE => 'Скрыта',
+                        Posts::POSTS_SHOW => 'Открыта',
+                ])
+            ?>
+        </div>
 
         <div class="col-12 col-sm-6 col-md-4">
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>

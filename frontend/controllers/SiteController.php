@@ -138,7 +138,10 @@ class SiteController extends Controller
 
         }
 
-        $posts = Posts::find()->where(['status' => 1])->andWhere(['city_id' => $city['id']])->limit(Yii::$app->params['post_limit']);
+        $posts = Posts::find()->where(['status' => 1])
+            ->andWhere(['city_id' => $city['id']])
+            ->andWhere(['hide' => Posts::POSTS_SHOW])
+            ->limit(Yii::$app->params['post_limit']);
 
         $countQuery = clone $posts;
 
@@ -290,6 +293,7 @@ class SiteController extends Controller
             ->andWhere(['city_id' => $city['id']])
             ->with('video')
             ->with('gallery')
+            ->andWhere(['hide' => Posts::POSTS_SHOW])
             ->with('avatar')->orderBy('id desc')->asArray()->all();
 
         Yii::$app->params['breadcrumbs'][] = array(
@@ -441,6 +445,7 @@ class SiteController extends Controller
                     ->with('metro')
                     ->with('rayon')
                     ->with('video')
+                    ->andWhere(['hide' => Posts::POSTS_SHOW])
                     ->with('gallery')
 
                     ->orderBy('check_photo_status desc, video_sort desc, sorting desc')->asArray()->all();
@@ -473,6 +478,7 @@ class SiteController extends Controller
             ->with('metro')
             ->with('rayon')
             ->with('video')
+            ->andWhere(['hide' => Posts::POSTS_SHOW])
             ->with('gallery')
             ->limit(Yii::$app->params['post_limit'])
             ->orderBy('id desc')->asArray()->all();
@@ -555,6 +561,7 @@ class SiteController extends Controller
                 ->with('metro')
                 ->with('rayon')
                 ->with('video')
+                ->andWhere(['hide' => Posts::POSTS_SHOW])
                 ->with('gallery')
                 ->limit(Yii::$app->params['post_limit'])
                 ->offset($offset)
@@ -567,6 +574,7 @@ class SiteController extends Controller
                 ->with('avatar')
                 ->with('metro')
                 ->with('rayon')
+                ->andWhere(['hide' => Posts::POSTS_SHOW])
                 ->with('video')
                 ->with('gallery')
                 ->orderBy('id desc')

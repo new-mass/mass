@@ -217,6 +217,7 @@ class QueryParamsHelper
                     ->andWhere(['in', 'id', ArrayHelper::getColumn($postIds, 'id')])
                     ->with('video')
                     ->offset($offset)
+                    ->andWhere(['hide' => Posts::POSTS_SHOW])
                     ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
 
             }
@@ -265,6 +266,7 @@ class QueryParamsHelper
             ->with('gallery')
             ->limit($limit)
             ->offset($offset)
+            ->andWhere(['hide' => Posts::POSTS_SHOW])
             ->with('rayon')->orderBy('tarif_id desc, check_photo_status desc, video_sort desc, sorting desc');
 
 
