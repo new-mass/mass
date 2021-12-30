@@ -86,32 +86,6 @@ $metro = false;
 
                 </div>
 
-                <a target="_blank" class="d-none" href="/anketa/<?php echo $item['url'] ?>">
-
-                    <picture>
-
-                        <?php if (is_file(Yii::getAlias('@app' . '/web' . $item['avatar']['file'])) and file_exists(Yii::getAlias('@app' . '/web' . $item['avatar']['file'])) and $item['avatar']['file']) : ?>
-
-                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '509_636') ?>"
-                                    media="(max-width: 539px)">
-
-                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>"
-                                    media="(max-width: 991px)">
-
-                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_327') ?>"
-                                    media="(max-width: 1199px)">
-
-                            <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>">
-
-                            <img width="255px" height="335px" loading="lazy"
-                                 class="img-<?php echo $item['id']; ?> img-on-listing"
-                                 src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
-                                 alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
-
-                        <?php endif; ?>
-                    </picture>
-                </a>
-
                 <?php if ($item['check_photo_status']) : ?>
 
                     <div class="extra-block tarif-block check-block"><p>Фото 100%</p></div>
