@@ -18,7 +18,7 @@ $metro = false;
                             <?php if ($item['avatar']['file']) : ?>
 
 
-                                <picture href="<?php echo $item['avatar']['file'] ?>"
+                                <picture
                                          class="carousel-item active picture-<?php echo $item['id'] ?>">
 
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
@@ -47,7 +47,7 @@ $metro = false;
                                 <?php foreach ($item['gallery'] as $file) : ?>
 
 
-                                    <picture href="<?php echo $file['file'] ?>"
+                                    <picture
                                              class="carousel-item picture-<?php echo $file['id'] ?>">
 
                                         <a target="_blank"  href="/anketa/<?php echo $item['url'] ?>">

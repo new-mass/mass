@@ -90,8 +90,6 @@ use yii\helpers\ArrayHelper;
                         <?= $form->field($model, 'min_price')
                             ->hiddenInput([
                                 'class' => 'form-input range-input',
-                                'placeholder' => '',
-                                'template' => '{input}',
                                 'value' => $params['min_price'] ?? 1000,
                             ])
                             ->label(false) ?>
@@ -100,8 +98,6 @@ use yii\helpers\ArrayHelper;
                         <?= $form->field($model, 'max_price')
                             ->hiddenInput([
                                 'class' => 'form-input range-input',
-                                'placeholder' => '',
-                                'template' => '{input}',
                                 'value' => $params['max_price'] ?? 10000,
                             ])
                             ->label(false) ?>
@@ -118,14 +114,12 @@ use yii\helpers\ArrayHelper;
             <div class="input-wrap">
                 <div class="gray-text m-bottom-15">Возраст</div>
                 <div class="slider-item d-flex">
-                    <div id="notify-price-slider-range">
+                    <div id="notify-age-slider-range">
                         <div id="slider-age"></div>
 
                         <?= $form->field($model, 'min_age')
                             ->hiddenInput([
                                 'class' => 'form-input range-input',
-                                'placeholder' => '',
-                                'template' => '{input}',
                                 'value' => $params['min_age'] ?? 18,
                             ])
                             ->label(false) ?>
@@ -134,8 +128,6 @@ use yii\helpers\ArrayHelper;
                         <?= $form->field($model, 'max_age')
                             ->hiddenInput([
                                 'class' => 'form-input range-input',
-                                'placeholder' => '',
-                                'template' => '{input}',
                                 'value' => $params['max_age'] ?? 99,
                             ])
                             ->label(false) ?>
