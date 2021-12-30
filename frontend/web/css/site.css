@@ -1223,7 +1223,7 @@ body{
 .m-bottom-15{
     margin-bottom: 15px;
 }
-#notify-price-slider-range{
+#notify-price-slider-range, #notify-age-slider-range{
     width: 100%;
     position: relative;
 }
@@ -1261,7 +1261,7 @@ body{
     margin-right: 5px;
     margin-left: 5px;
 }
-#notify-price-slider-range {
+#notify-price-slider-range, #notify-age-slider-range {
     width: 100%;
     position: relative;
 }
