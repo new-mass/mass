@@ -11,15 +11,17 @@ $metro = false;
 
                 <div class="gallery">
 
-                    <div id="carousel-<?php echo $item['id'] ?>" data-interval="false" class="carousel slide" data-ride="carousel">
+                    <div id="carousel-<?php echo $item['id'] ?>" data-interval="false" class="carousel slide"
+                         data-ride="carousel">
 
-                        <div class="carousel-inner" onclick="redirect(this)" data-url="/anketa/<?php echo $item['url'] ?>">
+                        <div class="carousel-inner" onclick="redirect(this)"
+                             data-url="/anketa/<?php echo $item['url'] ?>">
 
                             <?php if ($item['avatar']['file']) : ?>
 
 
                                 <picture
-                                         class="carousel-item active picture-<?php echo $item['id'] ?>">
+                                        class="carousel-item active picture-<?php echo $item['id'] ?>">
 
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
                                             media="(max-width: 768px)">
@@ -32,10 +34,10 @@ $metro = false;
 
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '350_524') ?>">
 
-                                        <img loading="lazy"
-                                             class="img-<?php echo $item['id']; ?> img-on-listing"
-                                             src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
-                                             alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
+                                    <img loading="lazy"
+                                         class="img-<?php echo $item['id']; ?> img-on-listing"
+                                         src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
+                                         alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
 
                                 </picture>
 
@@ -48,16 +50,14 @@ $metro = false;
 
 
                                     <picture
-                                             class="carousel-item picture-<?php echo $file['id'] ?>">
+                                            class="carousel-item picture-<?php echo $file['id'] ?>">
 
-                                        <a target="_blank"  href="/anketa/<?php echo $item['url'] ?>">
+                                        <img loading="lazy" data-id="<?php echo $file['id'] ?>"
+                                             class="photo photo-list"
+                                             src="<?php echo $file['file'] ?>"
+                                             alt="Массажистка <?php echo $item['name'] ?> "
+                                             title="Массажистка <?php echo $item['name'] ?> ">
 
-                                            <img loading="lazy" data-id="<?php echo $file['id'] ?>"
-                                                 class="photo photo-list"
-                                                 src="<?php echo $file['file'] ?>"
-                                                 alt="Массажистка <?php echo $item['name'] ?> "
-                                                 title="Массажистка <?php echo $item['name'] ?> ">
-                                        </a>
                                     </picture>
 
 
@@ -215,10 +215,10 @@ $metro = false;
 
                 <div class="custom-card_phone">
                     <a class="get-phone d-block"
-                         onclick="getPhone(this);yaCounter50332519.reachGoal('PHONE');return true;"
-                         data-phone="<?php echo $str ?>"
-                           href="tel:<?php echo $str ?>"
-                         data-id="<?php echo $item['id'] ?>">Показать телефон</a>
+                       onclick="getPhone(this);yaCounter50332519.reachGoal('PHONE');return true;"
+                       data-phone="<?php echo $str ?>"
+                       href="tel:<?php echo $str ?>"
+                       data-id="<?php echo $item['id'] ?>">Показать телефон</a>
                 </div>
             </div>
         </div>
