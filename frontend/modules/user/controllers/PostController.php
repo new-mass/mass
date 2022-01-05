@@ -94,6 +94,7 @@ class PostController extends Controller
                 ->with('rayon')
                 ->with('comfort')
                 ->with('comments')
+                ->with('adress')
                 ->orderBy(['rand()' => SORT_DESC])
                 ->asArray()->limit(1)->one()){
 

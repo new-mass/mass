@@ -3,6 +3,7 @@
 namespace frontend\modules\user\models;
 
 use common\models\SingleViewPost;
+use frontend\models\Adress;
 use frontend\models\Messanger;
 use frontend\models\UserMessanger;
 use frontend\modules\user\models\relation\UserCheckAnket;
@@ -122,6 +123,11 @@ class Posts extends \yii\db\ActiveRecord
             'video' => 'Видео',
             'type' => 'Тип анкеты',
         ];
+    }
+
+    public function getAdress()
+    {
+        return $this->hasOne(Adress::class, ['post_id' => 'id']);
     }
 
     public function getComments()
@@ -318,6 +324,7 @@ class Posts extends \yii\db\ActiveRecord
             ->with('comments')
             ->with('comfort')
             ->with('mess')
+            ->with('adress')
             ->andWhere(['hide' => Posts::POSTS_SHOW])
             ->limit(1)
             ->asArray()->one();

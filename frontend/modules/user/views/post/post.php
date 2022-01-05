@@ -136,6 +136,9 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
 
 
                     <div class="row">
+
+                        <?php if ($post['about']) : ?>
+
                         <div class="col-12 ">
                             <div class="about-block">
                                 <div class="row">
@@ -148,21 +151,20 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
                                         <?php endif; ?>
                                     </div>
 
-                                    <?php if ($post['about']) : ?>
-
-                                        <div class="col-9">
-                                            <div class="anket-heading"><p class="anket-heading">Описание: </p></div>
-                                            <div class="anket-about" itemprop="description">
-                                                <?php echo $post['about'] ?>
-                                            </div>
+                                    <div class="col-9">
+                                        <div class="anket-heading"><p class="anket-heading">Описание: </p></div>
+                                        <div class="anket-about" itemprop="description">
+                                            <?php echo $post['about'] ?>
                                         </div>
-
-                                    <?php endif; ?>
+                                    </div>
 
                                 </div>
                             </div>
 
                         </div>
+
+                    <?php endif; ?>
+
                     </div>
 
                 </div>
@@ -296,21 +298,32 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
 
                     <?php endif; ?>
 
-                    <?php if (!empty($post['metro'][0]['x'])) : ?>
+                    <?php if (!empty($post['metro'][0]['x']) or $post['adress']) : ?>
 
-                        <div class="anket-heading"><p class="big-heading">Карта</p></div>
+                        <?php if ($post['adress']) {
+
+                            $x = $post['adress']['x'];
+                            $y = $post['adress']['y'];
+
+                        } else {
+
+                            $x = $post['metro'][0]['x'];
+                            $y = $post['metro'][0]['y'];
+
+                        } ?>
+
+                        <div class="anket-heading"><p class="big-heading">Местоположение на карте</p></div>
                         <div class="service_list">
-                            <?php if (isset($post['metro'][0]['x'])) : ?>
-                                <div id="map-<?php echo $post['id'] ?>"
-                                     class="yandex-map map-not-exist"
-                                     data-map="map-<?php echo $post['id'] ?>"
-                                     data-id="<?php echo $post['id'] ?>"
-                                     data-x="<?php echo $post['metro'][0]['x'] ?>"
-                                     data-y="<?php echo $post['metro'][0]['y'] ?>" style="  height: 400px">
 
-                                </div>
+                            <div id="map-<?php echo $post['id'] ?>"
+                                 class="yandex-map map-not-exist"
+                                 data-map="map-<?php echo $post['id'] ?>"
+                                 data-id="<?php echo $post['id'] ?>"
+                                 data-x="<?php echo $x ?>"
+                                 data-y="<?php echo $y ?>" style="  height: 400px">
 
-                            <?php endif; ?>
+                            </div>
+
                         </div>
 
                     <?php endif; ?>

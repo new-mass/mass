@@ -20,6 +20,9 @@
     line-height: 121.9%;
     color: #4C4C4C;
 }
+#map{
+    width: 100%;
+}
 .wrap{
     padding-top: 15px;
 }

@@ -4,6 +4,7 @@
 namespace frontend\modules\user\controllers;
 
 use common\models\SingleViewPost;
+use frontend\models\Adress;
 use frontend\models\UserMessanger;
 use frontend\modules\user\components\helpers\AvatarHelper;
 use frontend\modules\user\components\helpers\PublicationHelper;
@@ -117,6 +118,8 @@ class CabinetController extends Controller
         $userMetro = new UserMetro();
         $userMess = new UserMessanger();
 
+        $adress = new Adress();
+
         if ($model->load(Yii::$app->request->post()) and $userPol->load(Yii::$app->request->post())
             and $userWorkTime->load(Yii::$app->request->post())
             and $userMassagDlya->load(Yii::$app->request->post())
@@ -129,6 +132,14 @@ class CabinetController extends Controller
             if (UploadedFile::getInstance($model, 'avatar')) {
 
                 if ($model->validate() and $model->save()) {
+
+                    if ($adress->load(Yii::$app->request->post())){
+
+                        $adress->post_id = $model->id;
+
+                        $adress->save();
+
+                    }
 
                     $model->city_id = $city['id'];
 
@@ -249,6 +260,8 @@ class CabinetController extends Controller
         $userMetro = new UserMetro();
         $userMess = new UserMessanger();
 
+        $adress = \frontend\models\Adress::findOne(['post_id' => $model->id]) ?? new \frontend\models\Adress();
+
         if ($model->load(Yii::$app->request->post()) and $userPol->load(Yii::$app->request->post())
             and $userWorkTime->load(Yii::$app->request->post())
             and $userMassagDlya->load(Yii::$app->request->post())
@@ -260,6 +273,14 @@ class CabinetController extends Controller
             and $userCheck->load(Yii::$app->request->post())) {
 
             if ($model->validate() and $model->save()) {
+
+                if ($adress->load(Yii::$app->request->post())){
+
+                    $adress->post_id = $model->id;
+
+                    $adress->save();
+
+                }
 
                 $userPol->user_id = $model->id;
                 $userPol->save();

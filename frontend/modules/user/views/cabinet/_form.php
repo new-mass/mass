@@ -22,7 +22,9 @@ use frontend\modules\user\models\Posts;
 /* @var $city array */
 /* @var $userMetro \frontend\modules\user\models\relation\UserMetro */
 /* @var $userMess \frontend\models\UserMessanger */
+
 FontAwesomeAsset::register($this);
+
 $pol = ArrayHelper::map(\frontend\modules\user\models\Pol::find()->asArray()->all(), 'id', 'value');
 $time = \frontend\modules\user\components\helpers\TimeHelper::generateDayTime();
 $check = ArrayHelper::map(\frontend\modules\user\models\CheckAnket::find()->asArray()->all(), 'id', 'value');
@@ -34,9 +36,15 @@ $metro = ArrayHelper::map(\frontend\modules\user\models\Metro::find()->asArray()
 $comfort = ArrayHelper::map(\frontend\modules\user\models\Comfort::find()->asArray()->all(), 'id', 'value');
 $massengers = ArrayHelper::map(\frontend\models\Messanger::find()->asArray()->all(), 'id', 'name');
 
+$adressForm = \frontend\models\Adress::findOne(['post_id' => $model->id]) ?? new \frontend\models\Adress();
+
 $commentForm = new \frontend\modules\user\models\Comments();
 
+$this->registerJsFile('https://api-maps.yandex.ru/2.1/?lang=ru_RU');
+$this->registerJsFile('/js/cabinet_map.js', ['depends' => [\yii\web\JqueryAsset::class]]);
+
 ?>
+
 
 <div class="col-12">
     <h1 class="user-name-single"><?php echo $this->title ?></h1>
@@ -483,9 +491,30 @@ $commentForm = new \frontend\modules\user\models\Comments();
         <?php endif; ?>
 
         <div class="col-12"></div>
+        <div class="anket-heading col-12"><p class="big-heading">Карта</p></div>
+        <div class="col-12">
+            <p class="control-label">Укажите свое точное местоположение на карте</p>
+            <div id="map"
+                <?php if ($adressForm->x) : ?>
+                data-x="<?php echo $adressForm->x ?>"
+                data-y="<?php echo $adressForm->y ?>"
+                <?php endif; ?>
+                 class="yandex-map" style="height: 400px">
+
+            </div>
+        </div>
+        <div class="col-12 check-box-list-admin">
+            <?= $form->field($adressForm, 'x')->hiddenInput()->label(false) ?>
+        </div>
+        <div class="col-12 check-box-list-admin">
+            <?= $form->field($adressForm, 'y')->hiddenInput()->label(false) ?>
+        </div>
+
+        <div class="col-12"></div>
 
 
-        <?php $tarifs = ArrayHelper::map($tarifList = Tarif::find()->select(['name', 'value'])->orderBy('value')->all(), 'value', 'name') ?>
+        <?php $tarifs = ArrayHelper::map($tarifList = Tarif::find()->select(['name', 'value'])
+            ->orderBy('value')->all(), 'value', 'name') ?>
 
         <div class="tarif-wrap">
             <p class="white-text">

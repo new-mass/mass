@@ -229,6 +229,17 @@ var changeURL = debounce(function () {
 
 $(document).ready(function () {
 
+    $(".yandex-map").each(function (index) {
+
+        if ($(this).hasClass('map-not-exist')) {
+
+            $(this).removeClass('map-not-exist');
+            init_yandex_map(this);
+
+        }
+
+    });
+
     $('.teh-pod').on('click', function () {
 
         $.ajax({
