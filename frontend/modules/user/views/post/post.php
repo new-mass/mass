@@ -298,7 +298,7 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
 
                     <?php endif; ?>
 
-                    <?php if (!empty($post['metro'][0]['x']) or $post['adress']) : ?>
+                    <?php if (!empty($post['metro'][0]['x']) or ($post['adress'] and $post['adress']['x'])) : ?>
 
                         <?php if ($post['adress']) {
 

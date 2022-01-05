@@ -274,7 +274,7 @@ class CabinetController extends Controller
 
             if ($model->validate() and $model->save()) {
 
-                if ($adress->load(Yii::$app->request->post())){
+                if ($adress->load(Yii::$app->request->post()) and $adress->validate()){
 
                     $adress->post_id = $model->id;
 

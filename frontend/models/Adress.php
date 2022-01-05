@@ -31,6 +31,7 @@ class Adress extends \yii\db\ActiveRecord
         return [
             [['post_id'], 'integer'],
             [['x', 'y'], 'number'],
+            [['x', 'y'], 'required'],
             [['adress'], 'string', 'max' => 255],
         ];
     }
