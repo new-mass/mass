@@ -8,5 +8,6 @@ return [
     'up_anket_cost' => 5,//_photo count key post
     'cassa_url' => 'https://www.free-kassa.ru/merchant/cash.php?',
     'pay_email_sum' => '300',
+    'post_cache_key' => 'post_cache_key',
     'fast_link_key_cache_pref' => 'fast_link_key_cache_pref',
 ];

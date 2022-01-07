@@ -310,24 +310,33 @@ class Posts extends \yii\db\ActiveRecord
     public static function getPostByUrl($url, $city_id)
     {
 
-        $post = Posts::find()->where(['url' => $url, 'city_id' => $city_id])
-            ->with('avatar')
-            ->with('gallery')
-            ->with('video')
-            ->with('service')
-            ->with('massagDlya')
-            ->with('place')
-            ->with('check')
-            ->with('workTime')
-            ->with('rayon')
-            ->with('metro')
-            ->with('comments')
-            ->with('comfort')
-            ->with('mess')
-            ->with('adress')
-            ->andWhere(['hide' => Posts::POSTS_SHOW])
-            ->limit(1)
-            ->asArray()->one();
+        $post = Yii::$app->cache->get(Yii::$app->params['post_cache_key'].'_'.$url.'_'.$city_id);
+
+        if ($post === false) {
+
+            $post = Posts::find()->where(['url' => $url, 'city_id' => $city_id])
+                ->with('avatar')
+                ->with('gallery')
+                ->with('video')
+                ->with('service')
+                ->with('massagDlya')
+                ->with('place')
+                ->with('check')
+                ->with('workTime')
+                ->with('rayon')
+                ->with('metro')
+                ->with('comments')
+                ->with('comfort')
+                ->with('mess')
+                ->with('adress')
+                ->andWhere(['hide' => Posts::POSTS_SHOW])
+                ->limit(1)
+                ->asArray()
+                ->one();
+
+            Yii::$app->cache->set(Yii::$app->params['post_cache_key'].'_'.$url.'_'.$city_id, $post);
+
+        }
 
         return $post;
         

@@ -137,7 +137,7 @@ class CabinetController extends Controller
 
                         $adress->post_id = $model->id;
 
-                        $adress->save();
+                        if ($adress->x and $adress->y)$adress->save();
 
                     }
 
@@ -274,11 +274,13 @@ class CabinetController extends Controller
 
             if ($model->validate() and $model->save()) {
 
-                if ($adress->load(Yii::$app->request->post()) and $adress->validate()){
+                Yii::$app->cache->delete(Yii::$app->params['post_cache_key'].'_'.$model->url.'_'.$model->city_id);
+
+                if ($adress->load(Yii::$app->request->post())){
 
                     $adress->post_id = $model->id;
 
-                    $adress->save();
+                    if ($adress->x and $adress->y)$adress->save();
 
                 }
 
