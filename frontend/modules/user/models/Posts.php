@@ -341,5 +341,14 @@ class Posts extends \yii\db\ActiveRecord
         return $post;
         
     }
+
+    public static function deletePostCache($post_id)
+    {
+        if ($post = self::findOne(['id' => $post_id])){
+
+            Yii::$app->cache->delete(Yii::$app->params['post_cache_key'].'_'.$post->url.'_'.$post->city_id);
+
+        }
+    }
     
 }

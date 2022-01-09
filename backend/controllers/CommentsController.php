@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use frontend\modules\user\models\Posts;
 use Yii;
 use frontend\modules\user\models\Comments;
 use yii\data\ActiveDataProvider;
@@ -89,6 +90,7 @@ class CommentsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -117,7 +119,13 @@ class CommentsController extends Controller
 
         $comment->status = Comments::COMMENT_ON_PUBLICATION;
 
-        $comment->save();
+        Posts::deletePostCache($comment->post_id);
+
+        if ($comment->save()) {
+
+            Posts::deletePostCache($comment->post_id);
+
+        }
 
     }
 

@@ -4,6 +4,7 @@
 namespace frontend\modules\user\controllers;
 
 use frontend\modules\user\models\Comments;
+use frontend\modules\user\models\Posts;
 use yii\web\Controller;
 Use yii\filters\VerbFilter;
 
@@ -32,6 +33,8 @@ class CommentController extends Controller
 
             $comment->save();
 
+            Posts::deletePostCache($comment->post_id);
+
         }
     }
 
@@ -43,6 +46,8 @@ class CommentController extends Controller
             $comment->status = Comments::COMMENT_ON_PUBLICATION;
 
             $comment->save();
+
+            Posts::deletePostCache($comment->post_id);
 
         }
     }
