@@ -71,6 +71,15 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionCache()
+    {
+        Yii::$app->cache->flush();
+
+        Yii::$app->session->setFlash('success', 'Кеш удален');
+
+        return $this->redirect('/');
+    }
+
     /**
      * Login action.
      *

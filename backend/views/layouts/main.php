@@ -99,6 +99,12 @@ FontAwesomeAsset::register($this);
                                 <p>Мета теги</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/site/cache" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Сбросить кеш</p>
+                            </a>
+                        </li>
 
 
                     </ul>
