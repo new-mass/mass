@@ -107,6 +107,7 @@ return [
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/call/add' => 'call/add',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/call/get' => 'call/get',
 
+                '<protocol>://<city:[a-z-0-9]+>.<domain>/pay/redirect' => 'user/cash/redirect',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/pay' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/cpay.php' => 'user/cash/pay',
                 '<protocol>://<city:[a-z-0-9]+>.<domain>/claim/add' => 'claim/add',

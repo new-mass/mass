@@ -6,6 +6,7 @@ namespace frontend\modules\user\controllers;
 use common\components\PayLinkBuilder;
 use common\models\User;
 use common\models\UserBalanceNotification;
+use frontend\modules\user\models\City;
 use frontend\modules\user\models\Hystory;
 use frontend\components\BeforeController as Controller;
 use Yii;
@@ -76,9 +77,27 @@ class CashController extends Controller
 
     }
 
-    public function actionRedirect()
+    public function actionRedirect($city = 'moskva')
     {
-        
+
+        if ($city == 'e-mass') $city = 'moskva';
+        if ($city == 'new-mass') $city = 'moskva';
+
+        $cityInfo = City::getCity($city);
+
+        Yii::$app->session->setFlash('success', 'Средства зачислены');
+
+        if ($cityInfo['id'] != Yii::$app->user->identity->city_id){
+
+            if ($cityInfo['url'] == 'moskva') header('Location: https://.e-mass.top/cabinet');
+            else header('Location: https://'.$cityInfo['url'].'.e-mass.top/cabinet');
+
+            exit();
+
+        }
+
+        return $this->redirect('/cabinet');
+
     }
 
     public function actionBalance($city)
