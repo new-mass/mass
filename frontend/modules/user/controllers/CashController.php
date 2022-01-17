@@ -89,10 +89,10 @@ class CashController extends Controller
 
         if ($cityInfo['id'] != Yii::$app->user->identity->city_id){
 
-            $cityInfo = City::getCity(Yii::$app->user->identity->city_id);
+            $cityInfo = City::findOne(['id' => Yii::$app->user->identity->city_id]);
 
-            if ($cityInfo['url'] == 'moskva') header('Location: https://e-mass.top/cabinet');
-            else header('Location: https://'.$cityInfo['url'].'.e-mass.top/cabinet');
+            if ($cityInfo['name'] == 'moskva')  header('Location: https://e-mass.top/cabinet');
+            else header('Location: https://'.$cityInfo['name'].'.e-mass.top/cabinet');
 
             exit();
 
