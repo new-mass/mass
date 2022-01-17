@@ -58,6 +58,7 @@ class CabinetController extends Controller
                 ->asArray()
                 ->with('avatar')
                 ->andWhere(['hide' => Posts::POSTS_SHOW])
+                ->andWhere(['city_id' => $cityInfo['id']])
                 ->with('viewsOnListing')
                 ->with('viewsOnSingle')
                 ->with('viewsPhone')

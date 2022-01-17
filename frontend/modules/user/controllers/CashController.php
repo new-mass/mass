@@ -76,6 +76,11 @@ class CashController extends Controller
 
     }
 
+    public function actionRedirect()
+    {
+        
+    }
+
     public function actionBalance($city)
     {
 
