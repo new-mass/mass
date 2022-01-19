@@ -106,11 +106,7 @@ $(document).ready(function () {
 
     $.getScript("/js/jquery-ui.min.js", function (data, textStatus, jqxhr) {
 
-        if (make_filter() && $(window).width() < 1200) {
-
-            $('.open-filter-btn').trigger('click');
-
-        }
+        make_filter();
 
     });
 
