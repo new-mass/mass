@@ -250,7 +250,7 @@ class SiteController extends Controller
 
         $more_posts = false;
 
-        if(\count($posts) < 6) $more_posts = Posts::find()->limit(8)
+        if(\count($posts) < 6) $more_posts = Posts::find()->limit(12)
             ->where(['city_id' => $city['id']])
             ->andWhere(['status' => Posts::POST_ON_PUBLICATION])
             ->orderBy(['rand()' => SORT_DESC])
