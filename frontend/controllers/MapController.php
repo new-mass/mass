@@ -14,7 +14,7 @@ class MapController extends Controller
 {
     public function actionIndex($city = 'moskva')
     {
-
+        if ($city == 'e-mass') $city = 'moskva';
         $uri = PageHelper::cropUriParams(Yii::$app->request->url);
 
         $city_name = $city;
