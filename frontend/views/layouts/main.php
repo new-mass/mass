@@ -205,18 +205,6 @@ $claimForm = new \frontend\models\forms\ClaimForm();
         <?php endif ?>
 
         <div class="row content">
-
-            <div class="col-12">
-                <div class="marc-wrap">
-                    <a href="/massazh-dlya_muzhchin" class="marc-item">Для мужчин</a>
-                    <a href="/service_eroticheskiy" class="marc-item">Эротический</a>
-                    <a href="/service_massagh-lingama" class="marc-item">Массаж лингама</a>
-                    <a href="/age_ot-40-do-50-let" class="marc-item">от 40 до 50 лет</a>
-                    <a href="/age_ot-31-do-40-let" class="marc-item">от 31 до 40 лет</a>
-                    <a href="/place_viezd" class="marc-item">Выезд</a>
-                    <a class="marc-item" href="/new">Свежие анкеты</a>
-                </div>
-            </div>
             <div class="col-12">
                 <?= Alert::widget() ?>
             </div>
