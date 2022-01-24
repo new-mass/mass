@@ -4,7 +4,7 @@ header('Content-Type: text/plain; charset=UTF-8');
 
 if(Yii::$app->request->hostName == 'moskva.e-mass.top') : ?>
 
-    Disallow: /amp*
+    Disallow: /
 
     <?php else: ?>
     User-agent: *
