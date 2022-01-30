@@ -58,6 +58,7 @@ $this->registerJsFile('/js/cabinet_map.js', ['depends' => [\yii\web\JqueryAsset:
         <p>Фото подтверждено, при добавлении новых фото будет перепроверенно, на время проверки статус подтверждено уберается </p>
     </div>
 <?php endif; ?>
+<div id="city-data" data-x="<?php echo $city['x']?>" data-y="<?php echo $city['y'] ?>"></div>
 <div class="user-cabinet-add">
 
 

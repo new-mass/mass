@@ -10,6 +10,8 @@ use Yii;
  * @property int $id
  * @property string|null $value
  * @property string|null $name
+ * @property float|null $x
+ * @property float|null y
  */
 class City extends \yii\db\ActiveRecord
 {
@@ -28,6 +30,7 @@ class City extends \yii\db\ActiveRecord
     {
         return [
             [['value', 'name'], 'string', 'max' => 50],
+            [['x', 'y'], 'float'],
         ];
     }
 

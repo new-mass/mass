@@ -51,6 +51,7 @@ class MapController extends Controller
             'title' => $meta['title'],
             'des' => $meta['des'],
             'h1' => $meta['h1'],
+            'city' => $city,
         ]);
     }
 }

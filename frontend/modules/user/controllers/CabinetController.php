@@ -106,7 +106,7 @@ class CabinetController extends Controller
         if (Yii::$app->user->identity['status'] == 9) return $this->redirect('/');
 
         $model = new \frontend\modules\user\models\Posts();
-        $city = City::find()->select('id')->where(['name' => $city])->asArray()->one();
+        $city = City::find()->where(['name' => $city])->asArray()->one();
         $userPol = new UserPol();
         $userWorkTime = new UserWorckTime();
         $photo = new Photo();
@@ -248,7 +248,7 @@ class CabinetController extends Controller
     {
         if (Yii::$app->user->isGuest) return $this->redirect('/');
         $model = Posts::find()->where(['id' => $id])->with('allComments')->one();
-        $city = City::find()->select('id')->where(['name' => $city])->asArray()->one();
+        $city = City::find()->where(['name' => $city])->asArray()->one();
 
         $userCheck = new UserCheckAnket();
         $userPlace = new UserPlace();

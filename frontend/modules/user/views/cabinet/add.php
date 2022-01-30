@@ -14,8 +14,6 @@ $this->title = 'Добавить анкету';
 </div>
 <div class="col-12 col-md-7 col-lg-8 col-xl-9">
 
-    <?php if (Yii::$app->user->identity['status'] == 10) : ?>
-
     <?php echo $this->renderFile(Yii::getAlias('@app/modules/user/views/cabinet/_form.php') , [
         'model' => $model,
         'city' => $city,
@@ -31,15 +29,5 @@ $this->title = 'Добавить анкету';
         'userMetro' => $userMetro,
         'userMess' => $userMess,
     ]); ?>
-
-        <?php else : ?>
-
-        <div class="col-12">
-            <div class="message">
-                <p>Для добавления анкет требуется активировать свой профиль перейде по ссылке в письме</p>
-            </div>
-        </div>
-
-    <?php endif; ?>
 
 </div>

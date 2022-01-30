@@ -4,6 +4,7 @@
 /* @var $title string */
 /* @var $des string */
 /* @var $h1 string */
+/* @var $city array */
 /* @var $posts \frontend\modules\user\models\Posts[] */
 
 $this->title = $title;
@@ -59,7 +60,7 @@ foreach ($posts as $post) {
 <div class="map-data d-none">
     <?php echo json_encode($result) ?>
 </div>
-
+<div id="city-data" data-x="<?php echo $city['x']?>" data-y="<?php echo $city['y'] ?>"></div>
 <div class="container karta">
 
     <h1 class="h1"> <?php echo $h1 ?> </h1>
@@ -88,8 +89,8 @@ foreach ($posts as $post) {
 
         function init() {
             var myMap = new ymaps.Map("map", {
-                center: [55.76, 37.64],
-                zoom: 10,
+                center: [$('#city-data').attr('data-x'), $('#city-data').attr('data-y')],
+                zoom: 11,
             }, {
                 searchControlProvider: 'yandex#search'
             });
