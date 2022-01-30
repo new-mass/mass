@@ -213,7 +213,7 @@ $claimForm = new \frontend\models\forms\ClaimForm();
                     <a href="/service_massagh-lingama" class="marc-item">Массаж лингама</a>
                     <a href="/age_ot-40-do-50-let" class="marc-item">от 40 до 50 лет</a>
                     <a href="/age_ot-31-do-40-let" class="marc-item">от 31 до 40 лет</a>
-                    <?php if (Yii::$app->requestedParams['city'] == 'moskva') : ?>
+                    <?php if (Yii::$app->requestedParams['city'] == 'moskva' or Yii::$app->requestedParams['city'] == 'spb') : ?>
                         <a href="/intim-karta" class="marc-item">Карта</a>
                     <?php endif; ?>
                     <a class="marc-item" href="/new">Свежие анкеты</a>
