@@ -16,6 +16,11 @@ $this->title = "Кабинет";
         </div>
         <div class="col-12">
             <div class="message">
+                <p>Если возникли проблемы с оплатой через кассу есть возможность перевода на или либо на Ю мани</p>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="message">
                 <p>При пополнении счета от <?php echo Yii::$app->params['bonus_sum'] ?> р<br>
                     Вы получаете бонус в размере 20% от суммы пополнения</p>
             </div>
