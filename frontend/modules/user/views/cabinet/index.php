@@ -2,7 +2,7 @@
 /* @var $this \yii\web\View */
 /* @var $items array */
 
-$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=4'), ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=5'), ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->title = "Кабинет";
 ?>
 <script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
