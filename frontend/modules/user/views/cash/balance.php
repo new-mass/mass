@@ -10,10 +10,16 @@ use yii\helpers\Html;
 $this->registerCssFile(Yii::getAlias('@web/css/cabinet.css?v=1'), ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->title = "Пополнить баланс";
 ?>
+<div class="col-12">
+    <div class="message">
+        <p>Если возникли проблемы с оплатой через кассу есть возможность перевода на карту или либо на Ю мани. За подробностями прошу обратиться в поддержку любым удобным способом</p>
+    </div>
+</div>
 <script src="//code.jivosite.com/widget/O6TixAAC9q" async></script>
 <div class="col-12 col-md-5 col-lg-4 col-xl-3">
     <?php echo \frontend\modules\user\widgets\UserSideBarWidget::widget() ?>
 </div>
+
 <div class="col-12 col-md-7 col-lg-8 col-xl-9">
 
         <div class="main-banner">
