@@ -151,6 +151,7 @@ $metro = false;
                             </div>
                         </div>
                     </div>
+
                     <div class="metro">
 
                         <?php if (isset($item['metro']) and !empty($item['metro'])) {
@@ -177,6 +178,8 @@ $metro = false;
 
                         ?>
                     </div>
+
+
                 </div>
 
                 <?php

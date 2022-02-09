@@ -373,16 +373,15 @@ header .owl-stage-outer{
     font-size: 15px;
 }
 .custom-card-right .get-phone , .get_more{
-    height: 46px;
     background: #FB474A;
     text-align: center;
-    padding-top: 8px;
     color: #fff;
     font-family: Roboto;
     font-style: normal;
     font-weight: 900;
     font-size: 15px;
     cursor: pointer;
+    padding: 10px;
 }
 .get_more{
     padding: 10px;
@@ -1419,6 +1418,13 @@ body{
     border: 1px solid #EDEDED!important;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
 }
+.custom-card-right{
+    display: flex;
+    flex-direction: column;
+}
+.custom-card_phone{
+    margin-top: auto;
+}
 @media (max-width:1199px) {
     #filter-form{
         flex-wrap: wrap;
@@ -1782,17 +1788,17 @@ body{
     .custom-card-right .metro {
         display: block;
         margin-top: 9px;
-        height: 0px;
+        height: inherit;
         overflow: hidden;
     }
     .ankets .article-item .new-anket{
         height: inherit;
     }
     .article-item .custom-card-right {
-        width: 100%;
-        bottom: -3px;
-        left: 0;
-        height: 145px;
+        position: relative;
+        bottom: 0;
+        border-radius: 0;
+        height: inherit;
     }
     .main-nav_list li a{
         padding: 10px 13px;
