@@ -319,3 +319,8 @@
     top: 10px;
     right: 5px;
 }
+@media (max-width:539px) {
+    .cabinet-item .new-anket {
+        height: inherit;
+    }
+}
