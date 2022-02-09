@@ -1790,6 +1790,7 @@ body{
         margin-top: 9px;
         height: inherit;
         overflow: hidden;
+        max-height: 50px;
     }
     .ankets .article-item .new-anket{
         height: inherit;

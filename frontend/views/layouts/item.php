@@ -160,6 +160,8 @@ $metro = false;
 
                             foreach ($item['metro'] as $value) { ?>
 
+                                <?php if ($value != end($item['metro'])) echo $value['value'] .= ',' ?>
+
                                 <a href="/metro_<?php echo $value['url'] ?>"><?php echo $value['value'] ?></a>
 
                             <?php }
