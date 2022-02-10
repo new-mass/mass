@@ -103,8 +103,6 @@ class CabinetController extends Controller
 
         if (Yii::$app->user->isGuest) return $this->redirect('/');
 
-        if (Yii::$app->user->identity['status'] == 9) return $this->redirect('/');
-
         $model = new \frontend\modules\user\models\Posts();
         $city = City::find()->where(['name' => $city])->asArray()->one();
         $userPol = new UserPol();
