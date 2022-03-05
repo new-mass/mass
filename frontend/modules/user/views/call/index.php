@@ -48,6 +48,17 @@ $this->title = "Заявки на звонок";
                                     .
                                     <?php if ($call['text']) echo 'Текст заявки: ' . $call['text'] ?>
 
+                                    , к анкете
+
+                                    <?php
+
+                                        echo \yii\helpers\Html::a(
+                                                $call['post']['name'],
+                                                '/anketa/'.$call['post']['url']
+                                        );
+
+                                    ?>
+
                                     <br>
 
                                     <span class="date">

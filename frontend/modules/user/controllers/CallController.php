@@ -25,6 +25,7 @@ class CallController extends Controller
     {
         $requestCallList = RequestCall::find()
             ->where(['user_id' => \Yii::$app->user->id])
+            ->with('post')
             ->orderBy('id DESC')
             ->all();
 

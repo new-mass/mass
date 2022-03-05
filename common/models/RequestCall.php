@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use frontend\modules\user\models\Posts;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -56,6 +57,11 @@ class RequestCall extends \yii\db\ActiveRecord
             [['text', 'phone'], 'string', 'max' => 255],
             [['phone'], 'cleanPhone'],
         ];
+    }
+
+    public function getPost()
+    {
+        return $this->hasOne(Posts::class, ['id' => 'post_id'])->select('id, name, url');
     }
 
     public function cleanPhone($attribute, $params)
