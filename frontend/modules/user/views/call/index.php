@@ -47,7 +47,7 @@ $this->title = "Заявки на звонок";
                                     <?php echo \yii\helpers\Html::a($call['phone'], 'tel:+' . $call['phone']) ?>
                                     .
                                     <?php if ($call['text']) echo 'Текст заявки: ' . $call['text'] ?>
-
+                                    <br>
                                     К анкете
 
                                     <?php
