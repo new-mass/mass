@@ -45,6 +45,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $video_sort
  * @property integer $check_photo_status
  * @property integer $type
+ * @property Photo[] $files
  */
 class Posts extends \yii\db\ActiveRecord
 {
@@ -154,6 +155,10 @@ class Posts extends \yii\db\ActiveRecord
     public function getAvatar()
     {
         return $this->hasOne(Photo::class, ['user_id' => 'id' ])->where(['avatar' => 1]);
+    }
+    public function getFiles()
+    {
+        return $this->hasMany(Photo::class, ['user_id' => 'id' ]);
     }
 
     public function getVideo()

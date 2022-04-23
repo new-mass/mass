@@ -18,7 +18,7 @@ $avatarForm = new \frontend\modules\user\models\forms\UpdateAvatarForm();
                                  class="photo photo-list img-<?php echo $item['id'] ?>"
                                  data-src="" src="<?php echo $item['avatar']['file'] ?>"
                                  alt="Массажистка  <?php echo $item['name'] ?>"
-                                 title="Массажистка <?php echo $item['name'] ?> Санкт-Петербург">
+                                 title="Массажистка <?php echo $item['name'] ?> ">
                         </picture>
                     </a>
                     <?php if ($item['tarif_id'] == 6) : ?>
@@ -72,6 +72,10 @@ $avatarForm = new \frontend\modules\user\models\forms\UpdateAvatarForm();
 </span>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <br>
+                                <div class="edit" onclick="delete_item(this)" data-id="<?php echo $item['id'] ?>" data-name="<?php echo $item['name'] ?>">Удалить анкету</div>
+                            </div>
                         </div>
                         <div class="metro">
                             <div class="row">
@@ -86,7 +90,7 @@ $avatarForm = new \frontend\modules\user\models\forms\UpdateAvatarForm();
                                 <div class="col-6">
                                     <p class="small-text">Показов на листинге
                                         за все время:
-                                    <p class="black-text"><?php echo $item['viewsOnListing']['count'] ?: 0; ?></p></p>
+                                    <p class="black-text"><?php echo $item['viewsOnListing']['count'] ?: 0; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +108,7 @@ $avatarForm = new \frontend\modules\user\models\forms\UpdateAvatarForm();
                                 <div class="col-6">
                                     <p class="small-text">Просмотров детальной страницы
                                         за все время:
-                                    <p class="black-text"><?php echo $item['viewsOnSingle']['count'] ?: 0; ?></p></p>
+                                    <p class="black-text"><?php echo $item['viewsOnSingle']['count'] ?: 0; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +126,7 @@ $avatarForm = new \frontend\modules\user\models\forms\UpdateAvatarForm();
                                 <div class="col-6">
                                     <p class="small-text">Просмотров телефона
                                         за все время:
-                                    <p class="black-text"><?php echo $item['viewsPhone']['count'] ?: 0; ?></p></p>
+                                    <p class="black-text"><?php echo $item['viewsPhone']['count'] ?: 0; ?></p>
                                 </div>
                             </div>
                         </div>

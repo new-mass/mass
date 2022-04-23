@@ -98,6 +98,45 @@ class CabinetController extends Controller
         }
     }
 
+    public function actionDeletePost()
+    {
+        if (Yii::$app->request->isPost and !Yii::$app->user->isGuest){
+
+            $id = Yii::$app->request->post('id');
+
+            $post = Posts::find()->where(['id' => $id])->with('files')->one();
+
+            if ($post){
+
+                if ($post['old_user_id']){
+
+                    if ($post['old_user_id'] != Yii::$app->user->identity['old_id']) return false;
+
+                }else{
+
+                    if ($post['user_id'] != Yii::$app->user->identity['id']) return false;
+
+                }
+
+            }
+
+            if ($post->files){
+
+                foreach ($post->files as $item){
+
+                    unlink(Yii::getAlias('@app/web/'.$item['file']));
+
+                    $item->delete();
+
+                }
+
+            }
+
+            $post->delete();
+
+        }
+    }
+
     public function actionAdd($city = 'moskva')
     {
 
