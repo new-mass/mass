@@ -18,7 +18,7 @@ class PayForm extends Model
     public function rules()
     {
         return [
-            ['sum', 'integer', 'min' => 200]
+            ['sum', 'integer', 'min' => 300]
         ];
     }
 }
