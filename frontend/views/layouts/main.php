@@ -45,10 +45,12 @@ $claimForm = new \frontend\models\forms\ClaimForm();
     <meta name="msapplication-TileColor" content="#4d0862">
     <meta name="msapplication-TileImage" content="/img/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#4d0862">
+    <meta name="HandheldFriendly" content="true">
     <?php
 
     if (strpos(Yii::$app->request->url,'?')){
         echo '<link rel="canonical" href="'.strstr(Yii::$app->request->url, '?', true).'">';
+        echo '<meta name="robots" content="noindex, follow">';
     }
 
     ?>
