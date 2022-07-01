@@ -64,19 +64,12 @@ if ($posts) {
         {
             "@context": "http://schema.org",
             "@type": "Organization",
-
 <?php if ($city['name'] == 'moskva') : ?>
-
             "url": "https://e-mass.top",
             "logo": "https://e-mass.top/imgs/logo.png",
-
-<?php else : ?>
-
-"url": "https://<?php echo $city['name'] ?>.e-mass.top",
+<?php else : ?>"url": "https://<?php echo $city['name'] ?>.e-mass.top",
 "logo": "https://<?php echo $city['name'] ?>.e-mass.top/imgs/logo.png"
-
 <?php endif; ?>
-
         }
 
     </script>
