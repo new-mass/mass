@@ -25,6 +25,12 @@ class PostOrderHelper
                 case 'down':
                     $order = ['price' => SORT_DESC];
                     break;
+                case 'age-up':
+                    $order = ['age' => SORT_ASC];
+                    break;
+                case 'age-down':
+                    $order = ['age' => SORT_DESC];
+                    break;
                 case 'default':
                     $cookies->add(new \yii\web\Cookie([
                         'name' => 'sort_price',
