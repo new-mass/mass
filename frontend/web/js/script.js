@@ -148,7 +148,7 @@ $(document).ready(function () {
 
         if ($('.sort_select').val()) {
 
-            var redirectUrl = location.pathname + '?' + $('.sort_select').val();
+            var redirectUrl = location.pathname;
 
         }
 
