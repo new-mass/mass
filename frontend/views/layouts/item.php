@@ -2,6 +2,9 @@
 /* @var $item array */
 $photoCount = 0;
 $metro = false;
+
+echo (new \frontend\components\helpers\MicroHelper())->image($item);
+
 ?>
 
 <div class="new-anket post-item">
