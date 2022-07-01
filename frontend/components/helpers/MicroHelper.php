@@ -24,4 +24,31 @@ class MicroHelper
         return $data;
 
     }
+
+    public function logo($city)
+    {
+
+        $url = 'https://e-mass.top';
+        $logo = 'https://e-mass.top/imgs/logo.png';
+
+        if ($city != 'moskva') {
+
+            $url = 'https://'.$city.'.e-mass.top';
+            $logo = 'https://'.$city.'.e-mass.top/imgs/logo.png';
+
+        }
+
+        $data = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Organization',
+            'url' => $url,
+            'logo' => $logo,
+        ];
+
+        $data = '<script type="application/ld+json">'.json_encode($data).'</script>';
+
+        return $data;
+
+    }
+
 }
