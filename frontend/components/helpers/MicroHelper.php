@@ -14,7 +14,7 @@ class MicroHelper
             '@type' => 'ImageObject',
             'author' => 'Массажистка '. $post['name'],
             'contentUrl' => 'https://'.$_SERVER['HTTP_HOST'].$post['avatar']['file'],
-            'contentLocation' => $post['city']['city'].' Россия',
+            'contentLocation' => $post['city']['value'].' Россия',
             'datePublished' => date('Y-d-m', $post['created_at']),
             'name' => 'Проститутка '. $post['name'],
         ];
