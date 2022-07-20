@@ -26,17 +26,17 @@ return [
             'enableCsrfValidation' => false,
         ],
         'imageCache' => [
-            'class' => 'frontend\components\ImageCache',
+            'class' => 'frontend\components\service\image\ImageCache',
             'sourcePath' => '@app/web/uploads',
             'sourceUrl' => '@web/uploads',
             'thumbsPath' => '@app/web/thumbs',
-            'quality' => 75,
             'extensions' => [
                 'jpg' => 'jpeg',
                 'jpeg' => 'jpeg',
                 'png' => 'png',
                 'gif' => 'gif',
                 'bmp' => 'bmp',
+                'webp' => 'jpg',
             ],
             'sizes' => [
                 '255_335' => [255, 335],
