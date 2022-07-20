@@ -187,7 +187,7 @@ OwlAsset::register($this);
             <a class="teh-pod white-text" data-toggle="modal" data-target="#claim-modal" href="#">Техподдержка</a>
         </li>
 
-        <li data-toggle="modal" data-target="#registerModal" class="add-anket-li"><img src="/img/dancing.png" alt=""> Разместить анкету</li>
+        <li data-toggle="modal" data-target="#registerModal" class="add-anket-li">Разместить анкету</li>
 
     </ul>
 
