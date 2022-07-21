@@ -1,5 +1,6 @@
 <?php
 /* @var $item array */
+/* @var $first bool */
 $photoCount = 0;
 $metro = false;
 
@@ -54,7 +55,7 @@ echo (new \frontend\components\helpers\MicroHelper())->image($item);
 
                                     <source srcset="<?php echo $thumbSrc ?>" type="image/jpeg">
 
-                                    <img loading="lazy"
+                                    <img <?php if (!$first ) echo 'loading="lazy"' ?>
                                          class="img-<?php echo $item['id']; ?> img-on-listing"
                                          src="<?= $thumbSrc ?>"
                                          alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
