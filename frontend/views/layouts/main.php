@@ -25,8 +25,6 @@ $claimForm = new \frontend\models\forms\ClaimForm();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preload" href="/fonts/oxygen.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/Gilroy-Bold.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/oxygenbold.woff2" as="font" crossorigin="anonymous">
     <link rel="preload" href="/fonts/Roboto.woff2" as="font" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-icon-60x60.png">
