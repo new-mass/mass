@@ -22,41 +22,24 @@ echo (new \frontend\components\helpers\MicroHelper())->image($item);
 
                             <?php if ($item['avatar']['file']) : ?>
 
-                                <picture class="carousel-item active picture-<?php echo $item['id'] ?>">
 
-                                    <?php $thumbSrc = Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>
+                                <picture
+                                        class="carousel-item active picture-<?php echo $item['id'] ?>">
 
-                                    <source srcset="<?php echo str_replace('.jpg', '.webp', $thumbSrc) ?>"
-                                            media="(max-width: 768px)" type="image/webp">
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
+                                            media="(max-width: 768px)">
 
-                                    <source srcset="<?php echo $thumbSrc?>"
-                                            media="(max-width: 768px)" type="image/jpeg">
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '330_494') ?>"
+                                            media="(max-width: 991px)">
 
-                                    <?php $thumbSrc = Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '330_494') ?>
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_435') ?>"
+                                            media="(max-width: 1199px)">
 
-                                    <source srcset="<?php echo str_replace('.jpg', '.webp', $thumbSrc) ?>"
-                                            media="(max-width: 991px)"  type="image/webp">
-
-                                    <source srcset="<?php echo $thumbSrc ?>"
-                                            media="(max-width: 991px)"  type="image/jpeg">
-
-                                    <?php $thumbSrc = Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_435') ?>
-
-                                    <source srcset="<?php echo str_replace('.jpg', '.webp', $thumbSrc) ?>"
-                                            media="(max-width: 1199px)" type="image/webp">
-
-                                    <source srcset="<?php echo $thumbSrc ?>"
-                                            media="(max-width: 1199px)" type="image/jpeg">
-
-                                    <?php  $thumbSrc = Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '350_524') ?>
-
-                                    <source srcset="<?php echo str_replace('.jpg', '.webp', $thumbSrc) ?>" type="image/webp">
-
-                                    <source srcset="<?php echo $thumbSrc ?>" type="image/jpeg">
+                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '350_524') ?>">
 
                                     <img loading="lazy"
                                          class="img-<?php echo $item['id']; ?> img-on-listing"
-                                         src="<?= $thumbSrc ?>"
+                                         src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
                                          alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
 
                                 </picture>

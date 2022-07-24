@@ -52,10 +52,14 @@ if ($posts) {
 
     foreach ($posts as $item) {
 
+        if ($posts[0] == $item) $first = true;
+        else $first = false;
+
         echo '<div class="col-6 col-lg-4 col-md-4 col-xl-3 article-item">';
 
         echo $this->renderFile(Yii::getAlias('@app/views/layouts/item.php'), [
-            'item' => $item
+            'item' => $item,
+            'first' => $first
         ]);
 
         echo '</div>';

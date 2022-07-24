@@ -154,20 +154,9 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
-
-@font-face{
-    font-family: 'Oxygen-Bold';
-    src: url('../fonts/oxygenbold.woff2');
-    font-display: swap;
-}
 @font-face{
     font-family: 'Oxygen';
     src: url('../fonts/oxygen.woff2');
-    font-display: swap;
-}
-@font-face{
-    font-family: 'Gilroy';
-    src: url('../fonts/Gilroy-Bold.woff2');
     font-display: swap;
 }
 @font-face{
@@ -176,7 +165,7 @@ a.desc:after {
     font-display: swap;
 }
 .name-pr{
-    font-family: Gilroy;
+    font-family: Roboto;
 }
 .menu .main-nav_list li a{
     font-family: Oxygen;
@@ -255,7 +244,7 @@ input[type="text"]::-moz-placeholder {
     right: 7px;
 }
 h1{
-    font-family: Oxygen-Bold;
+    font-family: Oxygen;
     font-size: 75px;
     color: #fff;
 }
@@ -266,7 +255,7 @@ h1{
     border: 2px solid #FB474A;
     box-sizing: border-box;
     border-radius: 10px;
-    font-family: Gilroy;
+    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
