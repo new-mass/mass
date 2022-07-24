@@ -1,5 +1,6 @@
 <?php
 /* @var $item array */
+/* @var $first bool */
 $photoCount = 0;
 $metro = false;
 
@@ -37,7 +38,7 @@ echo (new \frontend\components\helpers\MicroHelper())->image($item);
 
                                     <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '350_524') ?>">
 
-                                    <img loading="lazy"
+                                    <img <?php if (!$first ) echo 'loading="lazy"' ?>
                                          class="img-<?php echo $item['id']; ?> img-on-listing"
                                          src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
                                          alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
