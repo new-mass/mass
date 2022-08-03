@@ -62,30 +62,6 @@ echo (new \frontend\components\helpers\MicroHelper())->image($item);
 
                                 </picture>
 
-
-
-                                <picture
-                                        class="carousel-item active picture-<?php echo $item['id'] ?>">
-
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '510_764') ?>"
-                                            media="(max-width: 768px)">
-
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '330_494') ?>"
-                                            media="(max-width: 991px)">
-
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '290_435') ?>"
-                                            media="(max-width: 1199px)">
-
-                                    <source srcset="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '350_524') ?>">
-
-                                    <img <?php if (!$first ) echo 'loading="lazy"' ?>
-                                         class="img-<?php echo $item['id']; ?> img-on-listing"
-                                         src="<?= Yii::$app->imageCache->thumbSrc($item['avatar']['file'], '255_335') ?>"
-                                         alt=" <?php echo $item['name'] ?>" title=" <?php echo $item['name'] ?> ">
-
-                                </picture>
-
-
                             <?php endif; ?>
 
                             <?php if ($item['gallery']) : ?>
