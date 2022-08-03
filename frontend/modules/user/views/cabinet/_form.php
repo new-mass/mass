@@ -549,7 +549,7 @@ $this->registerJsFile('/js/cabinet_map.js', ['depends' => [\yii\web\JqueryAsset:
             <div class="text-wrap avatar-wrap">
                 <p class="small-text">
                     Описание анкеты очень важно, его читают посетители сайта, постарайтесь описать себя и условия в
-                    которых Вы ведете прием рекомендуем написать не менее 250 символов.
+                    которых Вы ведете прием рекомендуем написать от 250 символов.
                 </p>
                 <?= $form->field($model, 'about')->textarea()->label('О себе') ?>
             </div>

@@ -98,7 +98,7 @@ class Posts extends \yii\db\ActiveRecord
             [['name', 'phone', 'price'], 'required'],
             [['phone'], 'string', 'max' => 20],
             [['avatar','video'], 'safe'],
-            [['about'], 'string' , 'max' => 1200],
+            [['about'], 'string' , 'max' => 2500],
         ];
     }
 
