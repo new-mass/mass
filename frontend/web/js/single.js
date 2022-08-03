@@ -1,4 +1,7 @@
-
+$(document).ready(function () {
+    $.getScript("https://yastatic.net/share2/share.js", function (data, textStatus, jqxhr) {
+    });
+});
 
 function getnextimg(param){
 

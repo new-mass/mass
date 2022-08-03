@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 
 $commentForm = new \frontend\modules\user\models\Comments();
 $this->registerJsFile('/js/lightgallery-all.min.js', ['depends' => [\frontend\assets\AppAsset::class]]);
-$this->registerJsFile('/js/single.js?v=5', ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerJsFile('/js/single.js?v=6', ['depends' => [\frontend\assets\AppAsset::class]]);
 
 $typePref = 'Массажистка';
 
@@ -206,6 +206,10 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
                         <?php if ($post['breast']) : ?>
                             <p><span>Грудь:</span> <?php echo $post['breast'] ?></p>
                         <?php endif; ?>
+                    </div>
+
+                    <div class="share">
+                        <div class="ya-share2" data-curtain data-shape="round" data-services="vkontakte,odnoklassniki,telegram,twitter,viber,whatsapp,moimir,skype"></div>
                     </div>
 
                     <?php
