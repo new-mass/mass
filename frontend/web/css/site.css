@@ -192,6 +192,10 @@ header svg{
 .user_login_form {
     padding-top: 10px;
 }
+.marc-wrap{
+    display: flex;
+    overflow: auto;
+}
 #prosmotri-count{
     background: linear-gradient(85.2deg, #7F119E -4.63%, #E21A92 117.08%);
     color:#fff;
@@ -1164,6 +1168,7 @@ body{
     margin-bottom: 10px;
     display: inline-block;
     font-size: 13px;
+    white-space: nowrap;
 }
 .marc-item:hover{
     color: #fff;
