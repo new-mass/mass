@@ -216,6 +216,9 @@ $claimForm = new \frontend\models\forms\ClaimForm();
                     <?php if (Yii::$app->requestedParams['city'] == 'moskva' or Yii::$app->requestedParams['city'] == 'spb') : ?>
                         <a href="/intim-karta" class="marc-item">Карта</a>
                     <?php endif; ?>
+                    <?php if (Yii::$app->requestedParams['city'] == 'krasnodar') : ?>
+                        <a href="https://prostitutki-krasnodar.e-ssex.com/" class="marc-item">Проститутки Краснодар</a>
+                    <?php endif; ?>
                     <a class="marc-item" href="/new">Свежие анкеты</a>
                 </div>
             </div>
