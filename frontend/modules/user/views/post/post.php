@@ -487,8 +487,8 @@ if ($post['type'] == \frontend\modules\user\models\Posts::TYPE_SALON) $typePref 
                                         <ul class="service_ul">
                                             <li class="service_list">
                                                 <a class="massazh-dlya"
-                                                   href="#">С <?php echo $item['workTime']['from'] ?> :
-                                                    00 До <?php echo $item['workTime']['to'] ?> : 00</a>
+                                                   href="#">С <?php echo $post['workTime']['from'] ?> :
+                                                    00 До <?php echo $post['workTime']['to'] ?> : 00</a>
                                             </li>
                                         </ul>
                                     </div>
