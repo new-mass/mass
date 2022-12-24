@@ -208,6 +208,9 @@ $claimForm = new \frontend\models\forms\ClaimForm();
 
             <div class="col-12">
                 <div class="marc-wrap">
+                    <?php if (Yii::$app->requestedParams['city'] == 'krasnodar') : ?>
+                        <a target="_blank" href="https://prostitutki-krasnodar.e-ssex.com/" class="marc-item">Проститутки Краснодар</a>
+                    <?php endif; ?>
                     <a href="/massazh-dlya_muzhchin" class="marc-item">Для мужчин</a>
                     <a href="/service_eroticheskiy" class="marc-item">Эротический</a>
                     <a href="/service_massagh-lingama" class="marc-item">Массаж лингама</a>
@@ -215,9 +218,6 @@ $claimForm = new \frontend\models\forms\ClaimForm();
                     <a href="/age_ot-31-do-40-let" class="marc-item">от 31 до 40 лет</a>
                     <?php if (Yii::$app->requestedParams['city'] == 'moskva' or Yii::$app->requestedParams['city'] == 'spb') : ?>
                         <a href="/intim-karta" class="marc-item">Карта</a>
-                    <?php endif; ?>
-                    <?php if (Yii::$app->requestedParams['city'] == 'krasnodar') : ?>
-                        <a href="https://prostitutki-krasnodar.e-ssex.com/" class="marc-item">Проститутки Краснодар</a>
                     <?php endif; ?>
                     <a class="marc-item" href="/new">Свежие анкеты</a>
                 </div>
