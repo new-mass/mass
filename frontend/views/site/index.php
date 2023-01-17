@@ -27,6 +27,12 @@ if (isset($tag) and $tag) {
 
 }
 
+echo \frontend\widgets\OpenGraphWidget::widget([
+    'des' => $meta['des'],
+    'title' => $meta['title'],
+    'img' => 'https://'.Yii::$app->request->serverName.'/img/logo.png',
+]);
+
 if (isset($city)) {
 
     echo (new \frontend\components\helpers\MicroHelper())->logo($city['name']);
