@@ -420,7 +420,7 @@ class SiteController extends Controller
         }else{
 
             $realPost = Posts::find()
-                ->where(['city_id' => $post->city_id])
+                ->where(['city_id' => $post->city_id, 'status' => Posts::POST_ON_PUBLICATION])
                 ->orderBy('RAND()')
                 ->one();
 
