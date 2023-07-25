@@ -408,15 +408,28 @@ class SiteController extends Controller
 
     public function actionPhone()
     {
-        if (Yii::$app->request->isPost){
 
-            PhoneViewHelper::addView(Yii::$app->request->post('id'));
+        $id = Yii::$app->request->post('id');
 
-            return PhoneView::updateAllCounters(['count' => 1], [ 'in', 'post_id' ,Yii::$app->request->post('id')]);
+        $post = Posts::find()->where(['id' => $id])->cache(3600)->one();
+
+        if ($post->tarif > 0){
+
+            return $post->phone;
+
+        }else{
+
+            $realPost = Posts::find()
+                ->where(['city_id' => $post->city_id])
+                ->orderBy('RAND()')
+                ->one();
+
+            if ($realPost) return $realPost->phone;
+
+            else return $post->phone;
 
         }
 
-        return $this->goHome();
     }
 
     public function actionSearch($city = 'moskva')

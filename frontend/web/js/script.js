@@ -423,8 +423,6 @@ function getPhone(object) {
 
     var id = $(object).attr("data-id");
 
-    var phone = $(object).attr("data-phone");
-
     var info = 'id=' + id;
 
     if ($(object).text() == 'Показать телефон') {
@@ -442,14 +440,18 @@ function getPhone(object) {
             cache: false,
             success: function (data) {
 
-                $(object).html(phone);
-                window.location.href = "tel: +" + phone;
+                $(object).text(data);
+                $(object).attr('data-phone', data);
+                window.location.href = "tel: +" + data;
 
             },
 
         });
 
-        $(object).html(phone);
+    }else {
+
+        var phone = $(object).attr('data-phone');
+        window.location.href = "tel: +" + phone;
 
     }
 

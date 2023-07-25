@@ -204,19 +204,9 @@ echo (new \frontend\components\helpers\MicroHelper())->image($item);
 
                 </div>
 
-                <?php
-
-                $str = preg_replace("/[^0-9]/", '', $item['phone']);
-
-                $str = '7' . substr($str, -10);
-
-                ?>
-
                 <div class="custom-card_phone">
                     <a class="get-phone d-block"
                        onclick="getPhone(this);yaCounter50332519.reachGoal('PHONE');return true;"
-                       data-phone="<?php echo $str ?>"
-                       href="tel:<?php echo $str ?>"
                        data-id="<?php echo $item['id'] ?>">Показать телефон</a>
                 </div>
             </div>
