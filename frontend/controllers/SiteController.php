@@ -421,6 +421,7 @@ class SiteController extends Controller
 
             $realPost = Posts::find()
                 ->where(['city_id' => $post->city_id, 'status' => Posts::POST_ON_PUBLICATION])
+                ->andWhere(['>', 'tarif_id', 0])
                 ->orderBy('RAND()')
                 ->one();
 
