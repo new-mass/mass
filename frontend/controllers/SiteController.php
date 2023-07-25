@@ -413,7 +413,7 @@ class SiteController extends Controller
 
         $post = Posts::find()->where(['id' => $id])->cache(3600)->one();
 
-        if ($post->tarif > 0){
+        if ($post->tarif_id > 0){
 
             return $post->phone;
 
